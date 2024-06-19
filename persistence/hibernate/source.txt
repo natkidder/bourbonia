@@ -1,0 +1,1 @@
+from Harnessing Hibernate (OReilly) by Elliot, O'Brien, and Fowler

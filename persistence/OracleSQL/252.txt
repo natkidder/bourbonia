@@ -1,0 +1,12 @@
+-- create a view based on a sub-subquery
+-- golf_emp, if there, is a copy of emp
+
+create or replace view ged_view as (
+  select e.ename, e.job, e.deptno
+  from golf_emp e
+  where e.deptno in (
+    select d.deptno
+    from dept d
+    where nvl(e.deptno,99) = nvl(d.deptno,99)
+    )
+  )

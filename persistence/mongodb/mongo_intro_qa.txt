@@ -1,0 +1,46 @@
+q=A MongoDB (or just Mongo) database stores ___ - D
+a=documents
+
+q=A document can be any ___ or ___, such as an XML file or picture - O,   B
+a=object,bitmap
+
+q=In Mongo, related documents are stored in ___ - C
+a=collections
+
+q=To list databases type ___ - S D
+a=show dbs
+
+q=A database that is empty does not ___ - E
+a=exist
+
+q=The command to instantiate a collection - D.CC
+a=db.createCollection
+
+q=The collection method by which you add an object - IO
+a=insertOne
+
+q=If you insert an object into a collection that does not exist, mongodb will ___ - C O A
+a=create one automatically
+a=create one
+
+q=The collection method by which you insert more than one object - I
+a=insertMany
+
+q=To return all collection objects, use its ___ method - F
+a=find
+
+q=To return a single document, use the collection's ___ method - F
+a=findOne
+
+q=The optional second parameter for find() is called ___ and it specifies ___ or ___ - P,   W F T I,   E
+a=projection,what fields to include,exclude
+
+q=The collection base DML methods - U,   U
+a=updateOne,updateMany
+
+q=With collections, update is more like the SQL ___ command if ___ is set to true - M,   U
+a=merge,upsert
+
+q=The collections methods by which you remove objects - D,   D
+a=deleteOne,deleteMany
+

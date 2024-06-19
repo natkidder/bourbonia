@@ -1,0 +1,36 @@
+<html>
+	<head><title>Hibernate Good To Know</title></head>
+	<body>
+
+<p>have a <tt>hibernate.jdbc.batch_size=0</tt> in your <i>hibernate.properties</i> file
+
+<p>when adding a new data mapping XML file, rerun the <i>ant</i> task to regenerate the code
+
+<p>the <tt>set</tt> interface extends <tt>collection</tt>, except that it doesn't contain any duplicates.  It is often implemented as a <tt>HashSet</tt>.
+
+<p>the <tt>list</tt> interface extends <tt>collection</tt>, except that its elements are sorted.  It allows duplicates.  It is often implemented as an <tt>ArrayList</tt>.
+
+<p>a primary key composed of >1 column is called a <i>composite key</i>
+
+<p>a <tt>Configuration</tt> instance deals with login.  It holds a configuration of <tt>LoginModules</tt> interfaces, used for authentication.
+
+<p>Hibernate holds a <tt>Type</tt> class with values for each of the common database types
+
+<p>as soon as you invoke a <tt>criteria</tt>'s <tt>add</tt> method, you create a <tt>Criterion</tt>
+
+<p>any line that begins with a <tt>@</tt> is an <i>annotation</i>
+
+<p>annotations don't need a semicolon at the end
+
+<p>with annotations, you need not actually declare the column's name
+
+<p>with named queries, be sure to alias ("as ...") the table or view's name
+
+<p>your project's main Hibernate configuration file <u>must</u> be <tt>hibernate.cfg.xml</tt>, which is assumed by some of the Hibernate native classes
+
+<p>with Ant, the <tt>org.hibernate.tool.ant.HibernateToolTask</tt> won't work if the jar's given by the Hibernate dependencies are in the Java <tt>$CLASSPATH</tt>
+
+<p>place the Hibernate jar files in <tt>WEB-INF/lib</tt> and they will be used in all classes under <tt>WEB-INF/classes</tt>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('midwest',2,'electrical',3000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('southeast',2,'electrical',-4000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('midwest',3,'electrical',3000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('southeast',3,'electrical',-4000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('midwest',2,'garden',-2000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('northeast',2,'garden',9000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('southeast',2,'garden',25000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('midwest',3,'garden',-2000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('northeast',3,'garden',9000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('southeast',3,'garden',25000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('northeast',2,'paint',4000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('southeast',2,'paint',12000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('northeast',3,'paint',4000,'1-jan-2002');
+insert into profits2 (region,period,prod_type,profit,yearstart) values ('southeast',3,'paint',12000,'1-jan-2002');

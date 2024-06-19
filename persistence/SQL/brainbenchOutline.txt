@@ -1,0 +1,85 @@
+Advanced Grouping and Totaling 
+
+  Aggregates, Distinct, Group By, Having, Sorting 
+  Subqueries, Correlated Subqueries 
+  Union, Union All 
+  Using Any, All 
+  Using Exists, Not Exists with Subqueries 
+
+Advanced SQL Queries 
+
+  Delete, Delete and Referential Integrity 
+  Derived Tables 
+  Insert, Insert and Referential Integrity 
+  Joins, Self-Joins 
+  Select 
+  Subqueries, Correlated Subqueries 
+  Update, Update and Referential Integrity 
+  Using Any, All 
+  Using Distinct, Any, All 
+  Using Exists, Not Exists with Subqueries 
+  Using In, Not In with Subqueries 
+
+Relational Database and SQL Basics 
+
+  Basic Predicates: =, <>, >, <, >=, <= 
+  Basic Rules 
+  Concept Result 
+  Constants 
+  Functions 
+  Index, Key, Composite Key, Unique Key and Null 
+  Joins: Inner, Outer, Full (Cartesian Product) 
+  Predicates Between, Exists, In, Like, Is Null 
+  Relational Model, Normalization Rules 
+  Select 
+  Sets 
+  SQL, Objects: Tables, Views, Indexes, Keys, etc. 
+  Unions 
+
+SQL Data Definition (DDL) 
+
+  Alter Table by Adding a Column 
+  Concept 
+  Dropping objects 
+  Keys: Unique, Primary, Foreign 
+  Null and Is Not Null 
+  Scalar Functions, Aggregate (Column) Functions 
+  Select with Null and Not Null 
+  Table, View, Index Management 
+  Updatable Views  
+
+SQL Data Modification 
+
+  Delete 
+  Index and Referential Constraints 
+  Insert 
+  Joins 
+  Keys: Unique, Primary, Foreign 
+  Subqueries 
+  Update 
+
+SQL Queries 
+
+  Aggregates, Distinct, Group By, Having, Sorting 
+  Concept 
+  Joins 
+  Relations 
+  Select 
+  Sorting 
+  Subqueries 
+  Union, Union All 
+  Using In, Between, Exists 
+  Where Cause 
+
+Using SQL DML 
+
+  Constants 
+  Joins 
+  Scalar Functions, Aggregate Functions 
+  Select 
+  Sets 
+  Sorting 
+  Unions 
+  Using Any, All 
+  Using Distinct 
+  Using In, B/N, Exists, Like, Is- Is Not Null

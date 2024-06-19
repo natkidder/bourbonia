@@ -1,0 +1,8 @@
+declare
+  cursor c_reg is select * from regions2;
+begin
+  close c_reg;
+exception
+  when invalid_cursor then
+    dbms_output.put_line('you cannot close an unopened cursor');
+end;

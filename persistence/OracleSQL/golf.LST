@@ -1,0 +1,65 @@
+SQL> column column_name format a20
+SQL> column table_name format a20
+SQL> column constraint_name format a20
+SQL> select table_name, constraint_name, column_name from user_cons_columns
+  2  order by table_name, constraint_name, position;
+
+TABLE_NAME          |CONSTRAINT_NAME     |COLUMN_NAME                                               
+--------------------|--------------------|--------------------                                      
+DEPARTMENT          |SYS_C001011         |DEPARTMENT_NUM    
+DEPT                |PK_DEPT             |DEPTNO            
+EMP                 |FK_DEPTNO           |DEPTNO            
+EMP                 |PK_EMP              |EMPNO             
+EMPLOYEE            |PK_EMPLOYEE_01      |EMPID             
+EMPLOYEE            |SYS_C001010         |LASTNAME          
+EMPLOYEE            |SYS_C00988          |SALARY            
+EMPLOYEE            |UK_EMPLOYEE_01      |GOVT_ID           
+EMPLOYEES           |CK_EMPLOYEES_01     |SALARY            
+EMPLOYEES           |PK_EMPLOYEES_01     |EMPID             
+EMPLOYEES           |SYS_C001002         |LASTNAME          
+
+TABLE_NAME          |CONSTRAINT_NAME     |COLUMN_NAME       
+--------------------|--------------------|--------------------                                      
+EMPLOYEES           |UK_EMPLOYEES_01     |GOVT_ID           
+EXPENSE             |SYS_C00970          |EMPNO             
+GOLF_EMPLOYEE       |PK_GE               |EMPID             
+GOLF_EMPLOYEE       |PK_GE               |DEPARTMENT_NUM    
+PRICES              |CK_PRICES_01        |PRODUCT_PRICE     
+PRICES              |PK_PRICES_01        |PRODUCT_NAME      
+PRODUCTS            |PK_PRODUCTS_01      |PRODUCT#          
+PRODUCT_TYPES       |PK_PTYPES_01        |PRODUCT_TYPE      
+PROD_TYPES2         |PK_PROD_TYPES_01    |PROD_TYPE         
+PROFITS             |CK_PROFITS_01       |QUARTER           
+PROFITS             |FK_PROFITS_01       |PRODUCT_TYPE      
+
+TABLE_NAME          |CONSTRAINT_NAME     |COLUMN_NAME       
+--------------------|--------------------|--------------------                                      
+PROFITS             |FK_PROFITS_02       |PRODUCT_NAME      
+PROFITS             |FK_PROFITS_03       |PRODUCT_NAME      
+PROFITS             |FK_PROFITS_03       |QUARTER           
+PROFITS             |PK_PROFITS_01       |PRODUCT_NAME      
+PROFITS             |SYS_C001094         |PRODUCT_TYPE      
+PROFITS2            |CK01                |PERIOD            
+PROFITS2            |CK_PROFITS2_01      |PERIOD            
+PROFITS2            |PK_PROFITS2_01      |PERIOD            
+PROFITS2            |PK_PROFITS2_01      |PROD_TYPE         
+PROFITS2            |PK_PROFITS2_01      |REGION            
+PROFITS2            |PK_PROFITS2_01      |YEARSTART         
+
+TABLE_NAME          |CONSTRAINT_NAME     |COLUMN_NAME       
+--------------------|--------------------|--------------------                                      
+PROFIT_GOALS2       |SYS_C001005         |PROFIT_GOAL       
+REGIONS2            |CK_HEADCOUNT        |HEADCOUNT         
+REGIONS2            |CK_PG               |PROFIT_GOAL       
+REGIONS2            |PK_REGIONS_01       |REGION            
+REGIONS2            |UK_REGIONS_02       |HEADQUARTERS      
+REGIONS2            |UK_REGION_01        |REG_HEAD          
+UNIT_SALES          |CK_USALES_01        |UNIT_SALE         
+UNIT_SALES          |FK_USALES_01        |PRODUCT_NAME      
+UNIT_SALES          |PK_USALES_01        |PRODUCT_NAME      
+UNIT_SALES          |PK_USALES_01        |QUARTER           
+UNIT_SALES          |SYS_C001090         |PRODUCT_NAME      
+
+44 rows selected.
+
+SQL> spool out

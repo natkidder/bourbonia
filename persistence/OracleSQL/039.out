@@ -1,0 +1,23 @@
+SQL> 2 where sal > 2000
+SQL> 3 order by sal desc
+SQL> list
+  1  select ename, sal from emp
+  2  where sal > 2000
+  3* order by sal desc
+SQL> run
+  1  select ename, sal from emp
+  2  where sal > 2000
+  3* order by sal desc
+
+ENAME             SAL                                                           
+---------- ----------                                                           
+KING             5000                                                           
+SCOTT            3000                                                           
+FORD             3000                                                           
+JONES            2975                                                           
+BLAKE            2850                                                           
+CLARK            2450                                                           
+
+6 rows selected.
+
+SQL> spool off

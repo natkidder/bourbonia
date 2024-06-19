@@ -1,0 +1,11 @@
+SQL> describe regions2;
+ Name                                                  Null?    Type
+ ----------------------------------------------------- -------- ------------------------------------
+ REGION                                                NOT NULL VARCHAR2(15)
+ REG_HEAD                                                       VARCHAR2(20)
+ HEADQUARTERS                                                   VARCHAR2(20)
+ COMMENTS                                                       VARCHAR2(30)
+ HEADCOUNT                                                      NUMBER(5)
+ PROFIT_GOAL                                                    NUMBER(9,2)
+
+SQL> spool off;

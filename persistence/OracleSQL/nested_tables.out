@@ -1,0 +1,198 @@
+SQL> 
+SQL> declare
+  2    type num_array is table of number(3);
+  3    t_array num_array;
+  4    v_count number(3); v_stat2 number(3);
+  5    i number(3); -- counter through the nested table elements
+  6  begin
+  7    --
+  8    -- set the nested table
+  9    --
+ 10    t_array := num_array(10,20,30,40,50,60,70,80,90,100,110,120,130,140,150);
+ 11    --
+ 12    -- count the nested table
+ 13    --
+ 14    dbms_output.put_line('counting the nested table');
+ 15    v_count := t_array.count;
+ 16    dbms_output.put_line('initial table count is ' || to_char(v_count));
+ 17    if t_array.exists(v_count) then
+ 18  	 dbms_output.put_line('there are at least ' || to_char(v_count) ||
+ 19  	      ' elements in the nested table');
+ 20    else
+ 21  	 dbms_output.put_line('there are fewer than ' || to_char(v_count) ||
+ 22  	      ' elements in the nested table');
+ 23    end if;
+ 24    --
+ 25    -- go through the nested table from beginning to end
+ 26    --
+ 27    dbms_output.put_line(' ');
+ 28    dbms_output.put_line('counting forward through the nested table');
+ 29    i := t_array.first;
+ 30    while i is not NULL loop
+ 31  	 dbms_output.put_line('i is ' || to_char(i) ||
+ 32  	      ', t_array(i) is ' || to_char(t_array(i)));
+ 33  	 i := t_array.next(i);
+ 34    end loop;
+ 35    --
+ 36    -- go through the nested table from end to beginning
+ 37    --
+ 38    dbms_output.put_line(' ');
+ 39    dbms_output.put_line('counting backward through the nested table');
+ 40    i := t_array.last;
+ 41    loop
+ 42  	 dbms_output.put_line('i is ' || to_char(i) ||
+ 43  	      ', t_array(i) is ' || to_char(t_array(i)));
+ 44  	 i := t_array.prior(i);
+ 45  	 exit when i = t_array.first;
+ 46    end loop;
+ 47    ---
+ 48    --- trim the nested table
+ 49    ---
+ 50    dbms_output.put_line(' ');
+ 51    dbms_output.put_line('counting forward after the nested table has had ' ||
+ 52  	    '3 elements trimmed');
+ 53    t_array.trim(3);
+ 54    for i in t_array.first..t_array.last loop
+ 55  	 dbms_output.put_line('i is ' || to_char(i) ||
+ 56  	      ', t_array(i) is ' || to_char(t_array(i)));
+ 57    end loop;
+ 58    --
+ 59    -- extend the nested table
+ 60    --
+ 61    dbms_output.put_line(' ');
+ 62    dbms_output.put_line('counting forward after the nested table has had ' ||
+ 63  	    '2 elements extended');
+ 64    t_array.extend(2);
+ 65    i := t_array.first;
+ 66    loop
+ 67  	 dbms_output.put_line('i is ' || to_char(i) ||
+ 68  	      ', t_array(i) is ' || to_char(t_array(i)));
+ 69  	 i:= t_array.next(i);
+ 70  	 if i = t_array.last then exit;
+ 71  	 end if;
+ 72    end loop;
+ 73    --
+ 74    -- delete 1 element from the nested table
+ 75    --
+ 76    dbms_output.put_line(' ');
+ 77    dbms_output.put_line('counting forward after the nested table has had ' ||
+ 78  	    'the 7th element deleted');
+ 79    t_array.delete(7);
+ 80    i := t_array.first;
+ 81    -- this looping structure ensures it covers every element of the array
+ 82    loop
+ 83  	 dbms_output.put_line('i is ' || to_char(i) ||
+ 84  	      ', t_array(i) is ' || to_char(t_array(i)));
+ 85  	 i := t_array.next(i);
+ 86  	 exit when i = t_array.last;
+ 87    end loop;
+ 88    --
+ 89    -- delete 3 elements from the nested table
+ 90    --
+ 91    dbms_output.put_line(' ');
+ 92    dbms_output.put_line('counting forward after the nested table has had ' ||
+ 93  	    'the 3rd-5th element deleted');
+ 94    t_array.delete(3,5);
+ 95    i := t_array.first;
+ 96    loop
+ 97  	 dbms_output.put_line('i is ' || to_char(i) ||
+ 98  	      ', t_array(i) is ' || to_char(t_array(i)));
+ 99  	 i := t_array.next(i);
+100  	 exit when i = t_array.last;
+101    end loop;
+102    --
+103    -- final comments
+104    --
+105    dbms_output.put_line('check nested_tables.out for the complete list');
+106  end;
+107  ---spool out;
+108  /
+counting the nested table                                                                           
+initial table count is 15                                                                           
+there are at least 15 elements in the nested table                                                  
+counting forward through the nested table                                                           
+i is 1, t_array(i) is 10                                                                            
+i is 2, t_array(i) is 20                                                                            
+i is 3, t_array(i) is 30                                                                            
+i is 4, t_array(i) is 40                                                                            
+i is 5, t_array(i) is 50                                                                            
+i is 6, t_array(i) is 60                                                                            
+i is 7, t_array(i) is 70                                                                            
+i is 8, t_array(i) is 80                                                                            
+i is 9, t_array(i) is 90                                                                            
+i is 10, t_array(i) is 100                                                                          
+i is 11, t_array(i) is 110                                                                          
+i is 12, t_array(i) is 120                                                                          
+i is 13, t_array(i) is 130                                                                          
+i is 14, t_array(i) is 140                                                                          
+i is 15, t_array(i) is 150                                                                          
+counting backward through the nested table                                                          
+i is 15, t_array(i) is 150                                                                          
+i is 14, t_array(i) is 140                                                                          
+i is 13, t_array(i) is 130                                                                          
+i is 12, t_array(i) is 120                                                                          
+i is 11, t_array(i) is 110                                                                          
+i is 10, t_array(i) is 100                                                                          
+i is 9, t_array(i) is 90                                                                            
+i is 8, t_array(i) is 80                                                                            
+i is 7, t_array(i) is 70                                                                            
+i is 6, t_array(i) is 60                                                                            
+i is 5, t_array(i) is 50                                                                            
+i is 4, t_array(i) is 40                                                                            
+i is 3, t_array(i) is 30                                                                            
+i is 2, t_array(i) is 20                                                                            
+counting forward after the nested table has had 3 elements trimmed                                  
+i is 1, t_array(i) is 10                                                                            
+i is 2, t_array(i) is 20                                                                            
+i is 3, t_array(i) is 30                                                                            
+i is 4, t_array(i) is 40                                                                            
+i is 5, t_array(i) is 50                                                                            
+i is 6, t_array(i) is 60                                                                            
+i is 7, t_array(i) is 70                                                                            
+i is 8, t_array(i) is 80                                                                            
+i is 9, t_array(i) is 90                                                                            
+i is 10, t_array(i) is 100                                                                          
+i is 11, t_array(i) is 110                                                                          
+i is 12, t_array(i) is 120                                                                          
+counting forward after the nested table has had 2 elements extended                                 
+i is 1, t_array(i) is 10                                                                            
+i is 2, t_array(i) is 20                                                                            
+i is 3, t_array(i) is 30                                                                            
+i is 4, t_array(i) is 40                                                                            
+i is 5, t_array(i) is 50                                                                            
+i is 6, t_array(i) is 60                                                                            
+i is 7, t_array(i) is 70                                                                            
+i is 8, t_array(i) is 80                                                                            
+i is 9, t_array(i) is 90                                                                            
+i is 10, t_array(i) is 100                                                                          
+i is 11, t_array(i) is 110                                                                          
+i is 12, t_array(i) is 120                                                                          
+i is 13, t_array(i) is                                                                              
+counting forward after the nested table has had the 7th element deleted                             
+i is 1, t_array(i) is 10                                                                            
+i is 2, t_array(i) is 20                                                                            
+i is 3, t_array(i) is 30                                                                            
+i is 4, t_array(i) is 40                                                                            
+i is 5, t_array(i) is 50                                                                            
+i is 6, t_array(i) is 60                                                                            
+i is 8, t_array(i) is 80                                                                            
+i is 9, t_array(i) is 90                                                                            
+i is 10, t_array(i) is 100                                                                          
+i is 11, t_array(i) is 110                                                                          
+i is 12, t_array(i) is 120                                                                          
+i is 13, t_array(i) is                                                                              
+counting forward after the nested table has had the 3rd-5th element deleted                         
+i is 1, t_array(i) is 10                                                                            
+i is 2, t_array(i) is 20                                                                            
+i is 6, t_array(i) is 60                                                                            
+i is 8, t_array(i) is 80                                                                            
+i is 9, t_array(i) is 90                                                                            
+i is 10, t_array(i) is 100                                                                          
+i is 11, t_array(i) is 110                                                                          
+i is 12, t_array(i) is 120                                                                          
+i is 13, t_array(i) is                                                                              
+check nested_tables.out for the complete list                                                       
+
+PL/SQL procedure successfully completed.
+
+SQL> spool out;

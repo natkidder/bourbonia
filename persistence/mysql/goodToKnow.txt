@@ -1,0 +1,3 @@
+-- TCP/IP port number is 3306
+-- Windows service name is MySQL56
+

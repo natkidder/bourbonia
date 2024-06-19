@@ -1,0 +1,46 @@
+UROWID is a pseudocolumn for index-organized tables
+testing for NULL means using IS NULL and IS NOT NULL (=NULL won't work)
+DISTINCT applies to an entire result list, even without parens
+when you subtract 2 dates, the result is the number of days between them
+<date> + <number> is the number of days after that date eg. Start_dt + 15
+As literals, dates must be enclosed in quotes, & must match nls_date_format
+V$NLS_Parameters contains the nls_date_format et al.
+between x and y is inclusive to both x and y
+in conditions, AND is evaluated before OR
+_ (underscore) is the single-char wildcard character
+\_ & \% means literal '_' and '%' for LIKE
+with instr, the 1st argument is the big string
+mod(x,0) always returns x
+of all the group functions, only count(x) considers NULL's
+avg will not accept date, but round will
+RTRIM and LTRIM no longer exist.  They are replaced by TRIM
+all date literals must be enclosed in single quotes
+in DDsp, sp tells Oracle to spell out the numeric value eg 12 --> twelve
+DDth means 19 --> 19th
+a share lock means others can't issue DDL statements against the tables
+You cannot select a rownum > constant eg. Rownum > 5 not allowed
+rownum is generated before order by => it is best used with a top-N query
+L is the floating currency symbol eg L99,999.99.  Defaults to $
+The symbol L represents is symbolized by is set in NLS_currency
+to_char(price,'$9,999.99) is ok
+to_char(price,'MI9,999.99) is ok.  The MI means - if the no. is negative
+to_char(price,'009,999.99) means give leading zeros if no < 10,000
+pairwise comparison: where (period, region) = (select period, region from...)
+UNION returns the result set from all queries but eliminates duplicate values from between tables and from within a single table
+UNION ALL returns the results from all queries, including duplicate values
+INTERSECT returns only those in the result set of both queries
+MINUS returns all data from the first query, except for values in the second query
+when Oracle executes queries with subqueries, it executes the innermost ones first
+an exclusive lock means others can't issue DML stmts against the tables, and won't see the results until a commit
+when a user issues a DML, no other user can see the results until the transaction is committed
+you autocommit a transaction when you issue a DDL or DCL statement, and when you close SQL*Plus
+Oracle automatically rolls back all transactions when a failure occurs
+You enclose subqueries or views in parentheses only when something must follow them
+ERRORS: errors made by user in PL/SQL blocks
+IND_EXPRESSIONS - expression used for function-based indexes
+SEGMENTS - segments.  It helps describe tables.
+TAB_PRIVS_MADE - permissions granted on table to others in the user's schema
+TAB_PRIVS_RECD - opposite of TAB_PRIVS_MADE
+if a column has a default value, and you insert a row where the column value is set to NULL, it stays NULL
+procedures, function, packages & triggers form subprograms
+The PRODUCT_USER_PROFILE table allows you to limit the command you may run from SQL*Plus, by listing commands to set disabled

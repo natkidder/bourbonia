@@ -1,0 +1,8 @@
+create table emp (
+dept varchar(10),
+salary int);
+
+sELECT dept, AVG(sum(salary))
+FROM emp
+WHERE dept in (10,20)
+GROUP BY dept 

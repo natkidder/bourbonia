@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<project name="Contacts" default="compile" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+	<property name="src.root" value="WEB-INF/classes"/>
+	<property name="class.root" value="${src.root}"/>
+	<property name="build.dir" value="build"/>
+	<property name="archive.dir" value="${build.dir}/jar"/>
+	<property name="lib.dir" value="WEB-INF/lib"/>
+
+	<artifact:dependencies pathid="dependency.class.path">
+		<dependency groupid="mysql" artifactId="mysql-connector-java" version="5.0.5"/>
+		<dependency groupid="org.hibernate" artifactId="hibernate" version="3.2.5.ga">
+			<exclusion groupId="javax.transaction" artifactId="jta"/>
+		</dependency>
+		<dependency groupId="org.hibernate" artifactId="hibernate-tools" version="3.2.0.beta9a"/>
+		<dependency groupId="org.hibernate" artifactId="hibernate-annotations" version="3.3.0.ga"/>
+		<dependency groupId="org.hibernate" artifactId="hibernate-commons-annotations" version="3.3.0.ga"/>
+		<dependency groupId="org.apache.geronimo.specs" artifactId="geronimo-jta_1.1_spec" version="1.1"/>
+		<dependency groupId="log4j" artifactId="log4j" version="1.2.14"/>
+	</artifact:dependencies>
+
+	<path id="project.class.path">
+		<pathelement location="${class.root}"/>
+		<path refid="dependency.class.path"/>
+	</path>
+
+	<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask" classpathref="project.class.path"/>
+
+	<!-- list all of the relevant archive files-->
+	<target name="print-classpath" description="show the relevant jars">
+		<property name="hibernate.class.path" refid="dependency.class.path"/>
+		<echo>${hibernate.class.path}</echo>
+	</target>
+
+	<target name="cleanup">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="compile">
+		<javac srcdir="${src.root}" destdir="${class.root}" debug="on" optimize="off" deprecation="on">
+			<classpath refid="project.class.path"/>
+		</javac>
+	</target>
+
+	<target name="schema" depends="compile">
+		<hibernatetool destdir="${src.root}">
+			<classpath refid="project.class.path"/>
+			<annotationconfiguration configurationfile="${src.root}/hibernate.cfg.xml"/>
+			<hbm2ddl drop="yes"/>
+		</hibernatetool>
+	</target>
+
+	<target name="popul-lib">
+		<mkdir dir="${lib.dir}"/>
+		<copy todir="${lib.dir}">
+			<fileset dir="../jarFiles">
+				<exclude name="*.sh"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="archive">
+		<delete dir="${archive.dir}"/>
+		<mkdir dir="${archive.dir}"/>
+		<jar basedir="." destfile="${archive.dir}/${ant.project.name}.war"/>
+	</target>
+
+	<target name="insert">
+		<java classname="web.InsertContact" fork="true" failonerror="true">
+			<classpath refid="project.class.path"/>
+		</java>
+	</target>
+
+	<target name="update">
+		<java classname="web.UpdateContact" fork="true" failonerror="true">
+			<classpath refid="project.class.path"/>
+		</java>
+	</target>
+
+	<target name="delete">
+		<java classname="web.DeleteContact" fork="true" failonerror="true">
+			<classpath refid="project.class.path"/>
+		</java>
+	</target>
+
+</project>

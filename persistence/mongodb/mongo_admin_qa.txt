@@ -1,0 +1,55 @@
+q=A search may be aided by adding a(n) ___ - I
+a=index
+
+q=The index ___ must be specified when running such a query - N
+a=name
+
+q=To ensure that collection documents follow a configuration rule, use the ___ construct - V
+a=validator
+
+q=To ensure documents follow a popular hierarchy standard, the validator uses the ___ operator - J
+a=$jsonSchema
+
+q=To enforce what sort of data each element can contain, specify the ___ property value - B
+a=bsonType
+
+q=The ___ enables you to work with Mongo documents via HTTP ___ - M D A,   E
+a=MongoDB Data API,endpoints
+
+q=To set it up, specify a(n) ___ for security - A K
+a=API key
+
+q=The key value in the endpoint is the Data API ____ - A I
+a=app id
+a=application ID
+
+q=To locate a single document, include ___ in the endpoint - F
+a=findOne
+
+q=To locate multiple documents, include ___ in the endpoint - F
+a=find
+
+q=To add a document to a collection, include this in the endpoint - I
+a=insertOne
+
+q=To add multiple documents to a collection, include this in the endpoint - I
+a=insertMany
+
+q=Include these two in the endpoint to alter one or more documents - U,   U
+a=updateOne,updateMany
+a=updateMany,updateOne
+
+q=Include these two in the endpoint to remove one or more documents - D,   D
+a=deleteOne,deleteMany
+a=deleteMany,deleteOne
+
+q=To summarize or run graphs & states on a collection, add this to the endpoint - A
+a=aggregate
+
+q=The most useful mongodb driver works with ___.___ - N,   J
+a=node,js
+a=node.js
+
+q=All of the collection methods in ___ can be used with node.js - M
+a=mongodb
+

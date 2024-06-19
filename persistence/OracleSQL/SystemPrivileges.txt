@@ -1,0 +1,34 @@
+<all>
+  create
+  alter 
+  drop
+  <action exc. create> any
+
+index
+view
+  (no alter)
+table
+  backup
+  lock
+  comment
+  select
+  insert
+  update
+  delete
+synonym
+  create public
+  (no alter)
+sequence
+
+trigger
+PL/SQL (procedure)
+  execute
+transaction
+  force
+
+database access (session)
+  restricted
+user
+  become
+role
+  grant

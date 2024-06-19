@@ -1,0 +1,57 @@
+q=MongoDB comparison operators are similar to those of ___ except they begin with a ___ - P,   D S
+a=perl,dollar sign
+a=bash,dollar sign
+a=perl,$
+a=bash,$
+
+q=Checking whether a field value equals a string is done via the ___ operator - C
+a=colon
+a=:
+
+q=The two exceptions are - G,   L
+a=$gte,$lte
+a=$lte,$gte
+
+q=The four conjunctions in alphabetical order - A,   N,   N,   O
+a=$and,$nor,$not,$or
+
+q=$nor returns true if ___ - B C A F
+a=both conditions are false
+a=both tests are false
+
+q=This evaluation condition allows for using Perl-style fuzzy searches - R
+a=$regex
+
+q=This evaluation condition enables searching for documents as strings - T
+a=$text
+
+q=This evaluation condition enables using Javascript to locate documents - W
+a=$where
+
+q=Sets a field value to today - C
+a=$currentDate
+
+q=Makes greater a quantity field value - I
+a=$inc
+
+q=Gives a field a new label - R
+a=$rename
+
+q=Gives a field a new value - S
+a=$set
+
+q=Removes a field from the document - U
+a=$unset
+
+q=Appends a distinct element to an array - A
+a=$addToSet
+
+q=Removes the first or last element of an array - P
+a=$pop
+
+q=Removes elements from an array that match a condition - P
+a=$pull
+
+q=Appends an element to an array - P
+a=$push
+

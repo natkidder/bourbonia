@@ -1,0 +1,15 @@
+SQL> run
+  1  select distinct substr(mgr,1,2) as mgrGrp from emp
+  2  where not mgr is null order by mgrGrp
+  3  desc
+  4* 
+
+MG                                                                              
+--                                                                              
+79                                                                              
+78                                                                              
+77                                                                              
+76                                                                              
+75                                                                              
+
+SQL> spool off

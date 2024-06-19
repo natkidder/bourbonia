@@ -1,0 +1,1 @@
+LOAD DATA INFILE "<text file>" REPLACE INTO TABLE <table> FIELDS TERMINATED BY '<dlimiter>' ENCLOSED BY '<quote>' LINES TERMINATED BY "<rtn/linefeed>";

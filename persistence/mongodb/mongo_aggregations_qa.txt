@@ -1,0 +1,35 @@
+q=To do the SQL equivalent of group by, use the ___ collection function and the ___ parameter - A,   G
+a=aggregate,$group
+
+q=The parameter identifying the $group field is this - I
+a=_id
+
+q=To cap the output from aggregate, pass the ___ parameter - L
+a=limit
+
+q=You specify the fields to output via the ___ parameter - P
+a=$project
+
+q=You use these values to specify whether a field belongs in the output (in ascending order) - Z,  O
+a=0,1
+a=1,0
+
+q=To order your output, use ___, which takes on the values of ___ or ___ - S,   N,   O
+a=$sort,-1,1
+a=$sort,1,-1
+
+q=To filter an aggregate, use the ___ keyword - M
+a=$match
+
+q=To supplement the output with function results, use the ___ parameter - A
+a=$addFields
+
+q=To get how many records fit a ___ filter, use the ___ function - M,   C
+a=$match,$count
+
+q=___ does a left outer join to another ___ - L,   C
+a=$lookup,collection
+
+q=___ specifies a ___ to write aggregate output to - O,   C
+a=$out,collection
+

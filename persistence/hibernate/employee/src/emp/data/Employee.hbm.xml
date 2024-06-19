@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+      "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class name="beans.Employee" table="Emp">
+      <id name="empId" column="EMPNO" type="long">
+	       <generator class="native"/>
+      </id>
+      <property name="empName" column="ENAME" />
+      <property name="empJob" column="JOB" />
+	  <property name="empSal" column="SAL" type="long"/>
+   </class>
+</hibernate-mapping>
