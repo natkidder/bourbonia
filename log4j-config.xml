@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="ConsoleOutput" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %p %C{1} %M (%L) - %m%n"/>
+        </layout>   
+    </appender>
+
+    <appender name="fileAppend" class="org.apache.log4j.FileAppender">
+      <param name="File" value="Indentify-Log.txt"/>
+      <param name="Append" value="true"/>
+      <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" value="%d %p %C{1} %M (%L) - %m%n"/>
+      </layout>
+    </appender>
+   
+    <category name="gov.nasa.needs">
+        <priority value="INFO" />
+        <appender-ref ref="fileAppend"/>
+    </category>
+   
+    <root>
+        <priority value="INFO"/>
+        <appender-ref ref="fileAppend"/>
+    </root>
+
+</log4j:configuration>
+
