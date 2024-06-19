@@ -1,0 +1,68 @@
+<project name="MiniHR19" default="dist" basedir=".">
+
+  <!-- Enable access to environment variables -->
+  <property environment="env"/>
+  
+  <!-- Set to use JDK 1.4 -->
+  <property name="build.compiler" value="javac1.4"/>
+
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="webinf.dir" location="web/WEB-INF"/>
+  <property name="build.dir" location="build"/>
+  <property name="dist.dir"  location="dist"/>
+  <property name="server.dir" location="${env.CATALINA_HOME}"/>
+  <property name="servlet.jar" location="${server.dir}/common/lib/servlet.jar"/>
+
+  <!-- Deployment Properties -->
+  <property name="deploy.dir" location="${server.dir}/webapps"/>
+
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+
+  <target name="init">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source ">
+    <javac srcdir="${src}" destdir="${build.dir}" debug="on">
+	  <classpath>
+	  	<pathelement path="${classpath}"/>
+	  	<pathelement location="${servlet.jar}"/>
+   	    <fileset dir="${webinf.dir}/lib">
+   	      <include name="**/*.jar"/>
+   	    </fileset>
+      </classpath>
+    </javac>
+
+    <copy todir="${build.dir}">
+      <fileset dir="${src}">
+        <include name="**/*.properties"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="dist" depends="compile"
+        description="generate the distribution" >
+	<war destfile="${dist.dir}/${ant.project.name}.war" webxml="${webinf.dir}/web.xml">
+  	  <webinf dir="${webinf.dir}">
+  	    <include name="struts-config.xml"/>
+  	    <include name="validation.xml"/>
+  	    <include name="validator-rules.xml"/>
+  	  </webinf>
+      <classes dir="${build.dir}"/>
+	  <fileset dir="web" excludes="WEB-INF/**.*"/>
+    </war>
+  </target>
+
+  <!-- Deploy the application by copying it to the deployment directory -->
+  <target name="deploy" depends="dist"
+  		description="deploy to server" >
+  	<unjar src="${dist.dir}/${ant.project.name}.war" dest="${deploy.dir}/${ant.project.name}"/>
+  </target>
+  
+</project>

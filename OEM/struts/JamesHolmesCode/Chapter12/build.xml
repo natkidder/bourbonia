@@ -1,0 +1,184 @@
+<project name="MiniHR20" default="dist" basedir=".">
+
+  <!-- Enable access to environment variables -->
+  <property environment="env"/>
+  
+  <!-- Set to use JDK 1.4 -->
+  <property name="build.compiler" value="javac1.4"/>
+
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="webinf.dir" location="web/WEB-INF"/>
+  <property name="build.dir" location="build"/>
+  <property name="dist.dir"  location="dist"/>
+  <property name="tomcat.dir" location="${env.CATALINA_HOME}"/>
+  <property name="servlet.jar" location="${tomcat.dir}/common/lib/servlet.jar"/>
+  <property name="test.dir" location="test"/>
+
+  <!-- Deployment Properties -->
+  <property name="deploy.dir" location="${tomcat.dir}/webapps"/>
+
+  <!-- Define a classpath of the required libraries -->
+  <path id="lib.classpath">
+    <fileset dir="web/WEB-INF/lib">
+      <include name="*.jar"/>
+    </fileset>
+  </path>  
+
+  <!-- Define the Cactus classpath and tasks -->
+  <path id="cactus.classpath">
+    <fileset dir="cactus/lib">
+      <include name="*.jar"/>
+    </fileset>
+  </path>  
+  
+  <taskdef resource="cactus.tasks"
+    classpathref="cactus.classpath"/>
+
+  <!-- Targets -->
+  
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+
+  <target name="init">
+    <mkdir dir="${build.dir}/java"/>
+    <mkdir dir="${build.dir}/test"/>
+    <mkdir dir="${build.dir}/cactus"/>
+    <mkdir dir="${dist.dir}"/>
+  </target>
+
+  <target name="compile" depends="compile.java, compile.test, compile.cactus" 
+        description="compile all source "/>
+
+  <target name="compile.java" depends="init"
+        description="compile the source ">
+    <javac srcdir="${src}/java" destdir="${build.dir}/java" debug="on">
+	  <classpath>
+		<path refid="lib.classpath"/>
+	  	<pathelement location="${servlet.jar}"/>
+	  	<path refid="cactus.classpath"/>
+      </classpath>
+    </javac>
+
+    <copy todir="${build.dir}">
+      <fileset dir="${src}">
+        <include name="**/*.properties"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="compile.test" depends="compile.java"
+        description="Compile the JUnit tests">
+    <javac srcdir="${src}/test" destdir="${build.dir}/test" debug="on">
+	  <classpath>
+		<pathelement location="${build.dir}/java"/>
+		<path refid="lib.classpath"/>
+	  	<pathelement location="${servlet.jar}"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="compile.cactus" depends="compile.java"
+        description="Compile the Cactus tests">
+    <javac srcdir="${src}/cactus" destdir="${build.dir}/cactus" debug="on">
+	  <classpath>
+		<pathelement location="${build.dir}/java"/>
+		<path refid="lib.classpath"/>
+	  	<pathelement location="${servlet.jar}"/>
+	  	<path refid="cactus.classpath"/>
+      </classpath>
+    </javac>
+  </target>
+
+  <target name="dist" depends="compile.java"
+        description="generate the distribution" >
+	<war destfile="${dist.dir}/${ant.project.name}.war" webxml="${webinf.dir}/web.xml">
+  	  <webinf dir="${webinf.dir}">
+  	    <include name="struts-config.xml"/>
+  	    <include name="validation.xml"/>
+  	    <include name="validator-rules.xml"/>
+  	  </webinf>
+      <classes dir="${build.dir}/java"/>
+	  <fileset dir="web" excludes="WEB-INF/**.*"/>
+    </war>
+  </target>
+
+  <!-- Deploy the application by unjaring it to the deployment directory -->
+  <target name="deploy" depends="dist"
+  		description="deploy to server" >
+  	<unjar src="${dist.dir}/${ant.project.name}.war" dest="${deploy.dir}/${ant.project.name}"/>
+  </target>
+
+  <target name="test" depends="test.junit, test.cactus"/>
+  
+  <target name="test.junit" depends="compile">
+    <mkdir dir="${test.dir}/results"/>
+    <junit printsummary="yes" fork="no" haltonfailure="no" 
+           errorProperty="test.failed" failureProperty="test.failed">
+      <formatter type="xml" />
+	  <classpath>
+	  	<pathelement path="${build.dir}/java"/>
+	  	<pathelement path="${build.dir}/test"/>
+	  	<!-- The following entries are required for StrutsTestCase -->
+	  	<path refid="lib.classpath"/>
+	  	<pathelement location="${servlet.jar}"/>
+	  	<pathelement path="web"/>
+      </classpath>
+      <batchtest todir="${test.dir}/results">
+        <fileset dir="${build.dir}/test">
+          <include name="**/*Test.class" />
+        </fileset>
+      </batchtest>
+    </junit>
+    <junitreport todir="${test.dir}/reports">
+      <fileset dir="${test.dir}/results">
+        <include name="TEST-*.xml"/>
+      </fileset>
+      <report format="frames" todir="${test.dir}/reports"/>
+    </junitreport>
+    <fail message="JUnit tests failed. Check reports." if="test.failed"/>
+  </target>
+
+  <target name="test.cactus" depends="compile.cactus, dist">
+    <mkdir dir="${test.dir}/temp"/>
+    <delete dir="${test.dir}/temp/webapps/test"/>
+    <cactifywar srcfile="${dist.dir}/${ant.project.name}.war"
+        destfile="${test.dir}/test.war">
+      <classes dir="${build.dir}/cactus"/>
+      <lib dir="cactus/lib">
+        <include name="httpunit*.jar"/>
+      </lib>
+    </cactifywar>
+    <!-- Run the tests -->
+    <cactus warfile="${test.dir}/test.war" fork="no"
+        failureproperty="test.failed">
+      <classpath>
+        <pathelement location="${build.dir}/cactus"/>
+        <path refid="lib.classpath"/>
+        <path refid="cactus.classpath"/>
+      </classpath>
+      <containerset timeout="180000">
+        <tomcat4x if="tomcat.dir"
+          dir="${tomcat.dir}" port="8080"
+          output="${test.dir}/reports/tomcat4x.out"
+          tmpdir="${test.dir}/temp"/>
+      </containerset>
+      <formatter type="xml"/>
+      <batchtest todir="${test.dir}/results">
+        <fileset dir="${build.dir}/cactus">
+          <include name="**/*Test.class" />
+        </fileset>
+      </batchtest>
+    </cactus>
+    <junitreport todir="${test.dir}/reports">
+      <fileset dir="${test.dir}/results">
+        <include name="TEST-*.xml"/>
+      </fileset>
+      <report format="frames" todir="${test.dir}/reports"/>
+    </junitreport>
+    <fail message="Tests failed. Check reports." if="test.failed"/>
+  </target>
+
+</project>

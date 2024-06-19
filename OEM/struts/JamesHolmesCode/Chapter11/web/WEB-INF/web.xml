@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE web-app PUBLIC
+  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+  "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	
+	<!-- Uncomment to deploy the authorization filter -->
+	<!--
+	<filter>
+		<filter-name>adminAccessFilter</filter-name>
+		<filter-class>com.jamesholmes.minihr.security.AuthorizationFilter</filter-class>
+		<init-param>
+			<param-name>roles</param-name>
+			<param-value>administrator</param-value>
+		</init-param>
+		<init-param>
+			<param-name>onError</param-name>
+			<param-value>/index.jsp</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>adminAccessFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+  -->
+  
+  <!-- Action Servlet Configuration -->
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <!-- Action Servlet Mapping -->
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+  <!-- The Welcome File List -->
+  <welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- Tag Library Descriptors -->
+  <taglib>
+    <taglib-uri>/WEB-INF/tlds/sslext.tld</taglib-uri>
+    <taglib-location>/WEB-INF/tlds/sslext.tld</taglib-location>
+  </taglib>
+
+ <!-- Uncomment this section for Container-managed security -->
+  <!--
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>AdminPages</web-resource-name>
+      <description>Administrator-only pages</description>
+      <url-pattern>/admin/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>administrator</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+    	<transport-guarantee>
+    		NONE
+    	</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>MiniHRRealm</realm-name>
+    <form-login-config>
+      <form-login-page>/login_form.html</form-login-page>
+      <form-error-page>/login_error.html</form-error-page>
+    </form-login-config>
+  </login-config>
+
+  <security-role>
+    <description>HR Administrator</description>
+    <role-name>administrator</role-name>
+  </security-role>
+  -->
+
+</web-app>

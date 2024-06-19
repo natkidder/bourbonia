@@ -1,0 +1,3 @@
+@ECHO OFF
+
+javac -classpath .\lib\antlr-2.7.2.jar;.\lib\bsf-2.3.0.jar;.\lib\commons-beanutils-1.7.0.jar;.\lib\commons-chain-1.0.jar;.\lib\commons-digester-1.6.jar;.\lib\commons-fileupload-1.1.jar;.\lib\commons-io-1.1.jar;.\lib\commons-logging-1.04.jar;.\lib\commons-validator-1.3.0.jar;.\lib\oro-2.0.8.jar;.\lib\struts-core-1.3.4.jar;.\lib\struts-el-1.3.4.jar;.\lib\struts-extras-1.3.4.jar;.\lib\struts-faces-1.3.4.jar;.\lib\struts-scripting-1.3.4.jar;.\lib\struts-taglib-1.3.4.jar;.\lib\struts-tiles-1.3.4.jar;C:\java\apache-tomcat-5.5.17\common\lib\servlet-api.jar src\com\jamesholmes\minihr\*.java -d classes

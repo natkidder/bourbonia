@@ -1,0 +1,10 @@
+<config host=""
+				port="8080"
+				basepath="/MiniHR20"
+				summary="true"
+				verbose="true"
+				resultfile="result.xml"
+				resultpath="."
+				saveresponse="true"
+				haltonfailure="true"
+				protocol="http" />

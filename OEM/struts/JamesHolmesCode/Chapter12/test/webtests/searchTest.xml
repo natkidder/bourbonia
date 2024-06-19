@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE project SYSTEM "WebTest.dtd"[
+   <!ENTITY definition SYSTEM "includes/definition.xml">
+   <!ENTITY config     SYSTEM "includes/config.xml">
+   <!ENTITY getSearchPage     SYSTEM "includes/getSearchPage.xml">
+]>
+	<project name="MiniHR20-SearchTest" basedir="." default="all">
+  <property name="webtest.home" value="../../canoo"/>
+  <property name="report.dir" value="reports"/>
+
+	&definition;
+
+  <target name="all" depends="nameSearchWithResults, nameSearchNoResults"/>
+
+  <target name="nameSearchWithResults">
+    <testSpec name="Perform a Search by Name">
+    	&config;
+      <steps>
+      	&getSearchPage;
+        <setinputfield stepid="Enter 'Jim' into Name field"
+        	               name="name" value="Jim"/>
+        <clickbutton stepid="Submit the 'search by' form"
+        	            label="Submit"/>
+        <verifyxpath stepid="Verify xpath 'Jim Smith'"
+        	           xpath="/html/body/table/tr/td[1]"
+        	            text="[Jj][Ii][Mm]"
+        	            regex="true"/>
+      </steps>
+    </testSpec>
+  </target>
+
+  <target name="nameSearchNoResults">
+    <testSpec name="Perform a Search by Name with No Results">
+    	&config;
+      <steps>
+      	&getSearchPage;
+        <setinputfield stepid="Enter 'Morty' into Name field"
+        	               name="name" value="Morty"/>
+        <clickbutton stepid="Submit the 'search by' form"
+        	            label="Submit"/>
+        <verifytext stepid="Verify 'No Employees Found'"
+        	           text="No Employees Found"/>
+      </steps>
+    </testSpec>
+  </target>
+
+</project>

@@ -1,0 +1,18 @@
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons
+            Validator Rules Configuration 1.3.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+  <formset>
+    <form name="searchForm">
+      <field property="ssNum" depends="mask">
+        <arg position="0" key="label.search.ssNum"/>
+        <var>
+          <var-name>mask</var-name>
+          <var-value>^\d{3}-\d{2}-\d{4}$</var-value>
+        </var>
+      </field>
+    </form>
+  </formset>
+</form-validation>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE struts-config PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+  "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+  <!-- Form Beans Configuration -->
+  <form-beans>
+    <form-bean name="searchForm"
+               type="com.jamesholmes.minihr.SearchForm"/>
+  </form-beans>
+
+  <!-- Global Forwards Configuration -->
+  <global-forwards>
+    <forward name="search" path="/search.jsp"/>
+  </global-forwards>
+
+  <!-- Action Mappings Configuration -->
+  <action-mappings>
+    <action path="/search"
+            type="com.jamesholmes.minihr.SearchAction"
+            name="searchForm"
+            scope="request"
+            validate="true"
+            input="/search.jsp">
+    </action>
+    <action path="/count"
+            type="com.jamesholmes.minihr.CountAction">
+    </action>
+  </action-mappings>
+
+  <!-- Message Resources Configuration -->
+  <message-resources
+    parameter="com.jamesholmes.minihr.MessageResources"/>
+
+</struts-config>

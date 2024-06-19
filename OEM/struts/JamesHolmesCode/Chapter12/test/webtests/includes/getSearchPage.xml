@@ -1,0 +1,8 @@
+        <invoke stepid="Get main page" url="/index.jsp" />
+        <verifytitle stepid="Check that title is correct"
+                       text="ABC, Inc. Human Resources Portal"/>
+        <clicklink stepid="Click Search for Employees link" 
+        	          label="Search for Employees"/>
+        <verifytext stepid="Find 'Employee Search' text" 
+        	            text="Employee Search"/>
+  

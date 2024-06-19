@@ -1,0 +1,18 @@
+<project name="MiniHR" default="compile" basedir=".">
+  <property name="src.dir" location="src"/>
+  <property name="classes.dir" location="classes"/>
+  <property name="struts.lib.dir" location="c:/java/struts-1.3.5/lib"/>
+  <property name="tomcat.lib.dir" location="c:/java/apache-tomcat-5.5.17/common/lib"/>
+
+  <target name="compile">
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="on">
+      <classpath>
+        <pathelement path="${classpath}"/>
+        <pathelement location="${tomcat.lib.dir}/servlet-api.jar"/>
+        <fileset dir="${struts.lib.dir}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </javac>
+  </target>
+</project>

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE struts-config PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+  "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+  <!-- Form Beans Configuration -->
+  <form-beans>
+    <form-bean name="searchForm"
+               type="com.jamesholmes.minihr.SearchForm"/>
+    <form-bean name="addForm"
+               type="com.jamesholmes.minihr.AddForm"/>
+    <form-bean name="loginForm" type="org.apache.struts.action.DynaActionForm">
+      <form-property name="username" type="java.lang.String"/>
+      <form-property name="password" type="java.lang.String"/>
+    </form-bean>
+  </form-beans>
+
+  <!-- Global Forwards Configuration -->
+  <global-forwards>
+    <forward name="search" path="/search.jsp"/>
+    <forward name="add" path="/admin/add.jsp"/>
+  </global-forwards>
+
+  <!-- Action Mappings Configuration -->
+  <action-mappings>
+  <!-- Use this action mappings element instead for SSLEXT -->  
+  <!--
+  <action-mappings type="org.apache.struts.config.SecureActionConfig">
+  -->
+
+    <action path="/login"
+            type="com.jamesholmes.minihr.LoginAction"
+            name="loginForm"
+            scope="request"
+            validate="true"
+            input="/index.jsp">
+        <!-- Uncomment the set-property for SSLEXT -->
+        <!--
+        <set-property property="secure" value="true"/>
+        -->
+        <exception key="error.authentication"
+        		  type="com.jamesholmes.minihr.security.AuthenticationException"/>
+        <forward name="success" redirect="true" path="/index.jsp"/>
+    </action>
+
+    <action path="/search"
+            type="com.jamesholmes.minihr.SearchAction"
+            name="searchForm"
+            scope="request"
+            validate="true"
+            input="/search.jsp">
+    </action>
+
+		<!-- Optionally you can add the "roles=administrator" attribute -->
+    <action path="/admin/add"
+            type="com.jamesholmes.minihr.AddAction"
+            name="addForm"
+            scope="request"
+            validate="true"
+            input="/admin/add.jsp">
+        <forward name="success" redirect="true" path="/index.jsp"/>
+    </action>
+
+  </action-mappings>
+
+	<!-- Uncomment to use the MiniHR request processor for custom role processing -->
+  <controller processorClass="com.jamesholmes.minihr.CustomRequestProcessor"/>
+  <!-- -->
+  <!-- Uncomment to use the SSLEXT Secure Request Processor
+  <controller processorClass="org.apache.struts.action.SecureRequestProcessor" />
+  -->
+  <!-- Message Resources Configuration -->
+  <message-resources
+    parameter="com.jamesholmes.minihr.MessageResources"/>
+
+	<!--
+  <plug-in className="org.apache.struts.action.SecurePlugIn">
+    <set-property property="httpPort" value="8080"/>
+    <set-property property="httpsPort" value="8443"/>  	
+    <set-property property="enable" value="true"/>  	
+    <set-property property="addSession" value="true"/>  	
+  </plug-in>
+  -->
+</struts-config>

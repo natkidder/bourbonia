@@ -1,0 +1,20 @@
+<html> <head><title>Struts 1 Good to Know</title></head>
+<body>
+
+<p>make the parent bean for your <tt>ActionForm</tt> use a <tt>public</tt> setter method for the primary key, so the <tt>ActionForm</tt> can set it off of the <tt>bean:write</tt> Struts JSP tag
+
+<p>in 1.3 or higher, use <tt>execute</tt> rather than <tt>perform</tt> as the main <tt>Action</tt> method
+
+<p>if the <tt>bean:write property</tt> attribute is set to a field that isn't in the corresponding bean, the form will stop rendering below that point
+
+<p>the <tt>property</tt> attribute of <tt>html:select</tt> must be a persisted bean property; it being a property of the page's <tt>ActionForm</tt> won't suffice
+
+<p>if you get a <tt>Exception creating bean of class</tt> error when invoking <tt>struts-config.xml</tt>, then check the package name of the <tt>ActionForm</tt> class--it doesn't like ones that begin with <tt>java</tt>, among other things.
+
+<p>the <tt>action input<tt> attribute can be either another action or a JSP
+
+<p>ensure every every event has its own <tt>action</tt>, with its own <tt>ActionForm</tt> and <tt>Action</tt> classes
+
+<p>if you get a repeating error stack, it's likely you're in an infinite loop.  Probably the culprit is a validation that keeps coming back to itself
+
+</body></html>
