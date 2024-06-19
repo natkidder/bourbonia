@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	                       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<bean id="minstrel" class="com.springinaction.chapter01.knight.Minstrel"/>
+
+	<!-- set the AOP environment -->
+	<aop:config>
+		<!-- creates minstrel aspect -->
+		<aop:aspect ref="minstrel">
+
+			<!-- creates pointcut to wrap embarkOnQuest, a reference point for aop:before and aop:after -->
+			<aop:pointcut id="questPointcut" expression="execution(* *.embarkOnQuest(..)) and target(bean)" />
+
+			<!-- an AOP advice: in minstrel before what is referenced by the aop:pointcut above -->
+			<aop:before method="singBefore" pointcut-ref="questPointcut" arg-names="bean"/>
+
+			<!-- an AOP advice: in minstrel after what is referenced by the aop:pointcut above -->
+			<aop:after-returning method="singAfter" pointcut-ref="questPointcut" arg-names="bean"/>
+
+		</aop:aspect>
+	</aop:config>
+
+	<bean id="quest" class="com.springinaction.chapter01.knight.KnightOfTheRoundTable">
+		<constructor-arg value="Beldivere"/>
+		<property name="quest" ref="quest"/>
+	</bean>
+</beans>

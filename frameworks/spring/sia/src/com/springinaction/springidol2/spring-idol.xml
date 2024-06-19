@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	                       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<bean id="duke" class="com.springinaction.springidol2.PoeticJuggler">
+		<constructor-arg value="15"/>
+		<constructor-arg ref="sonnet29"/>  <!-- NOTE the constructor arg is a ref to a bean id -->
+	</bean>
+	<bean id="earl" class="com.springinaction.springidol2.PoeticJuggler">
+		<constructor-arg value="15"/>
+		<constructor-arg>
+			<bean class="org.springinaction.springidol2.Sonnet29"/>
+		</constructor-arg> 
+	</bean>
+
+	<bean id="sonnet29" class="com.springinaction.springidol2.Sonnet29"/>
+
+	<bean id="instrument" class="com.springinaction.springidol2.Saxophone"/>  <!-- have to add id=instrument for byName autowire -->
+
+	<bean id="saxophone" class="com.springinaction.springidol2.Saxophone"/> 
+
+	<bean id="piano" class="com.springinaction.springidol2.Piano"/> 
+
+	<bean id="baseSaxophonist" class="com.springinaction.springidol2.Instrumentalist" abstract="true"> <!-- abstract means can't be instantiated -->
+		<property name="instrument" ref="saxophone" />
+		<property name="song" value="Jingle Bells" />
+	</bean> 
+
+	<bean id="basePerformer" abstract="true">
+		<property name="song" value="Somewhere over the Rainbow" />
+	</bean> 
+
+	<bean id="kenny" parent="baseSaxophonist" />
+
+	<bean id="david" parent="baseSaxophonist" />
+
+	<bean id="frank" parent="baseSaxophonist" />
+		<property name="song" name="Mary Had a Little Lamb" />
+	</bean> 
+
+	<bean id="johnny" class="com.springinaction.springidol2.Instrumentalist">
+		<property name="song" value="Jingle Bells"/>
+		<property name="instrument" ref="piano"/>
+	</bean>
+
+	<bean id="taylor" class="com.springinaction.springidol2.Vocalist" parent="basePerformer" />
+
+	<bean id="stevie" class="com.springinaction.springidol2.Instrumentalist" parent="basePerformer">
+		<property name="instrument" ref="guitar"/>
+	</bean> 
+
+	<bean id="harry" class="com.springinaction.springidol2.Magician">
+		<property name="magicBox" ref="magicBox"/>
+		<property name="magicWords" value="Bippity boppity boo" />
+	</bean>
+
+	<bean id="magicBox" class="com.springinaction.springidol2.MagicBoxImpl">
+		<replaced-method name="getContents" replacer="tigerReplacer"/>
+	</bean> 
+	<bean id="tigerReplacer" class="com.springinaction.springidol2.TigerReplacer"/>
+	
+	<bean id="hank-list" class="com.springinaction.springidol2.OneManBand_List">
+		<property name="instruments">
+			<list>
+				<ref bean="guitar" />
+				<ref bean="cymbal" />
+				<ref bean="harmonica" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="hank-map" class="com.springinaction.springidol2.OneManBand_Map">
+		<property name="instruments">
+			<map>
+				<entry key="GUITAR" value-ref="guitar" />
+				<entry key="CYMBAL" value-ref="cymbal" />
+				<entry key="HARMONICA" value-ref="harmonica" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="hank" class="com.springinaction.springidol2.OneManBand">
+		<property name="instruments">
+			<props>
+				<prop key="GUITAR">STRUM STRUM STRUM</prop>
+				<prop key="CYMBAL">CRASH CRASH CRASH</prop>
+				<prop key="HARMONICA">HUM HUM HUM</prop>
+			</props>
+		</property>
+	</bean> 
+
+	<bean id="theStage" class="com.springinaction.springidol2.Stage" factory-method="getInstance" />
+
+</beans>

@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.7
+version = '1.0'
+//def spring.version = "3.2.2.RELEASE"
+//def spring.batch.version = "2.2.0.RELEASE"
+jar {
+	baseName 'SpringBatchExample'
+	appendix ''
+	version  '4.0.0'
+	extension 'jar'
+    manifest {
+        attributes 'Implementation-Title': 'Spring Batch',
+                   'Implementation-Version': 2.9
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile group: 'org.junit', name: 'com.springsource.org.junit', version: '4.7.0'
+	compile group: 'org.springframework', name: 'spring-test', version: '3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version: '3.2.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-oxm', version: '3.2.2.RELEASE'
+    compile group: 'org.springframework.batch', name: 'spring-batch-core', version: '2.2.0.RELEASE'
+    compile group: 'org.springframework.batch', name: 'spring-batch-infrastructure', version: '2.2.0.RELEASE'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}

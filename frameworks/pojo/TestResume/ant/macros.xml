@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="TestResume-ant-macros" default="test" basedir="..">
+	<property name="author" value="nkidder"/>
+	<macrodef name="generate-javadoc" description="Generate JavaDocs">
+		<attribute name="src.path"/>
+		<attribute name="class.path"/>
+		<attribute name="dest"/>
+		<sequential>
+			<javadoc
+				destdir="@{dest}"
+				author="true"
+				version="true"
+				use="true"
+				windowtitle="${ant.project.name}"
+				sourcepathref="@{src.path}"
+				classpathref="@{class.path}"
+				packagenames="*.*"
+				Verbose="false">
+				<doctitle>
+					<![CDATA[<h1>${ant.project.name}</h1>]]>
+				</doctitle>
+				<bottom>
+					<![CDATA[<p>By ${author}</p>]]>
+				</bottom>
+			</javadoc>
+		</sequential>
+	</macrodef>
+</project>

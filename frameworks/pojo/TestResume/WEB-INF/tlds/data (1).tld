@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib 
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<!-- the is the tag library for Chapter 4, example 4 -->
+
+	<tlib-version>1.0</tlib-version>
+	<short-name>refs</short-name>
+
+	<tag>
+		<name>contactInfo</name>
+		<tag-class>rnk.ListContactInfoInBody</tag-class>
+		<body-content>scriptless</body-content>
+		<variable>
+			<name-given>address</name-given>
+		</variable>
+		<variable>
+			<name-given>city</name-given>
+		</variable>
+		<variable>
+			<name-given>state</name-given>
+		</variable>
+		<variable>
+			<name-given>zip</name-given>
+		</variable>
+		<variable>
+			<name-given>homePhone</name-given>
+		</variable>
+		<variable>
+			<name-given>cellPhone</name-given>
+		</variable>
+		<variable>
+			<name-given>textPhone</name-given>
+		</variable>
+		<variable>
+			<name-given>email</name-given>
+		</variable>
+	</tag>
+
+	<tag>
+		<name>references</name>
+		<tag-class>rnk.ListReferencesInBody</tag-class>
+		<body-content>scriptless</body-content>
+		<variable>
+			<name-given>name</name-given>
+		</variable>
+		<variable>
+			<name-given>company</name-given>
+		</variable>
+		<variable>
+			<name-given>title</name-given>
+		</variable>
+		<variable>
+			<name-given>phoneType</name-given>
+		</variable>
+		<variable>
+			<name-given>phoneNbr</name-given>
+		</variable>
+		<variable>
+			<name-given>email</name-given>
+		</variable>
+		<variable>
+			<name-given>relationship</name-given>
+		</variable>
+	</tag>
+
+	<tag>
+		<name>skillsA</name>
+		<tag-class>rnk.ListSkillsA</tag-class>
+		<body-content>scriptless</body-content>
+		<variable>
+			<name-given>skill1</name-given>
+		</variable>
+		<variable>
+			<name-given>level1</name-given>
+		</variable>
+		<variable>
+			<name-given>experience1</name-given>
+		</variable>
+		<variable>
+			<name-given>skill2</name-given>
+		</variable>
+		<variable>
+			<name-given>level2</name-given>
+		</variable>
+		<variable>
+			<name-given>experience2</name-given>
+		</variable>
+	</tag>
+
+	<tag>
+		<name>skillsB</name>
+		<tag-class>rnk.ListSkillsB</tag-class>
+		<body-content>scriptless</body-content>
+		<variable>
+			<name-given>skill1</name-given>
+		</variable>
+		<variable>
+			<name-given>level1</name-given>
+		</variable>
+		<variable>
+			<name-given>experience1</name-given>
+		</variable>
+		<variable>
+			<name-given>skill2</name-given>
+		</variable>
+		<variable>
+			<name-given>level2</name-given>
+		</variable>
+		<variable>
+			<name-given>experience2</name-given>
+		</variable>
+	</tag>
+
+</taglib>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" 
+  "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>book</short-name>
+  <uri>http://jstlbook.com/tld/weekday.tld</uri>
+
+  <tag>
+    <name>ifWeekday</name>
+    <tag-class>com.jstlbook.examples.WeekdayTag</tag-class>
+  </tag>
+  <tag>
+    <name>ifTime</name>
+    <tag-class>com.jstlbook.examples.TimeTag</tag-class>
+    <attribute>
+     <name>day</name>
+    </attribute>
+    <attribute>
+      <name>before</name>
+    </attribute>
+    <attribute>
+      <name>after</name>
+    </attribute>
+    <attribute>
+      <name>var</name>
+    </attribute>
+  </tag>
+  <tag>
+    <name>forEachLine</name>
+    <tag-class>com.jstlbook.examples.ForEachLineTag</tag-class>
+    <attribute>
+      <name>filename</name>
+      <required>true</required>
+    </attribute>
+    <attribute>
+      <name>var</name>
+    </attribute>
+  </tag>
+
+</taglib>
+

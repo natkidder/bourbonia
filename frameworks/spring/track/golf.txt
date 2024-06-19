@@ -1,0 +1,78 @@
+Buildfile: build.xml
+
+prepare:
+
+compile:
+    [javac] Compiling 10 source files to c:\Users\nat\training\spring\track\classes
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\GetArtists.java:20: org.springframework.orm.hibernate3.support.HibernateDaoSupport is abstract; cannot be instantiated
+    [javac] 		HibernateDaoSupport hds = new HibernateDaoSupport();
+    [javac] 		                          ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\QueryTest.java:21: cannot find symbol
+    [javac] symbol  : method tracksNoLongerThan(java.sql.Time)
+    [javac] location: class com.oreilly.hh.dao.hibernate.TrackHibernateDAO
+    [javac] 		List<Track> tracks = trackHibernateDAO.tracksNoLongerThan(Time.valueOf("00:05:00"));
+    [javac] 		                                      ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\TrackHibernateDAO.java:35: cannot find symbol
+    [javac] symbol: class Session
+    [javac] 			public Object doInHibernate(Session session)  {
+    [javac] 			                            ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\TrackHibernateDAO.java:36: cannot find symbol
+    [javac] symbol: variable getSession
+    [javac] 				Query query = getSession.getNamedQuery("com.oreilly.hh.trackByName");
+    [javac] 				              ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\TrackHibernateDAO.java:62: cannot find symbol
+    [javac] symbol: class Session
+    [javac] 			public Object doInHibernate(Session session)  {
+    [javac] 			                            ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\TrackHibernateDAO.java:61: incompatible types
+    [javac] found   : java.sql.Time
+    [javac] required: java.util.List
+    [javac] 		return (Time) getHibernateTemplate().execute(new HibernateCallback()  {
+    [javac] 		       ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\QueryTest2.java:56: getArtistDAO() in com.oreilly.hh.CreateTest cannot be applied to (java.lang.String,boolean,org.hibernate.Session)
+    [javac]                 Artist artist = CreateTest.getArtistDAO(name, false, session);
+    [javac]                                           ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\UpdateArtists.java:19: org.springframework.orm.hibernate3.support.HibernateDaoSupport is abstract; cannot be instantiated
+    [javac] 		HibernateDaoSupport hds = new HibernateDaoSupport();
+    [javac] 		                          ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\UpdateArtists.java:22: incompatible types
+    [javac] found   : java.lang.Object
+    [javac] required: com.oreilly.hh.data.Artist
+    [javac] 		Artist artist = hds.getHibernateTemplate().load(Artist.class, id);
+    [javac] 		                                               ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\UpdateArtists.java:34: cannot find symbol
+    [javac] symbol  : variable Id
+    [javac] location: class com.oreilly.hh.UpdateArtists
+    [javac] 		artist = hds.getHibernateTemplate().load(Artist.class, Id);
+    [javac] 		                                                       ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\UpdateArtists.java:39: incompatible types
+    [javac] found   : java.lang.Object
+    [javac] required: com.oreilly.hh.data.Artist
+    [javac] 		artist = hds.getHibernateTemplate().merge(artist);
+    [javac] 		                                         ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\AlbumHibernateDAO.java:18: cannot find symbol
+    [javac] symbol  : variable Album
+    [javac] location: class com.oreilly.hh.dao.hibernate.AlbumHibernateDAO
+    [javac] 		return (Album) getHibernateTemplate.merge(Album);
+    [javac] 		                                          ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\AlbumHibernateDAO.java:18: cannot find symbol
+    [javac] symbol  : variable getHibernateTemplate
+    [javac] location: class com.oreilly.hh.dao.hibernate.AlbumHibernateDAO
+    [javac] 		return (Album) getHibernateTemplate.merge(Album);
+    [javac] 		               ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\AlbumHibernateDAO.java:25: cannot find symbol
+    [javac] symbol  : variable getHibernateTemplate
+    [javac] location: class com.oreilly.hh.dao.hibernate.AlbumHibernateDAO
+    [javac] 		getHibernateTemplate.delete(album);
+    [javac] 		^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\AlbumHibernateDAO.java:32: cannot find symbol
+    [javac] symbol  : class HibernateCallback
+    [javac] location: class com.oreilly.hh.dao.hibernate.AlbumHibernateDAO
+    [javac] 		return (Album) getHibernateTemplate().execute(new HibernateCallback()  {
+    [javac] 		                                                  ^
+    [javac] c:\Users\nat\training\spring\track\src\com\oreilly\hh\dao\hibernate\ArtistHibernateDAO.java:36: cannot find symbol
+    [javac] symbol  : class HibernateCallback
+    [javac] location: class com.oreilly.hh.dao.hibernate.ArtistHibernateDAO
+    [javac] 		return (Artist) getHibernateTemplate().execute(new HibernateCallback() {
+    [javac] 		                                                   ^
+    [javac] 16 errors

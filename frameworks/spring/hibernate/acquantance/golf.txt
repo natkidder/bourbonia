@@ -1,0 +1,25 @@
+Buildfile: build.xml
+
+compile:
+    [javac] Compiling 11 source files to c:\Users\nat\training\spring\hibernate\acquantance\WEB-INF\classes
+    [javac] c:\Users\nat\training\spring\hibernate\acquantance\WEB-INF\classes\web\AcqDaoHibernateDaoSupport.java:11: cannot find symbol
+    [javac] symbol  : variable getHibernateTemplate
+    [javac] location: class web.AcqDaoHibernateDaoSupport
+    [javac] 		List results = getHibernateTemplate.find("FROM acquantances WHERE f_name = ? and l_name = ?", new Object[] {fname, lname});
+    [javac] 		               ^
+    [javac] c:\Users\nat\training\spring\hibernate\acquantance\WEB-INF\classes\web\Test2.java:12: cannot find symbol
+    [javac] symbol  : class AcqDaoHibernateDaoSupport
+    [javac] location: class jdbc.Test2
+    [javac] 		AcqDaoHibernateDaoSupport adhds = (AcqDaoHibernateDaoSupport) ctx.getBean("acqDaoHDS");
+    [javac] 		^
+    [javac] c:\Users\nat\training\spring\hibernate\acquantance\WEB-INF\classes\web\Test2.java:12: cannot find symbol
+    [javac] symbol  : class AcqDaoHibernateDaoSupport
+    [javac] location: class jdbc.Test2
+    [javac] 		AcqDaoHibernateDaoSupport adhds = (AcqDaoHibernateDaoSupport) ctx.getBean("acqDaoHDS");
+    [javac] 		                                   ^
+    [javac] c:\Users\nat\training\spring\hibernate\acquantance\WEB-INF\classes\web\Test2.java:13: cannot find symbol
+    [javac] symbol  : class Acquantance
+    [javac] location: class jdbc.Test2
+    [javac] 		Acquantance acq = adhds.findPerson("Elizabeth", "Ambler");
+    [javac] 		^
+    [javac] 4 errors

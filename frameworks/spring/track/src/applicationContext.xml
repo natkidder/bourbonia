@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlsn:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemalocation="http://www.springframwork.org/schema/beans http://www.sprintframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+	   default-lazy-init="true">
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="annotatedClasses">
+			<list>
+				<value>com.oreilly.hh.data.Album</value>
+				<value>com.oreilly.hh.data.AlbumTrack</value>
+				<value>com.oreilly.hh.data.Artist</value>
+				<value>com.oreilly.hh.data.StereoVolume</value>
+				<value>com.oreilly.hh.data.Track</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.connection.pool_size">0</prop>
+				<prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+				<prop key="hibernate.connection.url">jdbc:mysql://localhost/hiber_track;shutdown=true</prop>
+				<prop key="hibernate.connection.username">nkidder</prop>
+				<prop key="hibernate.connection.password">wlypb</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- enable the configuration of transactional behavior based on annotations -->
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory"/>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+	<!-- Define our data access beans -->
+	<bean id="albumDAO" class="com.oreilly.hh.dao.hibernate.AlbumHibernateDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="artistDAO" class="com.oreilly.hh.dao.hibernate.ArtistHibernateDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="trackDAO" class="com.oreilly.hh.dao.hibernate.TrackHibernateDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- Define our test beans -->
+	<bean id="createTest" class="com.oreilly.hh.CreateTest">
+		<property name="trackDAO" ref="trackDAO"/>
+		<property name="artistDAO" ref="artistDAO"/>
+	</bean>
+
+	<bean id="albumTest" class="com.oreilly.hh.AlbumTest">
+		<property name="albumDAO" ref="albumDAO"/>
+		<property name="artistDAO" ref="artistDAO"/>
+		<property name="trackDAO" ref="trackDAO"/>
+	</bean>
+
+</beans>

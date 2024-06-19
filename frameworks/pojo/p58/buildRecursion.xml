@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="Target C" name="Test recursion">
+
+	<target name="Target A" depends="Target C" description="Target A" if="runA">
+		<echo>Running Target A</echo>
+	</target>
+
+	<target name="Target B" depends="Target A" description="Target B">
+		<echo>Running Target B</echo>
+	</target>
+
+	<target name="Target C" depends="Target B" description="Target C">
+		<echo>Running Target C</echo>
+	</target>
+
+</project>

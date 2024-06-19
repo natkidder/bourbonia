@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+	<display-name>AcqHibernateSpring</display-name>
+
+	<servlet>
+		<servlet-name>GetLabels</servlet-name>
+		<servlet-class>web.GetLabels</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetLabels</servlet-name>
+		<url-pattern>/GetLabels</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RefreshDatabase</servlet-name>
+		<servlet-class>web.RefreshDatabase</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RefreshDatabase</servlet-name>
+		<url-pattern>/RefreshDatabase</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>GetPerson</servlet-name>
+		<servlet-class>web.GetPerson</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetPerson</servlet-name>
+		<url-pattern>/GetPerson</url-pattern>
+	</servlet-mapping>
+
+</web-app>

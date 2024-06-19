@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	                       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<!-- constructor injection -->
+	<bean id="duke" class="com.springinaction.springidol.PoeticJuggler">
+		<constructor-arg value="15"/>
+		<constructor-arg ref="sonnet29"/>  <!-- NOTE the constructor arg is a ref to a bean id -->
+	</bean>
+
+	<bean id="sonnet29" class="com.springinaction.springidol.Sonnet29"/>
+
+	<bean id="saxophone" class="com.springinaction.springidol.Saxophone"/>
+
+	<bean id="piano" class="com.springinaction.springidol.Piano"/>
+
+	<!-- setter injection -->
+	<bean id="kenny" class="com.springinaction.springidol.Instrumentalist">
+		<property name="song" value="Jingle Bells"/>
+		<property name="instrument" ref="saxophone"/>
+	</bean>
+
+	<bean id="johnny" class="com.springinaction.springidol.Instrumentalist">
+		<property name="song" value="Jingle Bells"/>
+		<property name="instrument" ref="piano"/>
+	</bean>
+
+</beans>

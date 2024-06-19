@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<project name="TechConf" default="all" basedir=".">
+
+	<description>This build script was develped to be a generic enterprise development build script using ANT 1.7.1.  To customize it, use the 
+	build.properties file</description>
+
+	<!-- =========================================================================== -->
+	<!-- Initialization                                                              -->
+	<!-- =========================================================================== -->
+	<property file="build.properties"/>
+
+	<!-- =========================================================================== -->
+	<!-- Directories                                                                 -->
+	<!-- =========================================================================== -->
+	<property name="build" location="build" />
+	<property name="lib" location="lib" />
+
+	<!-- Source -->
+	<property name="src" location="src" />
+	<property name="src-java" location="${src}/java"/>
+	<property name="src-test" location="${src}/test"/>
+	<property name="src/j2ee" location="${src}/j2ee"/>
+
+	<property name="docs" location="docs"/>
+	<property name="docs-api" location="{docs}/api"/>
+	<property name="docs-html-source" location="{docs}/source"/>
+	<property name="docs-test" location="{docs}/tests"/>
+	<property name="src-web" location="web"/>
+
+	<!-- Paths -->
+	<path id="class.path">
+		<fileset dir="${lib}">
+			<include name="*.jar"> <!-- ensure only jar files are read by javac -->
+		</fileset>
+	</path>
+
+	<path id="app.class.path">
+		<pathelement location="${classes}"/>
+		<path refid="class.path"/>
+	</path>
+
+	<!-- Patternsets -->
+	<patternset id="non.source.net">
+		<exclude name="**/*.java"/>
+		<exclude name="**/read-me.txt"/>
+		<exclude name="**/package.html"/>
+	</patternset>
+
+	<!-- =========================================================================== -->
+	<!-- Target: compile                                                             -->
+	<!-- Compiles all classes                                                        -->
+	<!-- MUST use JDK 1.5 (or later?) compiler                                       -->
+	<!-- =========================================================================== -->
+	
+	<target
+		name="compile"
+		depends="compile-init"
+		description="Compiles all classes (JDK1.5 or later)">
+		<javac 
+			destdir="${classes}"
+			classpathref="class.path"
+			debug="on"
+			deprecation="on"
+			optimize="off">
+			<src>
+				<path refid="all.source.path" />
+			</src>
+		</javac>
+	</target>
+
+	<target name="compile-init">
+		<target-banner target="compile"/>
+		<mkdir dir="${classes}"/>
+		<copy todir="${classes}"/>
+			<fileset dir="${src-java}">
+				<patternset refid="non.source.net" />
+			</fileset>
+			<fileset dir="dd">
+				<include name="*.properties"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="compile-clean">
+		<delete includeemptydirs="true">
+			<fileset dir="${classes}" includes="**/*" />
+		</delete>
+	</target>
+
+	<!-- =========================================================================== -->
+	<!-- Imports                                                                     -->
+	<!-- =========================================================================== -->
+
+	<import file="ant/macros.xml"/>
+
+

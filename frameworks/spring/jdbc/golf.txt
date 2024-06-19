@@ -1,0 +1,11 @@
+Buildfile: build.xml
+
+compile-all:
+    [javac] Compiling 2 source files to c:\Users\nat\training\spring\jdbc\classes
+    [javac] c:\Users\nat\training\spring\jdbc\src\jdbc\RetrieveAcq.java:25: cannot find symbol
+    [javac] symbol: class DataAccessException
+    [javac] 				public Object mapRow(ResultSet rset, int rowNum) throws SQLException, DataAccessException {
+    [javac] 				                                                                      ^
+    [javac] Note: c:\Users\nat\training\spring\jdbc\src\jdbc\RetrieveAcq.java uses unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 1 error

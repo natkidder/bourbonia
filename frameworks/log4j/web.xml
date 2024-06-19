@@ -1,0 +1,10 @@
+    <context-param>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>
+            classpath:log4j-config.xml
+        </param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>gov.nasa.needs.util.Log4JListener</listener-class>
+    </listener>

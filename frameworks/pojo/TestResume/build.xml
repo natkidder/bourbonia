@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<project name="TestResume" default="clean-build" basedir=".">
+
+	<property name="build.dir" value="build"/>
+	<property name="src.dir"  value="WEB-INF/classes"/>
+	<property name="classes.dir" value="${src.dir}"/>
+	<property name="jar.dir" value="${build.dir}/jar"/>
+	<property name="docs.dir" value="${build.dir}/docs"/>
+
+	<path id="class.path">
+		<fileset dir="${classes.dir}/rnk">
+			<include name="*.class"/>
+		</fileset>
+	</path>
+	<path id="src.path">
+		<pathelement path="${src.dir}"/>
+	</path>
+
+	<import file="ant/macros.xml"/>
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="compile">
+		<mkdir dir="${classes.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${classes.dir}"/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="${jar.dir}"/>
+		<jar destfile="${jar.dir}/${ant.project.name}.war" basedir=".">
+		</jar>
+	</target>
+
+	<target name="generate-javadocs">
+		<mkdir dir="${build.dir}/docs"/>
+		<generate-javadoc 
+			src.path="src.path"
+			class.path="class.path"
+			dest="${docs.dir}"
+		/>
+	</target>
+		
+	<target name="clean-build" depends="clean,jar,generate-javadocs"/>
+
+</project>
+

@@ -1,0 +1,1 @@
+from   https://spring.io/guides/gs/batch-processing/#scratch

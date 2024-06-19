@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<project name="Spring example" default="test" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+	
+	<property name="src.root" value="src"/>
+	<property name="class.root" value="classes"/>
+	<property name="spring.jars" value="/cygdrive/c/spring-framework-3.0.0.RC2/dist"/>
+	<property name="log4j.jars" value="/cygdrive/c/apache-log4j-1.2.15"/>
+
+	<path id="project.class.path">
+		<pathelement location="${class.root}"/>
+		<pathelement location="${spring.jars}"/>
+		<pathelement location="${log4j.jars}"/>
+<!--	<path refid="dependency.class.path"/>  -->
+	</path>
+
+<!--
+	<target name="print-classpath" description="show the dependency class path">
+		<property name="class.path" refid="dependency.class.path"/>
+		<echo>${class.path}</echo>
+	</target>
+-->
+
+	<target name="compile-all">
+		<javac srcdir="${src.root}" destdir="${class.root}" debug="on" optimize="off" deprecation="on">
+			<classpath refid="project.class.path"/>
+		</javac>
+	</target>
+
+	<target name="compile-springidol">
+		<javac srcdir="${src.root}" includes="/com/springinaction/springidol/*.java" destdir="${class.root}" debug="on" optimize="off" deprecation="on">
+			<classpath refid="project.class.path"/>
+		</javac>
+		<copy file="${src.root}/com/springinaction/springidol/spring-idol.xml" todir="${class.root}/com/springinaction/springidol" overwrite="true"/>
+	</target>
+	
+	<target name="run-springidol">
+		<java classname="com.springinaction.springidol.Test" fork="true" failonerror="true">
+			<classpath refid="project.class.path"/>
+		</java>
+	</target> 
+
+	<target name="run-hello">
+		<java classname="com.springinaction.chapter01.hello.HelloApp" fork="true" failonerror="true">
+			<classpath refid="project.class.path"/>
+		</java>
+	</target>
+
+	<target name="compile-minstrel">
+		<javac srcdir="${src.root}" includes="/com/springinaction/chapter01/knight/*.java" destdir="${class.root}" debug="on" optimize="off" deprecation="on">
+			<classpath refid="project.class.path"/>
+		</javac>
+	</target>
+	
+	<target name="run-minstrel">
+		<java classname="com.springinaction.chapter01.knight" fork="true" failonerror="true">
+			<classpath refid="project.class.path"/>
+		</java>
+	</target> 
+
+</project>
+

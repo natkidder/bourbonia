@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>TechConf</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>aspects</name>
+			<type>2</type>
+			<location>C:/Users/nat/career/training/pojo/techconf/src/aspects</location>
+		</link>
+		<link>
+			<name>bin</name>
+			<type>2</type>
+			<location>C:/Users/nat/career/training/pojo/techconf/bin</location>
+		</link>
+		<link>
+			<name>j2ee</name>
+			<type>2</type>
+			<location>C:/Users/nat/career/training/pojo/techconf/src/j2ee</location>
+		</link>
+		<link>
+			<name>java</name>
+			<type>2</type>
+			<location>C:/Users/nat/career/training/pojo/techconf/src/java</location>
+		</link>
+		<link>
+			<name>test</name>
+			<type>2</type>
+			<location>C:/Users/nat/career/training/pojo/techconf/src/test</location>
+		</link>
+	</linkedResources>
+</projectDescription>

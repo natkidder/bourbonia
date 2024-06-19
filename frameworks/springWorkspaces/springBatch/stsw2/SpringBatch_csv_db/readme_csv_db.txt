@@ -1,0 +1,314 @@
+USE [BrokerageCORFeed]
+GO
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_STEP_EXECUTION_SEQ]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_STEP_EXECUTION_SEQ]
+GO
+ 
+----------------------------------
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_EXECUTION_SEQ]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_JOB_EXECUTION_SEQ]
+GO
+ 
+---------------------------------
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_SEQ]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_JOB_SEQ]
+GO
+ 
+---------------------------------
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[STEP_EXEC_CTX_FK]') AND parent_object_id = OBJECT_ID(N'[dbo].[BATCH_STEP_EXECUTION_CONTEXT]'))
+ALTER TABLE [dbo].[BATCH_STEP_EXECUTION_CONTEXT] DROP CONSTRAINT [STEP_EXEC_CTX_FK]
+GO
+ 
+/****** Object:  Table [dbo].[BATCH_STEP_EXECUTION_CONTEXT]    Script Date: 05/12/2015 16:50:09 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_STEP_EXECUTION_CONTEXT]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_STEP_EXECUTION_CONTEXT]
+GO
+ 
+--------------------------------
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[JOB_EXEC_STEP_FK]') AND parent_object_id = OBJECT_ID(N'[dbo].[BATCH_STEP_EXECUTION]'))
+ALTER TABLE [dbo].[BATCH_STEP_EXECUTION] DROP CONSTRAINT [JOB_EXEC_STEP_FK]
+GO
+ 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_BSE_END_TIME]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[BATCH_STEP_EXECUTION] DROP CONSTRAINT [DF_BSE_END_TIME]
+END
+GO
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_STEP_EXECUTION]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_STEP_EXECUTION]
+GO
+ 
+-------------------------------
+ 
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[JOB_EXEC_PARAMS_FK]') AND parent_object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_EXECUTION_PARAMS]'))
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION_PARAMS] DROP CONSTRAINT [JOB_EXEC_PARAMS_FK]
+GO
+ 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_DATE_VAL]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION_PARAMS] DROP CONSTRAINT [DF_DATE_VAL]
+END
+GO
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_EXECUTION_PARAMS]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_JOB_EXECUTION_PARAMS]
+GO
+ 
+--------------------------------
+ 
+ 
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[JOB_EXEC_CTX_FK]') AND parent_object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_EXECUTION_CONTEXT]'))
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION_CONTEXT] DROP CONSTRAINT [JOB_EXEC_CTX_FK]
+GO
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_EXECUTION_CONTEXT]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_JOB_EXECUTION_CONTEXT]
+GO
+ 
+---------------------------------------
+ 
+IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[JOB_INST_EXEC_FK]') AND parent_object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_EXECUTION]'))
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION] DROP CONSTRAINT [JOB_INST_EXEC_FK]
+GO
+ 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_START_TIME]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION] DROP CONSTRAINT [DF_START_TIME]
+END
+GO
+ 
+IF  EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[DF_END_TIME]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION] DROP CONSTRAINT [DF_END_TIME]
+END
+GO
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_EXECUTION]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_JOB_EXECUTION]
+GO
+ 
+--------------------------
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BATCH_JOB_INSTANCE]') AND type in (N'U'))
+DROP TABLE [dbo].[BATCH_JOB_INSTANCE]
+GO
+ 
+-----------------------------------
+ 
+ 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RAW_REPORT]') AND type in (N'U'))
+DROP TABLE [dbo].[RAW_REPORT]
+GO
+ 
+--++++++++++++++++++++++++++++++++++++++++
+ 
+/****** Object:  Table [dbo].[BATCH_JOB_INSTANCE]    Script Date: 05/12/2015 16:48:47 ******/
+SET ANSI_NULLS ON
+GO
+ 
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+SET ANSI_PADDING ON
+GO
+ 
+CREATE TABLE [dbo].[BATCH_JOB_INSTANCE](
+               [JOB_INSTANCE_ID] [bigint] NOT NULL,
+               [VERSION] [bigint] NULL,
+               [JOB_NAME] [varchar](100) NOT NULL,
+               [JOB_KEY] [varchar](32) NOT NULL,
+PRIMARY KEY CLUSTERED
+(
+               [JOB_INSTANCE_ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+CONSTRAINT [JOB_INST_UN] UNIQUE NONCLUSTERED
+(
+               [JOB_NAME] ASC,
+               [JOB_KEY] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+ 
+GO
+ 
+ 
+/****** Object:  Table [dbo].[BATCH_JOB_EXECUTION]    Script Date: 05/12/2015 16:46:34 ******/
+CREATE TABLE [dbo].[BATCH_JOB_EXECUTION](
+               [JOB_EXECUTION_ID] [bigint] NOT NULL,
+               [VERSION] [bigint] NULL,
+               [JOB_INSTANCE_ID] [bigint] NOT NULL,
+               [CREATE_TIME] [datetime] NOT NULL,
+               [START_TIME] [datetime] NULL,
+               [END_TIME] [datetime] NULL,
+               [STATUS] [varchar](10) NULL,
+               [EXIT_CODE] [varchar](100) NULL,
+               [EXIT_MESSAGE] [varchar](2500) NULL,
+               [LAST_UPDATED] [datetime] NULL,
+PRIMARY KEY CLUSTERED
+(
+               [JOB_EXECUTION_ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+ 
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION]  WITH CHECK ADD  CONSTRAINT [JOB_INST_EXEC_FK] FOREIGN KEY([JOB_INSTANCE_ID])
+REFERENCES [dbo].[BATCH_JOB_INSTANCE] ([JOB_INSTANCE_ID])
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION] CHECK CONSTRAINT [JOB_INST_EXEC_FK]
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION] ADD CONSTRAINT DF_START_TIME DEFAULT (NULL) FOR [START_TIME]
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION] ADD CONSTRAINT DF_END_TIME DEFAULT (NULL) FOR [END_TIME]
+GO
+ 
+ 
+/****** Object:  Table [dbo].[BATCH_JOB_EXECUTION_PARAMS]    Script Date: 05/12/2015 16:47:51 ******/
+CREATE TABLE [dbo].[BATCH_JOB_EXECUTION_PARAMS](
+               [JOB_EXECUTION_ID] [bigint] NOT NULL,
+               [TYPE_CD] [varchar](6) NOT NULL,
+               [KEY_NAME] [varchar](100) NOT NULL,
+               [STRING_VAL] [varchar](250) NULL,
+               [DATE_VAL] [datetime] NULL,
+               [LONG_VAL] [bigint] NULL,
+               [DOUBLE_VAL] [float] NULL,
+               [IDENTIFYING] [char](1) NOT NULL
+) ON [PRIMARY]
+ 
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION_PARAMS]  WITH CHECK ADD  CONSTRAINT [JOB_EXEC_PARAMS_FK] FOREIGN KEY([JOB_EXECUTION_ID])
+REFERENCES [dbo].[BATCH_JOB_EXECUTION] ([JOB_EXECUTION_ID])
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION_PARAMS] CHECK CONSTRAINT [JOB_EXEC_PARAMS_FK]
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION_PARAMS] ADD CONSTRAINT DF_DATE_VAL  DEFAULT (NULL) FOR [DATE_VAL]
+GO
+ 
+ 
+ 
+ 
+/****** Object:  Table [dbo].[BATCH_JOB_EXECUTION_CONTEXT]    Script Date: 05/12/2015 16:47:23 ******/
+CREATE TABLE [dbo].[BATCH_JOB_EXECUTION_CONTEXT](
+               [JOB_EXECUTION_ID] [bigint] NOT NULL,
+               [SHORT_CONTEXT] [varchar](2500) NOT NULL,
+               [SERIALIZED_CONTEXT] [text] NULL,
+PRIMARY KEY CLUSTERED
+(
+               [JOB_EXECUTION_ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+ 
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION_CONTEXT]  WITH CHECK ADD  CONSTRAINT [JOB_EXEC_CTX_FK] FOREIGN KEY([JOB_EXECUTION_ID])
+REFERENCES [dbo].[BATCH_JOB_EXECUTION] ([JOB_EXECUTION_ID])
+GO
+ 
+ALTER TABLE [dbo].[BATCH_JOB_EXECUTION_CONTEXT] CHECK CONSTRAINT [JOB_EXEC_CTX_FK]
+GO
+ 
+ 
+/****** Object:  Table [dbo].[BATCH_JOB_SEQ]    Script Date: 05/12/2015 16:49:16 ******/
+CREATE TABLE [dbo].[BATCH_JOB_SEQ](
+               [ID] [bigint] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+ 
+GO
+ 
+ 
+ 
+/****** Object:  Table [dbo].[BATCH_JOB_EXECUTION_SEQ]    Script Date: 05/12/2015 16:48:14 ******/
+CREATE TABLE [dbo].[BATCH_JOB_EXECUTION_SEQ](
+               [ID] [bigint] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+ 
+GO
+ 
+ 
+ 
+ 
+ 
+/****** Object:  Table [dbo].[BATCH_STEP_EXECUTION]    Script Date: 05/12/2015 16:49:39 ******/
+CREATE TABLE [dbo].[BATCH_STEP_EXECUTION](
+               [STEP_EXECUTION_ID] [bigint] NOT NULL,
+               [VERSION] [bigint] NOT NULL,
+               [STEP_NAME] [varchar](100) NOT NULL,
+               [JOB_EXECUTION_ID] [bigint] NOT NULL,
+               [START_TIME] [datetime] NOT NULL,
+               [END_TIME] [datetime] NULL,
+               [STATUS] [varchar](10) NULL,
+               [COMMIT_COUNT] [bigint] NULL,
+               [READ_COUNT] [bigint] NULL,
+               [FILTER_COUNT] [bigint] NULL,
+               [WRITE_COUNT] [bigint] NULL,
+               [READ_SKIP_COUNT] [bigint] NULL,
+               [WRITE_SKIP_COUNT] [bigint] NULL,
+               [PROCESS_SKIP_COUNT] [bigint] NULL,
+               [ROLLBACK_COUNT] [bigint] NULL,
+               [EXIT_CODE] [varchar](100) NULL,
+               [EXIT_MESSAGE] [varchar](2500) NULL,
+               [LAST_UPDATED] [datetime] NULL,
+PRIMARY KEY CLUSTERED
+(
+               [STEP_EXECUTION_ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+ 
+GO
+ 
+ALTER TABLE [dbo].[BATCH_STEP_EXECUTION]  WITH CHECK ADD  CONSTRAINT [JOB_EXEC_STEP_FK] FOREIGN KEY([JOB_EXECUTION_ID])
+REFERENCES [dbo].[BATCH_JOB_EXECUTION] ([JOB_EXECUTION_ID])
+GO
+ 
+ALTER TABLE [dbo].[BATCH_STEP_EXECUTION] CHECK CONSTRAINT [JOB_EXEC_STEP_FK]
+GO
+ 
+ALTER TABLE [dbo].[BATCH_STEP_EXECUTION] ADD CONSTRAINT DF_BSE_END_TIME DEFAULT (NULL) FOR [END_TIME]
+GO
+ 
+ 
+/****** Object:  Table [dbo].[BATCH_STEP_EXECUTION_CONTEXT]    Script Date: 05/12/2015 16:50:09 ******/
+CREATE TABLE [dbo].[BATCH_STEP_EXECUTION_CONTEXT](
+               [STEP_EXECUTION_ID] [bigint] NOT NULL,
+               [SHORT_CONTEXT] [varchar](2500) NOT NULL,
+               [SERIALIZED_CONTEXT] [text] NULL,
+PRIMARY KEY CLUSTERED
+(
+               [STEP_EXECUTION_ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+ 
+GO
+ 
+ALTER TABLE [dbo].[BATCH_STEP_EXECUTION_CONTEXT]  WITH CHECK ADD  CONSTRAINT [STEP_EXEC_CTX_FK] FOREIGN KEY([STEP_EXECUTION_ID])
+REFERENCES [dbo].[BATCH_STEP_EXECUTION] ([STEP_EXECUTION_ID])
+GO
+ 
+ALTER TABLE [dbo].[BATCH_STEP_EXECUTION_CONTEXT] CHECK CONSTRAINT [STEP_EXEC_CTX_FK]
+GO
+ 
+ 
+ 
+/****** Object:  Table [dbo].[BATCH_STEP_EXECUTION_SEQ]    Script Date: 05/12/2015 16:50:51 ******/
+CREATE TABLE [dbo].[BATCH_STEP_EXECUTION_SEQ](
+               [ID] [bigint] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+ 
+GO
+ 
+create table RAW_REPORT(
+   DATE varchar(50),
+   IMPRESSIONS varchar(50),
+   CLICKS varchar(10),
+   EARNING varchar(20)
+   )
+ 

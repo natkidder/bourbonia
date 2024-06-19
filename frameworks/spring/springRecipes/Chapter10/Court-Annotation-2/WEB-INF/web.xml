@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app version="2.6" xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+        http://java.sun.com/xml/ns/j2ee/web-app_2_6.xsd">
+
+    <display-name>Court Reservation System</display-name>
+
+    <description>
+        Spring MVC derived from JSTL
+    </description>
+
+    <servlet>
+        <servlet-name>court</servlet-name>
+        <servlet-class>
+            org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>court</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/court-service.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    
+    <!-- By default, we use an embedded HSQLDB as our data source. -->
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.sql.dataSource</param-name>
+        <param-value>jdbc:hsqldb:sample,org.hsqldb.jdbcDriver,sa</param-value>
+    </context-param>
+
+    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+        <taglib-location>/WEB-INF/c.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/core_rt</taglib-uri>
+        <taglib-location>/WEB-INF/c-rt.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/xml</taglib-uri>
+        <taglib-location>/WEB-INF/x.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/xml_rt</taglib-uri>
+        <taglib-location>/WEB-INF/x-rt.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
+        <taglib-location>/WEB-INF/fmt.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/fmt_rt</taglib-uri>
+        <taglib-location>/WEB-INF/fmt-rt.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/sql</taglib-uri>
+        <taglib-location>/WEB-INF/sql.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+        <taglib-uri>http://java.sun.com/jstl/sql_rt</taglib-uri>
+        <taglib-location>/WEB-INF/sql-rt.tld</taglib-location>
+    </taglib>
+
+</web-app>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	                       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<!-- constructor injection -->
+	<bean id="duke" class="com.springinaction.springidol.PoeticJuggler">
+		<constructor-arg value="15"/>
+		<constructor-arg ref="sonnet29"/>  <!-- NOTE the constructor arg is a ref to a bean id -->
+	</bean>
+	<bean id="earl" class="com.springinaction.springidol.PoeticJuggler">
+		<constructor-arg value="15"/>
+		<constructor-arg>
+			<bean class="org.springinaction.springidol.Sonnet29"/>
+		</constructor-arg> 
+	</bean>
+
+	<bean id="sonnet29" class="com.springinaction.springidol.Sonnet29"/>
+
+	<bean id="saxophone" class="com.springinaction.springidol.Saxophone"/> <!-- this can be referred to if autowired byType -->
+
+	<bean id="piano" class="com.springinaction.springidol.Piano"/> <!-- this can be referred to if autowired byType -->
+
+	<!-- setter injection -->
+	<bean id="kenny" class="com.springinaction.springidol.Instrumentalist" 
+			autowire="byName" init-method="tuneInstrument" destroy-method="cleanInstrument"> <!-- autowire is overwritten here -->
+		<property name="song" value="Jingle Bells"/>
+		<property name="instrument"/>
+			<bean class="org.springinaction.springidol.Saxophone"/>
+		</property> 
+	</bean>
+	<bean id="instrument" class="com.springinaction.springidol.Saxophone"/>  <!-- have to add id=instrument for byName autowire -->
+
+	<bean id="johnny" class="com.springinaction.springidol.Instrumentalist">
+		<property name="song" value="Jingle Bells"/>
+		<property name="instrument" ref="piano"/>
+	</bean>
+
+	<bean id="hank-list" class="com.springinaction.springidol.OneManBand_List">
+		<property name="instruments">
+			<list>
+				<ref bean="guitar" />
+				<ref bean="cymbal" />
+				<ref bean="harmonica" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="hank-map" class="com.springinaction.springidol.OneManBand_Map">
+		<property name="instruments">
+			<map>
+				<entry key="GUITAR" value-ref="guitar" />
+				<entry key="CYMBAL" value-ref="cymbal" />
+				<entry key="HARMONICA" value-ref="harmonica" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="hank" class="com.springinaction.springidol.OneManBand">
+		<property name="instruments">
+			<props>
+				<prop key="GUITAR">STRUM STRUM STRUM</prop>
+				<prop key="CYMBAL">CRASH CRASH CRASH</prop>
+				<prop key="HARMONICA">HUM HUM HUM</prop>
+			</props>
+		</property>
+	</bean> 
+
+	<bean id="theStage" class="com.springinaction.springidol.Stage" factory-method="getInstance" />
+
+</beans>
