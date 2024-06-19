@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="app.Login" table="Login">
+		<meta attribute="class-description">Holds a single resume, including the document image</meta>
+		
+		<id name="id" type="int">
+			<meta attribute="scope-field">protected</meta> <!-- so the setter cannot be used from without -->
+			<generator class="increment"/>
+		</id>
+		<property name="email" type="string" unique="true" not-null="true">
+			<meta attribute="scope-field">protected</meta>
+			<meta attribute="use-in-tostring">true</meta>
+		</property>
+		<property name="passwd" type="string"> <!-- encrypted -->
+			<meta attribute="scope-field">protected</meta>
+		</property>
+	</class>
+
+	<query name="app.getLogin">
+		<![CDATA[
+			SELECT email, passwd FROM Login
+			]]>
+	</query>
+
+</hibernate-mapping>

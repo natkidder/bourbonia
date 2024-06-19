@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plug-in classname="org.apache.struts.tiles.TilesPlugin" >
+	<!-- path to XML definition file -->
+	<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+	<!-- set Module-awareness to true -->
+	<set-property property="moduleAware" value="true" />
+</plug-in>

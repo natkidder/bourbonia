@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<servlet>
+		<servlet-name>uploading</servlet-name>
+		<servlet-class>upLoadFileCodeNew</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>retrieving</servlet-name>
+		<servlet-class>retrieveFileCodeNew</servlet-class>
+	</servlet>
+		<servlet>
+		<servlet-name>deleting</servlet-name>
+		<servlet-class>DeleteFile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>uploading</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>retrieving</servlet-name>
+		<url-pattern>/retrieve</url-pattern>
+	</servlet-mapping>
+		<servlet-mapping>
+		<servlet-name>deleting</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+</web-app>

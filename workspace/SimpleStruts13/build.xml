@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<project name="Copy To Local Tomcat" default="copy" basedir="."> 
+    <property name="webapp.name" value="SimpleStruts13"/> 
+    <property environment="env"/> 
+    <property name="source.dir" value="."/>
+    <property name="destination.dir" value="C:/tomcat/webapps/${webapp.name}"/>
+    <target name="copy"
+        description="Copies all files to tomcat webapps directory"> 
+        <echo message="Copy to: ${destination.dir}"/>
+        <echo message="Copy from: ${source.dir}"/> 
+        <!-- Copy All Main Files -->
+        <copy todir="${destination.dir}/">
+            <fileset dir="${source.dir}/">
+                <exclude name="**/*.java"/>
+                <exclude name="**CVS**"/>
+            </fileset>
+        </copy> 
+    </target>
+</project> 

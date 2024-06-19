@@ -1,0 +1,4 @@
+## first is supposed to be the largest, ther rest is the array
+9 9 4 5 -1
+-19 -19
+0 -6 -3 0

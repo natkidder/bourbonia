@@ -1,0 +1,11 @@
+Task,Priority,Comments
+make the addResume.jsp form buttons match those in ActionResume.java,3,
+have the dropdown lists in searching for a resume reflect the values from the database,7,see whether you want it as select:option in the jsp or from a collection
+remove extraneous buttons from the forms,8,
+have the Resume Upload File field hold information,2,
+have session factory be in session.setProperty so it's instantiated just once,6,
+add an ActionMessage for a successful event in the same form,5,
+"see why im, birthDt and comments don't get saved",1,
+see why the states don't save under certain conditions,2,
+have a button in the update form to navigate back to the main page,4,
+have a button to scroll between resumes,8,

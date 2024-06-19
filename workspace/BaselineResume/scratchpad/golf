@@ -1,0 +1,20 @@
+
+
+    	
+    	<td> 
+   	    <html:select property="birthMth">
+			<html:options collection="listMth" property="value" labelProperty="label" />
+    	</html:select>
+    	</td>
+    	<td align="right">Day:</td>
+    	<td> 
+   	    <html:select property="birthDay">
+			<html:options collection="listDay" property="value" labelProperty="label" />
+    	</html:select>
+		</td>
+    	<td align="right">Year:</td>
+    	<td> 
+   	    <html:select property="birthYr">
+			<html:options collection="listYr" property="value" labelProperty="label" />
+    	</html:select>
+		</td>

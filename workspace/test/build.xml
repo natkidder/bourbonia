@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="test" default="target1" basedir=".">
+	<target name="target1">
+		<echo>ran target1</echo>
+	</target>
+</project>

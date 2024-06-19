@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="app.Resume" table="Resume">
+		<meta attribute="class-description">Holds a single resume, including the document image</meta>
+		
+		<id name="id" type="int" column="resumeId">
+			<meta attribute="scope-field">protected</meta> <!-- so the setter cannot be used from without -->
+			<generator class="increment"/>
+		</id>
+		<property name="firstName" type="string">
+			<meta attribute="scope-field">protected</meta>
+		    <meta attribute="use-in-tostring">true</meta>
+		</property> 
+		<property name="mi" type="string">
+			<meta attribute="scope-field">protected</meta>
+			<meta attribute="use-in-tostring">true</meta>
+		</property>
+		<property name="lastName" type="string">
+			<meta attribute="scope-field">protected</meta>
+			<meta attribute="use-in-tostring">true</meta>
+		</property>
+		<property name="currEmployed" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="street" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="apt" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="city" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="state" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="zip" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="hphone" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="ophone" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="cphone" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="workCity" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="workState" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="email" type="string">
+			<meta attribute="scope-field">protected</meta>
+			<meta attribute="use-in-tostring">true</meta>
+		</property>
+		<property name="birthMth" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="birthDay" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="birthYr" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="birthDt" type="date">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="gender" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="lowSalary" type="java.math.BigDecimal">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="highSalary" type="java.math.BigDecimal">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="relocation" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="comments" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="skill" type="string">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+		<property name="yearsExp" type="integer">
+			<meta attribute="scope-field">protected</meta>
+		</property>
+	
+	</class>
+
+	<query name="app.getResume">
+		<![CDATA[
+			SELECT firstName, lastName, birthDt FROM Resume
+			]]>
+	</query>
+
+</hibernate-mapping>

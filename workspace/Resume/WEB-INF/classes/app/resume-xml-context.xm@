@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+             http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+             http://www.springframework.org/schema/aop 
+             http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+             http://www.springframework.org/schema/tx
+			 http://www.springframework.org/schema/tx/spring-tx.xsd
+             ">
+
+	<bean id="data-source" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
+		<property name="url" value="jdbc:jtds:sqlserver://192.168.10.92:1433/natResume"/>
+		<property name="username" value="sa" />
+		<property name="password" value="pwd123" />
+		<property name="initialSize" value="1" />
+		<property name="maxActive" value="5" />
+	</bean> 
+
+<!-- use cglib-nodep.jar rather than cglib.jar -->
+	<bean id="hibernate-template" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="session-factory"/>
+	</bean>
+
+	<!-- use for XML-based Hibernate config files -->
+	<bean id="session-factory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="data-source" />
+		<property name="mappingResources">
+			<list>
+				<value>app/Resume.hbm.xml</value>
+				<!-- how can one get ResumeChild into here? -->
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="transaction-manager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="session-factory"/>
+	</bean> 
+
+	<bean id="resumeDao" class="app.ResumeDao">
+		<property name="hibernateTemplate" ref="hibernate-template"/>
+	</bean>
+	
+	<tx:annotation-driven />
+
+<!--  
+	<bean id="acqDaoHDS" class="web.AcqDaoHibernateDaoSupport">
+		<property name="sessionFactory" ref="session-factory"/>
+	</bean>
+--> 
+	
+</beans>
