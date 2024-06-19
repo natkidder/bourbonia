@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <style>
+  @keyframes achange {
+  from {
+      height: 222px;
+  } to {
+      height: 0;
+  }
+}
+ div {
+   height: 222px;
+   background-color: yellow;
+ }
+ div.ng-hide {
+   animation: 1.5s achange;
+ }
+ </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js">
+ </script>
+ <body ng-app="ngAnimate">
+  hide the diva:
+  <input ng-model="someModel" type="checkbox"/>
+  <div ng-hide="someModel">
+  </div>
+ </body>
+</html>

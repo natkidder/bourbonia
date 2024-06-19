@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-_____="myApp" ng-controller="_____">
+   <p>
+    _____ _____ is:
+   </p>
+   <h1>
+    {{theTime}}
+   </h1>
+  <!-- The $interval service runs a function every specified {{inverval}} milliseconds. -->
+  <p>
+  _____ $interval service runs a function every _____ {{_____}} _____.
+  </p>
+  </div>
+  <script>
+   var app = angular._____('myApp', []);
+   var interval = 1000;
+app._____('_____', _____($scope, $interval) {
+  $scope.theTime = new _____().toLocaleTimeString();
+  $scope._____ = _____;
+  $interval(function () {
+      $scope.theTime = new Date().toLocaleTimeString();
+  }, interval);
+});
+  </script>
+ </body>
+</html>

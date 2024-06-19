@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="italianApp" ng-controller="italianController">
+   <button ng-click="toggleShowing()">
+    Click Me!
+   </button>
+   <div ng-show="isShowing">
+    <h1>
+     Offerings:
+    </h1>
+    <div>
+     Pizza
+    </div>
+    <div>
+     Pasta
+    </div>
+    <div>
+     Pesce
+    </div>
+   </div>
+  </div>
+  <script>
+   var app = angular.module('italianApp', []);
+   app.controller('italianController', function($scope) {
+    $scope.isShowing = false;
+    $scope.toggleShowing = function() {
+        $scope.isShowing = !$scope.isShowing;
+    }
+});
+  </script>
+  <!-- Click the button to show/hide the menu -->
+  <p>
+   Click the button to show/hide the menu
+  </p>
+ </body>
+</html>

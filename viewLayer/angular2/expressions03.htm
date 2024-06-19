@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+	 <!-- Change the value of the input field: -->
+  <p>
+   Change the value of the input field:
+  </p>
+  <div ng-app="" ng-init="myCol='lightblue'">
+   <input ng-model="myCol" style="background-color:{{myCol}}"/>
+  </div>
+  <!-- AngularJS resolves the expression and returns the result. -->
+  <p>
+   AngularJS resolves the expression and returns the result.
+  </p>
+  <!-- The background color of the input box will be whatever you write in the input field. -->
+  <p>
+   The background color of the input box will be whatever you write in the input field.
+  </p>
+ </body>
+</html>
+

@@ -1,0 +1,25 @@
+<HTML>
+<HEADER>
+<TITLE>Assignment 5-1</TITLE>
+<SCRIPT language="Javascript">
+function passFail(grade){
+  if (grade >=60) {
+    return "passed" }
+  else {
+    return "failed" }
+}
+function showGrade(name, grade){
+  document.write(name + " has " + passFail(grade) + " the class<BR>")
+}
+</SCRIPT>
+</HEADER>
+<BODY bgcolor="#CCFFFF">
+<SCRIPT language="JavaScript">
+showGrade("Sue", 58)
+showGrade("Joe", 98)
+showGrade("Terry", 77)
+showGrade("Felicia", 60.1)
+showGrade("Albert", 59.9)
+</SCRIPT>
+</BODY>
+</HTML>

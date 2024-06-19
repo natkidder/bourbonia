@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div ng-app="myApp">
+
+<p>In the application but not the controller's scope:</p>
+<p>{{title}}</p>
+
+<div ng-controller="myCtrl">
+
+<p>Inside the controller's scope:</p>
+<p>{{title}}</p>
+
+</div>
+
+<p>Now it's back to:</p>
+<p>{{title}}</p>
+
+<script>
+ var app = angular.module('myApp', []);
+ app.run(function($rootScope) {
+    $rootScope.title = 'General';
+});
+ app.controller('myCtrl', function($scope) {
+    $scope.title = "Colonel";
+});
+</script>
+
+<!-- Notice that controller's color variable does not overwrite the rootScope's color value. -->
+<p>
+ Notice that controller's color variable does not overwrite the rootScope's color value.
+</p>
+
+</body>
+</html>

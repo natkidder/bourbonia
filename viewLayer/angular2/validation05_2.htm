@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <style>
+  form.ng-pristine {
+    background-color:lightBlue;
+}
+  form.ng-dirty {
+    background-color:pink;
+}
+ </style>
+ <body ng-app="">
+  <form name="chameleon">
+	  <!-- Try writing in the input field: -->
+   <p>
+    Try typing below:
+   </p>
+   <input name="thisInput" ng-model="aModel" required="xxx"/>
+   <!-- The form gets a "ng-dirty" class when the form has been modified, and will therefore turn pink. -->
+   <p>
+     The form gets a "ng-dirty" class when the form has been modified, and will therefore turn pink.
+   </p>
+  </form>
+ </body>
+</html>

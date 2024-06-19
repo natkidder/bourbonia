@@ -1,0 +1,9 @@
+How to get ASP.NET to open up a local project on your PC.
+
+Assign yourself local admin rights, install IIS, run that script below to change the registry, and then open up .NET. 
+You may want to add IMFNT\username to the list of Administrators for your machine.
+"%windir%\Microsoft.NET\Framework\v1.1.4322\aspnet_regiis.exe" -i 
+
+After you install IIS, select Start if it isn't grayed out already. 
+
+

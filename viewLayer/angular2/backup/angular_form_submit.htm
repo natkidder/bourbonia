@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+The AngularJS directive ng-model binds the input elements to the model.
+The model object has two properties: user and email.
+Because of ng-show, the spans with color:red are displayed only when user or email is $dirty and $invalid.
+-->
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <h2>
+   Validation Example
+  </h2>
+  <form name="myForm" ng-app="myApp" ng-controller="validateCtrl" novalidate="">
+   <p>
+    Username:
+    <br/>
+    <input name="user" ng-model="user" required="" type="text"/>
+    <span ng-show="myForm.user.$dirty &amp;&amp; myForm.user.$invalid" style="color:red">
+     <span ng-show="myForm.user.$error.required">
+      Username is required.
+     </span>
+    </span>
+   </p>
+   <p>
+    Email:
+    <br/>
+    <input name="email" ng-model="email" required="" type="email"/>
+    <span ng-show="myForm.email.$dirty &amp;&amp; myForm.email.$invalid" style="color:red">
+     <span ng-show="myForm.email.$error.required">
+      Email is required.
+     </span>
+     <span ng-show="myForm.email.$error.email">
+      Invalid email address.
+     </span>
+    </span>
+   </p>
+   <p>
+    <input ng-disabled="myForm.user.$dirty &amp;&amp; myForm.user.$invalid ||  
+myForm.email.$dirty &amp;&amp; myForm.email.$invalid" type="submit"/>
+   </p>
+  </form>
+  <script>
+   var app = angular.module('myApp', []);
+app.controller('validateCtrl', function($scope) {
+    $scope.user = 'John Doe';
+    $scope.email = 'john.doe@gmail.com';
+});
+  </script>
+ </body>
+</html>
+

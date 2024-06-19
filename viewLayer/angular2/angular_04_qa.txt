@@ -1,0 +1,66 @@
+q=A service is a ___ or ___ limited to your ___ - F,   O,   A A
+a=function,object,Angular application
+a=object,function,Angular application
+a=function,object,application
+a=object,function,application
+
+q=A service can be ___ or ___ from the standpoint of making available - C,   B
+a=builtin,custom
+a=built-in,custom
+a=custom,builtin
+a=custom,built-in
+a=builtin,predefined
+a=built-in,predefined
+a=predefined,builtin
+a=predefined,built-in
+
+q=Services must be passed as arguments to the ___ - C
+a=controller
+
+q=The ___ service returns the page's URL - DL
+a=$location
+
+q=The ___ service makes requests to the server - DH
+a=$http
+
+q=The ___ service sets a delay - DT
+a=$timeout
+
+q=$timeout requires as arguments a(n) ___ and ___ - F D,   M
+a=function definition,milliseconds
+a=function specification,milliseconds
+a=function call,milliseconds
+
+q=To create your own service, use the application's non-static ___ method, which takes (in order) the ___ and ___ - S,   N,   F S
+a=service,name,function specification
+a=service,name,function call
+
+q=The $http service exposes, among others, a ___ and ___ method - G,   P
+a=get,post
+a=post,get
+
+q=Use these two objects for ansynchronous HTTP calls - O,  P   one is a margarine, the other produces a datum
+a=observation,promise
+a=promise,observation
+
+q=Five server responses properties, in alphabetical order - C,   D,   H,   S,   ST
+a=config,data,headers,status,statusText
+
+q=The $http version of catch is ___ - T
+a=then
+
+q=To fetch a table, use the response's ___.___ property - D.R
+a=data,records
+a=data.records
+
+q=You can conditionally control HTML element attributes using the ___ directive - N-I
+a=ng-if
+
+q=You can create HTML select boxes using ___ through a(n) ___ via ___ - L,   C,   N-O
+a=looping,collection,ng-options
+a=looping,list,ng-options
+a=looping,array,ng-options
+
+q=In lieu of ng-options you can use ___ - N-R
+a=ng-repeat
+

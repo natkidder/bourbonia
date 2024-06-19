@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script Language="JavaScript">
+function isZero(num) {
+  if (num <10) { 
+    return "0" }
+  else {
+    return "" }
+}
+</script>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var myDate = new Date()
+var myHrs = myDate.getHours()
+var myMins = myDate.getMinutes()
+var mySecs = myDate.getSeconds()
+var zeroMins
+var zeroSecs
+zeroMins = isZero(myMins)
+zeroSecs = isZero(mySecs)
+document.write("The time is " + myHrs + ":" + zeroMins + myMins + ":" + zeroSecs + mySecs)
+</SCRIPT>
+
+</BODY>
+</HTML>

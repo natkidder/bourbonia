@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="people=[
+{name:'Diana',country:'Vietnam'},
+{name:'Kelley',country:'USA'},
+{name:'Pudji',country:'Indonesia'}]">
+
+<p>list of people:</p>
+<ul>
+  <li ng-repeat="person in people">
+  {{ person.name + ', ' + person.country }}</li>
+</ul>
+
+</div>
+
+</body>
+</html>

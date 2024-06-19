@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="thisapp" ng-controller="clickController">
+   <button ng-click="cnt = cnt + 3">
+    Click Me!
+   </button>
+   <p>
+    {{ cnt }}
+   </p>
+  </div>
+  <script>
+   var thisapp = angular.module('thisapp', []);
+   thisapp.controller('clickController', function($scope) {
+    $scope.cnt = 2;
+});
+  </script>
+ </body>
+</html>

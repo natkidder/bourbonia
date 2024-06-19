@@ -1,0 +1,21 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var myDate = new Date()
+var myYear = myDate.getYear()
+var myMonth = myDate.getMonth()
+var myDOM = myDate.getDate()
+months = new Array("January", "February", "March", "April", "May", "June", "July", "August")
+months[8]  = "September"
+months[9]  = "October"
+months[10] = "November"
+months[11] = "December"
+document.write("Today is " + months[myMonth] + " " + myDOM + ", " + myYear)
+</SCRIPT>
+
+</BODY>
+</HTML>

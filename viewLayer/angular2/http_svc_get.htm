@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+   <p>
+    Today's welcome message is:
+   </p>
+   <h1>
+    {{myWelcome}}
+   </h1>
+  </div>
+  <!-- The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable. -->
+  <p>
+   The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.
+  </p>
+  <!-- url: https://www.w3schools.com/w3css/tryw3css_templates_fashion_blog.htm  can also try: https://api.npms.io/v2/search?q=scope:angular -->
+  <script>
+   var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http({
+    method : "GET",
+    url : "https://www.w3schools.com/w3css/tryw3css_templates_fashion_blog.htm"
+  }).then(function mySuccess(response) {
+      $scope.myWelcome = response.data;
+    }, function myError(response) {
+      $scope.myWelcome = response.statusText;
+  });
+});
+  </script>
+ </body>
+</html>
+

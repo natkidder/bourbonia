@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+   <p>
+    {{ x1 }}
+   </p>
+   <p>
+    {{ x2 }}
+   </p>
+  </div>
+  <!-- Angular does NOT autocast: so "3.14" would not count as a number even though 3.14 would -->
+  <script>
+   var app = angular.module('myApp', []);
+   app.controller('myCtrl', function($scope) {
+    $scope.x1 = "JOHN";
+    $scope.x2 = angular.isNumber($scope.x1);
+});
+  </script>
+ </body>
+</html>
+

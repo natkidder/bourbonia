@@ -1,0 +1,47 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Switch to Another Page</h1>
+<h2>For some reason, it's not accepting a string within a string<h2>
+<script Language="JavaScript">
+function switchSite() {
+  window.location.href = "m:/javascript/assign11-2A.html"
+  var assign112A
+  assign112A = ' ' + 
+'<HTML> ' +
+'<HEAD> ' +
+'<TITLE>JavaScript Test</TITLE> ' +
+'<h1>Switch to Another Page</h1> ' +
+'</HEAD> ' +
+'<BODY bgcolor="white" font="courier" size=14> ' +
+'<script language="JavaScript"> ' + 
+'<SCRIPT>' + 
+'</BODY>' + 
+'</HTML>'
+
+  document.open()
+  document.write(assign112A)
+  document.close()
+}
+
+</script>
+</HEAD>
+
+<BODY bgcolor="white" font="courier" size=14>
+<form name="changeSite">
+<input type="button" name="newSite" value="To Get to 11-2A" onClick='switchSite()'>
+<p>Enter your name:         
+<input type="text" name="personName" size=30 maxsize=30>
+<p>Enter your hometown:
+<input type="text" name="personTown" size=40 maxsize=40>
+</form>
+
+<SCRIPT language="JavaScript">
+<!-- 
+document.write("Current URL: " + window.location.href)
+document.write("<br>Page Last Modified: " + document.lastModified)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

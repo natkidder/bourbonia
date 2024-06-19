@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="coordApp" ng-controller="coordCtrl">
+   <h1 ng-mousemove="genCoordinates($event)">
+    Mouse over Me!
+   </h1>
+   <p>
+    Coordinates: {{x + ', ' + y}}
+   </p>
+  </div>
+  <script>
+   var app = angular.module('coordApp', []);
+   app.controller('coordCtrl', function($scope) {
+    $scope.genCoordinates = function(myEvent) {
+        $scope.x = myEvent.clientX;
+        $scope.y = myEvent.clientY;
+    }
+});
+  </script>
+  <!-- Mouse over the heading to display the value of clientX and clientY from the $event object -->
+  <p>
+   Mouse over the heading to display the value of clientX and clientY from the $event object
+  </p>
+ </body>
+</html>

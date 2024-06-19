@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <div ng-app="">
+  <p>
+   Enter any value:
+  </p>
+  <form name="validatedForm">
+	  <!-- what you name the model seems to be irrelevant, but you still need it -->
+   <input name="validatedInput" ng-model="someModel" required="true"/>
+  </form>
+  <p>
+   The input value's validity is:
+  </p>
+  <h1>
+   {{validatedForm.validatedInput.$valid}}
+  </h1>
+ </body>
+</html>

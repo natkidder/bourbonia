@@ -1,0 +1,45 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Current Time</h1>
+
+<script Language="JavaScript">
+function showTodaysDate() {
+  var today = new Date()
+  var currYr = today.getYear()
+  var currMth = today.getMonth() + 1
+  var currDay = today.getDate()
+  var today2 = "today is " + currMth + "/" + currDay + "/" + currYr
+  alert(today2)
+}
+     
+function currentTime() {
+  var time = new Date()
+  var hr = time.getHours()
+  var min = time.getMinutes()
+  var sec = time.getSeconds()
+//if hr < 10 then return a space, otherwise a null string
+  hr = ((hr < 10) ? " " : "") + hr
+  min = ((min < 10) ? "0" : "") + min
+  sec = ((sec < 10) ? "0" : "") + sec
+  document.timeDemo.timeBtn.value = hr + ":" + min + ":" + sec
+//  document.print("<br><br><br>" + getGreeting(hr))
+  myTimer = setTimeout("currentTime()",1000)
+}
+</script>
+
+</HEAD>
+<BODY bgcolor="white" onload="currentTime()">
+
+<form name="timeDemo">
+<font face="Courier" size=4>
+<input type="button" name="timeBtn" onClick="showTodaysDate()">
+<br>Press Me
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>

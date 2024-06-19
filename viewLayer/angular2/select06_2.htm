@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="thisapp" ng-controller="ldController">
+   <p>
+    Select an item:
+   </p>
+   <select ng-model="offeringModel" ng-options="ld for (ld, types) in offerings">
+   </select>
+   <h1>
+    Your brand: {{offeringModel.brand}}
+   </h1>
+   <h2>
+    Variant: {{offeringModel.variant}}
+   </h2>
+   <h3>
+    additives: {{offeringModel.additives}}
+   </h3>
+   <!-- Note that the selected value represents an object -->
+   <p>
+    Note that the selected value represents an object
+   </p>
+  </div>
+  <script>
+   var app = angular.module('thisapp', []);
+   app.controller('ldController', function($scope) {
+    $scope.offerings = {
+        offering01 : {brand : "All", variant : "free & clear", additives : "none"},
+        offering02 : {brand : "Arm & Hammer", variant : "OxyClean", additives : "peroxide"},
+        offering03 : {brand : "Tide", variant : "standard", additives : "dyes"}
+    }
+});
+  </script>
+ </body>
+</html>

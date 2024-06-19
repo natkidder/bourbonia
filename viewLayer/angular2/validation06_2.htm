@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- In HTML, the new directive will be referred to by using the attribute my-directive. -->
+<!-- In the JavaScript we start by adding a new directive named myDirective. -->
+<!-- Remember, when naming a directive, you must use a camel case name, myDirective, but when invoking it, you must use - separated name, my-directive. -->
+<!-- Then, return an object where you specify that we require  ngModel, which is the ngModelController. -->
+<!-- Make a linking function which takes some arguments, where the fourth argument, mCtrl, is the ngModelController, -->
+<!-- Then specify a function, in this case named myValidation, which takes one argument, this argument is the value of the input element. -->
+<!-- Test if the value contains the letter "e", and set the validity of the model controller to either true or false. -->
+<!-- At last, mCtrl.$parsers.push(myValidation); will add the myValidation function to an array of other functions, which will be executed every time the input value changes.  -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body ng-app="anApp">
+  <p>
+   Enter a value below
+  </p>
+  <form name="aForm">
+   <input a-directive="" name="anInput" ng-model="someModel" required=""/>
+  </form>
+  <p>
+   Is there an e in it?
+  </p>
+  <h1>
+   {{aForm.anInput.$valid}}
+  </h1>
+  <script>
+   var app = angular.module('anApp', []);
+   app.directive('aDirective', function() {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attr, myCtrl) {
+            function aValidation(value) {
+                if (value.indexOf("e") > -1) {
+                    myCtrl.$setValidity('charE', true);
+                } else {
+                    myCtrl.$setValidity('charE', false);
+                }
+                return value;
+            }
+            myCtrl.$parsers.push(aValidation);
+        }
+    };
+});
+  </script>
+  <!-- The input field must contain the character "e" to be considered valid. -->
+  <p>
+   The input field must contain the character "e" to be considered valid.
+  </p>
+ </body>
+</html>

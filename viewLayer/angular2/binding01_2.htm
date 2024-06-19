@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="thisApp" ng-controller="thisCtrl">
+    <p ng-bind="lastname"></p>
+</div>
+
+<script>
+ var app = angular.module('thisApp', []);
+ app.controller('thisCtrl', function($scope) {
+    $scope.firstname = "Jose";
+    $scope.lastname = "Uribe";
+});
+</script>
+
+<!-- Use the ng-bind directive to bind the innerHTML of an element to a property in the data model. -->
+<p>
+ _____ _____ _____-_____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____.
+</p>
+
+</body>
+</html>

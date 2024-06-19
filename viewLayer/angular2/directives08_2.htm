@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="thisApp">
+
+<span class="the-prime-directive"></span>
+
+<script>
+  var app = angular.module("thisApp", []);
+  app.directive("thePrimeDirective", function() {
+    return {
+        restrict : "C",
+        template : "<h1>Obey the Prime Directive!</h1>"
+    };
+});
+</script>
+
+<!-- <strong>Note:</strong> You must add the value "_____" to the _____ property to be able to invoke the directive from a class name. -->
+<p><strong>Note:</strong> You must add the value "C" to the restrict property to be able to invoke the directive from a class name.
+</p>
+
+</body>
+</html>

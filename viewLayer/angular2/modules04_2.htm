@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div ng-app="myAppl" ng-controller="myCtrlr">
+{{ firstname + " " + lastname }}
+</div>
+<script>
+  var app = angular.module("myAppl", []);
+  app.controller("myCtrlr", function($scope) {
+    $scope.firstname = "Mike";
+    $scope.lastname = "Moore";
+});
+</script>
+<!-- It is recommended that you load the AngularJS library either in the HEAD or at the start of the BODY. -->
+<p>It is recommended that you load the AngularJS library either in the HEAD or at the start of the BODY.
+</p>
+</body>
+</html>

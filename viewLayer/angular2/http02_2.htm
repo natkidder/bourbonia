@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>_____'s _____ message _____:</p>
+<b>{{myWelcome}}</b>
+</div>
+<!-- The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable. -->
+<!--	can also try: https://api.npms.io/v2/search?q=scope:angular or http://localhost:8090/students -->
+<p>_____ $http service _____ _____ page on _____ _____, and _____ response is set as _____ _____ of _____ "_____" _____</p>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+  $http({
+    method : "GET",
+    url : "https://api.npms.io/v2/search?q=scope:angular"
+  }).then(function mySuccess(response) {
+      $scope.myWelcome = response.data;
+    }, function myError(response) {
+      $scope.myWelcome = response.statusText;
+  });
+});
+</script>
+</body>
+</html>

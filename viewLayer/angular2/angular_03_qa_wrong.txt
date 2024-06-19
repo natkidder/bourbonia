@@ -1,0 +1,4 @@
+
+q=An AngularJS controller is a regular ___ - J O
+a=javascript object
+

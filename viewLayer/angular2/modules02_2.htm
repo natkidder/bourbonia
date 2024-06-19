@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="thisApp" san-diego-padres></div>
+<!-- "I was made in a directive constructor!" -->
+<script>
+  var app = angular.module("thisApp", []);
+  app.directive("sanDiegoPadres", function() {
+    return {
+        template : "I was made in a directive constructor, padre!"
+    };
+});
+</script>
+</body>
+</html>

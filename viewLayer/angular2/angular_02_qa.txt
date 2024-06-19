@@ -1,0 +1,73 @@
+q=The three major beginner AngularJS built-in directives (in alphabetical order) - N-A,   N-I,   N-M
+a=ng-app,ng-init,ng-model
+
+q=The ng-app directive ___ an AngularJS ___ - I,   A   The first when you put in a short signature
+a=initializes,application
+
+q=The ng-init directive initializes ___ - A D
+a=application data
+
+q=In lieu of ng-init, one often uses a(n) ___ or a(n) ___ instead (not directive names) - C,   M
+a=controller,model
+a=model,controller
+
+q=The ng-model directive binds the ___ of an HTML ___ to application data - V,   C    The second is the head honcho on Get Smart
+a=value,control
+a=content,control
+
+q=In AngularJS, data binding means attaching ___ with ___ - E,   D
+a=expressions,data
+a=data,expressions
+
+q=Often, data above is set in a(n) ___ - M
+a=model
+
+q=To loop through an array, use the ___ directive - N-R
+a=ng-repeat
+
+q=The ng-model directive can ___ the ___ of data (like float) - V,   T
+a=validate,type
+
+q=ng-model can also provide application data ___ (such as dirty or touched) - S
+a=status
+
+q=You can create your own class-with-methods using a function inside the ___ - A D
+a=application's directive
+a=application directive
+a=directive
+
+q=The function argument would be a(n) ___ rendering of the affected element's relevant ___ - C-C,   P
+a=camel-case, property
+a=camel case, property
+
+q=The ___ function property deals with allowed types of element properties, and the ___ property deals with what to do with that element - R,   T
+a=restrict,template
+
+q=When restrict is set to ___, that means the directive applies to a CSS ___ - first like a vitamin, the other is first in luxury travel
+c, class
+
+q=When restrict is set to ___ and replace is set to ___, then a directive shows inside a comment - first like the golden arches, second a boolean
+a=m,true
+
+q=When restrict is set to ___ that means the directive must be an element ___ - the first like a steak sauce, the second is like an adjective
+a=a,attribute
+
+q=The ___ directive lets you bind the value of an input field to a variable - N-M
+a=ng-model
+
+q=___ means the input control value can in runtime set the variable value - T-W B
+a=two-way binding
+a=2-way binding
+
+q=The ___ input element property deals with whether it is the right format - V
+a=valid
+
+q=The ___ input element property deals with whether it is currently being edited - D
+a=dirty
+
+q=The ___ input element property deals with whether it lost focus - T
+a=touched
+
+q=The ___ directive returns true when the input value is not legal - N-I
+a=ng-invalid
+

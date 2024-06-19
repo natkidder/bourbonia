@@ -1,0 +1,22 @@
+
+<html><body>
+<p>FF <input name=testInp type=text onkeyup="setColor(this);"  />
+<p>IE <input name=testInp2 type=text onkeyup="setColor2(this);" />
+<br><br><div id="div1"></div>
+
+<script>
+
+function setColor(elem) {
+	//alert(elem.value);
+	if (isNaN(elem.value)) {
+		elem.style.backgroundColor="red";
+	} else {
+		elem.style.backgroundColor="white";
+	}
+	var intpart = elem.value.split(".")[0];
+	elem.value=intpart;
+	document.getElementById("div1").innerHTML = intpart;
+}
+
+</script>
+</body></html>

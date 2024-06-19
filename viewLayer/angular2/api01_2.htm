@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="lowerApp" ng-controller="lowerCtrl">
+   <p>
+    {{ firstName }}
+   </p>
+   <p>
+    {{ firstNameLower }}
+   </p>
+  </div>
+  <script>
+   var app = angular.module('lowerApp', []);
+   app.controller('lowerCtrl', function($scope) {
+    $scope.firstName = "Francois";
+    $scope.firstNameLower = angular.lowercase($scope.firstName);
+});
+  </script>
+ </body>
+</html>

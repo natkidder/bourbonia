@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="anapp" ng-controller="viewController">
+
+<p>The name is {{ firstname + " " + lastname | uppercase }}</p>
+
+</div>
+
+<script>
+ angular.module('anapp', []).controller('viewController', function($scope) {
+    $scope.firstname = "Jerry",
+    $scope.lastname = "Sienfeld"
+});
+</script>
+
+</body>
+</html>

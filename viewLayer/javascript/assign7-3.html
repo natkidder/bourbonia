@@ -1,0 +1,40 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="javascript">
+var msg = "watch it scroll..."  //initializing the variable and its value
+var varGo2 = 1  //you can't pass this as an argument 'cause it's undef'd in function 
+                //after 1st pass.  So you pass it as a global 
+function scrollMsgDemo(){
+  var varGo = varGo2
+  document.scrollDemo.textScroll.value = msg
+  msg = msg.substring(1,msg.length) + msg.substring(0,1) //actual scrolling function
+  if (varGo > 0) {
+    myTimer = setTimeout("scrollMsgDemo()",200) } //repeats funct every .2 secs
+  else {
+    clearTimeout("myTimer") }  //stops the setTimeout
+}
+function stopScrolling(){
+  varGo2 = 0  //resets global so it stops
+  scrollMsgDemo()
+}
+</script>
+</HEAD>
+<BODY bgcolor="white" onload='scrollMsgDemo(1)'>
+<!-- <BODY bgcolor="white"> -->
+
+<!-- text box with the scrolling message -->
+<form name="scrollDemo">
+<input type="text" name="textScroll" size=30 maxlength=30>
+<p>
+<!-- button to stop the scrolling -->
+<input type="button" name="myButton" value="Push to stop" 
+onClick='stopScrolling(0)'>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>

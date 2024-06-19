@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Current Time</h1>
+
+<script Language="JavaScript">
+function getGreeting(hour) {
+  if (hour > 0 && hour < 12) {
+    return "Good Morning" }
+  else {
+    if (hour >= 12 && hour < 18) {
+      return "Good Afternoon" }
+    else {
+      return "Good Evening" }
+  }
+}
+    
+function currentTime() {
+  var time = new Date()
+  var hr = time.getHours()
+  var min = time.getMinutes()
+  var sec = time.getSeconds()
+//if hr < 10 then return a space, otherwise a null string
+  hr = ((hr < 10) ? " " : "") + hr
+  min = ((min < 10) ? "0" : "") + min
+  sec = ((sec < 10) ? "0" : "") + sec
+  document.timeDemo.currentTime.value = hr + ":" + min + ":" + sec
+//  document.print("<br><br><br>" + getGreeting(hr))
+  myTimer = setTimeout("currentTime()",1000)
+}
+</script>
+
+</HEAD>
+<BODY bgcolor="white" onload="currentTime()">
+
+<form name="timeDemo">
+<font face="Courier" size=4>
+<input type="text" name="currentTime" size=15 maxlength=15>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>

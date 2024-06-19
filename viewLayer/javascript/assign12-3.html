@@ -1,0 +1,43 @@
+<HTML>
+<HEAD>
+<TITLE>This Enables You to Change Pictures</TITLE>
+<h2>Animal Planet</h2>
+<script language="JavaScript">
+var picture = new Array("bird1.jpg","mutt.jpg","bird2.jpg","boxer.jpg")
+var name = new Array("Tweety","Brucie","Puppyeyes","Foghorn")
+var pictNum = 1
+var numOfPicts = picture.length  //no. of elements in array
+function prevPicture() {
+  if (pictNum > 1) {
+    pictNum-- }
+  else {
+    pictNum = picture.length }
+  document.myPicture.src=picture[pictNum-1]
+  document.myForm.myDesc.value=name[pictNum-1]
+}
+function nextPicture() {
+  if (pictNum < numOfPicts) {
+    pictNum++ }
+  else {
+    pictNum = 1 }
+  document.myPicture.src=picture[pictNum-1]
+  document.myForm.myDesc.value=name[pictNum-1]
+}
+</script>
+</HEAD>
+<BODY bgcolor="white">
+<IMG src="bird1.jpg" name="myPicture" width=140, height=190>
+<form name="myForm">
+<input type="text" name="myDesc" value="Tweety" size=15 maxlength=15>
+</form>
+<br>
+<A href="JavaScript:prevPicture()">Previous</A>&nbsp;&nbsp;
+<A href="JavaScript:nextPicture()">Next</A>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

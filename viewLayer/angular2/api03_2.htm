@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+   <p>
+    {{ test }}
+   </p>
+   <p>
+    {{ istest }}
+   </p>
+  </div>
+  <script>
+   var app = angular.module('myApp', []);
+   app.controller('myCtrl', function($scope) {
+    $scope.test = 3.14;
+    $scope.istest = angular.isString($scope.test);
+});
+  </script>
+ </body>
+</html>

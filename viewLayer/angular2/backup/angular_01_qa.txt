@@ -1,0 +1,57 @@
+q=AngularJS extends HTML attributes with ___ and binds data to HTML using ___ - D,  E
+a=directives,expressions
+
+q=The ___ directive defines an AngularJS application - N-A
+a=ng-app
+
+q=The ___ directive binds the value of HTML controls (input, select, textarea) to application data - N-M
+a=ng-model
+
+q=The ___ directive connects application data to the HTML view - N-B
+a=ng-bind
+
+q=The ___ directive creates and sets AngularJS application variables - N-I
+a=ng-init
+
+q=An AnjularJS ___ is written inside double braces ({{ }}) and displays a ___ - E,   V
+a=expression,value
+
+q=An expression can enclose inside its {{ }} a ___ - V
+a=variable
+
+q=AngularJS ___ define AngularJS applications, whereas its individual ___ drives those same applications - M,   C
+a=modules,controller
+
+q=Besides double-braces, AngularJS expression can be displayed by setting them to a(n) ___ directive - N-B
+a=ng-bind
+
+q=A variable can also be a(n) ___ - O F
+a=object field
+a=object property
+
+q=AngularJS arrays are like ___ - J A
+a=javascript arrays
+
+q=An AngularJS ___ holds the elements of a(n) ___ - M,   A
+a=module,application
+
+q=The function ___.___ creates such an application - A,   M
+a=angular,module
+a=angular.module
+
+q=The module (or application) name must reside in an HTML ___ element - D
+a=div
+
+q=What must also reside in the div element is the application's ___ and/or ___ name - C,   D
+a=controller,directive
+a=directive,controller
+
+q=A controller is similar to a Java ___, while a directive is like a ___ - B,   C W M
+a=bean,class with methods
+
+q=Module and controller definitions can be specified inside of ___ - S F    as opposed to right there
+a=separate files
+
+q=Load your angular.js library at the ___ of the HTML document - T
+a=top
+

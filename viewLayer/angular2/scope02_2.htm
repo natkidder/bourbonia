@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="anapp" ng-controller="acontroller">
+
+<input ng-model="carmodel">
+
+<p>The car model is {{carmodel}}</p>
+
+</div>
+
+<script>
+ var app = angular.module('anapp', []);
+ app.controller('acontroller', function($scope) {
+    $scope.carmodel = "Kia Soul";
+});
+</script>
+
+<!-- When you change the name in the input field, the changes will affect the model, and it will also affect the name property in the controller. -->
+<p>
+ _____ _____ _____ _____ _____ _____ _____ _____ _____, _____ _____ _____ _____ _____ _____, _____ _____ _____ _____ _____ _____ _____ _____ _____ _____ _____.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h2>Demonstration of a While Loop and a Do Loop</h2>
+</HEAD>
+<BODY bgcolor="white" font="courier">
+
+<SCRIPT language="JavaScript">
+var i = 1
+var j = 1
+var product
+while (i<=10) {
+  do {
+    product = i*j
+    product = ((product < 10) ? "+" : "") + product
+    product = "" + product
+    document.write(" " + product)
+    j++
+  } while (j<=10) 
+  document.write("<br>")
+  i++
+  j = 1
+}
+</SCRIPT>
+
+</BODY>
+</HTML>

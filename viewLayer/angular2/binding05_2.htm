@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="anapp" ng-controller="ctrl">
+    <p ng-click="chgName()">{{firstname}}</p>
+</div>
+
+<script>
+ var app = angular.module('anapp', []);
+ app.controller('ctrl', function($scope) {
+    $scope.firstname = "Robby";
+    $scope.chgName = function() {
+        $scope.firstname = "Will";
+    }
+});
+</script>
+
+<!-- Click on the header to run the "changeName" function. -->
+<p>
+ Click on the header to run the "changeName" function.
+</p>
+
+<!-- This example demonstrates how to use the controller to change model data. -->
+<p>
+ This example demonstrates how to use the controller to change model data.
+</p>
+
+</body>
+</html>

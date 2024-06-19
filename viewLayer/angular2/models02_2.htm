@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="thisApp" ng-controller="thisCtrl">
+ Full name: <input ng-model="fullName">
+<h3>Full name: {{fullName}}</h3>
+</div>
+
+<script>
+ var app = angular.module('thisApp', []);
+ app.controller('thisCtrl', function($scope) {
+    $scope.fullName = "Ed Milner";
+});
+</script>
+
+<!-- Change the name inside the input field, and you will see the name in the header changes accordingly. -->
+<p>
+ Change the name inside the input field, and you will see the name in the header changes accordingly.
+</p>
+
+</body>
+</html>

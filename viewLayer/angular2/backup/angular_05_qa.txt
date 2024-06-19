@@ -1,0 +1,66 @@
+q=When fetching from a database, ensure the fetched data is in ___ format - J
+a=json
+
+q=A request for data from a different server (other than the requesting page), are called ___ HTTP requests - C-S
+a=cross-site
+
+q=cross-site scripting is convenient but entails a ___ - S R
+a=security risk
+
+q=The ___ directive points to the ___ attribute of a control, so you can make it usable or unusable - N-D,   D
+a=ng-disabled,disabled
+
+q=The ___ directive can hide an HTML element - N-S
+a=ng-show
+
+q=The ___ directive functions as the opposite of ng-show - N-H
+a=ng-hide
+
+q=An AngularJS ___ decides what happens on screen when one manipulates the ___ and ___ - E,   M,   K
+a=event,mouse,keyboard
+a=event,keyboard,mouse
+
+q=The ___ object encapulates the ___ - DE,   B E
+a=$event,browser's event
+a=$event,event in the browser
+
+q=The four main input controls for data forms (in alphabetical order) - B,   I,   S,   T
+a=button,input,select,textarea
+
+q=The ___ directive binds data to a given input control - N-M
+a=ng-model
+
+q=The ___ and its child, ___ directives work with radio buttons - N-S,   N-S-W
+a=ng-switch,ng-switch-when
+
+q=Input validation is generally done by ___, but you can use ___ as well - H,   A F
+a=HTML,Angular functions
+
+q=To make an input or textarea filled out at least, use the HTML ___ attribute, and check using its ___ variable - R,  DV
+a=required,$valid
+
+q=The ___ attribute means you have to enter a valid address - E
+a=email
+
+q=The six states of the input field (in alphabetical order, $'s optional) - D,   I,   P,   T,   U,   V
+a=$dirty,$invalid,$pristine,$touched,$untouched,$valid
+a=dirty,invalid,pristine,touched,untouched,valid
+
+q=Forms have five of the six states, with ___ left out - D
+a=$dirty
+a=dirty
+
+q=Angular input and form CSS classes are the same as their validations except they are preceded by ___ instead of dollar signs - N
+a=ng-
+
+q=Their classes are ___ if the value they represent is ___ - R,   F
+a=removed,false
+a=deleted,false
+
+q=To create your own CSS validation, you must add a new ___ to your application, and validate inside a ___ - D,   F
+a=directive,function
+a=directive,function call
+
+q=The HTML form attribute ___ disables form idiot-proofing - N
+a=novalidate
+

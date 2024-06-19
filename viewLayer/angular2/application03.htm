@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<!-- We also want to be able to remove items from the shopping list. -->
+<!-- In the controller, make a function named removeItem, which takes the index of the item you want to remove, as a parameter. -->
+<!-- In the HTML, make a <span> element for each item, and give them an ng-click directive which calls the removeItem function with the current $index. -->
+
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <script>
+   var app = angular.module("myShoppingList", []); 
+  app.controller("myCtrl", function($scope) {
+    $scope.products = ["Milk", "Bread", "Cheese"];
+    $scope.addItem = function () {
+        $scope.products.push($scope.addMe);
+    }    
+    $scope.removeItem = function (x) {
+        $scope.products.splice(x, 1);
+    }
+});
+  </script>
+  <div ng-app="myShoppingList" ng-controller="myCtrl">
+   <ul>
+    <li ng-repeat="x in products">
+     {{x}}
+     <span ng-click="removeItem($index)">
+      ×
+     </span>
+    </li>
+   </ul>
+   <input ng-model="addMe"/>
+   <button ng-click="addItem()">
+    Add
+   </button>
+  </div>
+  <!-- Click the little x to remove an item from the shopping list. -->
+  <p>
+   Click the little x to remove an item from the shopping list.
+  </p>
+ </body>
+</html>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+ <style>
+  table, tr , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+ </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <!-- basic table -->
+ <body>
+  <div ng-app="minimus" ng-controller="napoleon">
+   <table>
+    <tr ng-repeat="x in people">
+     <td>
+      {{ x.Name }}
+     </td>
+     <td>
+      {{ x.Country }}
+     </td>
+    </tr>
+   </table>
+  </div>
+  <!-- https://www.w3schools.com/angular/customers.php -->
+  <script>
+   var muriel = angular.module('minimus', []);
+ muriel.controller('napoleon', function($scope, $http) {
+    $http.get("https://www.w3schools.com/angular/customers.php")
+    .then(function (response) {$scope.people = response.data.records;});
+});
+  </script>
+ </body>
+</html>

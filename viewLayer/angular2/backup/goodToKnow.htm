@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <style>
+       .indent1  {
+         padding-left:10px
+       }
+       .name  {
+         font-family:"Lucida Console"; color:#ad208a; font-size: 13px;
+       }
+       .msg  {
+         font-family:"courier"; color:#0f7c09; font-size: 13px;
+       }
+       .type  {
+         font-family:courier; color:#1d24e2; font-size: 13px;
+       }
+    </style>
+  </head>
+  <body>
+    <p>You need to install <tt class="name">node.js</tt>
+    <p>in DOS go to the directory containing <tt class="name">package.json</tt> and type <tt class="type">npm start</tt>
+    <p class="indent1">if it doesn't come up automatically, then type in the browser URL box <tt class="type">http://localhost:[port nbr]</tt> where <i>port nbr</i> is specified in the <tt class="name">package.json</tt> file (usually it's arround 3000)
+    <h1>npm</h1>
+    <p>if you get a <tt class="msg">ENOTFOUND cannot connect to http://localhost:8080</tt>, then try <tt class="type">npm config delete proxy</tt>
+    <p>ensure your have <tt class="name">.npmrc</tt> and <tt class="name">.typeingsrc</tt> files inside your Angular project root folder before running <tt class="type">npm [args]</tt>
+  <p><tt type="name">.npmrc</tt>
+  <p><tt class="type">
+    proxy=[your proxy server address, if you have one]<br>
+    https-proxy=[same as proxy]<br>
+    strict-ssl=false<br>
+    registry=http://registry.npmjs.org<br>
+  </tt>
+  <p><tt type="name">.typingsrc</tt>
+  <p><tt class="type">
+    proxy=[your proxy server address, if you have one]<br>
+    rejectUnauthorized=false<br>
+  </tt>
+  </body>
+
+</html>

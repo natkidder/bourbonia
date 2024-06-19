@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var time = new Date()
+var hr = time.getHours()
+var min = time.getMinutes()
+var sec = time.getSeconds()
+if (hr < 10) {
+  hr = " " + hr }
+if (min < 10) {
+  min = "0" + min }
+if (sec < 10) {
+  sec = "0" + sec }
+document.write(hr + ":" + min + ":" + sec)
+</SCRIPT>
+
+</BODY>
+</HTML>

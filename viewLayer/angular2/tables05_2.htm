@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <style>
+  table, tr , td  {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(even) {
+  background-color: #ecb4f0;
+}
+table tr:nth-child(odd) {
+  background-color: #c5d1fa;
+}
+ </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+	 <!-- adds a row number to each row -->
+  <div ng-app="myApp" ng-controller="customerCtrl">
+   <table>
+    <tr ng-repeat="customer in customers">
+     <td>
+      {{ $index + 1 }}
+     </td>
+     <td>
+      {{ customer.Name }}
+     </td>
+     <td>
+      {{ customer.Country }}
+     </td>
+    </tr>
+   </table>
+  </div>
+  <!-- https://www.w3schools.com/angular/customers.php -->
+  <script>
+   var app = angular.module('myApp', []);
+ app.controller('customerCtrl', function($http, $scope) {
+    $http.get("https://www.w3schools.com/angular/customers.php")
+    .then(function (response) {$scope.customers = response.data.records;});
+});
+  </script>
+ </body>
+</html>

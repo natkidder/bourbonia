@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<TITLE>This Exemplifies a Rollover</TITLE>
+<h2>This exemplifies a Rollover</h2>
+<script language="JavaScript">
+function chgImg() {
+  document.secondImg.src="bills1.gif"
+  }
+var libraryOff
+var libraryOn
+if(document.images) {  // if browser supports the 'image' object
+  libraryOff = new Image(72,22)
+  libraryOn = new Image(72,22)
+  libraryOff.src = "library_off.gif"
+  libraryOn.src = "library_on.gif"
+  }
+</script>
+</HEAD>
+<BODY bgcolor="ccccc">
+<a href="JavaScript:chgImg()"
+onMouseOver="document.imgLib.src='library_on.gif'"
+onMouseOut="document.imgLib.src='library_off.gif'">
+<img src="library_off.gif" name="imgLib" border=0>
+<img name="secondImg" src="boxer.jpg" border=0>
+</a>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

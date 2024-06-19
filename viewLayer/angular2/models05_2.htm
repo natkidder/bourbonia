@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+input.ng-invalid {
+    background-color: yellow;
+}
+</style>
+<body>
+
+<form ng-app="" name="myForm">
+    Enter a value:
+    <input name="nameInput" ng-model="nameModel" required>
+</form>
+
+<!-- Edit the text field and it will get/lose classes according to the status. -->
+<p>
+ _____ _____ _____ _____ _____ _____ _____ _____/_____ _____ _____ _____ _____ _____.
+</p>
+<!-- <b>Note:</b> A text field with the "required" attribute is not valid when it is empty. -->
+<p>
+<_____>_____:</_____> _____ _____ _____ _____ _____ "_____" _____ _____ _____ _____ _____ _____ _____ _____.
+</p>
+
+</body>
+</html>

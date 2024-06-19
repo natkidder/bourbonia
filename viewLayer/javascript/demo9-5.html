@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Current Greenwich Mean Time</h1>
+<script Language="JavaScript">
+function GMTclock() {
+  var time = new Date()
+
+  var gmtMS = time.getTime() + (time.getTimezoneOffset() * 60000)
+  var gmtTime = new Date(gmtMS) //convert it back from a large no. to a date
+  var varHr = gmtTime.getHours()
+  var varMin = gmtTime.getMinutes()
+  var varSec = gmtTime.getSeconds()
+  varHr = ((varHr < 10) ? " " : "") + varHr
+  varMin = ((varMin < 10) ? "0" : "") + varMin
+  varSec = ((varSec < 10) ? "0" : "") + varSec
+  varTime = varHr + ":" + varMin + ":" + varSec
+  document.timeDemo.currentTime.value = varTime
+  myTimer = setTimeout("GMTclock()",1000)  //if you leave out the quotes, you get an overflow error
+}
+</script>
+</HEAD>
+<BODY bgcolor="white" onload="GMTclock()">
+
+<form name="timeDemo">
+<font face="Courier" size=4>
+<input type="text" name="currentTime" size=15 maxlength=15>
+</form>
+
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

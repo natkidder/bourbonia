@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="anapp" ng-controller="acontroller">
+
+<ul>
+  <li ng-repeat="pepboy in pepboys">{{pepboy}}</li>
+</ul>
+
+</div>
+
+<script>
+ var app = angular.module('anapp', []);
+
+ app.controller('acontroller', function($scope) {
+    $scope.pepboys = ["Manny", "Moe", "Jack"];
+});
+</script>
+
+<!-- The variable "x" has a different value for each repetition, proving that each repetition has its own scope. -->
+<p>
+ The variable "x" has a different value for each repetition, proving that each repetition has its own scope.
+</p>
+
+</body>
+</html>

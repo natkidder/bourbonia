@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="">
+   <form>
+    Click the checkbox to toggle showing the header:
+    <input ng-model="showHeader" type="checkbox"/>
+   </form>
+   <h1 ng-show="showHeader">
+    Showing the Header
+   </h1>
+  </div>
+  <!-- The header's ng-show attribute is set to true when the checkbox is checked. -->
+  <p>
+   The header's ng-show attribute is set to true when the checkbox is checked.
+  </p>
+ </body>
+</html>

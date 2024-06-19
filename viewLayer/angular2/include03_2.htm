@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="anApp">
+	<!-- https://tryit.w3schools.com/angular_include.php -->
+<div ng-include="'https://tryit.w3schools.com/angular_include.php'"></div>
+<!-- 'https://tryit.w3schools.com/' -->
+<script>
+  var app = angular.module('anApp', [])
+  app.config(function($sceDelegateProvider) {
+  $sceDelegateProvider.resourceUrlWhitelist([
+    'https://tryit.w3schools.com/**'
+  ]);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="someApp" ng-controller="someCtrl">
+   <p>
+    {{ expr }}
+   </p>
+   <p>
+    {{ isNbr }}
+   </p>
+  </div>
+  <script>
+   var app = angular.module('someApp', []);
+   app.controller('someCtrl', function($scope) {
+    $scope.expr = 3.14;
+    $scope.isNbr = angular.isNumber($scope.expr);
+});
+  </script>
+ </body>
+</html>

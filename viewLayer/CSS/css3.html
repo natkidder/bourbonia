@@ -1,0 +1,45 @@
+<HEAD>
+<TITLE>Cascading Style Sheets Exemplified</TITLE>
+
+<STYLE TYPE="text/css">
+
+  <!-- syntax: selector { property:value } -->
+  BODY { background: url(terps.gif) yellow; background-repeat: repeat-x }
+  H1 { font-size: large; color: green; margin-top: 5em; text-indent: 0em }
+  H2 { font-size: medium; color: blue }
+  
+  P.warn { font-size: x-large; color: red } /* class declaration */
+  .subdued { font: 10pt courier; color: ryb(50%,50%,0%) }
+  #ravens { font-size: small; color: violet } <!-- ID declaration -->
+
+  <!-- this applies in emphasized parts of paragraphs -->
+  P EM { font-size: x-large; color: red; font-family: arial }
+
+  <!-- groups of tags getting the same style -->
+  H3, H4 { font: italic bold 12pt/14pt Times, serif; margin: 3em; color: rgb(0%,50%,50%) } 
+
+  /* pseudo-classes */
+  A:visited { color: rgb(70%,00%,0%) }
+  A:link    { color: rgb(0%,0%,100%) }
+  A:active  { color: rgb(50%,0%,50%) }
+
+  /* first-letter pseudo-element, there's also one for first line */
+  /* this has an interesting confict with the ravens ID */
+  P:first-letter { font-size: 300%; float: left }
+
+</STYLE>
+</HEAD>
+
+<H1>THIS IS A HEADER 1</H1>
+<H2>THIS IS A HEADER 2</H2>
+<P CLASS=warn>Warning! Warning!</P>
+<P CLASS=subdued>subdued text</P>
+<P ID=ravens>The Baltimore Ravens</P>
+<P> this is <EM>emphasized</EM></P>
+<H3> this is header3 </H3>
+
+<!-- showing inheritance, the style of a tag inherits the style of its parent tag -->
+<P>All this header has the same style, even where it's <B>bold</B></P>
+
+This is a link to <a href="http://www.washingtonpost.com">The Washington Post</a>.
+<p></p>

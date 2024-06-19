@@ -1,0 +1,26 @@
+
+  /* syntax: selector { property:value } */
+  BODY { background: url(terps.gif) yellow; background-repeat: repeat-x }
+  H1 { font-size: large; color: green; margin-top: 5em; text-indent: 0em }
+  H2 { font-size: medium; color: blue }
+  
+  P.warn { font-size: x-large; color: red } /* class declaration */
+  .subdued { font: 10pt courier; color: ryb(50%,50%,0%) }
+  #ravens { font-size: small; color: violet } <!-- ID declaration -->
+
+  /* this applies in emphasized parts of paragraphs */
+  P EM { font-size: x-large; color: red; font-family: arial }
+
+  /* groups of tags getting the same style */
+  H3, H4 { font: italic bold 12pt/14pt Times, serif; margin: 1em; color: rgb(0%,50%,50%) } 
+
+  /* pseudo-classes */
+  A:visited { color: rgb(70%,00%,0%) }
+  A:link    { color: rgb(0%,0%,100%) }
+  A:active  { color: rgb(50%,0%,50%) }
+
+  /* first-letter pseudo-element, there's also one for first line */
+  /* this has an interesting confict with the ravens ID */
+  /* P:first-letter { font-size: 300%; float: left } */
+
+

@@ -1,0 +1,26 @@
+<HTML>
+<HEADER>
+<TITLE>Using the Open() and Close() Methods</TITLE>
+<SCRIPT language="Javascript">
+
+</SCRIPT>
+<h1>--A Web Page--<h1>
+</HEADER>
+<BODY bgcolor="#CCFFFF">
+<SCRIPT language="JavaScript">
+var myPage = "<TITLE>My first HTML document</TITLE> " + 
+"<h1>An important heading</h1> " +
+"<h2>A slightly less important heading</h2> " +
+"<body color='white'> " + 
+"<p>This is the first paragraph</p> " +
+"<p>This is the second paragraph</p> " +
+"<p>This is a really <em>interesting</em> topic!</p> " +
+"<img src='MAP104.JPG' width='200' height='150' " +
+"alt='Scenic View' longdesc='scenicView.html'>"
+
+document.open()
+document.write(myPage)
+document.close()
+</SCRIPT>
+</BODY>
+</HTML>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="incrApp" ng-controller="incrController">
+   <button ng-click="incrByOne()">
+    Click Me!
+   </button>
+   <p>
+    {{ cnt }}
+   </p>
+  </div>
+  <script>
+   var app = angular.module('incrApp', []);
+   app.controller('incrController', function($scope) {
+    $scope.cnt = 0;
+    $scope.incrByOne = function() {
+        $scope.cnt++;
+    }
+});
+  </script>
+ </body>
+</html>

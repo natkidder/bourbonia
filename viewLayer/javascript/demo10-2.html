@@ -1,0 +1,87 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="JavaScript">
+function getCalendarForMonth(month, year){
+  var dayOfWeekArray = new Array("S", "M", "T", "W",
+                        "T", "F", "S")
+  var monthArray = new Array("January", "February", 
+                   "March", "April", "May", "June", 
+                   "July", "August", "September", 
+                   "October", "November", "December")
+  var noDaysArray = new Array(31, 28, 31, 30, 31, 30, 
+                    31, 31, 30, 31, 30, 31)
+  var firstOfMonth = new Date(month + "/1/" + year )
+  var day = - firstOfMonth.getDay()
+
+  // determine number of days in month
+  var noDays = noDaysArray[month-1]
+  if (month == 2){
+    if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
+      noDays = 29
+      }
+    }
+  //fabricate string for tables
+  var strMonth = "<TABLE border=0 cellpadding=0 cellspacing=1>"
+  strMonth += "<TR><TD align='center'>"
+  strMonth += "<FONT face='Arial' size=2>"  
+  strMonth +=  monthArray[month-1] + " " + year 
+  strMonth += "</FONT></TD><TR><TD>"
+  strMonth += "<TABLE border=1 cellpadding=3 cellspacing=0>"
+  strMonth += "</TR><TR bgcolor='#CCFFFF' align='center'>"
+  for(var i = 0; i<=6; i++){
+    strMonth += "<TD width=15><FONT face='arial' size=1>"
+    strMonth += dayOfWeekArray[i] + "</FONT></TD>"
+    }
+  strMonth += "</TR><TR align='right'>"
+
+  //fabricate first week of month
+  for (i = 0; i <= 6; i++){
+    strMonth += "<TD width=15><FONT face='arial' size=1>"
+    day++
+    if(day > 0){
+      strMonth += day
+      }
+    else{
+      strMonth += " "
+      }
+    strMonth += "</FONT></TD>"
+    }
+
+  //fabricate remaining weeks
+  for(var j=1; j < 6; j++){
+    strMonth += "</TR><TR align='right'>"
+    for (i = 0; i <= 6; i++){
+      strMonth += "<TD><FONT face='arial' size=1>"
+      day++
+      if(day <= noDays){
+        strMonth += day
+        }
+      else{
+        strMonth += " "
+        }
+      strMonth += "</FONT></TD>"
+      }
+    if (day >= noDays){
+      break;
+      }
+    }
+  strMonth += "</TR></TABLE>"
+  strMonth += "</TD></TR></TABLE>"
+
+  return strMonth
+  }
+
+
+</script>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+<!-- 
+document.write(getCalendarForMonth("11","2000"))
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

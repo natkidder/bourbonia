@@ -1,0 +1,64 @@
+q=A data model is usually specified inside a(n) ___ - C
+a=controller
+
+q=The ___ is where the AngularJS application is displayed - V
+a=view
+
+q=You can bind data to the model with either ___ punctuation, or either of the ___ or the ___ directive - D B,   N-B,   N-M
+a=double braces,ng-bind,ng-model
+a={{}},ng-bind,ng-model
+a=double braces,ng-model,ng-bind
+a={{}},ng-model,ng-bind
+
+q=Binding can be two-way between the ___ and ___ - M,   V
+a=model,view
+a=view,model
+
+q=Mouse-tapping on an element is handled by the ___ directive - N-C
+a=ng-click
+
+q=An AngularJS controller is a regular ___ - J O
+a=javascript object
+
+q=The ng-model directive often refers to a(n) ___ but the latter must be declared using the ___ directive - C,   N-C
+a=controller,ng-controller
+
+q=You invoke a controller using the built-in ___ object, which refers to the ___ - DS,   A
+a=$scope,application
+
+q=An application can call its own function using the ___ method - R   don't walk
+a=run
+
+q=An expression may contain a(n) ___ - F C
+a=function call
+
+q=The $scope functionally binds the ___ and the ___ - V,   C
+a=view,controller
+a=controller,view
+a=HTML,controller
+a=controller,HTML
+
+q=$scope properties belong to these three entities (in alphabetical order) - C,   M,   V
+a=controller,model,view
+
+q="View" here can also refer to ___ - H
+a=HTML
+
+q=The closest thing an application (ng-app directive) has to a main method is the ___ method - R  like dyes
+a=run
+
+q=___ covers any element with the ___ directive, and has ancestral coverage - DRS,   N-A
+a=$rootScope,ng-app
+
+q=A filter is used to ___ data - F
+a=format
+
+q=A(n) ___ filter returns strings containing its argument - F   redundant
+a=filter
+
+q=The ___ filter sorts object collections by ___ - OB,   P
+a=orderBy,property
+
+q=You can create your own filter by using the application non-static ___ method, which takes as its arguments (in order): ___ and ___ - F,   F N,   F C
+a=filter,filter name,function call
+

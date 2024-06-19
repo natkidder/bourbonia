@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+<!-- 
+//demonstrates how to do date & time arithmetic
+//keep in mind that the atomic unit of time is the millisecond
+//however, not sure how it is supposed to work
+var oneSec = 1000
+var oneMin = oneSec * 60
+var oneHr = oneMin * 60
+var oneDay = oneHr * 24
+var oneWk = oneDay * 7
+document.write("One day is " + oneDay/oneSec + " seconds")
+var thisDay = new Date()
+var futureDate = thisDay.getTime() + (5 * oneWk)  //getTime() is millisecs since 1970
+//convert the millesecs number back into a date object
+var futureDate2 = new Date(futureDate)
+
+var futureDate3 = futureDate2.getMonth()+1 + "/" + futureDate2.getDate() + "/" + futureDate2.getYear()
+document.write("<br>Five weeks into the future is " + futureDate3)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

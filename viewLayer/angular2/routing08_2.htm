@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js">
+ </script>
+ <div ng-app="fruitApp">
+  <p>
+   <a href="#/!">
+    Main
+   </a>
+  </p>
+  <a href="#!banana">
+   Banana
+  </a>
+  <a href="#!tomato">
+   Tomato
+  </a>
+  <!-- Click on the links to change the content. -->
+  <!-- Bananas contain around 75% water    Tomatoes contain around 95% water    Nothing has been selected  -->
+  <p>
+   Click on the links to change the content.
+  </p>
+  <!-- Use the "otherwise" method to define what to display when none of the links are clicked. -->
+  <p>
+   Use the "otherwise" method to define what to display when none of the links are clicked.
+  </p>
+  <div ng-view="">
+  </div>
+  <script>
+   var app = angular.module("fruitApp", ["ngRoute"]);
+  app.config(function($routeProvider) {
+    $routeProvider
+    .when("/tomato", {
+        template : "<h1>Tomato</h1><p>Tomatoes contain around 95% water.</p>"
+    })
+    .when("/banana", {
+        template : "<h1>Banana</h1><p>Bananas contain around 75% water.</p>"
+    })
+    .otherwise({
+        template : "<h1>Nothing</h1><p>Nothing has been selected</p>"
+    });
+});
+  </script>
+ </body>
+</html>

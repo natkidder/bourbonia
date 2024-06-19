@@ -1,0 +1,401 @@
+<!-- remember, every web page needs a title -->
+
+<title>This is my advanced HTML page title</title>
+
+<!-- example of using line breaks in a page. Note that <br> does NOT need an end-tag -->
+
+<p>The Willows<br>
+21 Runnymede Avenue<br>
+Morton-in-the-Marsh<br>
+Oxfordshire 0X27 3BQ</p>
+
+<p>
+4935 Melinda Ct.<br>
+Rockville, MD 20853<br>
+</p>
+
+<!--HTML makes sure that text is wrapped in the browser, but sometimes you want to 
+    prevent wrap between two words.  Use '&nbsp;' between the words -->
+
+<p>Sweetened carbonated beverages, such as Pepsi, Mountain Dew, Sprite, 7Up, Tab, 
+Diet Coke, Dr. Pepper, Diet Dr. Pepper, Mr. Pibb, Shasta, 
+Coca&nbsp;Cola, and Diet Rite have attained world-wide popularity</p>
+
+<!--you can also use special characters--consult your friendly style reference -->
+
+<p>
+symbols and what they mean:<br>
+&lt;        less than<br>
+&copy;      copyright<br>
+&cent;      cent<br>
+</p>
+
+<!--linking to a different section on the same web page-->
+
+<h2><a href="#night-spots">Local Night Spots</a></h2>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+<p>linefeed</p>
+
+
+<h2><a name="night-spots">Local Night Spots</a></h2>
+<p>Try the 'The Norbeck Feed Trough' where you eat hearty</p>
+
+<!-- linking to a heading in a different web page -->
+
+<h2><a href="http://plato.stanford.edu/entries/principia-mathematica/#SOPM">Significance of Principia Mathematica</a></h2>
+
+<!-- text appearing in the web page exactly as it is typed in the HTML document 
+     'pre' is short for 'preformatted'-->
+
+<pre>
+write #1, "2 is a prime number"
+write #1, "3 is a prime number"
+for i = 4    to    100
+  booPrime = true
+  for j = 2 to i-1
+    if i%j = 0 then booPrime = False
+  next j
+  if booPrime then write #1 str(j) & " is a prime number"
+next i
+</pre>
+
+<!-- here's preformatted text with some style 
+play with these colors and see what you get! -->
+
+<style type="text/css">
+  body {color: black; background: white;} <!-- non-pre text for entire document -->
+  pre {color: green; font-family: monospace;}<!-- pre text for entire document -->
+</style>
+
+<pre>The rain in Spain falls mainly in the     plain</pre>
+
+<!--wrapping text around an image to its left-->
+
+<p><img src="buffalo.gif" alt="Buffalo Logo" width="32" height="21" align="left"> This 
+test will be flowed around the right side of the graphic.  The Buffalo Bills seem to play 
+better with Flutie as quarterback than with Rob Johnson at quarterback.  The team
+just seems to have a better attitude with Flutie.</p>
+
+<!-- to the right -->
+
+<p><img src="buffalo.gif" alt="Buffalo Bills" width="32" height="21" align="right">
+This text will be flowed around the right side of the graphic.  From '88 to '93, the 
+Buffalo Bills were the terror of the AFC.  They were always in the Super Bowl hunt,
+and did make the Super Bowl four consecutive years from '90 to '93.  Jim Kelley, Thurman 
+Thomas, Andre Reed, Bruce Smith, Cornelius Bennett and others terrified AFC opponents.
+</p>
+
+<!-- this lets you continue text underneath the image -->
+
+<p><img src="buffalo.gif" alt="buffalo bills" width="32" height="21" align="left">
+This text will be flowed around the right side of the graphic.  <br clear="all">
+This starts a new line below the floated image.</p>
+
+<!--creating a web hyperlink diagram-->
+<!--The src attribute on the 'img' element specified the image "pages.gif"  The
+    'usemap' attribute references a map element.  It uses a Web address to do so, hence
+    the '#' character.  The 'border' attribute is set to '0' to suppress the blue border
+    around the image -->
+<!--The map element specifies which regions in the image act as hypertext links.  The 
+    'name' attribute matches the 'usemap' attribute on the 'img' element and acts much
+    like the the name attribute on a <a> element.  In practice, the 'map' element needs
+    to be in the same file as the 'img' element. -->
+<!--The area element is used to define a region on the image and to bind it to a Web
+    address.  The 'shape' attribute specifies 'rect', 'circle', or 'poly'.  The 'coords'
+    attribute species the coordinates of the region depending on the shape.-->
+<!--If two or more defined regions overlap, the region-defining element that appears 
+    earliest in the documents takes precedence (ie. responds to user input).-->
+
+<p align="center">
+  <img src="pages.gif" width="378" height="240" alt="site map" usemap="#sitemap"
+      border="0">
+  <map name="sitemap">
+      <area shape="circle" coords="186,44,45" alt="Getting Started"
+           href="http://www.w3.org/Markup/Guide/Overview.html">
+      <area shape="circle" coords="42,171,45" alt="A Touch of Style"
+           href="http://www.w3.org/Markup/Guide/Style.html">
+      <area shape="circle" coords="186,171,45" alt="Web Page Design"
+           href="www.espn.com">
+      <area shape="circle" coords="318,173,45" alt="Advanced HTML"
+           href="http://www.w3.org/Markup/Guide/Advanced.html"
+  </map>
+</p>
+
+<!-- example of a simple table -->
+<!-- the 'table' element contains the table. 'border' is the border width in pixels
+     'tr' contains a table row. 'th' and 'td' contain the header and data, respectively
+-->
+
+<p>simple table</p>
+<table border="1">
+<tr><th>Year</th><th>Sales</th></tr>
+<tr><td>2000</td><td>$18M</td></tr>
+<tr><td>2001</td><td>$25M</td></tr>
+<tr><td>2002</td><td>$36M</td></tr>
+</table>
+
+<!--same as above, but with a 15-pixel cell padding thrown in-->
+
+<p></p><p></p><p>with padding</p>
+<table border="1" cellpadding="15">
+<tr><th>Year</th><th>Sales</th></tr>
+<tr><td>2000</td><td>$18M</td></tr>
+<tr><td>2001</td><td>$25M</td></tr>
+<tr><td>2002</td><td>$36M</td></tr>
+</table>
+
+<!--cell spacing sets the space between the cells-->
+
+<p></p><p></p><p>with cell spacing</p>
+<table border="1" cellpadding="15" cellspacing="15">
+<tr><th>Year</th><th>Sales</th></tr>
+<tr><td>2000</td><td>$18M</td></tr>
+<tr><td>2001</td><td>$25M</td></tr>
+<tr><td>2002</td><td>$36M</td></tr>
+</table>
+
+<!--you can set the width as no. of pixels or width of page-->
+
+<p></p><p></p><p>with cell spacing</p>
+<table border="1" cellpadding="5" cellspacing="5" width="75%">
+<tr><th>Year</th><th>Sales</th></tr>
+<tr><td>2000</td><td>$18M</td></tr>
+<tr><td>2001</td><td>$25M</td></tr>
+<tr><td>2002</td><td>$36M</td></tr>
+</table>
+
+<!--align text within cells-->
+
+<p></p><p></p><p>aligning text every which way</p>
+<table border="1" cellpadding="5" cellspacing="5" width="30%">
+<tr align="center"><th>Year</th><th>Sales</th></tr>
+<tr align="left"><td>2000</td><td>$18M</td></tr>
+<tr align="right"><td>2001</td><td>$25M</td></tr>
+<tr align="center"><td>2002</td><td>$36M</td></tr>
+</table>
+
+<!--empty cell that looks different from the others -->
+
+<p></p><p></p><p>empty cell that looks different from the others</p>
+<table border="1" cellpadding="5" cellspacing="5" width="25%">
+<tr><th>Year</th><th>Sales</th></tr>
+<tr><td>2000</td><td>$18M</td></tr>
+<tr><td>2001</td><td>$25M</td></tr>
+<tr><td>2002</td><td></td></tr>
+</table>
+
+<!--now, format the empty cell so it's the same as the others, exc there's no data
+    it's the "&nbsp;" (literal space) at the end.-->
+
+<p></p><p></p><p>empty cell that should look the same as the others</p>
+<table border="1" cellpadding="5" cellspacing="5" width="25%">
+<tr align="center"><th>Year</th><th>Sales</th></tr>
+<tr align="center"><td>2000</td><td>$18M</td></tr>
+<tr align="center"><td>2001</td><td>$25M</td></tr>
+<tr align="center"><td>2002</td><td>&nbsp;</td></tr>
+</table>
+
+<!--rows that span >1 column, and columns that span >1 rows-->
+
+<p></p><p></p><p>rows that span >1 columns, and columns that span >1 rows</p>
+<table border="1" cellpadding="10" width="80%">
+<tr align="center"><th rowspan="2">Year</th><th colspan="3">Sales</th></tr>
+<tr align="center"><th>North</th><th>South</th><th>Total</th></tr>
+<tr align="center"><td>2000</td><td>$10M</td><td>$8M</td><td>$18M</td></tr>
+<tr align="center"><td>2001</td><td>$14M</td><td>$8M</td><td>$22M</td></tr>
+</table>
+
+<!--you can simplify this by taking advantage of the fact that browsers don't need the
+    end tags for table cells and rows-->
+
+<p></p><p></p><p>rows that span >1 columns, and columns that span >1 rows</p>
+<table border="1" cellpadding="10" width="80%">
+<tr align="center"><th rowspan="2">Year<th colspan="3">Sales
+<tr align="center"><th>North<th>South<th>Total
+<tr align="center"><td>2000<td>$10M<td>$8M<td>$18M
+<tr align="center"><td>2001<td>$14M<td>$8M<td>$22M
+</table>
+
+<!--a borderless table.  NB you don't need closers for <td>, <th> or <tr>-->
+
+<p></p><p></p><p>a borderless table</p>
+<table border="0" cellspacing="0" cellpadding="5">
+<tr align="center"><th>Year<th>Sales
+<tr align="center"><th>2000<th>$18M
+<tr align="center"><th>2001<th>$25M
+<tr align="right"> <th>2002<th>$36M
+</table>
+
+<!--taking out the cellspacing attribute leaves a small gap-->
+
+<p></p><p></p><p>a borderless table without the cellspacing</p>
+<table border="0" cellpadding="5">
+<tr align="center"><th>Year<th>Sales
+<tr align="center"><th>2000<th>$18M
+<tr align="center"><th>2001<th>$25M
+<tr align="right"> <th>2002<th>$36M
+</table>
+
+<!--adding color to your tables, using the following style sheet.  The background 
+    attributes are given red/green/blue values (0 pale to 255 saturated)-->
+
+<style>
+table {
+  margin-left:   4%;
+  font-family:   sans-serif;
+  background:    white;
+  border-width:  2;
+  border-color:  black;
+}
+th { font-family: sans-serif; background: rgb(0,255,128) }
+td { font-family: sans-serif; background: rgb(255,255,153) }
+</style>
+
+<!--you can also do style on one particular table, rather than all of them.  The 
+    "bgcolor" attributes are hexadecimal.  Don't know how to specify decimal 
+    attributes-->
+
+<p></p><p>a table with its own attributes, but you have to turn the style sheet off</p>
+<table border="0" cellspacing="0" cellpadding="10">
+  <tr>
+    <th bgcolor="#CCCC99">Year</th>
+    <th bgcolor="#CCCC99">Sales</th>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF66">2000</td>
+    <td bgcolor="#FFFF66">$18M</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF66">2001</td>
+    <td bgcolor="#FFFF66">$25M</td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFF66">2002</td>
+    <td bgcolor="#FFFF66">$36M</td>
+  </tr>
+</table>
+
+<!--adding a caption to a table, which is different from the mere paragraphs we've been
+    adding before-->
+
+<p></p><p>Table with a caption</p>
+<table border="1" cellpadding="10" width="50%">
+<caption>Project Sales Revenue by Year</caption>
+<tr align="center">  <th>Year</th>  <th>Sales</th>  </tr>
+<tr align="center">  <td>2000</td>  <td>$18M</td>  </tr>
+<tr align="center">  <td>2001</td>  <td>$25M</td>  </tr>
+</table>
+
+<!--same, except that the caption is on the bottom-->
+
+<p></p><p>Table with a caption on the bottom</p>
+<table border="1" cellpadding="10" width="50%">
+<caption align="bottom">Project Sales Revenue by Year</caption>
+<tr align="center">  <th>Year</th>  <th>Sales</th>  </tr>
+<tr align="center">  <td>2000</td>  <td>$18M</td>  </tr>
+<tr align="center">  <td>2001</td>  <td>$25M</td>  </tr>
+</table>
+
+<!--same table again, except with a summary-->
+
+<p></p><p>Table with a summary, not sure where to find it</p>
+<table border="1" cellpadding="10" width="50%" 
+summary="the first column gives the year and the second, the revenue for that year">
+<caption>Project Sales Revenue by Year</caption>
+<tr align="center">  <th>Year</th>  <th>Sales</th>  </tr>
+<tr align="center">  <td>2000</td>  <td>$18M</td>  </tr>
+<tr align="center">  <td>2001</td>  <td>$25M</td>  </tr>
+</table>
+
+<!--END OF TABLES-->
+
+<!--using JavaScript to make a web element change form when the cursor is over it-->
+
+<p></p><p>Using JavaScript to make one image change to another</p>
+<script type="text/javascript">
+if (document.images)
+{
+  image1 = new Image;
+  image2 = new Image;
+  image1.src = "buffalo.gif";
+  image2.src = "buffalo2.jpg";
+}
+
+function chgImg(name, image)
+{
+  if (document.images)
+  {
+    document[name].src = eval(image+".src");
+  }
+}
+</script>
+
+<a href="/" onMouseOver='chgImg("enter", "image2")' 
+onMouseOut='chgImg("enter", "image1")'> 
+<img name="enter" src="buffalo.gif" border="0" alt="The Tough Bills"></a>
+
+<!--using javascript to create banner ads-->
+
+<p></p><p></p><p>Banner Ads for the Buffalo Bills</p>
+<html>
+<head>
+<title>cycling banner ads</title>
+<script type="text/javascript">
+if (document.images)
+{
+  adImages = new Array("bills1.gif", "bills2.jpg", "bills3.jpg");
+  adURLs = new Array(
+"buffalobills.com/interact/12thman_feature.cfm?cont_id=27336",
+"buffalobills.com/interact/12thman_feature.cfm?cont_id=28151",
+"buffalobills.com/personnel/bills_feature.cfm?cont_id=29186");
+  thisAd = 0;
+}
+
+function cycleAds()
+{
+  if (document.images)
+  {
+    if (document.adBanner.complete)
+    {
+      if (++thisAd == adImages.length)
+          thisAd = 0;
+  
+      document.adBanner.src = adImages[thisAd];
+    }
+
+  }
+  
+  // change to next sponsor every 3 seconds
+  setTimeout("cycleAds()", 3000);
+}
+
+function gotoAd()
+{
+  document.location.href = "http://" + adURLs[thisAd];
+}
+</script>
+</head>
+<body onload="cycleAds()">
+
+<a href="javascript:gotoAd()"><img name="adBanner" src="bills1.gif"
+border="0" alt="Our Sponsors"></a>

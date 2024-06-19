@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="myApp" ng-controller="customersCtrl">
+  <!-- Name and Country are the property values -->
+   <ul>
+    <li ng-repeat="x in myData">
+     {{ x.Name + ', ' + x.Country }}
+    </li>
+   </ul>
+   <p> The json pipe will pretty-print the response dump, but it must be inside a pre element <p>
+   <pre> {{ dump | json }} </pre>
+  </div>
+  <!-- URL: https://www.w3schools.com/angular/customers.php  -->
+  <!--  can also try: https://api.npms.io/v2/search?q=scope:angular -->
+  <script>
+   var app = angular.module('myApp', []);
+  app.controller('customersCtrl', function($scope, $http) {
+  $http.get("https://www.w3schools.com/angular/customers.php").then(function (response) {
+      $scope.myData = response.data.records;
+      $scope.dump = response.data;
+  });
+});
+  </script>
+  <!-- The oyts pipe will pretty-print the response dump, but it must be inside a uwj element -->
+ </body>
+</html>
+

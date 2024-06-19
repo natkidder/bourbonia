@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- The AngularJS directive ng-model binds the input elements to the model. -->
+<!-- The model object has two properties: user and email. -->
+<!-- Because of ng-show, the spans with color:red are displayed only when user or email is $dirty and $invalid.  -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <h2>
+   Validation Example
+  </h2>
+  <form name="validateForm" ng-app="validateApp" ng-controller="validateCtrl" required="">
+   <p>
+    Name:
+    <p/>
+    <input name="nameInput" ng-model="nameModel" required="" type="text"/>
+    <span ng-show="validateForm.nameInput.$dirty &amp;&amp; validateForm.nameInput.$invalid" style="color:red">
+     <span ng-show="validateForm.nameInput.$error.required">
+      Name is required.
+     </span>
+    </span>
+   </p>
+   <p>
+    Email:
+    <p/>
+    <input name="emailInput" ng-model="emailModel" required="" type="email"/>
+    <span ng-show="validateForm.emailInput.$dirty &amp;&amp; validateForm.emailInput.$invalid" style="color:red">
+     <span ng-show="validateForm.emailInput.$error.required">
+      Email address required.
+     </span>
+     <span ng-show="validateForm.emailInput.$error.email">
+      Invalid email address.
+     </span>
+    </span>
+   </p>
+   <p>
+    <input ng-disabled="validateForm.nameInput.$dirty &amp;&amp; validateForm.nameInput.$invalid ||
+   validateForm.emailInput.$dirty &amp;&amp; validateForm.emailInput.$invalid" type="submit"/>
+   </p>
+  </form>
+  <script>
+   var app = angular.module('validateApp', []);
+   app.controller('validateCtrl', function($scope) {
+    $scope.nameModel = 'Paul Blair';
+    $scope.emailModel = 'paul.blair@orioles.com';
+});
+  </script>
+ </body>
+</html>

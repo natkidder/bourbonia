@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body ng-app="thisApp">
+<h3>before</h3>
+<the-prime-directive></the-prime-directive>
+<h3>after</h3>
+<script>
+  var app = angular.module("thisApp", []);
+  app.directive("thePrimeDirective", function() {
+    return {
+        template : "<h1>Obey the Prime Directive!</h1>"
+    };
+});
+</script>
+
+</body>
+</html>

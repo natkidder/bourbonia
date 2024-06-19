@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <div ng-app="">
+	 <!-- Try writing an E-mail address in the input field: -->
+  <p>
+   Enter a valid email:
+  </p>
+  <form name="thisForm">
+   <input name="thisInput" ng-model="someModel" type="email"/>
+  </form>
+  <p>
+   Is this a valid email address:
+  </p>
+  <h1>
+   {{thisForm.thisInput.$valid}}
+  </h1>
+  <!-- Note that the state of the input field is "true" before you start writing in it, even if it does not contain an e-mail address. -->
+  <p>
+   Note that the state of the input field is "true" before you start writing in it, even if it does not contain an e-mail address.
+  </p>
+ </body>
+</html>

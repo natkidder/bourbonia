@@ -1,0 +1,25 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test of Changing Button Values</TITLE>
+<script language="JavaScript">
+function buttonChg() {
+  if (document.chgBtnFrm.chgBtn.value == "Button On") {
+    document.chgBtnFrm.chgBtn.value = "Button Off" }
+  else {
+    document.chgBtnFrm.chgBtn.value = "Button On" }
+}
+</script>
+</HEAD>
+<BODY bgcolor="blue" onload="buttonChg()">
+
+<form name="chgBtnFrm">
+<input type="button" name="chgBtn" onClick="buttonChg()">
+</form>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

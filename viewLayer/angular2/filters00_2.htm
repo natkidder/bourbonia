@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<ul ng-app="anapp" ng-controller="actrl">
+<li ng-repeat="name in names">
+    {{name | camelCaseFmt}}
+</li>
+</ul>
+
+<script>
+ var app = angular.module('anapp', []);
+ app.filter('camelCaseFmt', function() {
+    return function(name) {
+        var i, chr, txt = "";
+        for (i = 0; i < name.length; i++) {
+            chr = name[i];
+            if (i % 2 == 0) {
+                chr = chr.toUpperCase();
+            } else {
+                chr = chr.toLowerCase();
+            }
+            txt += chr;
+        }
+        return txt;
+    };
+});
+ app.controller('actrl', function($scope) {
+    $scope.names = [
+        'Wilhelm',
+        'Nicholas',
+        'Francis',
+        'Hirohito',
+        'Alexandra',
+        'Wilhelmina'
+        ];
+});
+</script>
+
+<!-- Make your own filters. -->
+<!-- This filter, called "myFormat", will uppercase every other character. -->
+<p>Make your own filters.</p>
+<p>This filter, called "camelCaseFmt", will uppercase every other character.</p>
+</body>
+</html>

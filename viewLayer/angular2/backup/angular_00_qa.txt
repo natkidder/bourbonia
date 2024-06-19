@@ -1,0 +1,69 @@
+## from: https://www.browserstack.com/guide/what-is-angularjs-framework
+
+q=AngularJS enables creating ___ web applications with a(n) ___ architecture - D,   S
+a=dynamic,structural
+
+q=It runs within a(n) ___ framework - J M V C
+a=javascript model view controller
+
+q=The six key concepts underlying AngularJS (in alphabetical order) - C,   D B,   D I,   D,   M,   S
+a=controllers,data binding,dependency injection,directives,modules,scope
+a=controller,data binding,dependency injection,directive,module,scope
+
+q=Data binding bridges the gap between the ___ and the ___ - U I,   U D
+a=user interface,underlying data
+a=underlying data,user interface
+
+q=A directive specifies a(n) ___ - D E B   like with XML
+a=dom element behavior
+
+q=In this case, a DOM element can refer to these four HTML things (in alphabetical order) - A,   C,   C C,   N
+a=attribute,comment,css class,node
+
+q=A directive can be either ___ or ___, depending on how much you need to put into its inner workings - C B,   P
+a=predefined,custom-built
+a=custom-built,predefined
+a=builtin,custom
+a=custom,builtin
+
+q=The three directive categories in terms of what they act upon (in alphabetical order) - A,   C,   S
+a=attribute,component,structural
+a=attribute,component,structure
+
+q=Component directives are ___ but less ___ - S,   P
+a=simpler,powerful
+
+q=Structural directives are used for ___ - F C
+a=flow control
+
+q=Dependency injection is simply ___ among software components - M R
+a=mutual referencing
+a=cross referencing
+
+q=A module is a(n) ___ for all of your application's ___ - C,   C
+a=container,components
+
+q=These components are tied together using the application's ___ - M M
+a=main method
+
+q=If the application lacks a main method, the module defines a ___ - BS
+a=bootstrap
+
+q=Scope serves as a ___ between the ___ and the ___ - B,   C,   V
+a=bridge,controller,view
+a=bridge,view,controller
+
+q=Scopes can be ___ and each directive uses by default its ___ scope - I,   P
+a=inherited,parent
+
+q=A controller manages the ___ of an AngularJS application - D F
+a=data flow
+
+q=A controller contains these three items (in alphabetical order) - A,   M,   P    similar to a Java class
+a=attributes,methods,properies
+a=attribute,method,property
+
+q=Every controller has by default the parameter ___, which refers to the ___ or ___ it is to control - DS,   A,   M
+a=$scope,application,module
+a=$scope,module,application
+

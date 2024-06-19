@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <script>
+   var app = angular.module("itemApp", []);
+   app.controller("itemController", function($scope) {
+    $scope.items = ["mushrooms", "peppers", "onions"];
+});
+  </script>
+  <div ng-app="itemApp" ng-controller="itemController">
+   <ul>
+    <li ng-repeat="item in items">
+     {{item}}
+    </li>
+   </ul>
+  </div>
+  <!-- So far we have made an HTML list based on the items of an array. -->
+  <p>
+   So far we have made an HTML list based on the items of an array.
+  </p>
+ </body>
+</html>

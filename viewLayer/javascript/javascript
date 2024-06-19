@@ -1,0 +1,1483 @@
+<HTML>
+<HEAD>
+<TITLE>Assignment 1-2 for Javascript On-Line Training</TITLE>
+<SCRIPT Language="JavaScript">
+function docwrite(strArg){
+  document.write(strArg)
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<style type="text/css">
+  body {color: black; background: white;} <!--non-pre text for entire document-->
+  pre {color: green; font-family: monospace;} <!--pre text for entire document-->
+</style>
+<H1>Test scripts for Javascripts</H1>
+<SCRIPT Language="JavaScript">
+  docwrite("Hello World");
+  docwrite('<P></P><IMG src="bills3.jpg">&nbsp;The mighty Bills!')
+</SCRIPT>
+</BODY>
+
+
+
+
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h2>Demonstration of a While Loop and a Do Loop</h2>
+</HEAD>
+<BODY bgcolor="white" font="courier">
+
+<SCRIPT language="JavaScript">
+var i = 1
+var j = 1
+var product
+while (i<=10) {
+  do {
+    product = i*j
+    product = ((product < 10) ? "+" : "") + product
+    product = "" + product
+    document.write(" " + product)
+    j++
+  } while (j<=10) 
+  document.write("<br>")
+  i++
+  j = 1
+}
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Switch to Another Page</h1>
+<script Language="JavaScript">
+function switchSite() {
+  window.location.href = "http://www.espn.com"
+}
+</script>
+</HEAD>
+
+<BODY bgcolor="white" font="courier" size=14>
+<form name="changeSite">
+<input type="button" name="newSite" value="Push to get ESPN.com" onClick='switchSite()'>
+<input type="button" name="prvSite" value="To Get to Prev Site" onClick='history.back()'>
+</form>
+
+<SCRIPT language="JavaScript">
+<!-- 
+document.write("Current URL: " + window.location.href)
+document.write("<br>Page Last Modified: " + document.lastModified)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Switch to Another Page</h1>
+<script Language="JavaScript">
+function switchSite() {
+  window.location.href = "n:/users/k_thru_l/kiddern/javascript/assign11-2A.html"
+}
+</script>
+</HEAD>
+
+<BODY bgcolor="white" font="courier" size=14>
+<form name="changeSite">
+<input type="button" name="newSite" value="To Get to 11-2A" onClick='switchSite()'>
+<p>Enter your name:         
+<input type="text" name="personName" size=30 maxsize=30>
+<p>Enter your hometown:
+<input type="text" name="personTown" size=40 maxsize=40>
+</form>
+
+<SCRIPT language="JavaScript">
+<!-- 
+document.write("Current URL: " + window.location.href)
+document.write("<br>Page Last Modified: " + document.lastModified)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Switch to Another Page</h1>
+<script Language="JavaScript">
+function switchSite() {
+  window.location.href = "n:\users\k_thru_l\kiddern\javascript\assign11-2.html"
+}
+</script>
+</HEAD>
+
+<BODY bgcolor="white" font="courier" size=14>
+<form name="changeSite">
+<input type="button" name="newSite" value="Push for 11-2A" onClick='switchSite()'>
+<input type="button" name="prvSite" value="To Get to Prev Site" onClick='history.back()'>
+</form>
+
+<SCRIPT language="JavaScript">
+// document.write(history.previous.changeSite.personName.value)
+// document.write("<br>Page Last Modified: " + document.lastModified)
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Switch to Another Page</h1>
+<h2>For some reason, it's not accepting a string within a string<h2>
+<script Language="JavaScript">
+function switchSite() {
+  window.location.href = "m:/javascript/assign11-2A.html"
+  var assign112A
+  assign112A = ' ' + 
+'<HTML> ' +
+'<HEAD> ' +
+'<TITLE>JavaScript Test</TITLE> ' +
+'<h1>Switch to Another Page</h1> ' +
+'</HEAD> ' +
+'<BODY bgcolor="white" font="courier" size=14> ' +
+'<script language="JavaScript"> ' + 
+'<SCRIPT>' + 
+'</BODY>' + 
+'</HTML>'
+
+  document.open()
+  document.write(assign112A)
+  document.close()
+}
+
+</script>
+</HEAD>
+
+<BODY bgcolor="white" font="courier" size=14>
+<form name="changeSite">
+<input type="button" name="newSite" value="To Get to 11-2A" onClick='switchSite()'>
+<p>Enter your name:         
+<input type="text" name="personName" size=30 maxsize=30>
+<p>Enter your hometown:
+<input type="text" name="personTown" size=40 maxsize=40>
+</form>
+
+<SCRIPT language="JavaScript">
+<!-- 
+document.write("Current URL: " + window.location.href)
+document.write("<br>Page Last Modified: " + document.lastModified)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+function switchSite() {
+  window.location.href = "m:/javascript/assign11-2A.html"
+  var assign11_2A
+  assign11_2A = "" //+ 
+"<HTML> " +
+"<HEAD> " +
+"<TITLE>JavaScript Test</TITLE> " +
+"<h1>Switch to Another Page</h1> " +
+"</HEAD> " +
+"<BODY bgcolor='white' font='courier' size=14> " +
+"<SCRIPT language='JavaScript'> " +
+"</SCRIPT> " +
+"</BODY> " +
+"</HTML>"
+
+  document.open()
+  document.write(assign11_2A)
+  document.close()
+}
+<HTML>
+<HEAD>
+<TITLE>This Enables You to Change Pictures</TITLE>
+<h2>Animal Planet</h2>
+<script language="JavaScript">
+var picture = new Array("bird1.jpg","mutt.jpg","bird2.jpg","boxer.jpg")
+var pictNum = 1
+var numOfPicts = picture.length  //no. of elements in array
+function prevPicture() {
+  if (pictNum > 1) {
+    pictNum-- }
+  else {
+    pictNum = picture.length }
+  document.myPicture.src=picture[pictNum-1]
+}
+function nextPicture() {
+  if (pictNum < numOfPicts) {
+    pictNum++ }
+  else {
+    pictNum = 1 }
+  document.myPicture.src=picture[pictNum-1]
+}
+</script>
+</HEAD>
+<BODY bgcolor="white">
+<IMG src="bird1.jpg" name="myPicture" width=140, height=190>
+<br>
+<A href="JavaScript:prevPicture()">Previous</A>&nbsp;&nbsp;
+<A href="JavaScript:nextPicture()">Next</A>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>This Enables You to Change Pictures</TITLE>
+<h2>Animal Planet</h2>
+<script language="JavaScript">
+var picture = new Array("bird1.jpg","mutt.jpg","bird2.jpg","boxer.jpg")
+var name = new Array("Tweety","Brucie","Puppyeyes","Foghorn")
+var pictNum = 1
+var numOfPicts = picture.length  //no. of elements in array
+function prevPicture() {
+  if (pictNum > 1) {
+    pictNum-- }
+  else {
+    pictNum = picture.length }
+  document.myPicture.src=picture[pictNum-1]
+  document.myForm.myDesc.value=name[pictNum-1]
+}
+function nextPicture() {
+  if (pictNum < numOfPicts) {
+    pictNum++ }
+  else {
+    pictNum = 1 }
+  document.myPicture.src=picture[pictNum-1]
+  document.myForm.myDesc.value=name[pictNum-1]
+}
+</script>
+</HEAD>
+<BODY bgcolor="white">
+<IMG src="bird1.jpg" name="myPicture" width=140, height=190>
+<form name="myForm">
+<input type="text" name="myDesc" value="Tweety" size=15 maxlength=15>
+</form>
+<br>
+<A href="JavaScript:prevPicture()">Previous</A>&nbsp;&nbsp;
+<A href="JavaScript:nextPicture()">Next</A>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>This Exemplifies a Rollover</TITLE>
+<h2>This exemplifies a Rollover</h2>
+<script language="JavaScript">
+function chgImg() {
+  document.secondImg.src="bills1.gif"
+  }
+var libraryOff
+var libraryOn
+if(document.images) {  // if browser supports the 'image' object
+  libraryOff = new Image(72,22)
+  libraryOn = new Image(72,22)
+  libraryOff.src = "library_off.gif"
+  libraryOn.src = "library_on.gif"
+  }
+</script>
+</HEAD>
+<BODY bgcolor="ccccc">
+<a href="JavaScript:chgImg()"
+onMouseOver="document.imgLib.src='library_on.gif'"
+onMouseOut="document.imgLib.src='library_off.gif'">
+<img src="library_off.gif" name="imgLib" border=0>
+<img name="secondImg" src="boxer.jpg" border=0>
+</a>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEADER>
+<TITLE>Assignment 5-1</TITLE>
+<SCRIPT language="Javascript">
+function passFail(grade){
+  if (grade >=60) {
+    return "passed" }
+  else {
+    return "failed" }
+}
+function showGrade(name, grade){
+  document.write(name + " has " + passFail(grade) + " the class<BR>")
+}
+</SCRIPT>
+</HEADER>
+<BODY bgcolor="#CCFFFF">
+<SCRIPT language="JavaScript">
+showGrade("Sue", 58)
+showGrade("Joe", 98)
+showGrade("Terry", 77)
+showGrade("Felicia", 60.1)
+showGrade("Albert", 59.9)
+</SCRIPT>
+</BODY>
+</HTML><HTML>
+<HEADER>
+<TITLE>Assignment 5-1</TITLE>
+<SCRIPT language="Javascript">
+function passFail(grade){
+  if (grade >=60) {
+    return "passed" }
+  else {
+    return "failed" }
+}
+function showGrade(name, grade){
+  document.write(name + " has " + passFail(grade) + " the class<BR>")
+}
+</SCRIPT>
+</HEADER>
+<BODY bgcolor="#CCFFFF">
+<SCRIPT language="JavaScript">
+showGrade("Sue", 58)
+showGrade("Joe", 98)
+showGrade("Terry", 77)
+showGrade("Felicia", 60.1)
+showGrade("Albert", 59.9)
+</SCRIPT>
+</BODY>
+</HTML><HTML>
+<HEADER>
+<TITLE>Assignment 5-1</TITLE>
+<SCRIPT language="Javascript">
+function letter(grade){
+  if (grade <=60) {
+    return "F" }
+  else { 
+    if (grade >= 60 && grade < 70) {
+      return "D" }
+    else {
+      if (grade >= 70 && grade < 80) {
+        return "C" }
+      else {
+        if (grade >= 80 && grade < 90) {
+          return "B" }
+        else {
+          if (grade >= 90) {
+            return "A!" }
+          else {
+            return "Incomplete"
+          }
+        }
+      }
+    }
+  }
+}
+function showGrade(name, grade){
+  document.write(name + " has a final grade of " + letter(grade) + "<BR>")
+}
+</SCRIPT>
+</HEADER>
+<BODY bgcolor="#CCFFFF">
+<SCRIPT language="JavaScript">
+showGrade("Sue", 58)
+showGrade("Joe", 98)
+showGrade("Terry", 77)
+showGrade("Felicia", 60.1)
+showGrade("Albert", 0)
+showGrade("Bertha", 82)
+</SCRIPT>
+</BODY>
+</HTML><HTML>
+<HEAD>
+<TITLE>Assignment 6-2</TITLE>
+<SCRIPT Language="JavaScript">
+function doNothing() {
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM NAME="demoOnClick"> 
+<INPUT TYPE="button" NAME="onClickDemo"
+VALUE="Demo OnClick Function" onClick='alert("Warning! Warning!")'>
+</form>
+
+<a href="http://www.news.com" onMouseOver="status='Click for Computer News';return true"
+ onMouseOut="status='Move that Mouse!'">Computer News </a>
+<br>
+<a href="JavaScript:doNothing()"
+onMouseOver="alert('Warning! Warning')">
+onMouseOver Event Demo</a>
+
+</BODY>
+
+</HTML><HTML>
+<HEAD>
+<TITLE>JavaScript Test of Changing Button Values</TITLE>
+<script language="JavaScript">
+function buttonChg() {
+  if (document.chgBtnFrm.chgBtn.value == "Button On") {
+    document.chgBtnFrm.chgBtn.value = "Button Off" }
+  else {
+    document.chgBtnFrm.chgBtn.value = "Button On" }
+}
+</script>
+</HEAD>
+<BODY bgcolor="blue" onload="buttonChg()">
+
+<form name="chgBtnFrm">
+<input type="button" name="chgBtn" onClick="buttonChg()">
+</form>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>Assign 7-2</TITLE>
+<script language="JavaScript">
+  function doNothing() {
+}
+  var msg = "The JavaScript Learning Center is Great"
+  function cutString(start,finish,string) {
+    document.write(string.substring(start,finish))
+}
+</script>    
+</HEAD>
+<BODY bgcolor="white">
+
+<a href="JavaScript:cutString(4,30,'The JavaScript Learning Center is Great')">
+The JavaScript Learning Center is Great</a>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="javascript">
+var msg = "watch it scroll..."  //initializing the variable and its value
+var varGo2 = 1  //you can't pass this as an argument 'cause it's undef'd in function 
+                //after 1st pass.  So you pass it as a global 
+function scrollMsgDemo(){
+  var varGo = varGo2
+  document.scrollDemo.textScroll.value = msg
+  msg = msg.substring(1,msg.length) + msg.substring(0,1) //actual scrolling function
+  if (varGo > 0) {
+    myTimer = setTimeout("scrollMsgDemo()",200) } //repeats funct every .2 secs
+  else {
+    clearTimeout("myTimer") }  //stops the setTimeout
+}
+function stopScrolling(){
+  varGo2 = 0  //resets global so it stops
+  scrollMsgDemo()
+}
+</script>
+</HEAD>
+<BODY bgcolor="white" onload='scrollMsgDemo(1)'>
+<!-- <BODY bgcolor="white"> -->
+
+<!-- text box with the scrolling message -->
+<form name="scrollDemo">
+<input type="text" name="textScroll" size=30 maxlength=30>
+<p>
+<!-- button to stop the scrolling -->
+<input type="button" name="myButton" value="Push to stop" 
+onClick='stopScrolling(0)'>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="javascript">
+var msg = "watch it scroll...        "  //initializing the variable and its value
+var varGo2 = 1  //you can't pass this as an argument 'cause it's undef'd in function 
+                //after 1st pass.  So you pass it as a global 
+function scrollMsgDemo(){
+  var varGo = varGo2
+  document.scrollDemo.textScroll.value = msg
+  msg = msg.substring(1,msg.length) + msg.substring(0,1) //actual scrolling function
+  if (varGo > 0) {
+    myTimer = setTimeout("scrollMsgDemo()",100) } //repeats funct every .1 secs
+  else {
+    clearTimeout("myTimer") }  //stops the setTimeout
+}
+function stopScrolling(){
+  varGo2 = 0  //resets global so it stops
+  scrollMsgDemo()
+}
+</script>
+</HEAD>
+<BODY bgcolor="white" onload='scrollMsgDemo(1)'>
+<!-- <BODY bgcolor="white"> -->
+
+<!-- text box with the scrolling message -->
+<form name="scrollDemo">
+<input type="text" name="textScroll" size=50 maxlength=50>
+<p>
+<!-- button to stop the scrolling -->
+<input type="button" name="myButton" value="Push to stop" 
+onClick='stopScrolling(0)'>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="javascript">
+var msg = "watch it scroll...        "  //initializing the variable and its value
+var varGo2 = 1  //you can't pass this as an argument 'cause it's undef'd in function 
+                //after 1st pass.  So you pass it as a global 
+function scrollMsgDemo(){
+  var varGo = varGo2
+  document.scrollDemo.textScroll.value = msg
+  msg = msg.substring(1,msg.length) + msg.substring(0,1) //actual scrolling function
+  if (varGo > 0) {
+    myTimer = setTimeout("scrollMsgDemo()",1000) } //repeats funct every 1 sec
+  else {
+    clearTimeout("myTimer") }  //stops the setTimeout
+}
+function stopScrolling(){
+  varGo2 = 0  //resets global so it stops
+  scrollMsgDemo()
+}
+</script>
+</HEAD>
+<BODY bgcolor="white" onload='scrollMsgDemo(1)'>
+<!-- <BODY bgcolor="white"> -->
+
+<!-- text box with the scrolling message -->
+<form name="scrollDemo">
+<input type="text" name="textScroll" size=50 maxlength=50>
+<p>
+<!-- button to stop the scrolling -->
+<input type="button" name="myButton" value="Push to stop" 
+onClick='stopScrolling()'>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var myDate = new Date()
+daysOfWk = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+var DOW = myDate.getDay()
+document.write("Today is " + daysOfWk[DOW])
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var myDate = new Date()
+var myYear = myDate.getYear()
+var myMonth = myDate.getMonth() + 1
+var myDOM = myDate.getDate()
+document.write("Today is " + myMonth + "/" + myDOM + "/" + myYear)
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var myDate = new Date()
+var myYear = myDate.getYear()
+var myMonth = myDate.getMonth()
+var myDOM = myDate.getDate()
+months = new Array("January", "February", "March", "April", "May", "June", "July", "August")
+months[8]  = "September"
+months[9]  = "October"
+months[10] = "November"
+months[11] = "December"
+document.write("Today is " + months[myMonth] + " " + myDOM + ", " + myYear)
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script Language="JavaScript">
+function isZero(num) {
+  if (num <10) { 
+    return "0" }
+  else {
+    return "" }
+}
+</script>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var myDate = new Date()
+var myHrs = myDate.getHours()
+var myMins = myDate.getMinutes()
+var mySecs = myDate.getSeconds()
+var zeroMins
+var zeroSecs
+zeroMins = isZero(myMins)
+zeroSecs = isZero(mySecs)
+document.write("The time is " + myHrs + ":" + zeroMins + myMins + ":" + zeroSecs + mySecs)
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Current Time</h1>
+
+<script Language="JavaScript">
+function getGreeting(hour) {
+  if (hour > 0 && hour < 12) {
+    return "Good Morning" }
+  else {
+    if (hour >= 12 && hour < 18) {
+      return "Good Afternoon" }
+    else {
+      return "Good Evening" }
+  }
+}
+    
+function currentTime() {
+  var time = new Date()
+  var hr = time.getHours()
+  var min = time.getMinutes()
+  var sec = time.getSeconds()
+//if hr < 10 then return a space, otherwise a null string
+  hr = ((hr < 10) ? " " : "") + hr
+  min = ((min < 10) ? "0" : "") + min
+  sec = ((sec < 10) ? "0" : "") + sec
+  document.timeDemo.currentTime.value = hr + ":" + min + ":" + sec + "   " + getGreeting(hr)
+//  document.print("<br><br><br>" + getGreeting(hr))
+  myTimer = setTimeout("currentTime()",1000)
+}
+</script>
+
+</HEAD>
+<BODY bgcolor="white" onload="currentTime()">
+
+<form name="timeDemo">
+<font face="Courier" size=4>
+<input type="text" name="currentTime" size=35 maxlength=35>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Current Time</h1>
+
+<script Language="JavaScript">
+function showTodaysDate() {
+  var today = new Date()
+  var currYr = today.getYear()
+  var currMth = today.getMonth() + 1
+  var currDay = today.getDate()
+  var today2 = "today is " + currMth + "/" + currDay + "/" + currYr
+  alert(today2)
+}
+     
+function currentTime() {
+  var time = new Date()
+  var hr = time.getHours()
+  var min = time.getMinutes()
+  var sec = time.getSeconds()
+//if hr < 10 then return a space, otherwise a null string
+  hr = ((hr < 10) ? " " : "") + hr
+  min = ((min < 10) ? "0" : "") + min
+  sec = ((sec < 10) ? "0" : "") + sec
+  document.timeDemo.timeBtn.value = hr + ":" + min + ":" + sec
+//  document.print("<br><br><br>" + getGreeting(hr))
+  myTimer = setTimeout("currentTime()",1000)
+}
+</script>
+
+</HEAD>
+<BODY bgcolor="white" onload="currentTime()">
+
+<form name="timeDemo">
+<font face="Courier" size=4>
+<input type="button" name="timeBtn" onClick="showTodaysDate()">
+<br>Press Me
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+ÿØÿà JFIF   d d  ÿì Ducky     <  ÿî Adobe dÀ   ÿÛ „ 		
+
+
+
+GIF89ad d Õ  ÿÿÿ”””¥¥¥ÎÎÎ{ss911­””J99„RRÖ{{”RR{BB{))JsRJ¥„{Œ„{Î½”çŞÆ”ŒcÆ½k”Œ9½µBRRJ{{9„Œ””œ¥ck{Œ”¥s{Œ½ÆŞ„Œ¥ïïÿ{{„ŞŞï­­½ZZcÎÎçBBZ{{µ1B9­{sÎcZ½B9œZR”JB{J9½!Z9)œBœ”½1!{¥œµ!1Æ½Æ­œ­!{ck½œ¥½”œ   ,    d d  ÿ@ hH,…HPj:ŸPÎá%Ï ÇI§à¯•K.†c²ô+J‘¤­VE¢ªq?0G6#‚‚4664†ˆ‰ÿØÿà JFIF  H H  ÿí¼Photoshop 3.0 8BIMé     x    H H    Ø(ÿáÿâùFG(ü    H H    Ø(    d       '              `                                 8BIMí      H     H    8BIMó             8BIM
+       8BIM'     
+        8BIMõ     H /ff  lff       /ff  ¡™š       2    Z         5    -        8BIM       8BIM             8BIM        8BIM    -      €   €  €  À     ÿØÿà JFIF  H H  ÿş 'File written by Adobe Photoshop¨ 4.0 ÿî Adobe d€   ÿÛ „ 			
+ÿÀ  € €" ÿİ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sğáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑğ3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? ïzŸS8µ›Í‰Ÿ5Ê]õìV\ßIÎ¡ÜGğZ?Zú…ĞûMd»‘»±şJâèé9yÏ²Êr·c†˜p{Ü;}å$¤ÈGgxıu9N©”Ôàù ‡82¯õ­g§ÒÃ—Aßl†Šİ#OàIú·enªìÛìÜlİ´°oæ.ŸëLÂı˜rÍÖRêÉ.:†¹Ãå5î¶	<$¼Äj¾¾ÒæŠÅ/Üy÷x­Õ?K9u<À;f9\¦VÖ«Mcšª²¾H.` ·àå§‘FqÀn.]æ²v‡9#¿gmBõl©p€xôèÚÆúíUVoc·vÉ<ü—AÓş±WšÍìaÿØÿà JFIF  H H  ÿí¼Photoshop 3.0 8BIMé     x    H H    Ø(ÿáÿâùFG(ü    H H    Ø(    d       '              `                                 8BIMí      H     H    8BIMó             8BIM
+       8BIM'     
+        8BIMõ     H /ff  lff       /ff  ¡™š       2    Z         5    -        8BIM       8BIM                           8BIM        8BIM          €   €  €  À     ÿØÿà JFIF  H H  ÿş 'File written by Adobe Photoshop¨ 4.0 ÿî Adobe d€   ÿÛ „ 			
+ÿÀ  € €" ÿİ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sğáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑğ3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? ô¬°èUj2\fLOu}íĞªyÅ”PòÓ4NWÑ§wSkn#]<Ññú†â41ñT1+¯#u¯t’ãÜ…nºX-]ğ’‰ØRhY¶ûï.[™s´o~ò®†4	
+RØKE¶çÕƒoÒ/3á)¯£"4?Š½ëÖÓÀ(Û‘Xo)V»'‰£òÓµÓ?V$$•V’_qpt|U÷Öİ†Liâ*ÚYu´¯
+ˆê„ƒ÷¡u[ÛCÉ€i+ıZ¯R=qÿ Kû’¾„'‡Ké]ÔEmÜgï)›ÖØöèüJæ3³î¶°)¸Ÿ†ïà¬:/±îyâI%ßÜ¡¢¢/W¤§<¾92¯ãän0¹Qí-ƒÛSıËw¥»sd»qÿ j*¨YÿĞô÷hU æ¾§27"5FÌÉem×ÅsÏêL0é2cÿ ’R£[Ñ#ì~-geqG(?#+!…å„tĞ¡ä5™U¨İ§˜şªüKİŠÇF›Aä~yşR\@FÈ]Jrái«Ö6ü€ßscïU®ÎÈ¨8íĞ|VV?Y¹Â÷Öÿ ßJTêOe{\	mÿØÿà JFIF  H H  ÿÛ C 	ÿØÿà JFIF  H H  ÿÛ C 	ÿØÿà JFIF  H H  ÿÛ C 	GIF89aF 2 ÷ÿ ÿÿÿÆÆÆÎÎÎÖÖÖçççïïï÷÷÷ÿ÷÷ÿïïÿççïïç÷÷ïÿÿ÷ÎÎÆÖÖÎŞŞÖççŞ½½µ­­¥µµ­ÆÆ½œœ”¥¥œ÷÷çŞŞÎççÖïïŞÖÖÆ½½­ÆÆµÎÎ½µµ¥­­œÀÀÀ¥¥”ïïÖçïïï÷÷÷ÿÿŞççÎŞŞ½ÖŞµÎÖs¥µÆŞç„­½”½ÎŒµÆZ”­RŒ¥!s”Öçï¥ÆÖs¥½)s”!kŒ Z„ÆÖŞœ½Î”µÆkœµc”­ZŒ¥B„¥9{œ1s”k”cŒZ„ R{ÎŞç{¥½Z„œRŒ­J„¥B{œ9s”)sœ!k”cŒZ„µÎŞ­ÆÖ„­ÆsœµZŒ­R„¥1sœ)k”!cŒZŒ R„¥½Îc”µJ{œ9sœ)cŒR„”µÎŒ­Æs”­cŒ­Bsœ9k”Şçï½ÎŞk„œçï÷ÆÖç{”­sŒ¥Rs”ÖŞçs„œc{œZs”{Œ¥ÆÎŞs„¥cs”ZkŒ­µÆ”œ­s{œ÷÷ÿŒŒ¥Œ„œœ”¥÷ï÷­”­¥Œ¥œ„œ”{”œ{œœ{””sŒ¥„œ¥{”ÿï÷­{”¥„”µ„œ­c„µ{”½„œ½{”µsŒ÷Şçµk„½Œœµ{ŒÿŞçÆk„µZs÷ÖŞï­½½{ŒÎc{Şk„Æ9ZÆ1R÷ÎÖïœ­Öc{Şc{ÖZsŞZsÎRkÎJcÖ9ZÖ1RÆ)JÎ)JÖ)JÎ!BÎ1Î )ï½ÆçŒœŞRkÖJcÆBZŞJcÖ!BÎ9Ö9Î1Ö1Î)Æ !÷ÆÎç„”Şs„ÖBZÖ1JÖ)Î !Ö !ïµ½Ö!9Ş!9Ş1Ö)Ş)çJZÖ                                                                                                                                                       !ù  ! ,    F 2 @ÿ CH° Áƒ*\È°¡CƒH@ ƒjdxa€5/°I²¤É“'‰ ±Q ƒKºzÉœIS&±›ÍŠ-s
+Õ¨DˆùñaÌ-[P	¥È *dh9ğ€=F^áreä (X  AàJ‚´h1…UŒäQ Á
+@4 
+‘* ,<X€¢€…|+^Ì¸±ãÇzä£#ˆR”PàP€1£â A/-±€GIF89a×= Ä  “£è6úûÿÍÕù6>a€ÒŸ¤¹04N6F‹mx¬[j¯¬»ûBQ–\a{*vC?Gh(9…~ÀÄÖâçûeJ[§Tam|Ã!0ÿØÿà JFIF  H H  ÿí¼Photoshop 3.0 8BIMé     x    H H    Ø(ÿáÿâùFG(ü    H H    Ø(    d       '              `                                 8BIMí      H     H    8BIMó             8BIM
+       8BIM'     
+        8BIMõ     H /ff  lff       /ff  ¡™š       2    Z         5    -        8BIM       8BIM     
+          8BIM        	8BIM    ,      €   €  €  À     ÿØÿà JFIF  H H  ÿş 'File written by Adobe Photoshop¨ 4.0 ÿî Adobe d€   ÿÛ „ 			
+ÿÀ  € €" ÿİ  ÿÄ?          	
+         	
+ 3 !1AQa"q2‘¡±B#$RÁb34r‚ÑC%’Sğáñcs5¢²ƒ&D“TdEÂ£t6ÒUâeò³„ÃÓuãóF'”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö7GWgw‡—§·Ç×ç÷ 5 !1AQaq"2‘¡±B#ÁRÑğ3$bár‚’CScs4ñ%¢²ƒ&5ÂÒD“T£dEU6teâò³„ÃÓuãóF”¤…´•ÄÔäô¥µÅÕåõVfv†–¦¶ÆÖæö'7GWgw‡—§·ÇÿÚ   ? ô<ìƒS€3¯š§^éZÁpî¥ÖúŸO©€YacÁĞÁñY# ˜{lĞÁUO<¥	Ğº<¬!’W¨6zÏTôr¶€è,A„^‹—fCkI–8{I:÷TºÅg+¼š­ÊXCıÄ~oç,\¬Ú¬{ªµÎdä»oŸÑö­(<C°qåÅš8åûÄjôıc©æt«k´4]EÓ³i- Ís\ïİr«wÖë¨-k©.sØ=İÍ[¯¨;íûev%¬°FïÒ	t¼Ã¶;ÓıõoÖé6Òl²¯MÌ%°ğZFÓôùşkó·ªæïFÍÆ½C^îk:Å™=&ÜçÖj‹6‡j`×îöÏúEGöÓ»œU¢ÜÜÀÊ[}mÇ{é
+İ«™-lÜïÑ¦gAÆ¤F^MçóXùë{˜pB ÌÕµå6\‡Ûšß·Ğ‡íj¿¬WÙI©Œ–µ¤¸ÌG;¤[XÅ¹Ï«\âOÊÔ!ÖpéÀô<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Demonstrating a for-next loop</h1>
+</HEAD>
+<BODY bgcolor="white" font="courier" size=14>
+
+<SCRIPT language="JavaScript">
+<!-- 
+for (var i = 10; i>=0; i--) {
+  document.write("<br>" + i)
+}
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="JavaScript">
+function getCalendarForMonth(month, year){
+  var dayOfWeekArray = new Array("S", "M", "T", "W",
+                        "T", "F", "S")
+  var monthArray = new Array("January", "February", 
+                   "March", "April", "May", "June", 
+                   "July", "August", "September", 
+                   "October", "November", "December")
+  var noDaysArray = new Array(31, 28, 31, 30, 31, 30, 
+                    31, 31, 30, 31, 30, 31)
+  var firstOfMonth = new Date(month + "/1/" + year )
+  var day = - firstOfMonth.getDay()
+
+  // determine number of days in month
+  var noDays = noDaysArray[month-1]
+  if (month == 2){
+    if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
+      noDays = 29
+      }
+    }
+  //fabricate string for tables
+  var strMonth = "<TABLE border=0 cellpadding=0 cellspacing=1>"
+  strMonth += "<TR><TD align='center'>"
+  strMonth += "<FONT face='Arial' size=2>"  
+  strMonth +=  monthArray[month-1] + " " + year 
+  strMonth += "</FONT></TD><TR><TD>"
+  strMonth += "<TABLE border=1 cellpadding=3 cellspacing=0>"
+  strMonth += "</TR><TR bgcolor='#CCFFFF' align='center'>"
+  for(var i = 0; i<=6; i++){
+    strMonth += "<TD width=15><FONT face='arial' size=1>"
+    strMonth += dayOfWeekArray[i] + "</FONT></TD>"
+    }
+  strMonth += "</TR><TR align='right'>"
+
+  //fabricate first week of month
+  for (i = 0; i <= 6; i++){
+    strMonth += "<TD width=15><FONT face='arial' size=1>"
+    day++
+    if(day > 0){
+      strMonth += day
+      }
+    else{
+      strMonth += " "
+      }
+    strMonth += "</FONT></TD>"
+    }
+
+  //fabricate remaining weeks
+  for(var j=1; j < 6; j++){
+    strMonth += "</TR><TR align='right'>"
+    for (i = 0; i <= 6; i++){
+      strMonth += "<TD><FONT face='arial' size=1>"
+      day++
+      if(day <= noDays){
+        strMonth += day
+        }
+      else{
+        strMonth += " "
+        }
+      strMonth += "</FONT></TD>"
+      }
+    if (day >= noDays){
+      break;
+      }
+    }
+  strMonth += "</TR></TABLE>"
+  strMonth += "</TD></TR></TABLE>"
+
+  return strMonth
+  }
+
+
+</script>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+<!-- 
+document.write(getCalendarForMonth("11","2000"))
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h2>Demonstration of a While Loop and a Do Loop</h2>
+</HEAD>
+<BODY bgcolor="white">
+<font face="courier">
+
+<SCRIPT language="JavaScript">
+var i = 1
+var j = 1
+var product
+while (i<=10) {
+  do {
+    product = i*j
+    product = ((product < 10) ? "+" : "") + product
+    product = "" + product
+    document.write(" " + product)
+    j++
+  } while (j<=10) //a do-while always executes once
+  document.write("<br>")
+  i++
+  j = 1
+}
+document.write("<br>")
+document.write(navigator.appName + "<br>")
+document.write(navigator.platform + "<br>")
+document.write(navigator.userAgent + "<br>")
+//document.write(navigator.plugins[] + "<br>")
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>This Page's URL</h1>
+</HEAD>
+<BODY bgcolor="white" font="courier" size=14>
+
+<SCRIPT language="JavaScript">
+<!-- 
+document.write(window.location.href)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Switch to Another Page</h1>
+<script Language="JavaScript">
+function switchSite() {
+  window.location.href = "http://www.espn.com"
+}
+</script>
+</HEAD>
+
+<BODY bgcolor="white" font="courier" size=14>
+<form name="changeSite">
+<input type="button" name="newSite" value="Push to get ESPN.com" onClick='switchSite()'>
+<input type="button" name="prvSite" value="To Get to Prev Site" onClick='history.back()'>
+</form>
+
+<SCRIPT language="JavaScript">
+<!-- 
+document.write("Current URL: " + window.location.href)
+document.write("<br>Page Last Modified: " + document.lastModified)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEADER>
+<TITLE>Using the Open() and Close() Methods</TITLE>
+<SCRIPT language="Javascript">
+
+</SCRIPT>
+<h1>--A Web Page--<h1>
+</HEADER>
+<BODY bgcolor="#CCFFFF">
+<SCRIPT language="JavaScript">
+var myPage = "<TITLE>My first HTML document</TITLE> " + 
+"<h1>An important heading</h1> " +
+"<h2>A slightly less important heading</h2> " +
+"<body color='white'> " + 
+"<p>This is the first paragraph</p> " +
+"<p>This is the second paragraph</p> " +
+"<p>This is a really <em>interesting</em> topic!</p> " +
+"<img src='MAP104.JPG' width='200' height='150' " +
+"alt='Scenic View' longdesc='scenicView.html'>"
+
+document.open()
+document.write(myPage)
+document.close()
+</SCRIPT>
+</BODY>
+</HTML><HTML>
+<HEAD>
+<TITLE>This Enables You to Change Pictures</TITLE>
+<h2>Animal Planet</h2>
+<script language="JavaScript">
+var picture = new Array("bird1.jpg","mutt.jpg","bird2.jpg","boxer.jpg")
+var pictNum = 1
+var numOfPicts = picture.length  //no. of elements in array
+function prevPicture() {
+  if (pictNum > 1) {
+    pictNum-- }
+  else {
+    pictNum = picture.length }
+  document.myPicture.src=picture[pictNum-1]
+}
+function nextPicture() {
+  if (pictNum < numOfPicts) {
+    pictNum++ }
+  else {
+    pictNum = 1 }
+  document.myPicture.src=picture[pictNum-1]
+}
+</script>
+</HEAD>
+<BODY bgcolor="white">
+<IMG src="bird1.jpg" name="myPicture" width=140, height=190>
+<br>
+<A href="JavaScript:prevPicture()">Previous</A>&nbsp;&nbsp;
+<A href="JavaScript:nextPicture()">Next</A>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>This Exemplifies a Rollover</TITLE>
+<h2>This exemplifies a Rollover</h2>
+<script language="JavaScript">
+function chgImg() {
+  document.secondImg.src="bills1.gif"
+  }
+var libraryOff
+var libraryOn
+if(document.images) {  // if browser supports the 'image' object
+  libraryOff = new Image(72,22)
+  libraryOn = new Image(72,22)
+  libraryOff.src = "library_off.gif"
+  libraryOn.src = "library_on.gif"
+  }
+</script>
+</HEAD>
+<BODY bgcolor="ccccc">
+<a href="JavaScript:chgImg()"
+onMouseOver="document.imgLib.src='library_on.gif'"
+onMouseOut="document.imgLib.src='library_off.gif'">
+<img src="library_off.gif" name="imgLib" border=0>
+<img name="secondImg" src="boxer.jpg" border=0>
+</a>
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="javascript">
+var msg = "watch it scroll"
+function scrollMsgDemo(){
+  document.scrollDemo.textScroll.value = msg
+  msg = msg.substring(1,msg.length) + msg.substring(0,1)
+//  document.scrollDemo.textScroll.value = msg
+  }
+</script>
+</HEAD>
+<BODY bgcolor="white">
+
+<form name="scrollDemo">
+<input type="text" name="textScroll" size=30 maxlength=30>
+<p>
+<input type="button" name="myButton" value="Push to Scroll" 
+onClick='scrollMsgDemo()'>
+</form>
+
+<SCRIPT language="JavaScript">
+var msg = "watch it scroll"
+scrollMsgDemo(msg)
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="javascript">
+var msg = "watch it scroll"  //initializing the variable and its value
+var varGo2 = 1  //you can't pass this as an argument 'cause it's undef'd in function 
+                //after 1st pass.  So you pass it as a global 
+function scrollMsgDemo(){
+  var varGo = varGo2
+  document.scrollDemo.textScroll.value = msg
+  msg = msg.substring(1,msg.length) + msg.substring(0,1) //actual scrolling function
+  if (varGo > 0) {
+    myTimer = setTimeout("scrollMsgDemo()",200) } //repeats funct every .2 secs
+  else {
+    clearTimeout("myTimer") }  //stops the setTimeout
+}
+function stopScrolling(){
+  varGo2 = 0  //resets global so it stops
+  scrollMsgDemo()
+}
+</script>
+</HEAD>
+<BODY bgcolor="white" onload='scrollMsgDemo(1)'>
+<!-- <BODY bgcolor="white"> -->
+
+<!-- text box with the scrolling message -->
+<form name="scrollDemo">
+<input type="text" name="textScroll" size=30 maxlength=30>
+<p>
+<!-- button to stop the scrolling -->
+<input type="button" name="myButton" value="Push to stop" 
+onClick='stopScrolling(0)'>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+<!-- 
+var newDate = new Date(60000)
+document.write(newDate)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var myDateTime = new Date()
+document.write(myDateTime + "<br>")
+document.write("myDateTime.getMonth() " + myDateTime.getMonth() + "<br>")
+document.write("myDateTime.getDay() " + myDateTime.getMonth() + "<br>")
+document.write("myDateTime.getTimezoneOffset() " + myDateTime.getTimezoneOffset() +"<br>")
+myDateTime.setMonth(5)
+document.write("setMonth(5) " + myDateTime + "<br>")
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+daysOfWeek = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+document.write("days of Week[0] = " + daysOfWeek[0] + "<br>")
+document.write("days of Week[3] = " + daysOfWeek[3] + "<br>")
+document.write("daysOfWeek.length = " + daysOfWeek.length + "<br>")
+
+//document.write(daysOfWeek[3])
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+var time = new Date()
+var hr = time.getHours()
+var min = time.getMinutes()
+var sec = time.getSeconds()
+if (hr < 10) {
+  hr = " " + hr }
+if (min < 10) {
+  min = "0" + min }
+if (sec < 10) {
+  sec = "0" + sec }
+document.write(hr + ":" + min + ":" + sec)
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Current Time</h1>
+
+<script Language="JavaScript">
+function getGreeting(hour) {
+  if (hour > 0 && hour < 12) {
+    return "Good Morning" }
+  else {
+    if (hour >= 12 && hour < 18) {
+      return "Good Afternoon" }
+    else {
+      return "Good Evening" }
+  }
+}
+    
+function currentTime() {
+  var time = new Date()
+  var hr = time.getHours()
+  var min = time.getMinutes()
+  var sec = time.getSeconds()
+//if hr < 10 then return a space, otherwise a null string
+  hr = ((hr < 10) ? " " : "") + hr
+  min = ((min < 10) ? "0" : "") + min
+  sec = ((sec < 10) ? "0" : "") + sec
+  document.timeDemo.currentTime.value = hr + ":" + min + ":" + sec
+//  document.print("<br><br><br>" + getGreeting(hr))
+  myTimer = setTimeout("currentTime()",1000)
+}
+</script>
+
+</HEAD>
+<BODY bgcolor="white" onload="currentTime()">
+
+<form name="timeDemo">
+<font face="Courier" size=4>
+<input type="text" name="currentTime" size=15 maxlength=15>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Current Time</h1>
+
+<script Language="JavaScript">
+function getGreeting(hour) {
+  if (hour >= 0 && hour < 12) {
+    return "Good Morning" 
+  }
+  if (hour >= 12 && hour < 18) {
+    return "Good Afternoon" 
+  }
+  if (hour >= 18) {
+    return "Good Evening"
+  }
+}
+    
+function currentTime() {
+  var greeting
+  var time = new Date()
+  var hr = time.getHours()
+  greeting = getGreeting(hr)
+  var min = time.getMinutes()
+  var sec = time.getSeconds()
+//if hr < 10 then return a space, otherwise a null string
+  hr = ((hr < 10) ? " " : "") + hr
+  min = ((min < 10) ? "0" : "") + min
+  sec = ((sec < 10) ? "0" : "") + sec
+  document.timeDemo.currentTime.value = hr + ":" + min + ":" + sec
+  document.timeDemo.greeting.value = greeting
+//  document.write(greeting)  this seems to overwrite everything
+  myTimer = setTimeout("currentTime()",1000)
+}
+</script>
+
+</HEAD>
+<BODY bgcolor="white" onload="currentTime()">
+
+<form name="timeDemo">
+<font face="Courier" size=4>
+<input type="text" name="currentTime" size=15 maxlength=15>
+<input type="text" name="greeting" size=20 maxlength=20>
+</form>
+
+<SCRIPT language="JavaScript">
+
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+</HEAD>
+<BODY bgcolor="white">
+
+<SCRIPT language="JavaScript">
+<!-- 
+//demonstrates how to do date & time arithmetic
+//keep in mind that the atomic unit of time is the millisecond
+//however, not sure how it is supposed to work
+var oneSec = 1000
+var oneMin = oneSec * 60
+var oneHr = oneMin * 60
+var oneDay = oneHr * 24
+var oneWk = oneDay * 7
+document.write("One day is " + oneDay/oneSec + " seconds")
+var thisDay = new Date()
+var futureDate = thisDay.getTime() + (5 * oneWk)  //getTime() is millisecs since 1970
+//convert the millesecs number back into a date object
+var futureDate2 = new Date(futureDate)
+
+var futureDate3 = futureDate2.getMonth()+1 + "/" + futureDate2.getDate() + "/" + futureDate2.getYear()
+document.write("<br>Five weeks into the future is " + futureDate3)
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<h1>Current Greenwich Mean Time</h1>
+<script Language="JavaScript">
+function GMTclock() {
+  var time = new Date()
+
+  var gmtMS = time.getTime() + (time.getTimezoneOffset() * 60000)
+  var gmtTime = new Date(gmtMS) //convert it back from a large no. to a date
+  var varHr = gmtTime.getHours()
+  var varMin = gmtTime.getMinutes()
+  var varSec = gmtTime.getSeconds()
+  varHr = ((varHr < 10) ? " " : "") + varHr
+  varMin = ((varMin < 10) ? "0" : "") + varMin
+  varSec = ((varSec < 10) ? "0" : "") + varSec
+  varTime = varHr + ":" + varMin + ":" + varSec
+  document.timeDemo.currentTime.value = varTime
+  myTimer = setTimeout("GMTclock()",1000)  //if you leave out the quotes, you get an overflow error
+}
+</script>
+</HEAD>
+<BODY bgcolor="white" onload="GMTclock()">
+
+<form name="timeDemo">
+<font face="Courier" size=4>
+<input type="text" name="currentTime" size=15 maxlength=15>
+</form>
+
+<SCRIPT language="JavaScript">
+<!-- 
+
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>
+GIF89aàP ÷£ ¬†¼®ŒÌ®DìÖŒŒ~TÄÂ´äÆl´–4ÙÖÌ¬–TÔÃŒÄ®lœ4³¢tôîÜ¼¢T§Š4ÔºlÌÂ¤äâä¼¶¤äÖ¬ìâÌğÒtÄ¶Œ¼¢D¶¢d ŠDÌÊÌ¾®|¥–d’~DÎº|œŠTÅ®\İÆ|²–DäÎŒÜÏ¤¬ŠÕÎ´ôòôáÖ¼À¶œÌÂœäâÜÜÚÜ¤dÜº\¼DäÖ¤µT´¦„ÄªT¬’Dœ†DÙÂ|åŞ¼Í¶l´’4ÕÊ¤ÂªdË¶|éÎ|ôŞŒäŞÌìîìÏ¾Œ¦’T§Š,¼²œª–\äÊŒ£†4¼ªtÜÂtğêÔœŠL±dÔ¶\¯–LÔÑÄÀ²ŒÄÆÄìÎtÂ®tº¢\ÏºtËÂ¬ìÓ„¼®„~LÌº„œ,”‚TÜÆtÔÖÔĞÂ”¤Š<È¾¤åâÔÄ¶”´¢lœŠ\Å®dÜÆ„ØÎ¬ÔÎ¼üúôŞÖÄË¾œÌ®TìÖ”ÓÊ´¼<´¦|ìêäÔÒÌÜÊœóêÜëŞÄùöì´’,´–<´šT”~<¼¦tôîääØ´üâœÜÎœäÂdÄªLüÚ„¤†,Äª\›†Lº­”Ğ°LğÔ|¼¢L¬šl¯$×»dùà””†\¬†¬DÌ²|œ‚DÜ¾|¼šDÌºœ´,´š\¼šLÌ²tÄ¦\Ü¾tÔÆ¬ìÊtÜÆ”äÒ¬üşü»L´\ª’LÖÂ„Ì¶t­’<ÔÊ¬¾ªlÄ¶„åÎ„âŞÔÌ¾”¤’\ÜÊ”†<»ª|¯l¾²”Ä¾¬ÌÊ¼Ô¶dìêìÔÒÔôÚŒÌÆ´êÊlÜÚÌ¬šTË²l´¦tÂ¦T¬4Ú¾lÑÆ¤äæäÁº¤ìæÌËºŒ¼¦d¤DÍÎÌÄ²|¬šd”‚DÔ¾|¢TÌ²\äÊ|´šDêÒŒÜÒ´÷öôäÚ¼ÄºœÔÆœêæÜÜŞÜ£’d·ª„ôòì¬,¬š\¤L´šLÌÊÄÄ²t¼¦\Ô¾tÌÆ¬Ä²„”‚LÔ¾„•†TäÊtÜÚÔÔÆ”«<ìæÔÇº”¹¦l\Ì²dßÊ„ÜÒ¬ÙÒ¼äÚÄÔ²TôÚ”ìâÄ¹š<œ‚<ôòä!ù  £ ,    àP @ÿ G	H° Áƒ*\È°¡Ã‡#JœH±¢Å‹3jÜÈ±£Ç CŠIRâ5!Æ¸¹àÆÍXŠ’0cvDÉm‚™8sbÄÌÇ© í+GËÌºj’î³gæ-^4àã‡ìßÈ	V A‚3Ï”›w&ğXÕéñZ2Zåª8Û n‡2ş4f¤yâ0˜‹Á•(w˜àáŒ/@cÉ*&ë"%8%¤:¡M…Ä‹E^K§Nšjåfà‰‡™¬.'§öUû•ÊQe@ßÊˆĞc•’Ğ^¼–KšJl+C£F÷¨<DØVR®Ü:¡ûèfÅÊ<ÛU ê!„ÍAŞøÊÿ.ª›s]éQ¥Šô¯{õ;¸\ïD@L	°Ü!×pÍ”ƒÃ>û@‚C< Ì*Í€°Ş1Ä[À¡ÑÆ5€Š~ a‡¥0æ(¡„OöØƒƒh qå‚ËóT~
+	AÛ<şY3“¨¸œô°7¬€È ¨³Ç	ÂrÇwt¨²À€*V¡Lhh3;h¨¸À)4rMÀ w&&¢rˆmo"d¢–\ÚÖC=3*ÄM©¥a
+ €Jy(fŒv%Õ
+<HTML>
+<HEAD>
+<TITLE>Lab 1</TITLE>
+</HEAD>
+
+<BODY bgcolor="#CCCCFF">
+
+<SCRIPT language="JavaScript">
+  document.write("Hello World")
+</SCRIPT>
+
+</BODY>
+</HTML>GIF89aL  ÷  A?9IHCMKDRPITRMXVMVXX[ZV^\SY[^^^[`_[caWbb_gf_ig]ed`ihcjjghimciyelhotrg|{ugrhv›jymzpz–w~‘u~”gv gx¦fy¬gz­fz±f{²c{½h}¶i}·k´m°†}…˜j€¹l€»l¼s¥rªuƒ¨x„¢Š¥v‡¶t‡¹t‡»{‰±yŠµ{‹·x‰¸y‹»}º€|p€y†ƒv†„{…„~‹ˆ{€€ƒ†ŠŠ‰ƒŠš‘“—”…“’•“‰„Œ¡†¢ƒ¯Š’¨—­…’³‘º‰•²Š—¹• ’—£”œ¯˜©“›³’¸Ÿ¢§— ·›£·¢¡ ™¨¤”­©™´¯¢¤¦¢¥«¤©¶¨¬¶¬°µ´³«¹µ£¸µª¿º¨±³µµ¶´¹¹´½¼³Â¿³ÊÅ²¹ê¼÷ ş÷³M     PO gL  ¹êì ßPP&4xò€¹êì÷ ş¹ë ß-O4xò€¹ë÷ ş÷³,     \PO g+  -O4¹ë,÷F ,     -O8¹ë^\PO g-O8÷¸¹ë@ù?ˆ+   8   ÷¸ {~¹ìp÷m\PO   {\    F O8(§?°8    ¸?_#c8     ¹ì(Ÿ0¹ì$¹ì(¹ëŒ,)-¹ìÔûş÷â¹ìHñ0¹ìD¹ìH¹ë°¹ì(¹ìÔûş÷â _êãñ0b¦È¹ìH¹ìHñ0¹ìêÙñ0b¦È¹ìHñ0     ÌNĞÌNĞ¹ì4I¢   ¹ì@@AÌNĞÌNĞ¹ìPHøú÷¹Ÿ÷¹¶ Ù€ÌNĞ ‘#ØÌNĞ Ï  	ÌNĞÑx@Ì@ D•ÕÌNĞc c Eµÿ  ÌLP¼_      LìÔLìÔLìÔLìÔÌLP  KXãÌLÌ        L@@  !ş—color 99 123 189
+color 202 197 178
+color 255 255 192
+Comic Sans MS ,  Regular,  10
+Comic Sans MS,   Regular,  11
+Drop Shadow 68, 0.8, 1, 1, Black  !ù  q ,    L   ş ãH° Áƒ*\È°¡Ã‡#JœH±¢Å‹3jÜ(ÑÂ2o8Š4hbLÁ.Rš@’f¤Ë8&€!ÇÈ˜2_Œ9s 4-c~aã3ä¢ÙxŒÇ(Ñ¥ßÀyÉ“ A5˜0ÑÂ#—S¶Z‰cæÅÖGIF89aL  ÷  GF;HG;HH;JI;JJ<LK<MM<NM<NN=PO=TTFWVFXWGXVJYYGZYGZYK[ZKZZL[\L\[H\\H\]L^]P_aR^`ZddMbaPccQfgVbe[df\ghVgi]hfUij[lj]omZpoXut\xw]ae`hlbmodjnhourjp{mt|qseus`vwltxnxv`pw|ry}wƒv‡pl~§i|­k~­n¨c{½f|¸i}²i~³j´k·{z|€yu€zƒy……ƒw‚‘w…k€´l·oƒµmƒºn„»o„½p€¥v†¥t†®w‰¯{Š©p…¶p…ºp…½wŠ¹uŠ½{½€~i€€cƒ‚kŠ‰lŒ‹mŒm‹x‹|y—•{™—~™˜wš™{›™ }¢¡}ˆ”Š“‰””•…€Œ¢†“¦‡”¦Š—©‰•­‚“»€’½ƒ•¸”½‚”½…•»‹›¹ˆš½Šš¼½’œ¥ ˆ—¡§œ¨º¡Ÿ€ ˆ¢¡¯®ˆ­ª’®±–±®–²²³±”¶µ¢©¢¥¬­ ¬¼¤¯»ª²©¥°»¦±¸¦°º¥±½§²¼ª³»¨³¼ªµ¼ª¶¼¬·½¬¸½­¸¾¯¹¼¸»®²¼½ºÁº¹Á¼ºÂ¼¿ÃºÀ¿—À½ÁÀ—ÃÃ˜ÄÃ›ÅÅ˜ÉÇ¤ÌÉ¥ÏÍ¡ËÍ«ÄÉºÇÌ»ÄÌ½ÆÍ¼ÊÅ²ËÆ²ÌÇ²ÌÈ³ÎÉ³ÎÊ³ÊË¸ËÌ¸ÎĞºÌÑ¼ÏÔ½ĞË³ĞË´ĞÌ´ÒÍ´ÒÎ´ÔÏµÒĞ¦ÔÓ§×Ö§ÓĞ­ÔÒ«ÔÕ®ÙØ¨İÜ­ÒÔ°ÔĞµÕÒµÔÓ·ÖÒµ×Ô¶×Øº×Ú¼ØÔ¶ÙÖ¶ÚÖ¶ÛØ·İÛ°ÜØ·İÚ·ŞÚ·ßÜ·ØÙºÙÜ¼ßÜ¸Şİºİà½àİ¸àŞ¸âß¸áá­ãâ²æå³âà¸áä½äá¹äâ¹æã¹æä¹çäºçè½èåºèæºêèºëê»ìê»íì»îì»îí¼ïî¼ğî¼ñğ¼òğ¼óò½ôò½õô½!ş—color 99 123 189
+color 202 197 178
+color 255 255 192
+Comic Sans MS ,  Regular,  10
+Comic Sans MS,   Regular,  11
+Drop Shadow 68, 0.8, 1, 1, Black  !ù  ´ ,    L   ş i	H° Áƒ*\È°¡Ã‡#
+¬UW.\Á‚å¦ñW0`¹2æò8òcÈÿØÿà JFIF   d d  ÿì Ducky     <  ÿî Adobe dÀ   ÿÛ „ 		
+
+
+
+ÿØÿà JFIF  H H  ÿÛ C 	GIF89a€õ ÷ÿ      @  €  ÿ     @  €  ÿ @  @@ @€ @ÿ `  `@ `€ `ÿ €  €@ €€ €ÿ     @  €  ÿ À  À@ À€ Àÿ ÿ  ÿ@ ÿ€ ÿÿ     @  €  ÿ     @  €  ÿ @  @@ @€ @ÿ `  `@ `€ `ÿ €  €@ €€ €ÿ     @  €  ÿ À  À@ À€ Àÿ ÿ  ÿ@ ÿ€ ÿÿ@  @ @@ €@ ÿ@  @ @@ €@ ÿ@@ @@@@@€@@ÿ@` @`@@`€@`ÿ@€ @€@@€€@€ÿ@  @ @@ €@ ÿ@À @À@@À€@Àÿ@ÿ @ÿ@@ÿ€@ÿÿ`  ` @` €` ÿ`  ` @` €` ÿ`@ `@@`@€`@ÿ`` ``@``€``ÿ`€ `€@`€€`€ÿ`  ` @` €` ÿ`À `À@`À€`Àÿ`ÿ `ÿ@`ÿ€`ÿÿ€  € @€ €€ ÿ€  € @€ €€ ÿ€@ €@@€@€€@ÿ€` €`@€`€€`ÿ€€ €€@€€€€€ÿ€  € @€ €€ ÿ€À €À@€À€€Àÿ€ÿ €ÿ@€ÿ€€ÿÿ     @  €  ÿ     @  €  ÿ @  @@ @€ @ÿ `  `@ `€ `ÿ €  €@ €€ €ÿ     @  €  ÿ À  À@ À€ Àÿ ÿ  ÿ@ ÿ€ ÿÿÀ  À @À €À ÿÀ  À @À €À ÿÀ@ À@@À@€À@ÿÀ` À`@À`€À`ÿÀ€ À€@À€€À€ÿÀ  À @À €À ÿÀÀ ÀÀ@ÀÀ€ÀÀÿÀÿ Àÿ@Àÿ€Àÿÿÿ  ÿ @ÿ €ÿ ÿÿ  ÿ @ÿ €ÿ ÿÿ@ ÿ@@ÿ@€ÿ@ÿÿ` ÿ`@ÿ`€ÿ`ÿÿ€ ÿ€@ÿ€€ÿ€ÿÿ  ÿ @ÿ €ÿ ÿÿÀ ÿÀ@ÿÀ€ÿÀÿÿÿ ÿÿ@ÿÿ€ÿÿÿ!ù  ÿ ,    €õ  ş ÿ	H° Áƒ*\È°¡Ã‡#JT ¢Å‹'jÜÈ±£Ç CŠI²¤IŠ^<É²¥Ë—0cÊœ2åÄŠ4sêÜÉ³§O™6;ıI´¨Ñ£H]­‰3©Ó§P£Bmª€Ô«X³j%I5f×­`ÃŠûufÙ±hÓªİiõgÛµpãÊ-ùÖíÜ»xó>¬Kô¬Ş¿€×ò5:8°áÃYFÌ¸ñÔ«ŠKì51åË˜_FFº9³çÏ;sMº4DÑIQ›^YujÖ°W»~»¶çÙNqÛŞWwnŞÀû¦¼xŞá¿+—‹œøòçc›'‡N}«tçÕ³?Æ{]»÷“İ±şß3ütòèušŸ¾½ÒÀëİËOŸıüû ëÆÏ_¤ş£~õ'àiğı7 yxà‚¡– ƒÙ=XT€VøO]¶´QQ¶ ”¡@^¨[†vâB'¢$¢…,<html>
+<head>
+<title>IAF- Medical Kit Order Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<SCRIPT LANGUAGE="JavaScript">
+
+<!-- Begin
+if (window.print) {
+document.write('<form>Click here to '
++ '<input type=button name=print value="print" '
++ 'onClick="javascript:window.print()"> this page!</form>');
+}
+// End -->
+</script>
+</head>
+
+<body bgcolor="#FFFFFF">
+<center>
+ <br>
+</center>
+<table width="576" border="0" cellspacing="0" cellpadding="0" align="center" height="720">
+ <tr valign="top"> 
+  <td> 
+   <p align="center"><b><font size="+1" face="Arial, Helvetica, sans-serif"><br>
+    Send order form and check to:</font></b><font size="+1" face="Arial, Helvetica, sans-serif"><br>
+    International Adoptive Families <br>
+    2714 Indian Oak Dr.<br>
+    Grapevine, TX 76051 </font></p><br>
+
+   <p><font face="Arial, Helvetica, sans-serif" size="+1">
+    Name :_____________________________________<br>
+    <br>
+    Address (street,city,zip): _______________________<br>
+<br>
+    ___________________________________________<br>
+    <br>
+    Phone: _______________  E-mail: _______________</font></p>
+   <p><font face="Arial, Helvetica, sans-serif" size="+1"><br><br>
+    Name of your child: ___________________________<br><br>
+    Age of your child: _____________________________<br><br>
+    Approximate travel date: _______________________<br><br>
+    Country you are traveling to: ____________________</p>
+   <p align="left">&nbsp;</p>
+
+				Minimum donation for the kit is $77.00.</font><br>
+   <p align="left"><font face="Arial, Helvetica, sans-serif" size="+1">Would you 
+    like overnight delivery?<br><br>
+
+    _____ No, I do not want overnight delivery.<br><br>
+    _____ Yes, I want overnight delivery (add $22.00).**<br><br>
+
+**If you want overnight delivery, do you want to waive requirement for signature on receipt of overnight delivery package.<br><br>
+   _____ No, I do not want to waive signature requirement<br><br>
+   _____ Yes, I do want to waive signature requirement
+
+<br><br>
+   
+    I've included a check of $________ (payable to IAF) that will be donated to the International 
+    Adoptive Families organization.</font></p>
+
+</font></p>
+      </td>
+ </tr>
+</table>
+</body>
+</html>
+<HTML>
+<HEAD>
+<TITLE>Our First Script</TITLE>
+</HEAD>
+<BODY>
+<style type="text/css">
+  body {color: black; background: white;} <!-- non-pre text for entire document -->
+  pre {color: green; font-family: monospace;}<!-- pre text for entire document -->
+</style>
+<CENTER>
+<H1>Our First Script</H1>
+</CENTER>
+<P>Today is
+<SCRIPT Language="JavaScript">
+var today = new Date()  //initialize the date object
+document.write(today)   //write method of document object
+document.write("<P><B>Glad you stopped by</B><P>") //include HTML markers in string
+document.write('<IMG src="buffalo.gif">Buffalo Bills') //enclosed dbl-quotes inside sngl-quotes
+</SCRIPT>
+</BODY>
+</HTML>GIF89aK K Ä  ÿÿÿ›œœfffştv©_0Ïu=û68]3GIF89a5= ÷     ÿÿÿ                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          !ù     ,    5=  ş H° Áƒ*\È°¡Ã‡#JœH±¢Å‹3jÜÈ±£Ç CŠI²¤É“(Sª	`¥Ë—0cÊœIÓaËš8sNpS§ÏŸ@ƒ
+]É³èĞ£5‹

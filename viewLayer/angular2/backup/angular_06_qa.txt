@@ -1,0 +1,47 @@
+q=Angular has native functions for ___ (eg. capitalizing) - S M
+a=string manipulation
+
+q=You can integrate Angular with ___.___ - W,   C
+a=w3,css
+a=w3.css
+
+q=The ___ directive enables you to incorporate outside files - N-I
+a=ng-include
+
+q=To include files from other areas, you can include a ___ of ___ - W L,   D
+a=whitelist,domains
+a=white list,domains
+
+q=To add movement to a page, you need the ___.js library and the ___ module - A-A,   NA
+a=angular-animate,ngAnimate
+
+q=ngAnimate adds and removes ___ to ___ - C,   E A
+a=classes,enable animation
+
+q=Use the ___ module so as to enable your application to be single-page - NR
+a=ngRoute
+
+q=To use it, you must add the ngRoute as a(n) ___ in the ___ module - D,   A
+a=dependency,application
+
+q=Once you do that, your application has access to the ___ - R P
+a=route provider
+
+q=Your application places the content in the ___ specified by the ___ directive - C,   N-V
+a=container,ng-view
+
+q=___ enables you to define what ___ to display when the user clicks a link - DRP,   P
+a=$routeProvider,page
+
+q=You define the $routeProvider using the ___ method of your ___ - C,   A
+a=config,application
+
+q=With the $routeProvider you can define a(n) ___ for each view - C
+a=controller
+
+q=The ___ property allows you to write HTML directly in the property value - T
+a=template
+
+q=You specify a default route off of $routeProvider using the ___ method, as opposed to ___ - O,   W
+a=otherwise,when
+

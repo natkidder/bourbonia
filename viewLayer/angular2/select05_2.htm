@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+ </script>
+ <body>
+  <div ng-app="thisapp" ng-controller="thisController">
+   <p>
+    Select a soap:
+   </p>
+   <select ng-model="soapModel" ng-options="soap for (soap, brand) in soaps">
+   </select>
+   <h1>
+    You selected: {{soapModel}}
+   </h1>
+  </div>
+  <!-- This example demonstrates the use of an object as the data source when creating a dropdown list -->
+  <p>
+   This example demonstrates the use of an object as the data source when creating a dropdown list
+  </p>
+  <script>
+   var thisapp = angular.module('thisapp', []);
+   thisapp.controller('thisController', function($scope) {
+    $scope.soaps = {
+        soap01 : "Ivory",
+        soap02 : "Zest",
+        soap03 : "Dial"
+    }
+});
+  </script>
+ </body>
+</html>

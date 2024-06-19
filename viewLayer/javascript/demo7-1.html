@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE>JavaScript Test</TITLE>
+<script language="javascript">
+var msg = "watch it scroll"
+function scrollMsgDemo(){
+  document.scrollDemo.textScroll.value = msg
+  msg = msg.substring(1,msg.length) + msg.substring(0,1)
+//  document.scrollDemo.textScroll.value = msg
+  }
+</script>
+</HEAD>
+<BODY bgcolor="white">
+
+<form name="scrollDemo">
+<input type="text" name="textScroll" size=30 maxlength=30>
+<p>
+<input type="button" name="myButton" value="Push to Scroll" 
+onClick='scrollMsgDemo()'>
+</form>
+
+<SCRIPT language="JavaScript">
+var msg = "watch it scroll"
+scrollMsgDemo(msg)
+</SCRIPT>
+
+</BODY>
+</HTML>

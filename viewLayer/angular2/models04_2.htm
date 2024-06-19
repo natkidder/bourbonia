@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<form ng-app="" name="myForm" ng-init="emailAddr = 'nasa@golf.com'">
+
+ email:
+<input type="email" name="emailInput" ng-model="emailAddr" required>
+<!-- Edit the e-mail address, and try to change the status. -->
+<p> _____ _____ _____-_____ _____, _____ _____ _____ _____ _____ _____.</p >
+<p>stati</p>
+<p>valid?: {{myForm.emailInput.$valid}} (_____ _____, _____ _____ _____ _____ _____).</p>
+<p>dirty?: {{myForm.emailInput.$dirty}} (_____ _____, _____ _____ _____ _____ _____).</p>
+<p>touched?: {{myForm.emailInput.$touched}} (_____ _____, _____ _____ _____ _____ _____ _____).</p>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<HTML>
+<HEADER>
+<TITLE>Assignment 5-1</TITLE>
+<SCRIPT language="Javascript">
+function letter(grade){
+  if (grade <=60) {
+    return "F" }
+  else { 
+    if (grade >= 60 && grade < 70) {
+      return "D" }
+    else {
+      if (grade >= 70 && grade < 80) {
+        return "C" }
+      else {
+        if (grade >= 80 && grade < 90) {
+          return "B" }
+        else {
+          if (grade >= 90) {
+            return "A!" }
+          else {
+            return "Incomplete"
+          }
+        }
+      }
+    }
+  }
+}
+function showGrade(name, grade){
+  document.write(name + " has a final grade of " + letter(grade) + "<BR>")
+}
+</SCRIPT>
+</HEADER>
+<BODY bgcolor="#CCFFFF">
+<SCRIPT language="JavaScript">
+showGrade("Sue", 58)
+showGrade("Joe", 98)
+showGrade("Terry", 77)
+showGrade("Felicia", 60.1)
+showGrade("Albert", 0)
+showGrade("Bertha", 82)
+</SCRIPT>
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+<HEAD>
+<TITLE>Cascading Style Sheets Exemplified</TITLE>
+
+<STYLE TYPE="text/css">
+
+  <!-- syntax: selector { property:value } -->
+  BODY { background: yellow; font-style: italic; font-weight: normal }
+  H1 { font-size: large; color: green }
+  H2 { font-size: medium; color: blue }
+  
+  .warn        { font-size: x-large; color: red } /* class declaration */
+  #ravens      { font-size: small; color: violet } <!-- ID declaration -->
+  .noEmphasize   { font-style: normal }
+  .shortList   {margin: -1em; text-indent: 1em}
+
+  <!-- this applies in emphasized parts of paragraphs -->
+  P EM { font-size: x-large; color: red; font-family: arial }
+
+  <!-- groups of tags getting the same style -->
+  H3, H4 { font: italic bold 12pt/14pt Times, serif; margin: 1em; color: rgb(0%,50%,50%) } 
+
+</STYLE>
+</HEAD>
+
+<H1>THIS IS A HEADER 1</H1>
+<H2>THIS IS A HEADER 2</H2>
+<H3> this is header3, set apart from others by its 5em margin</H3>
+<BODY>
+<P CLASS=warn>Warning! Warning! (in the .warn class)</P>
+<P ID=ravens>The Baltimore Ravens, with the #ravens ID</P>
+<P> this is <EM>emphasized</EM></P>
+
+<!-- showing inheritance, the style of a tag inherits the style of its parent tag -->
+<P> This inherits the style of the body </P>
+<P CLASS=noEmphasize>This overrides the inherited style because it's specified within the paragraph</P>
+<P CLASS=shortList>This is just below the line above because of a negative margin</P>
+
+</BODY>
