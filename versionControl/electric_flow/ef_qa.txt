@@ -1,0 +1,50 @@
+
+q=Pipelines ___ and ___ orchestrate all phases of the software delivery process - Marvin Hamlish with a toy airplane
+a=model,orchestrate
+a=orchestrate,model
+
+q=Pipelines provide ___ and ___, easing software promotion management - G, O
+a=govern,orchestrate
+a=orchestrate,govern
+
+q=Each step in a pipeline is a ___ - S
+a=stage
+
+q=Each stage has entry and exit ___ - G
+a=gates
+
+q=A stage can have ___ entry and exit gates - M
+a=multiple
+
+q=A gate has one ___ - C, often lumped with terms
+a=conditions
+
+q=Each stage is made up of ___ - T
+a=tasks
+
+q=Each task utilizes a ___ of ___ - U, A
+a=unit, automation
+
+q=A unit of automation that integrates with other software is called a ___ - P, like something in your wall
+a=plugin
+
+q=A ___ task is used for releasing software - D
+a=deployer
+
+q=Tasks can be run in ___ or ___ - like with electrical diagrams
+a=serial,parallel
+a=parallel,serial
+
+q=Each task has a(n) ___ feature - E H, like with try-catch
+a=error handling
+
+q=A gate can be ___ or ___ approved - like a transmission
+a=manually,automatically
+a=automatically, manually
+
+q=When running a pipeline, you can choose which ___ to run - what all the world is
+a=stages
+
+q=A pipeline run's log goes to its ___ - S S
+a=stage summary
+
