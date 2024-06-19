@@ -1,0 +1,4 @@
+c:/mydocs/CAREER/training/bash/p198.unx:#echo 'grep nrkidder $(find c:/mydocs/career/training -name '\''*.txt'\'' -print) > p198_1.txt 2>&1 &'
+c:/mydocs/CAREER/training/bash/p198.unx:#grep nrkidder $(find c:/mydocs/career/training -name '*.txt' -print) > p198_1.txt &
+c:/mydocs/CAREER/training/bash/p198.unx:echo 'grep nrkidder $(find c:/mydocs -name '\''*.unx'\'' -print) > p198_1.txt 2>&1 &'
+c:/mydocs/CAREER/training/bash/p198.unx:grep nrkidder $(find c:/mydocs -name '*.unx' -print) > p198_1.txt &

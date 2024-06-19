@@ -1,0 +1,2 @@
+	text with tab in front, here-doc specd with <<
+test with tab in from, here-doc specd with <<-

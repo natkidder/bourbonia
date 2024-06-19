@@ -1,0 +1,36 @@
+WithSpaces 
+
+  OpenWorkSpace \\edfvwn01p\EDF_BP\Workspaces\W_124\ EDF_BP_W_124 nil false As BP_124
+
+ WithSpace BP_124
+   WithOptions
+
+''' have these 3 options set thus whenever you change observation values in an EDL
+
+       AutoDeclareSeriesOn  False
+       AutoCreateSeriesOn  False  
+       DoNotCalculateON   True      
+
+   EndWithOptions  
+
+'''Inclusion list
+
+   WithCodeList ONames_List_1
+     selectONames [*] [0]
+   EndWithCodeList
+
+''' This applies the change to the CodeList   
+
+   WithCube ONames_List_1
+     WithSeries {ONames_List_1}
+        with Observations          
+          daterange Quarterly Q:2007:1 Q:2007:1           
+          Load ? 
+          Clear ?
+          Save ?
+       end with 
+       commit
+     EndWithSeries
+   EndWithCube
+ EndWithSpace  
+EndWithSpaces

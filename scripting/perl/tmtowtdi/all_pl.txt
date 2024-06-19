@@ -1,0 +1,422 @@
+#!/bin/perl
+# illustrates perl escape sequences
+
+use strict;
+
+my $input ;
+
+print "\\t:   \'\t\'","\n";
+$input = <STDIN>;
+print "\\n:   \'\n\'","\n";
+$input = <STDIN>;
+print "\\r:   \'\r\'","\n";
+$input = <STDIN>;
+print "\\b:   \'\b\'","\n";
+$input = <STDIN>;
+print "\\a:   \'\a\'","\n";
+$input = <STDIN>;
+print "\\x{3F}:    \'\x{3F}\'","\n";
+print "\n";
+
+print "hello, world\n";
+#!/bin/perl
+# bp 22
+
+print "\n";
+print 'print 69 + 118' . "\n\n";
+print 69 + 118, "\n\n";
+#!/bin/perl
+# bp 22
+
+print "\n";
+print 'print "21 from 25 is: ", 25 - 21' . "\n";
+print "21 from 25 is: ", 25 - 21, "\n";
+print "\n";
+print 'print "4 + 13 - 7 is: ", 4 + 13 - 7' . "\n";
+print "4 + 13 - 7 is: ", 4 + 13 - 7, "\n";
+print "\n";
+#!/bin/perl
+# bp 22
+
+print "\n";
+print 'print "7 times 15 is: ", 7 * 15' . "\n";
+print "7 times 15 is: ", 7 * 15, "\n";
+print "\n";
+print 'print "249 divided by 3 is: ", 249 /3' . "\n";
+print "249 divided by 3 is: ", 249 /3, "\n";
+print "\n";
+#!/bin/perl
+# bp 22
+
+print "\n";
+print 'print "3 plus 7 times 15 is: ", 3 + 7 * 15' . "\n";
+print "3 plus 7 times 15 is: ", 3 + 7 * 15, "\n";
+print "\n";
+#!/bin/perl -w
+# bp 23
+
+print "\n";
+print 'print "(3 plus 7) times 15 is: ", (3 + 7) * 15' . "\n";
+print "(3 plus 7) times 15 is: ", (3 + 7) * 15, "\n";
+print "\n";
+print 'print (3 + 7) * 15' . "\n";
+print (3 + 7) * 15, "\n";
+print "\n\n";
+#!/bin/perl -w
+# bp 23
+
+print "\n";
+print 'print ((3 + 7) * 15)' . "\n";
+print ((3 + 7) * 15, "\n");
+print "\n\n";
+#!/bin/perl
+# bp 23
+
+print "\n";
+print '2**4, " ", 3**5, " ", -2**4' . "\n";
+print 2**4, " ", 3**5, " ", -2**4, "\n\n";
+print '(-2)**4' . "\n";
+print (-2)**4;
+print "\n\n";
+#!/bin/perl
+# bp 24
+
+print "\n";
+print "15 divided by 6 (15 / 6) is exactly ", 15 / 6, "\n";
+print "That's a remainder of 15 % 6 or ", 15 % 6, "\n";
+print "\n";
+#!/bin/perl -w
+
+print "\n'\$ perl -w <filename>.pl' will run the program complete with warnings\n";
+print "\n";
+print "A # has ASCII value ord('#') or ", ord('#'), "\n";
+print "\n";
+print "A * has ASCII value ord(\"*\") or ", ord("*"), "\n";
+print "\n";
+#!/bin/perl -w
+# bp 18
+
+print 'print \'ex\\\\ er\\\\\', \' ci\\\' se\\\'', "\n";
+print 'ex\\ er\\', ' ci\' se\'', "\n";
+#!/bin/perl
+# bp 20
+
+print "\nyou can also do: $ /bin/perl autoconvert.pl\n\n";
+
+print 'print "0.25" * 4'."\n\n";
+print "0.25" * 4, "\n";
+print "\n";
+#!/bin/perl -w
+# bp14
+
+print ' 255, 0378,	 0b11111112, 0xFG', "\n";	
+print 255,		"\n";
+print 0378,		"\n";
+print 0b11111112,	"\n";
+print 0xFG,		"\n";
+#!/bin/perl
+# bp 25
+
+print "\n";
+print "51 ANDed with 85 (51 & 85, or 85 & 51) gives us: ", 51 & 85, "\n";
+print "\n";
+print "51 ORed with 85 (51 | 85, or 85 | 51) gives us: ", 51 | 85, "\n";
+print "\n";
+print "51 XORed with 85 (51 ^ 85, or 85 ^ 51) gives us: ", 51 ^ 85, "\n";
+print "\n";
+#!/bin/perl
+# bp 26
+
+print "\n";
+print "We are using 64-bit\n";
+print "\n";
+print "NOT 85 (~85) is ", ~85, "\n";
+print "\n";
+print "2**30 in decimal                     ", 2**30, "\n";
+print "2**30 in octal, oct(2**30) is        ", oct(2**30), "\n";
+print "NOT 2**30 in octal, oct(~(2**30)) is ", oct(~(2**30)), "\n";
+print "\n";
+#!/bin/perl -w
+# bp 27 
+
+print "\nCan run this with the /bin/perl prefix\n";
+print "\n";
+print "Is two equal to four ?    '", 2 == 4, "'\n";
+print "OK, is six equal to six ? '", 6 == 6, "'\n";
+print "\n";
+#!/bin/perl -w
+# bp 28
+
+print "\n";
+print "So, two is not equal to four (2 != 4) ? ", 2 != 4, "\n";
+print "\n";
+#!/bin/perl
+# bp 28
+
+print "\n";
+print "Fix is more than six (5 > 6) ? '", 5 > 6, "'\n";
+print "\n";
+print "Seven is less than sixteen (7 < 16) ? '", 7 < 16, "'\n";
+print "\n";
+print "Two is equal to two (2 == 2) ? '", 2 == 2, "'\n";
+print "\n";
+print "One is more than one (1 > 1) ? '", 1 > 1, "'\n";
+print "\n";
+print "Six is not equal to seven (6 != 7) ? '", 6 != 7, "'\n";
+print "\n";
+#!/bin/perl
+# bp 29
+
+print "\n";
+print "Seven is less than or equal to sixteen (7 <= 16) ? '", 7 <= 16, "'\n";
+print "\n";
+print "Two is more than or equal to two (2 >= 2) ? '", 2 >= 2, "'\n";
+print "\n";
+#!/bin/perl
+# bp 29
+
+print "\n";
+print "Compare six and nine (6 <=> 9) ? '", 6 <=> 9, "'\n";
+print "\n";
+print "Compare seven and seven (7 <=> 7) ? '", 7 <=> 7, "'\n";
+print "\n";
+print "Compare eight and four (8 <=> 4) ? '", 8 <=> 4, "'\n";
+print "\n";
+#!/bin/perl
+# bp 30
+
+print "\n";
+print "Test one: 6 > 3 && 3 > 4  '", 6 > 3 && 3 > 4 , "'\n";
+print "\nkeyword and has lower precedence than other print arguments\n";
+print "Test two: 6 > 3 and 3 > 4 '", 6 > 3 and 3 > 4 , "'\n";
+print "\n";
+print ("Test two: 6 > 3 and 3 > 4 '", 6 > 3) and (3 > 4 , "'\n");
+print "\n\n"; 
+#!/bin/perl
+
+use strict;
+
+my $path = "";
+
+if ($#ARGV == -1) {
+  $path = ".";
+}
+else {
+  $path = @ARGV[0];
+  if ($path =~ /\//i) {
+    $path =~ s/\//\\/g;
+  }
+}
+print "path = $path\n";   ####
+
+system("'c:/windows/explorer.exe' '$path'");
+#!/bin/perl -w
+# goodnums.pl bp15
+
+print 'print 255, 0377, 0b11111111, 0xFF respectively'."\n";
+print 255,		"\n";
+print 0377,		"\n";
+print 0b11111111,	"\n";
+print 0xFF,		"\n";
+#!/bin/perl
+# bp 20
+
+print "\nprint <<EOF\n";
+print "\n";
+print "This is a here-document.  It starts on the line after the two arrows, \n";
+print "and it ends when the test following the arros if found at the beginning \n";
+print "of a line, like this:\n";
+print "\n";
+print "EOF\n";
+
+print <<EOF
+
+This is a here-document.  It starts on the line after the two arrows, 
+and it ends when the test following the arros if found at the beginning 
+of a line, like this:
+
+EOF
+
+#!/bin/perl
+# bp 14
+
+print 'print 25_000_000, " ", -4, "\n"',"\n";
+print 25_000_000, " ", -4, "\n";
+#!/bin/perl -w
+# bp 15
+
+use strict;
+
+print 'print "pi is about ", 3.14159, "\n";',"\n";
+print "pi is about ", 3.14159, "\n";
+#!/bin/perl
+# bp 21
+
+print "\n".'print "0x30"'."\n";
+print "0x30\n";
+print "\n";
+print 'print "030"'."\n";
+print "030\n";
+print "\n";
+#!/bin/perl
+# bp 21
+
+print "\n".'print hex("0x30")' . "\n";
+print hex("0x30"), "\n";
+print "\n".'print oct("030")' . "\n";
+print oct("030"), "\n";
+print "\n".'print oct("0b11010")' . "\n";
+print oct("0b11010"), "\n";
+print "\n";
+#!/bin/perl
+# bp 21
+
+print "\n" . 'print hex("FFG")' . "\n";
+print hex("FFG"), "\n";
+print "\n" . 'print oct("178")' . "\n";
+print oct("178"), "\n";
+print "\n";
+#!/bin/perl
+# bp 19
+
+print "\n";
+
+print 'qq|\'"Hi," said Jack. "Have you read /. today?"\'\n|;'."\n";
+print qq|'"Hi," said Jack. "Have you read /. today?"'\n\n|;
+
+print 'qq#\'"Hi," said Jack. "Have you read /. today?"\'\n#;'."\n";
+print qq#'"Hi," said Jack. "Have you read /. today?"'\n\n#;
+
+print "Note: ( must be closed with ), and < must be closed with >\n\n";
+
+print 'qq(\'"Hi," said Jack. "Have you read /. today?"\'\n);'."\n";
+print qq('"Hi," said Jack. "Have you read /. today?"'\n\n);
+
+print 'qq<\'"Hi," said Jack. "Have you read /. today?"\'\n>;'."\n";
+print qq<'"Hi," said Jack. "Have you read /. today?"'\n\n>;
+#!/bin/perl -w
+# bp 17
+
+print '\tThis is a single quoted string.\n';
+print "\tThis is a double quoted string.\n";
+#!/bin/perl -w
+# bp 17
+
+print "\n";
+print 'print "C:\\\\WINNT\\\\Profiles\\\\\\n";', "\n";
+print "C:\\WINNT\\Profiles\\\n";
+print "\n";
+print 'print \'C:\WINNT\Profiles\ \'', "\n";
+print 'C:\WINNT\Profiles\ ', "\n";
+print "\n";
+print qq/"'single quotes inside double qoutes (unlike bash)'"/."\n";
+print "'single quotes inside double qoutes (unlike bash)'"."\n";
+print "\n";
+print qq/'"double quotes inside single qoutes"'/."\n";
+print '"double quotes inside single qoutes"'."\n";
+print "\n";
+#!/bin/perl
+# bp 18
+
+system("tput clear");
+
+print 'you may do without #!/bin/perl by typing: $ perl quotes3.pl', "\n";
+
+print 'print "It\'s as easy as that.\n"'. "\n";
+print "It's as easy as that.\n";
+print 'print \'"Stop," he cried.\', "\n";' . "\n";
+print '"Stop," he cried.', "\n";
+print "\n";
+#!/bin/perl
+# bp19
+
+print "'\"Hi,\" said Jack, \"Have you read Slashdot today?\"'\n";
+
+print '\'"Hi," said Jack, "Have you read Slashdot today?"\'' . "\n";
+#!/bin/perl
+# bp 19
+
+print "\n";
+print qq#print qq/'"Hi, " said Jack, "Have you read Slashdot today?"'/#;
+print "\n";
+print qq/'"Hi, " said Jack, "Have you read Slashdot today?"'\n/;
+print "\n";
+print 'NOTE: qq//I am in a dbl-quote// doesn\'t seem to work'."\n";
+print "\n";
+#!/bin/perl
+
+#!/bin/perl -w
+# bp 33
+
+print "\n'\$ perl -w <filename>.pl' will run the program complete with warnings\n";
+
+print "\n";
+print 'print "12 monkeys"    + 0' . "\n";
+print "12 monkeys"    + 0, "\n";
+print "\n";
+print 'print "Eleven to fly" + 0' . "\n";
+print "Eleven to fly" + 0, "\n";
+print "\n";
+print 'print "UB40"          + 0' . "\n";
+print "UB40"          + 0, "\n";
+print "\n";
+print 'print "-20 10"        + 0' . "\n";
+print "-20 10"        + 0, "\n";
+print "\n";
+print 'print "0x30"          + 0' . "\n";
+print "0x30"          + 0, "\n";
+print "\n";
+#!/bin/perl -w
+# bp 34
+
+print "\n";
+print "Which came first, the chicken or the egg (\"chicken\" cmp \"egg\") ? ";
+print "chicken" cmp "egg", "\n";
+print "\n";
+print "Are dogs greater than cats ('dog' gt 'cat') ? ";
+print 'dog' gt 'cat', "\n";
+print "\n";
+print "Is ^ less than + ('^' lt '+') ? ";
+print '^' lt '+', "\n";
+print "\n";
+#!/bin/perl -w
+# bp 35
+
+print "\n";
+print 'print "Test one: ", "four" eq "six"' . "\n";
+print "Test one: ", "four" eq "six", "\n";
+print "\n";
+print 'print "Test two: ", "four" == "six"' . "\n";
+print "Test two: ", "four" == "six", "\n";
+print "\n";
+#!/bin/perl
+# bp 31
+
+print "\n";
+print "Four sevens are (4*7) ", 4*7 , "\n";
+print "\n";
+#!/bin/perl
+# bp 31
+
+print "\n";
+print 'print "GO! " x 3', "\n";
+print "\n";
+print "GO! " x 3, "\n";
+print "\n";
+#!/bin/perl
+# bp 31
+
+print "\n";
+print 'print "Ba" . "na" x 4' . "\n";
+print "Ba" . "na" x 4, "\n";
+print "\n";
+#!/bin/perl -w
+# bp 31
+
+print "\n";
+print 'print "Ba" . "na" x 4*3' . "\n";
+print "Ba" . "na" x 4*3, "\n";
+print "\n";
+print 'print "Ba" . "na" x (4*3)' . "\n";
+print "Ba" . "na" x (4*3), "\n";
+print "\n";

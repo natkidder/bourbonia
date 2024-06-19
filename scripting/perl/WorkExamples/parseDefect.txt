@@ -1,0 +1,48 @@
+17401	Brokerage	ST4	Retest	Cannot validate in the UI if the allocations have been updated, when access the Contributions/Allocation link within Transaction Portal it displays "Dear User Error."	"PINS:  6838500, 6838509, 6838627
+
+Issue:  Cannot validate in the UI if the allocations have been updated.  For the first three pins listed above when access the Contributions/Allocation link within Transaction Portal it displays ""Dear User Error.""
+
+Steps to Issue:
+
+Login to TP ST4
+Search PIN
+Click Details
+Click Contributions / Allocations link
+
+OMNI shows the current allocation as requested
+
+6838500
+25% - D9
+50% - SD
+25% - T4
+
+6838509 (SSN:  412043895)
+A1 = 70%
+A2 = 10%
+SD = 20%
+
+6838627 (SSN:  412043899)
+100% = SD
+
+Please see attached screen shot!!
+
+Thanks!!!"	Transaction Portal - (APM11799)	"Scott, Don <scotdo>, 8/20/2012:  PINs are not in the brokerage database.  Research is being done as to why.  This is probably bad data.
+________________________________________
+Scott, Don <scotdo>, 8/22/2012:  Development will be updating the comments.  It is believed that this error is a result of the timing of the processing of a transaction in Omni and the date manipulations in ST4.  The development teams do not believe this would occur in production, and we did not have cases of it in IT.
+________________________________________
+Narayanan, Neeraja <narayn>, 8/22/2012:  Here is my analysis: Looks like there was some environment issue. RPTV4 did n't take the date from business calendar. In FIS I see business calendar returned 6/01 but RPT used 7/13 to post the transaction. Why I do not know. I couldn't reproduce the issue. When we talked about this in the meeting I thought the business calendar was returning 7/13. But now I saw it was 6/01. There was another allocation 20 minutes later that was submitted on 6/04. Not sure what went wrong at the time this transaction submitted at 15:59. Was 15:59 timing issue? Not sure. So, Susan, Can you test this case again? We will monitor it. Thanks!
+________________________________________
+Jagadeesan, Hariharan <jagadee>, 8/28/2012:  Rejecting this defect as per Neeraja comments.
+________________________________________
+Andrade, Susan M <andrads>, 9/7/2012:  This is still showing the Dear User error.  This needs to be fixed so I can validate that allocations to Brokerage funds is displayed.  Thanks!!!  Changing to Failed Retest.
+________________________________________
+Kennedy, Marjorie L <kennedm>, 9/9/2012:  
+Updated Target Cycle to AT
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 9/10/2012:  Assigning this to Neeraja for analysis.
+________________________________________
+Narayanan, Neeraja <narayn>, 9/12/2012:  Susam I sent and email on this please read my previous comment. We have to retest this whole scenario. The transaction we did cannot be fixed. Please try new transactions.
+________________________________________
+Andrade, Susan M <andrads>, 9/20/2012:   I have issued two more allocations request in this latest cycle.  Once batch has completed.  I will review and see if allocation information displays again.  Reopening defect and once verified that defect no longer occurs will close defect.  Thanks.
+________________________________________
+Jagadeesan, Hariharan <jagadee>, 9/21/2012:  No fix is made for the defect. Susan is waiting for the cycle to complete to test this defect. Hence changing the defect status to Retest.

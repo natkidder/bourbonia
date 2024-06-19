@@ -1,0 +1,702 @@
+# vi  EscSeq.pl
+# perl  EscSeq.pl
+
+# vi  ExprModifiers.pl
+# perl  ExprModifiers.pl
+
+# vi  ExprModifiers2.pl
+# perl  ExprModifiers2.pl
+
+#vi  GoodOpen.pl
+#perl  GoodOpen.pl
+
+#vi  HighPage.pl
+#perl  HighPage.pl
+
+#vi  NamedParams.pl
+#perl  NamedParams.pl
+
+#vi  NeedsPerl.pl
+#perl  NeedsPerl.pl
+
+#vi  NoMatch.pl
+#perl  NoMatch.pl
+
+#vi  PassArrays.pl
+#perl  PassArrays.pl
+
+#vi  QuoteWords.pl
+#perl  QuoteWords.pl
+
+#vi  ShortCircuit.pl
+#perl  ShortCircuit.pl
+
+#vi  ShowFile.pl
+#perl  ShowFile.pl
+
+vi  aSlice.pl
+perl  aSlice.pl
+
+## vi  accessor1.pl
+## perl  accessor1.pl
+
+## vi  addElem.pl
+## perl  addElem.pl
+
+## vi  addressBook.pl
+## perl  addressBook.pl
+
+## vi  addsizes.pl
+## perl  addsizes.pl
+
+## vi  argv1.pl
+## perl  argv1.pl
+
+## vi  argv2.pl
+## perl  argv2.pl
+
+## vi  argv3.pl
+## perl  argv3.pl
+
+## vi  arithop1.pl
+## perl  arithop1.pl
+
+## vi  arithop2.pl
+## perl  arithop2.pl
+
+## vi  arithop3.pl
+## perl  arithop3.pl
+
+## vi  arithop4.pl
+## perl  arithop4.pl
+
+## vi  arithop5.pl
+## perl  arithop5.pl
+
+## vi  arithop6.pl
+## perl  arithop6.pl
+
+## vi  arithop7.pl
+## perl  arithop7.pl
+
+## vi  arithop8.pl
+## perl  arithop8.pl
+
+## vi  arrayLen.pl
+## perl  arrayLen.pl
+
+## vi  ascii.pl
+## perl  ascii.pl
+
+## vi  aside1.pl
+## perl  aside1.pl
+
+## vi  assignList.pl
+## perl  assignList.pl
+
+## vi  auto1.pl
+## perl  auto1.pl
+
+## vi  auto2.pl
+## perl  auto2.pl
+
+## vi  autoconvert.pl
+## perl  autoconvert.pl
+
+## vi  backwards.pl
+## perl  backwards.pl
+
+## vi  badDayArray.pl
+## perl  badDayArray.pl
+
+## vi  badDayArray2.pl
+## perl  badDayArray2.pl
+
+## vi  badPrefix.pl
+## perl  badPrefix.pl
+
+## vi  badhash.pl
+## perl  badhash.pl
+
+## vi  badnums.pl
+## perl  badnums.pl
+
+## vi  badopen.pl
+## perl  badopen.pl
+
+## vi  benchtest1.pl
+## perl  benchtest1.pl
+
+## vi  benchtest2.pl
+## perl  benchtest2.pl
+
+## vi  bitop1.pl
+## perl  bitop1.pl
+
+## vi  bitop2.pl
+## perl  bitop2.pl
+
+## vi  bless1.pl
+## perl  bless1.pl
+
+## vi  bless2.pl
+## perl  bless2.pl
+
+## vi  bool1.pl
+## perl  bool1.pl
+
+## vi  bool2.pl
+## perl  bool2.pl
+
+## vi  bool3.pl
+## perl  bool3.pl
+
+## vi  bool4.pl
+## perl  bool4.pl
+
+## vi  bool5.pl
+## perl  bool5.pl
+
+## vi  bool6.pl
+## perl  bool6.pl
+
+## vi  byref1.pl
+## perl  byref1.pl
+
+## vi  canLoad1.pl
+## perl  canLoad1.pl
+
+## vi  canLoad2.pl
+## perl  canLoad2.pl
+
+## vi  cantLoad.pl
+## perl  cantLoad.pl
+
+## vi  chess.pl
+## perl  chess.pl
+
+## vi  chgAry.pl
+## perl  chgAry.pl
+
+## vi  classAtr1.pl
+## perl  classAtr1.pl
+
+## vi  classAtr2.pl
+## perl  classAtr2.pl
+
+## vi  classAtr3.pl
+## perl  classAtr3.pl
+
+## vi  colors.pl
+## perl  colors.pl
+
+## vi  concatFiles.pl
+## perl  concatFiles.pl
+
+## vi  copy.pl
+## perl  copy.pl
+
+## vi  count.pl
+## perl  count.pl
+
+## vi  countdown.pl
+## perl  countdown.pl
+
+## vi  currency1.pl
+## perl  currency1.pl
+
+## vi  currency2.pl
+## perl  currency2.pl
+
+## vi  data1.pl
+## perl  data1.pl
+
+## vi  data2.pl
+## perl  data2.pl
+
+## vi  dayarray.pl
+## perl  dayarray.pl
+
+## vi  defined.pl
+## perl  defined.pl
+
+## vi  deref1.pl
+## perl  deref1.pl
+
+## vi  deref2.pl
+## perl  deref2.pl
+
+## vi  diamond1.pl
+## perl  diamond1.pl
+
+## vi  die.pl
+## perl  die.pl
+
+## vi  directory-dir-nocode.pl
+## perl  directory-dir-nocode.pl
+
+## vi  directory-dir.pl
+## perl  directory-dir.pl
+
+## vi  directory-glob.pl
+## perl  directory-glob.pl
+
+## vi  doThis.pl
+## perl  doThis.pl
+
+## vi  each.pl
+## perl  each.pl
+
+## vi  elems.pl
+## perl  elems.pl
+
+## vi  exists.pl
+## perl  exists.pl
+
+## vi  exit.pl
+## perl  exit.pl
+
+## vi  explorer.pl
+## perl  explorer.pl
+
+## vi  fileTest.pl
+## perl  fileTest.pl
+
+## vi  foreach.pl
+## perl  foreach.pl
+
+## vi  foreach1.pl
+## perl  foreach1.pl
+
+## vi  foreach2.pl
+## perl  foreach2.pl
+
+## vi  foreach3.pl
+## perl  foreach3.pl
+
+## vi  foreach4.pl
+## perl  foreach4.pl
+
+## vi  foreach5.pl
+## perl  foreach5.pl
+
+## vi  foreach6.pl
+## perl  foreach6.pl
+
+## vi  forloop.pl
+## perl  forloop.pl
+
+## vi  ftp.pl
+## perl  ftp.pl
+
+## vi  global1.pl
+## perl  global1.pl
+
+## vi  global2.pl
+## perl  global2.pl
+
+## vi  globals1.pl
+## perl  globals1.pl
+
+## vi  golf.pl
+## perl  golf.pl
+
+## vi  golf2.pl
+## perl  golf2.pl
+
+## vi  goodnums.pl
+## perl  goodnums.pl
+
+## vi  goto.pl
+## perl  goto.pl
+
+## vi  guessnum1.pl
+## perl  guessnum1.pl
+
+## vi  guessnum2.pl
+## perl  guessnum2.pl
+
+## vi  hash.pl
+## perl  hash.pl
+
+## vi  hashref.pl
+## perl  hashref.pl
+
+## vi  hello2.pl
+## perl  hello2.pl
+
+## vi  hello3.pl
+## perl  hello3.pl
+
+## vi  hellolong.pl
+## perl  hellolong.pl
+
+## vi  heredoc.pl
+## perl  heredoc.pl
+
+## vi  hoover.pl
+## perl  hoover.pl
+
+## vi  if.pl
+## perl  if.pl
+
+## vi  index.pl
+## perl  index.pl
+
+## vi  inventory.pl
+## perl  inventory.pl
+
+## vi  join.pl
+## perl  join.pl
+
+## vi  joke1.pl
+## perl  joke1.pl
+
+## vi  joke2.pl
+## perl  joke2.pl
+
+## vi  keys.pl
+## perl  keys.pl
+
+## vi  last1.pl
+## perl  last1.pl
+
+## vi  lastIndex.pl
+## perl  lastIndex.pl
+
+## vi  length.pl
+## perl  length.pl
+
+## vi  links.pl
+## perl  links.pl
+
+## vi  linktolinks.pl
+## perl  linktolinks.pl
+
+## vi  listcontext.pl
+## perl  listcontext.pl
+
+## vi  listsInLists.pl
+## perl  listsInLists.pl
+
+## vi  logtest1.pl
+## perl  logtest1.pl
+
+## vi  logtest2.pl
+## perl  logtest2.pl
+
+## vi  looplabel1.pl
+## perl  looplabel1.pl
+
+## vi  looplabel2.pl
+## perl  looplabel2.pl
+
+## vi  match1.pl
+## perl  match1.pl
+
+## vi  match2.pl
+## perl  match2.pl
+
+## vi  match3.pl
+## perl  match3.pl
+
+## vi  match4.pl
+## perl  match4.pl
+
+## vi  match5.pl
+## perl  match5.pl
+
+## vi  matchtest.pl
+## perl  matchtest.pl
+
+## vi  matchtest2.pl
+## perl  matchtest2.pl
+
+## vi  mixedlist.pl
+## perl  mixedlist.pl
+
+## vi  modElem.pl
+## perl  modElem.pl
+
+## vi  modify1.pl
+## perl  modify1.pl
+
+## vi  modify11.pl
+## perl  modify11.pl
+
+## vi  months.pl
+## perl  months.pl
+
+## vi  multilist.pl
+## perl  multilist.pl
+
+## vi  my.pl
+## perl  my.pl
+
+## vi  next1.pl
+## perl  next1.pl
+
+## vi  nl1.pl
+## perl  nl1.pl
+
+## vi  nl2.pl
+## perl  nl2.pl
+
+## vi  noref.pl
+## perl  noref.pl
+
+## vi  number3.pl
+## perl  number3.pl
+
+## vi  number4.pl
+## perl  number4.pl
+
+## vi  numberlist.pl
+## perl  numberlist.pl
+
+## vi  octhex1.pl
+## perl  octhex1.pl
+
+## vi  octhex2.pl
+## perl  octhex2.pl
+
+## vi  octhex3.pl
+## perl  octhex3.pl
+
+## vi  os.pl
+## perl  os.pl
+
+## vi  password.pl
+## perl  password.pl
+
+## vi  person1.pl
+## perl  person1.pl
+
+## vi  personTest.pl
+## perl  personTest.pl
+
+## vi  printIt.pl
+## perl  printIt.pl
+
+## vi  quote6.pl
+## perl  quote6.pl
+
+## vi  quotes.pl
+## perl  quotes.pl
+
+## vi  quotes2.pl
+## perl  quotes2.pl
+
+## vi  quotes3.pl
+## perl  quotes3.pl
+
+## vi  quotes4.pl
+## perl  quotes4.pl
+
+## vi  quotes5.pl
+## perl  quotes5.pl
+
+## vi  quotes6.pl
+## perl  quotes6.pl
+
+## vi  ranges.pl
+## perl  ranges.pl
+
+## vi  redo.pl
+## perl  redo.pl
+
+## vi  refTypes.pl
+## perl  refTypes.pl
+
+## vi  refcount.pl
+## perl  refcount.pl
+
+## vi  reverse.pl
+## perl  reverse.pl
+
+## vi  rhyming.pl
+## perl  rhyming.pl
+
+## vi  scalarSub.pl
+## perl  scalarSub.pl
+
+## vi  scalarcontext.pl
+## perl  scalarcontext.pl
+
+## vi  scope1.pl
+## perl  scope1.pl
+
+## vi  scope2.pl
+## perl  scope2.pl
+
+## vi  scope3.pl
+## perl  scope3.pl
+
+## vi  seconds.pl
+## perl  seconds.pl
+
+## vi  seconds2.pl
+## perl  seconds2.pl
+
+## vi  selectLine.pl
+## perl  selectLine.pl
+
+## vi  shift.pl
+## perl  shift.pl
+
+## vi  sort1.pl
+## perl  sort1.pl
+
+## vi  sort2.pl
+## perl  sort2.pl
+
+## vi  sort3.pl
+## perl  sort3.pl
+
+## vi  sortFile.pl
+## perl  sortFile.pl
+
+## vi  sortFile2.pl
+## perl  sortFile2.pl
+
+## vi  sortSlash3.pl
+## perl  sortSlash3.pl
+
+## vi  stacks.pl
+## perl  stacks.pl
+
+## vi  str2num.pl
+## perl  str2num.pl
+
+## vi  strcomp1.pl
+## perl  strcomp1.pl
+
+## vi  strcomp2.pl
+## perl  strcomp2.pl
+
+## vi  strict1.pl
+## perl  strict1.pl
+
+## vi  strict2.pl
+## perl  strict2.pl
+
+## vi  string1.pl
+## perl  string1.pl
+
+## vi  string2.pl
+## perl  string2.pl
+
+## vi  string3.pl
+## perl  string3.pl
+
+## vi  string4.pl
+## perl  string4.pl
+
+## vi  subdec1.pl
+## perl  subdec1.pl
+
+## vi  subst1.pl
+## perl  subst1.pl
+
+## vi  subst2.pl
+## perl  subst2.pl
+
+## vi  subst3.pl
+## perl  subst3.pl
+
+## vi  subst4.pl
+## perl  subst4.pl
+
+## vi  substr.pl
+## perl  substr.pl
+
+## vi  system.pl
+## perl  system.pl
+
+## vi  tail1.pl
+## perl  tail1.pl
+
+## vi  tail2.pl
+## perl  tail2.pl
+
+## vi  time1.pl
+## perl  time1.pl
+
+## vi  time2.pl
+## perl  time2.pl
+
+## vi  total1.pl
+## perl  total1.pl
+
+## vi  total2.pl
+## perl  total2.pl
+
+## vi  tr.pl
+## perl  tr.pl
+
+## vi  transliteration.pl
+## perl  transliteration.pl
+
+## vi  unless.pl
+## perl  unless.pl
+
+## vi  until.pl
+## perl  until.pl
+
+## vi  utility1.pl
+## perl  utility1.pl
+
+## vi  values.pl
+## perl  values.pl
+
+## vi  varint1.pl
+## perl  varint1.pl
+
+## vi  varint2.pl
+## perl  varint2.pl
+
+## vi  varint3.pl
+## perl  varint3.pl
+
+## vi  varint4.pl
+## perl  varint4.pl
+
+## vi  vars1.pl
+## perl  vars1.pl
+
+## vi  vars2.pl
+## perl  vars2.pl
+
+## vi  vars3.pl
+## perl  vars3.pl
+
+## vi  vars4.pl
+## perl  vars4.pl
+
+## vi  vars5.pl
+## perl  vars5.pl
+
+## vi  walking.pl
+## perl  walking.pl
+
+## vi  wavplay.pl
+## perl  wavplay.pl
+
+## vi  whereIs.pl
+## perl  whereIs.pl
+
+## vi  whereisit.pl
+## perl  whereisit.pl
+
+## vi  while1.pl
+## perl  while1.pl
+
+## vi  while2.pl
+## perl  while2.pl
+
+## vi  while3.pl
+## perl  while3.pl
+
+## vi  whileFor.pl
+## perl  whileFor.pl
+

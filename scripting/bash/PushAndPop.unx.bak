@@ -1,0 +1,25 @@
+# to activate, type source <filename>
+
+pushd ()
+{
+  dirname=$1
+## if DIR_STACK exists and isn't null, rtn its value, otherwise return after -
+  if cd ${dirname:?"missing directory name."}; then
+    DIR_STACK="$dirname ${DIR_STACK:-$PWD' '}"
+    echo $DIR_STACK
+  else
+    echo "Still in $PWD"
+  fi
+}
+
+popd ()
+{
+  local NewDir
+  DIR_STACK=${DIR_STACK#* }
+  if cd ${DIR_STACK%% *}; then
+    echo ${DIR_STACK%% *}
+  else
+    echo ${DIR_STACK%% *}: no such file or directory
+  fi
+  echo "$PWD"
+}

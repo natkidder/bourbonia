@@ -1,0 +1,1379 @@
+17401	Brokerage	ST4	Retest	Cannot validate in the UI if the allocations have been updated, when access the Contributions/Allocation link within Transaction Portal it displays "Dear User Error."	"PINS:  6838500, 6838509, 6838627
+
+Issue:  Cannot validate in the UI if the allocations have been updated.  For the first three pins listed above when access the Contributions/Allocation link within Transaction Portal it displays ""Dear User Error.""
+
+Steps to Issue:
+
+Login to TP ST4
+Search PIN
+Click Details
+Click Contributions / Allocations link
+
+OMNI shows the current allocation as requested
+
+6838500
+25% - D9
+50% - SD
+25% - T4
+
+6838509 (SSN:  412043895)
+A1 = 70%
+A2 = 10%
+SD = 20%
+
+6838627 (SSN:  412043899)
+100% = SD
+
+Please see attached screen shot!!
+
+Thanks!!!"	Transaction Portal - (APM11799)	"Scott, Don <scotdo>, 8/20/2012:  PINs are not in the brokerage database.  Research is being done as to why.  This is probably bad data.
+________________________________________
+Scott, Don <scotdo>, 8/22/2012:  Development will be updating the comments.  It is believed that this error is a result of the timing of the processing of a transaction in Omni and the date manipulations in ST4.  The development teams do not believe this would occur in production, and we did not have cases of it in IT.
+________________________________________
+Narayanan, Neeraja <narayn>, 8/22/2012:  Here is my analysis: Looks like there was some environment issue. RPTV4 did n't take the date from business calendar. In FIS I see business calendar returned 6/01 but RPT used 7/13 to post the transaction. Why I do not know. I couldn't reproduce the issue. When we talked about this in the meeting I thought the business calendar was returning 7/13. But now I saw it was 6/01. There was another allocation 20 minutes later that was submitted on 6/04. Not sure what went wrong at the time this transaction submitted at 15:59. Was 15:59 timing issue? Not sure. So, Susan, Can you test this case again? We will monitor it. Thanks!
+________________________________________
+Jagadeesan, Hariharan <jagadee>, 8/28/2012:  Rejecting this defect as per Neeraja comments.
+________________________________________
+Andrade, Susan M <andrads>, 9/7/2012:  This is still showing the Dear User error.  This needs to be fixed so I can validate that allocations to Brokerage funds is displayed.  Thanks!!!  Changing to Failed Retest.
+________________________________________
+Kennedy, Marjorie L <kennedm>, 9/9/2012:  
+Updated Target Cycle to AT
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 9/10/2012:  Assigning this to Neeraja for analysis.
+________________________________________
+Narayanan, Neeraja <narayn>, 9/12/2012:  Susam I sent and email on this please read my previous comment. We have to retest this whole scenario. The transaction we did cannot be fixed. Please try new transactions.
+________________________________________
+Andrade, Susan M <andrads>, 9/20/2012:   I have issued two more allocations request in this latest cycle.  Once batch has completed.  I will review and see if allocation information displays again.  Reopening defect and once verified that defect no longer occurs will close defect.  Thanks.
+________________________________________
+Jagadeesan, Hariharan <jagadee>, 9/21/2012:  No fix is made for the defect. Susan is waiting for the cycle to complete to test this defect. Hence changing the defect status to Retest.
+________________________________________
+Andrade, Susan M <andrads>, 10/1/2012:  Failed Retest.  Entered new allocations in Cycle 14 and I'm still getting the Dear User error.  PIN: 1451615
+________________________________________
+Scott, Don <scotdo>, 10/2/2012:  Going into the Allocations / Contributions screen, a System Error occurs.
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 10/2/2012:  
+We are getting below Exception
+<ns2:Messages> 
+- <ns2:Message> 
+<ns2:Code>-1</ns2:Code> 
+<ns2:Type>ERROR</ns2:Type> 
+<ns2:Text>Exception occured while Calling Brokerage Operation retrieveTransactionHistory</ns2:Text> 
+</ns2:Message>
+
+Neeraja :Please validate the Transaction
+<ns2:retrieveRetirementAllocationHistory xmlns:ns2=""http://esb.tiaa.org/participant-portfolio-v3/types"" xmlns:ns3=""http://esb.tiaa.org""> 
+<ns2:PIN>1451615</ns2:PIN> 
+<ns2:Direction>Current</ns2:Direction> 
+<ns2:PlanNumber>100866</ns2:PlanNumber> 
+<ns2:SubPlanNumber>SR1001</ns2:SubPlanNumber> 
+</ns2:retrieveRetirementAllocationHistory>
+
+guid=""DF21486A-D8D6-EA0F-CCC4-7A74E2288499""
+________________________________________
+Narayanan, Neeraja <narayn>, 10/2/2012:  Hi Sen could please take a look at this brokerage transfer M100166G1? MDM still shows this as pending.
+________________________________________
+Ryan, Scott A <ryansc>, 10/2/2012:  Updated target Release from October to November.
+________________________________________
+Shanmugam, Senniappan <shanmus>, 10/3/2012:  Nov code release is addressed this issue in IT2 env.  BPEL code to be deployed on ST4 after Oct 16.
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 10/10/2012:  As discussed in call chaning the status as fixed.  The code fix is already available in IT2 envionrment and waiting for code movement approval into ST4 env which is scheduled on 16th October.
+________________________________________
+Andrade, Susan M <andrads>, 10/20/2012:   The PINS in the defect are still display the ""Dear User"" error on the contributions/allocations link in TP.  Also tested with PIN:  1707869
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 10/22/2012:  For the Pin there was an allocation :guid=""4286CB22-935D-866A-C867-CBA030FF8E17"" 
+Please let us know the status of this trasnaction
+________________________________________
+Narayanan, Neeraja <narayn>, 10/22/2012:  Hi Sravanthi, There was a transfer submitted on 10/02 from pension fund to brokerage MF ICARX for $10000. Now the money is not there in BMM and there is no ICARX fund in ODS. Could you please change what happened to this fund. MDM has been updated that the transaction went through. But there is no fund.BPEL orchestration id M10016EB3. Please check this pin 1707869 plan 100867 subplan GA1001. Please assign the defect back to tester with your findings.
+________________________________________
+Erramreddy, Sravanthi <erramre>, 10/23/2012:  I do not see any balance record for this account in the database. Please check with Kalai if she can reach out to Pershing to understand why the entry is not been sent in the source file. I see the trade record for the cusip - ICARX in the database but not the fund balance. Re-assignign the ticket to Neeraja
+________________________________________
+Narayanan, Neeraja <narayn>, 10/23/2012:  Hi Kalai, Can you help us to check what happened to the transfer that was made on 10/02?
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 10/24/2012:  Sent email to Pershing, waiting for Pershing response
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 10/25/2012:  According to John's response, the data is part of yesterday's file. Please process this data and send the file to ODS. Once done, assign this defect to ODS team
+
+________________________________________
+Erramreddy, Sravanthi <erramre>, 10/26/2012:  Looks like this account was originally created in ST4 on 05/23. So the table brokerage_master and SDA_Account table in BCF ST4 database shows this account number.Since the ST2 testing has not started, looks like this account is now migrated from ST4 filenet to ST2 filenet (during the ST2 env set up) and ST4 no more has this account number. I just looked up at GMON data in BCF st2 and I do see the balance for this account number.
+
+First , We need to understand if this account is being tested as part of ST2 or ST4. If ST2, then the ST2 batch need to be executed to send the files to ODS. and make sure these accounts were also replicated in MDM, since this is from 05/23.
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 10/29/2012:  Sravanthi, I am not sure which accounts you are referring to. If you are referring the accounts/pins in the defect description then please ignore them. Please look into the comments section, Neeraja requested Susan to submit new request/transaction. Susan submitted a new request and specified the details in comments. Please take a look at the below transaction details. The account/pin is available only in ST4 DB not in ST2 DB.
+
+Account: A53007562
+Pin: 1707869
+SSN: 002510052
+Plan: 100867
+SubPlan: GA1001
+
+Found another issue, will assign the defect after my analysis
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 10/29/2012:  When account was created, BPEL ST-4 was pointing to Filenet ST-2. So account is present in ST-2 Filenet. Then there was a crossover planned which leaded ST-4 BPEL is now pointing to ST-4 Filenet. Due to Filenet cross environment switch we lost the accounts and kind of no more availbale for testing until Filenet is ready for copying the some data from ST2 to ST4. Assigning the defect to Nirupama to add her comments and assign back to Susan (the originator of the defect)
+________________________________________
+Kanjarla, Nirupama <kanjarl>, 10/29/2012:  I have updated the Filenet Data, please verify and let me know if there are any issues.
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 10/29/2012:  File split batch process runs tomorrow. We expect to see file split process can find this account in ST4 filenet db. We will update the output tomorrow
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 10/30/2012:  Filesplit process did not work due to MQFTE issue. Working MQFTE team
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 10/31/2012: Sravanthi is working on the issue. Sravanthi please assign back to me once the issue is resolved
+________________________________________
+Kumar, Prakash <kumapr>, 11/6/2012: Doug closed this defect in error. Reopening and assigning to Shravanthi.
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 11/6/2012:  Pershing issue is resolved now and filesplit process also completed successfully. As a result of file split process we can find this account A53007562 in the ST4 filenet. She needs to confirm whether the balance is loaded in GMON balance to ST4 BCF database instead ST2 BCF? Please confirm and assign back to me
+________________________________________
+Erramreddy, Sravanthi <erramre>, 11/8/2012:  Verified that the balance records for the account A53007562 were extracted and sent to ODS. ODS have to run their process now to load these fund details into their database. Reassigning the ticket to Francis in ODS team.
+________________________________________
+Pascual, Francisco <pascual>, 11/8/2012:  
+ODS load completed. 5A3007562 has the following balance in ODS. This is exactly what Broekrage sent to ODS. If this is incorrect, please assign to Brokerage team
+
+CUSIP_ID        BAL_AMT
+MMF000001       0
+MMFDIVD01       0
+44929K853       13332
+________________________________________
+Andrade, Susan M <andrads>, 11/9/2012:  Failed Retest.  Still getting ""Dear user"" error in TP.  See attached video.  Thanks.
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 11/9/2012:  Assigning the defect to Neeraja. As discussed we identified couple of issues. One is related to transfers and another one for contributions. ODS batch issue resolved which would solve the transfer issue. Right now, the defect is assigned the defect to Susan for re-test. I doubt that contribution issue still persists. Please update the comments and assign to Susan
+
+________________________________________
+Narayanan, Neeraja <narayn>, 11/12/2012:  Hi Mallik, The transfer issue resolved assigning back to you. We are not sure how to fix the dear user error. As per my understanding from Hari this is known issue I guess.
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 11/12/2012: Based on the comments from Kalai,issue  WRT ODS is resolved.(Transfer issue is solved.)
+""Dear user Error"" for Allocation is an Env Date Issue, which is a known Issue
+________________________________________
+Andrade, Susan M <andrads>, 11/14/2012:  Failed Retest.  If we can display the allocations on the Transactions - Allocation Page, then we need to understand why the allocations can't be displayed on the Contributions/Allocations link.  This is a must be fixed.  See attached screen shots for PIN:  6838500.  This is happening on every PIN that we have set up for allocations directly into the brokerage account.  Thanks!!!
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 11/15/2012:  We are getting allocations as part of the RIE
+guid=""BF04CD34-4BE5-49DD-BF6B-A752866B5FF0"". 
+But was not able to get  the allocations for the Date Range (guid=""BF84EB83-C8CF-793E-B1A7-EA58E59281F9"" )
+<ns3:DateRange> 
+<ns3:FromDate>2012-06-01-04:00</ns3:FromDate> 
+<ns3:ToDate>2012-06-01-04:00</ns3:ToDate> 
+</ns3:DateRange>
+These date range is retrieved From Omni Trade dates.
+Assigning to neeraja for further analysis
+________________________________________
+________________________________________
+Narayanan, Neeraja <narayn>, 11/15/2012:  The details of the issue is available in the attached emails. Susan is goig to test this in IT or in Prod since this is problem with ST4 trade date setup. Assigning back to susan for IT testing.
+________________________________________
+Andrade, Susan M <andrads>, 11/20/2012:  Failed Retest.  Contributions/Allocations link does not match what is displayed on the Transactions - Allocations screen.  Testing was done in production to validate that this was not an issue due to calendars.  See all new attached screenshots from the production PIN:  8067440.
+________________________________________
+Froebrich, Erich <froebri>, 11/21/2012:  anytime the allocation is updated in BCF without impacting the SD % in Omni. It could also be participant initiated. If the participant leaves the Pension/Brokerage split the same and only modifies the Brokerage Mutual Fund selections/percentage, then you run into this same situation.
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 11/21/2012:  Had a meeting and discussed several options to implement the changes. TP team will co-ordinate with MDM, PPv3 teams and work towards the solution. Eric will talk to Scott/Traci to get the confirmation to deliver part of Jan release.  Assigning to Mallikarjun
+________________________________________
+Froebrich, Erich <froebri>, 11/30/2012:  2 solutions still being sized by DEV.
+________________________________________
+Ryan, Scott A <ryansc>, 12/14/2012:  Updated target release to March.
+________________________________________
+Mahapatra, Anantha <mahapat>, 2/4/2013:  Verified in IT1 by keeping Pension/Brokerage split the same and by modifying the Brokerage Mutual Fund selections/percentage. No errors were encountered in IT1 env. Test Environment related issues mentioned in the comments could not be replicated in IT1. Reassigning to Dev team.
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 2/22/2013:  Ready to be tested in ST4 by QA
+________________________________________
+Andrade, Susan M <andrads>, 3/4/2013:  Failed Retest.  Please attached video.  Thanks!!!
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 3/4/2013: 
+Hi,
+retrieveRetirementAllocationHistory with  :guid=""725952F0-5E74-E9EF-511C-8F3EDB2CD355""
+for 
+ns2:DateRange> 
+<ns2:FromDate>2012-12-11-05:00</ns2:FromDate> 
+<ns2:ToDate>2013-03-04-05:00</ns2:ToDate> 
+
+Failed because of below Reason
+<ns2:Text>Exception occured while Calling Brokerage Operation retrieveTransactionHistory</ns2:Text>
+Neeraja :Please confirm is that because of the back dated ST4 and Omni Date issues.
+________________________________________
+Narayanan, Neeraja <narayn>, 3/5/2013:  This is not the service that I support. Can you please check with correct team?
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 3/5/2013:  Assigning to Arul for research
+________________________________________
+Muthusamy, Aruldass <muthua>, 3/6/2013:  Based on Nat's email, There is no allocaiton for the party_PH
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 3/6/2013:  Neerja,Based on your inputs there were couple of transactions on1/24.
+Please confirm if those transactions wee successful
+________________________________________
+Narayanan, Neeraja <narayn>, 3/6/2013:  Same allocation Cohern & Steers Realty Shares 90% and ASTON/Montag & Caldwell Growth N 10% got submitted 4 times. And 5th time allocation was for Cohern & Steers Realty Shares 90% and BMM 10%. Total 5 allocations on the same day 1/24. Hope this helps. None of these allocation is available in BCF.
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 3/6/2013:  Below are the Orchestration IDs
+M10018X7N, M10018X8R, M10018XD7, M10018XM3 and M10018XOB.
+Please let us know abt the BPEL status
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 3/6/2013:  The above allocation is still showing inprogress at bpel side status and waiting for ETL batch job to complete. 
+Please run OMNI batch cycle and deliver feed file to ETL, then request ETL team to execute the job at their end then bpel will receive acknowledgement from ETL for allocations done in omni to complete our process. Until then we can't see the data in BCF database. 
+There could be possiblity that there is a mismatch in OMNI data and Brokerage Info not in BCF database while calling BTV1 service thorugh TP user getting this error.
+________________________________________
+Kennedy, Marjorie L <kennedm>, 4/1/2013:  
+Sent Email to Susan to retest defect today if possible.
+________________________________________
+Kennedy, Marjorie L <kennedm>, 4/2/2013:  
+Per Susan this issue still exists. Attached video clip. Assigning back to Kalai for triage.  Tested in IT1.
+
+Part: 009-00-1992/GS1001
+Pin: 6966219
+Plan 102157
+Environment: IT1
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 4/2/2013:  HI Mallik, we are still seeing the issue in IT1 env. Please use the below data and check in IT1. Also refer the video attached by Susan. Provide the GUID and assign it to appropriate team
+
+Part: 009-00-1992/GS1001
+Pin: 6966219
+Plan 102157
+Environment: IT1
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 4/2/2013:  
+Hi Arul,
+For the pin 6966219 :BTV1 is throwing DPFault Exception. Please validate
+guid=""4471BE87-48F0-BE13-4DB9-96EA07EF27C4""
+ENV:IT1
+Thanks
+Mallik
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 4/9/2013:  Please retest and confirm if it is working"
+24257	Brokerage	ST4	Retest	Transaction Portal - SRK - Brokerage ART	"Test:  Brokerage Reject
+
+PIN:  6867066
+
+Issue: 100% invested in the SDB.  Brokerage Orders tab displays $2500 has been rejected.  Transfer Screen doesn't allow to pick the SDA to transfer funds to another Brokerage MF.  Receiving error:  ""No target investments could be found for the transfer level selected.  Please make another selection""
+
+Expected Result:  Any reject monies should display in the cash account on the Transfers Source Page.
+
+See attached screenshots!!!"	Transaction Portal - (APM11799)	"Froebrich, Erich <froebri>, 11/2/2012:  assigning to Malik for research
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 11/2/2012: funds which are rejected should be avaialble back to transfer.
+RIE:guid=""84626FAA-9055-5279-4887-B7C257091551""
+________________________________________
+Narayanan, Neeraja <narayn>, 11/2/2012:  Hi Sravanthi, This parcipant has brokerage enrollment and omni SDA fund has $5000 balance but we are not getting any MMF fund from BCF or ODS. I talked to Kalai on this. We saw entry in BCF. Please take a look at the account # A53013883
+________________________________________
+Erramreddy, Sravanthi <erramre>, 11/8/2012:  The BCF has the MMF amount of $5000 and the same is sent to ODS. ODS has to run their batch process to load this data.. Re-assining to Francis to have him run the ODS batch.
+________________________________________
+Pascual, Francisco <pascual>, 11/8/2012:  ODS load completed. 5A3013883 has a blanace of $5000 on MMF000001. This is exactly what Broekrage sent to ODS. If this is incorrect, please assign to Brokerage team.
+________________________________________
+Ryan, Scott A <ryansc>, 11/14/2012:  Updated to January Release.
+________________________________________
+Andrade, Susan M <andrads>, 11/14/2012:  This appears to be fixed, however, the new questions is, if on the Brokerage Orders tab there is an ""accepted"" trade, even though this may not be settled yet, wouldn't it make the available amount to be -0-.  Original defect was a concern because there was $2500 in rejected status and did not appear anywhere.  Now, that the defect has been cleared, what is the expected behavior if the trade is in an ""accepted"" status?  I would think that we wouldn't want to execute a transfer on an account that has something pending to settle.  See attached video.  Thanks!!!
+________________________________________
+Scott, Don <scotdo>, 12/11/2012:  Please retest in IT1, once IT1 is set up.  This may be a trade settlement timing issue coming back from Pershing.  Need to look at positions file from Pershing.
+________________________________________
+Ryan, Scott A <ryansc>, 12/14/2012:  Updated target release to March."
+25513	Brokerage	ST4	Retest	SRK - IWC ART - Cutoff time displayed should be fund specific cutoff time minus 30 minutes	Cutoff time displayed should be fund specific cutoff time minus 30 minutes.  We are currently showing 16:01.	Individual Web Center - (A24198)	"Seenivasan, Selvaraj <seeniva>, 11/9/2012:  Ashwini, please let me know the Target release for this defect. Based on that we will work on this defect fixes.
+________________________________________
+Maddi, Ashwini <maddia>, 11/9/2012:  Erich, Can you check with Scott and update accordingly.
+________________________________________
+Froebrich, Erich <froebri>, 11/12/2012:  Nov release where possible
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 11/12/2012:  Fix is available in ST-2 and please retest test.
+________________________________________
+Maddi, Ashwini <maddia>, 11/13/2012:  Assigning to Cary for retest.
+________________________________________
+Ryan, Scott A <ryansc>, 11/14/2012:  Updated to January Release.
+________________________________________
+Watson, Cary Craig <watsoca>, 11/14/2012:  Shefali, Please validate.  I sent a note to Greg as well.  I never heard back.  Fix is in ST2 AND ST4.  In addition, the target Release is January now.  ;)  Check with Ashwini for action?
+________________________________________
+Aseri, Shefali <aseri>, 11/16/2012:  Ashwini, what is the expected behaviour here? Should tehre be a separate cutoff time (4PM) displayed for pension funds and a different one for brokerage funds (3:30PM)?
+________________________________________
+Aseri, Shefali <aseri>, 11/16/2012:  BTW ... this defcet has been moved to Jan2013.
+________________________________________
+Maddi, Ashwini <maddia>, 11/16/2012:  Assigning to Brokerage IT test team to verify and assign back to Greg for retest.
+________________________________________
+Yerravalli, Pallavi <yerrava>, 12/4/2012:  Working as expected in IT. Assiging it to Ashwini for retest in AT
+________________________________________
+Maddi, Ashwini <maddia>, 12/5/2012:  Greg, please retest.
+________________________________________
+Ryan, Scott A <ryansc>, 12/14/2012:  Updated target release to March.  Fix deployed to production in December.
+________________________________________
+Froebrich, Erich <froebri>, 3/21/2013:  added screenshot. condition still occurring. in screenshot, message to the right says 3:30; message to the left says 4:00....
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 3/25/2013:  Traci, as per this defect, I think, Jonathan or Erich is trying to transfer from BMM to BMF and we are showing BMM(from -sell) side fund's cut-off time (you have until 4:00pm ET  on date to cancel this transfer).  As we discussed, this is working as expected. Can you please review and assign to Erich ?
+________________________________________
+Grecco, Traci E <grecco>, 3/26/2013:  Sorry Selva, think I misunderstood when we discussed this earlier this week.  If a money market is involved on the from (sell) side, we need to revert to the (buy) side which is the mutual fund cutoff time.  I am assigning back to you.  Thanks.
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 3/27/2013:  As per Traci's email, its not for April release. We will fix it as part of future/June release.
+________________________________________
+Chandrasekar, Sujatha <chands>, 3/28/2013:  I am deferring this defect since we dont have the June container yet.
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 4/15/2013:  As of now, we are trying to fix this defect in June portal branch as part of June release. Will update once its fixed.
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 4/26/2013:  added ""cutoff time mapping"" scenario sheet which i got it from Erich.  as part of this defect, we are going to fix only the below row from that attached sheet
+
+Before Fix
+Brokerage MMF to Brokerage MF   source fund cutoff time. In this case, BMMF cutoff time
+
+After Fix:
+Brokerage MMF to Brokerage MF   Actual cutoff time of To/Buy side Cusip - Cushion time (half an hour)   
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/6/2013:  Fix is going to be available in IT-1 as part of 5/6 migration.
+
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/7/2013:  Fix is available in IT-1 and this fix is going to be as part of June release. Please retest."
+28181	Brokerage	ST4	Open	SRK Brokerage IWC - Need a long term fix for the Hardstop message on Allocation page when subsequent Minimum not met	"Need a long term fix for the Hardstop message on Allocation page when subsequent Minimum not met
+
+Scenario 1: Allocate to existing mutual Fund.
+Scenario 2: Add a new mutual fund with Subsequent minimum and allocate to it.
+
+In both the above mentioned scenarios, when the allocated % is less than the subsequent minimum amount a Hard Stop message should be displayed.
+
+Current Message - ""You have not reached your subsequent minimum for one or more of your Brokerage Funds. Please correct your entry.""
+
+Test Data:
+SSN: 412021829
+Login ID: PH021829
+PIN: 6826809
+Password: 1111111p
+Security Ans: tiaa
+Plan/Sub Plan: 103940/GS1001
+Previous Contribution amount: $10
+Existing Mutual Fund: LCEIX
+Newly Added Mutual Fund: CCIZX
+Screenshots attached for reference."	Individual Web Center - (A24198)	"Ryan, Scott A <ryansc>, 12/13/2012:  Reviewed and updated to the March Major Release target.
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 1/10/2013: Nik, as per attached email thread, Traci wanted to show the new message shown below. Can you please pass the below two values as param for rule 10555. 
+
+1st Param: SUBSEQUENT MINIMUM_PERCENT
+2nd Param: BROKERAGE FUND NAME
+
+
+10555= Your contribution will need to be at least<<SUBSEQUENT MINIMUM_PERCENT>% in order to meet the required subsequent minimum to invest in <BROKERAGE FUND NAME>.
+
+Please assign back to me once its migrated to IT-1/ST-2.
+________________________________________
+Tamhankar, Gaurav <tamhank>, 1/15/2013:  Migrated to IT1/ IT2
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 1/18/2013:  Nik, can you please let me know once you are done with 3 params as we talked on 01/17 meeting.
+
+
+Allocation
+10555= The required minimum amount to invest in <Name of the brokerage fund- pram-1> is $<Subsequent minimum dollars-param-2>, or <percent of contribution representing sub minimum-param-3>% based on your current contribution levels. Please modify and click Preview Changes.
+
+Even this defect is used to track the 10555, I've included 10552 message param as well because we do not have any new defect to track the 10552 for transfers subsequent check.
+
+Transfers
+10552=In order to invest in <Name of Fund - param-1>, the required minimum amount is $<subsequent minimum dollar amount - param-2> or <representing sub minimum based on source fund selected-param-3>% based on
+ current market value of your chosen source fund. Please modify and click Preview Changes.
+
+
+________________________________________
+Patel, Nikunjkumar Rajanikant <patenik>, 1/30/2013:  Deployed to IT1 IT2 ST2
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 2/5/2013:  Fix is available in IT-1/ST-2. pls retest.
+________________________________________
+Patel, Nikunjkumar Rajanikant <patenik>, 2/7/2013:  Code deployed to ST2
+________________________________________
+Jitta, Ramakrishna Reddy <jitter>, 2/20/2013: Due to IT1 env update and data refresh, we are unable to test in IT env,  and for ST2 env we dont have  any data. assign back QA
+________________________________________
+Shaik, Samreen <shaisa>, 2/25/2013:  
+Waiting for issue clarification. Will retest as soon it is resolved.
+________________________________________
+Shaik, Samreen <shaisa>, 2/28/2013:  
+Rule 10555 - The Hardstop message displayed is not displayed as Expected. The parameter values are not reflected appropriately. Kindly check the screenshots.
+""The required minimum amount to invest in Victory Special Value R  is $250 or 2% based on your current contribution levels. Please modify and click Preview Changes."" is the expected message. 
+The words in the bold font are the ones which need to be modified.
+Test Data Used:
+SSN: 412021829
+Login ID: PH021829
+PIN: 6826809
+Password: 1111111p
+Security Ans: tiaa
+Plan/Sub Plan: 103940/GS1001
+Previous Contribution amount: $20000
+Existing Mutual Fund: CCIZX
+Screenshots attached for reference.
+
+Rule 10552 - No Hardstop message is displayed in the Transfer Page.
+Steps followed: Initiate transfer from any fund to a Mutual Fund which has subsequent minimum more than the previous contribution amount.
+If my approach of testing the rule 10552 is not correct then kindly let me know the right process so that I can retest it again.
+Test Data Used:
+SSN:003693812
+PIN: 2871181
+Plan/SubPlan: 100902/GA1001
+Login: PH2871181
+Password/security Ans: 1111111p/tiaa
+To Fund: LCEIX
+Previous Contribution Amount: $10
+
+Failing Retest since it is not Working as Expected
+________________________________________
+Patel, Nikunjkumar Rajanikant <patenik>, 2/28/2013:  this is looks IWC UI msg update . assigning to selva
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 2/28/2013:  Nik,  reg: above (2/28) Samreen's comment, I've updated Shailendra about the process to test the 10552 rule because Samreen's test case is wrong.
+
+
+Reg: 10555 comment
+
+As per below ST-4 guid=""72F86CA6-AEEB-FCA4-4E6F-36C948A75638"" , looks like we are not getting the params in order which we mentioned/commented/discussed on 1/18 comment because UI is designed to take the params in order and assigned to the below message.
+
+10555= The required minimum amount to invest in <Name of the brokerage fund- pram-1> is $<Subsequent minimum dollars-param-2>, or <percent of contribution representing sub minimum-param-3>% based on your current contribution levels. Please modify and click Preview Changes.
+
+1st Param should be:INVESTMENT 
+2nd Param should be:MIN_SUBQ_ALLOC_AMT (dollar value)
+3rd param should be:MIN_SUBQ_ALLOC_BMF (percent)
+
+as per below ST-4 guid data, you can see its not in order which I've explained above.
+<ns2:Message><ns2:Code>10555</ns2:Code>
+<ns2:Type>WARNING</ns2:Type>
+<ns2:Text>Subsequent Brokerage Mutual Fund Minimum is not met</ns2:Text>
+<ns2:Params>
+<ns2:Param><ns2:Key>MIN_SUBQ_ALLOC_BMF</ns2:Key><ns2:Value>1</ns2:Value></ns2:Param>
+<ns2:Param><ns2:Key> MIN_SUBQ_ALLOC_AMT</ns2:Key><ns2:Value>250</ns2:Value></ns2:Param
+><ns2:Param><ns2:Key>INVESTMENT</ns2:Key><ns2:Value>Victory Special Value R</ns2:Value></ns2:Param></ns2:Params>
+</ns2:Message>
+
+
+Please make sure the order is followed in 10552 rule as well because 10552 message also designed as we discussed/mentioned on 1/18 comment
+
+Transfers
+10552=In order to invest in <Name of Fund - param-1>, the required minimum amount is $<subsequent minimum dollar amount - param-2> or <representing sub minimum based on source fund selected-param-3>% based on current market value of your chosen source fund. Please modify and click Preview Changes.
+
+1st Param should be:INVESTMENT 
+2nd Param should be:MIN_SUBQ_ALLOC_AMT (dollar value)
+3rd param should be:MIN_SUBQ_ALLOC_BMF (percent)
+________________________________________
+Patel, Nikunjkumar Rajanikant <patenik>, 3/4/2013:  this defect is for brokarage defereed for april release.
+________________________________________
+Patel, Nikunjkumar Rajanikant <patenik>, 3/18/2013:  Code deployed to IT1 : Rules 10552 and 10555
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 3/18/2013:  Pallavi, please retest this defect(allocation sub sequent minimum check and Transfers sub sequent min check) in IT-1.
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 3/18/2013:  Sujatha, please retest this defect(allocation sub sequent minimum check and Transfers sub sequent min check) in IT-1.
+________________________________________
+Shaik, Samreen <shaisa>, 3/21/2013:  
+Test Data setup in progress.
+________________________________________
+Shaik, Samreen <shaisa>, 4/8/2013:  
+Retest Pending due to defect#30282. We will retest this once 30282 is fixed.
+________________________________________
+Chandrasekar, Sujatha <chands>, 4/12/2013:  This code fix is avl in prod part of March release
+________________________________________
+Shaik, Samreen <shaisa>, 4/15/2013:  
+We have retested this defect for the Rule 10555. But it is not working as Expected.
+
+10555= The required minimum amount to invest in <Name of the brokerage fund- pram-1> is $<Subsequent minimum dollars-param-2>, or <percent of contribution representing sub minimum-param-3>% based on your current contribution levels. Please modify and click Preview Changes.
+
+Param-1 and Param-2 are displayed appropriately. But param-3 is taking the input value which we are allocating to that Fund. Also there is a slight mismatch in the verbiage which is highlighted here in green.
+Expected:
+The required minimum amount to invest in AMIDEX35 Israeli is $250 or 2% based on your current contribution levels. Please modify and click Preview Changes.
+Actual:
+The required minimum amount to invest in AMIDEX35 Israeli is $250 or 1.00% of your current contribution amount. Please modify and click Preview Changes.
+Test Data:
+Plan/Subplan    100867/GA1001   
+PIN     6967110 
+SSN     009000065       
+Account A53020441       
+Fund TICKER     AMDEX 
+Login ID        PH000065        
+Password        1111111p        
+Security Ans    tiaa
+<screenshot attached>
+For 10552 have sent data for contribution.Will retest it as soon as the contribution is reflected in UI.
+Since 10555 rule is not working as Expected, failing the retest.
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 4/15/2013:  Nik, looks like rule 10555 is not rounding up the percent values.Can you check this?
+
+IT-1  guid=""98615A10-9697-9CDD-16E4-2628B9458562""
+________________________________________
+Patel, Nikunjkumar Rajanikant <patenik>, 4/16/2013:  Rules 10552 and 10555 updated to rouding up for next possible integer number.
+Code deployed to IT1
+________________________________________
+Shaik, Samreen <shaisa>, 4/17/2013:  
+Rule 10555 is working as expected.
+Actual Message displayed: The required minimum amount to invest in AMIDEX35 Israeli is $250 or 2% of your current contribution amount. Please modify and click Preview Changes.
+screenshot attached.
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 4/17/2013:  As per Nik(BRMS), fix is available in IT-1. please retest this all scenarios.
+
+1. if manual calculated % is between 1.01% and 1.49% and see if you are getting 2%
+2. if manual calculated % is between 1.50% if you are getting 2%
+3. if manual calculated % is between 1.51% and 1.99% and see if you are getting 2%
+________________________________________
+Shankar, Bharanidharan <shankb>, 4/18/2013:  
+
+We need to set the test data for this creteria.
+________________________________________
+Shaik, Samreen <shaisa>, 4/26/2013:  
+We have checked for the following scenarios.
+1. manual calculated % is 3.0003 and it is displayed as 3%
+2. manual calculated % is 1.59% and we are getting 2%
+screenshots are attached. <28181_10555_4262013.docx>
+Test data:
+Plan    100868  
+Subplan RA6001  
+SSN     009000061       
+Contribution Amount     $3,333  
+Login ID        PH000061    
+Password        1111111p        
+Security Ans    tiaa
+________________________________________
+Chandrasekar, Sujatha <chands>, 5/16/2013:  do we have the data ready for this ?
+________________________________________
+Shaik, Samreen <shaisa>, 5/20/2013:  
+We have retested this defect with the following data.
+
+Plan 102156
+Subplan GS1001
+SSN 009001029
+PIN 6965947
+Login ID        PH001029        
+Password        1111111p        
+Security Ans    tiaa
+Account Number A53020037
+From Fund - TIAA-CREF Lifecycle 2020 Fund - Retirement Class
+Balance ~ $1240
+To Fund - Fidelity Blue Chip Value Fund
+To Fund Subsequent Min - $1001
+
+The subsequent Min amount is approximately around 80% of the From Fund balance. But in the hardstop message only 1% is being displayed.
+
+Actual Message:
+The required minimum amount to invest in Fidelity Blue Chip Value is $1001 or 1% of the current market value of your chosen source fund, which may fluctuate. Please modify and click Preview Changes.
+
+Expected Message:
+The required minimum amount to invest in Fidelity Blue Chip Value is $1001 or 80% of the current market value of your chosen source fund, which may fluctuate. Please modify and click Preview Changes.
+
+Not working as Expected. Hence failing the retest.
+<Screenshots attached-Defect_28181_fail.docx>
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/20/2013:  Neeraja, as per below IT-1 guid, looks like  ""10552"" MIN_SUBQ_TRANSFER_PCT param is getting 1% instead of 80% as mentioned by QA on 5/20. 
+
+Can you please check from your end and assign to Nik for his analysis?
+
+IT-1 guid=""813BFB68-1908-25F5-18B9-F95FFD65E3A7""
+________________________________________
+Narayanan, Neeraja <narayn>, 5/20/2013:  The minimum Subsequent amount is $1001as per coherence data. Ph already own $20384. So 1% is coming in percent. As per data it is correct! Rejecting the defect saying as per data the system works as designed.
+________________________________________
+Shaik, Samreen <shaisa>, 5/21/2013:  
+According to Selva's comments on 02/28/2013, this what 10552 rule is.
+""In order to invest in <Name of Fund - param-1>, the required minimum amount is $<subsequent minimum dollar amount - param-2> or <representing sub minimum based on source fund selected-param-3>% based on current market value of your chosen source fund. Please modify and click Preview Changes.""
+
+Here Param-3 is subsequent min based in the source fund selected. But the source fund chosen (TIAA-CREF Lifecycle 2020) has a balance of $1242.93
+
+Ph already own $20384 in the To Fund(Fidelity Blue Chip value).
+Also if the % is being calculated based on the To Fund balance, then the % value should remain constant for this data irrespective of the source fund chosen. But when the source fund(TIAA Traditional - $1,504,975) is changed, the % is now displayed as 0%.
+
+""The required minimum amount to invest in Fidelity Blue Chip Value is $1001 or 0% of the current market value of your chosen source fund, which may fluctuate. Please modify and click Preview Changes.""
+Screenshots attached<28181_10552_Fail.docx>
+
+Assigning back to Neeraja.
+________________________________________
+Narayanan, Neeraja <narayn>, 5/21/2013:  Hi Nik, Please check this RPTV4 guid. Not sure how the above said comment works."
+31492	Brokerage	IT1	Failed Retest	Transaction Portal - SRK ART - Interfund Transfers	"Test:  Brokerage MF transfer to Pension
+
+Issue:  Brokerage Funds do not display on the Source Page
+
+See attached screenshot.
+
+Thanks!!!"	Transaction Portal - (APM11799)	"Chellappan, Kalaiselvi <chellak>, 1/29/2013:  Susan, please provide the PIN details for investigation. Specify the PIN details and assign the defect back to me
+________________________________________
+Kennedy, Marjorie L <kennedm>, 1/31/2013:  
+Kalai...from the screenshots...this is plan 103299/ SSN 008166436/GS1001/PIN 6544861
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 1/31/2013:  Assigning to Jagan to provide the GUID to Neeraja. please refer the screenshot before generate a GUID
+________________________________________
+Sampath, Jagannath <sampatj>, 1/31/2013:  Kalai, Unable to reproduce this issue using the above data. Please refer the doc attached.
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 1/31/2013:  Brokerage Funds are displaying now. Please re-test
+________________________________________
+Andrade, Susan M <andrads>, 3/4/2013:  Failed Retest.  PIN:  6872439 is displaying a balance in Brokerage account and trying to execute a transfer from Brokerage to Paneion and Brokerage amount is not being displayed so it can be selected to transfer out of.  OMNI is not displayong ""uninvested cash"" either.  All OMNI information display that transfer functionality should be available.  See attached screenshots.  Thanks!!!
+
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 3/5/2013:  Updated the target release to April
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 3/5/2013:  Assigning to Malik to provide an GUID to Neeraja. 
+Note: This is ST4 env
+Pin: 6872439
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 3/5/2013:  guid=""15DA5A2D-93D2-CD11-2FCA-34739930CA6D"",Assigning it Neeraja for Research
+________________________________________
+Narayanan, Neeraja <narayn>, 3/5/2013: BTV1 is returning 0 balance for BMM fund. ODS has 0 balance for BMM. Sravanthi, can you check this account A53014139? Why it has 0 balance instead of 7500 omni balance?
+________________________________________
+Erramreddy, Sravanthi <erramre>, 3/19/2013:  someone has to check in Netx360 the balance for this account. It appears that this account is not funded yet, so a $0 balance record is being sent to ODS. Reassging this incident back to Neeraja.
+________________________________________
+Narayanan, Neeraja <narayn>, 3/25/2013:  Kalai, is there anything you can do about this? I can't do anything on this.
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 3/25/2013:  Susan, due to the data refresh in IT1, all the old datas were removed from IT1. Please take a fresh data from Marjorie and re-test the scenario. Let us know if in case of any issues.
+________________________________________
+Andrade, Susan M <andrads>, 5/6/2013:  Failed Retest.  Brokerage funds not appearing on the Source (from) page.  See attached screenshot.  PIN:  6970227.  Thanks!!!
+________________________________________
+Kennedy, Marjorie L <kennedm>, 5/6/2013: 
+________________________________________
+Narayanan, Neeraja <narayn>, 5/7/2013:  Sravanthi, could you please check this pin/plan/subplan. We are not getting anything for this pin/plan/subplan from IT1 ODS.
+
+ods_it1.odsdata_utility_pkg.get_party_sda_bal_prc('6970227','PIN','103939','RA6001',:a,:c,:d);
+
+________________________________________
+Erramreddy, Sravanthi <erramre>, 5/20/2013:  The adhoc job to load the mssing plan/sub plan to load to MDM is completed and the accounts does show up in ODS. reassging to Neeraja for reverification
+________________________________________
+Narayanan, Neeraja <narayn>, 5/20/2013:  The above pin ODDS data issue got resolved. Please retest
+________________________________________
+Andrade, Susan M <andrads>, 5/21/2013:  Failed Retest.  Brokerage Funds still are not displaying on the Source Page in Transaction Portal.  See attached screenshot for PIN:  6974373"
+38830	Brokerage	IT1	Retest	IT1 Env: SRK Day2 IWC - Where services does not find a value , use the cusip as the default value rather than not found	"Description:
+Where services does not find a value , use the cusip as the default value rather than ""not found""
+
+Iusse: Positions in transfer and allocation screen.
+
+Please refer the attached document for more information."	Individual Web Center - (A24198)	"Chellappan, Kalaiselvi <chellak>, 4/17/2013:  Post June Release
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 4/19/2013:  Deferred to Post June Release
+________________________________________
+Chellappan, Kalaiselvi <chellak>, 4/27/2013:  Per Traci's request, assigning to Neeraja for a June fix
+________________________________________
+Narayanan, Neeraja <narayn>, 5/2/2013:  The fix is available in ST2. Tested successfully in local pointing to ST4. Please retest in ST4. This is TNG code base so we are not moving the code to ST4 now. Let me know where you want the code."
+38947	Brokerage	IT1	Retest	IT1 Env: SRK Day 2 -ETL: In buy order flat files sub batch id should be based on max count 100 not based on account number.	"Description: In buy order flat files sub batch id should be based on max count 100 not based on account number.
+
+Expected: In buy order flat files sub batch id should be based on max count 100.
+
+Actual: In buy order flat files sub batch id is based on account Number.
+
+ETL Based Defect."	Online Pension Enrollment - (OPE)	"Durairaj, James Sundararajan <sundarj>, 4/17/2013:  This is not a defect. this is fine tune of existing process. Hence requesting to reduce defect severity and target release date is Jun.
+________________________________________
+Shankar, Bharanidharan <shankb>, 4/18/2013:  
+
+changed the defect Severity to 3-Minor
+________________________________________
+Erramreddy, Sravanthi <erramre>, 4/22/2013:  Our ETL team will be looking into the current design and making the required changes accordingly.
+________________________________________
+Erramreddy, Sravanthi <erramre>, 5/9/2013:  We have made the required changes in dev and will be migrating the code to IT1 and St2 and ST4 
+by this week.
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/17/2013:  CHG283783 - Targeted to move on June release."
+39036	Brokerage	IT1	Retest	4/10 contributions were rejected by Pershing for TRAILER RECORD NOT FOUND	"Pershing Rejeced buy contribution trades for 'Trailer Record Not Found' for 4/10 contributions.
+
+
+Plan    PIN     Participant     Brokerage Account       
+
+103939  6969730 20130405.T801.OEB      009001942/RA6001/        A53035225       
+102157  6969732 20130405.T801.OEB      009001943/GS1001/        A53022033       
+100868  6969733 20130405.T801.OEB   009001944/RA6001/           A53022058       
+103939  6969735 20130405.T801.OEB  009001945/RA6001/    A53022082       
+102157  6969741 20130405.T801.OEB 009001947/GS1001/     A53022041       
+103939  6969742 20130405.T801.OEB  009001948/RA6001/    A53022025       
+102157  6969745 20130405.T801.OEB 009001951/GS1001/     A53022066       
+100867  6969746 20130405.T801.OEB      009001952/GA1001/        A53022074       
+100867  6969754 20130405.T801.OEB   009001954/GA1001/   A53035209"	Managed Accounts - (71473)	"Chellappan, Kalaiselvi <chellak>, 4/17/2013:  Assigning to Mark for a fix
+________________________________________
+Dawson, Mark A <dawsom>, 4/19/2013:  putting defect to retest status as the 4/10 OMNI buyorder file has some file corruptions which is preventing the file from being created without the trailer record error. The developers are resubmitting the contributions again and it will be part of another buyorder file for processing.
+________________________________________
+Dawson, Mark A <dawsom>, 4/19/2013: "
+40946	Brokerage	IT1	Open	IT1- We are not able to see some mutual funds in IWC UI in source transfer drop down(Change investment).	"Summary: We are not able to see some mutual fund in IWC UI in source transfer drop down(Change investment).
+
+Environment: IT1
+
+URL IWC: https://origin-publictools-it1.test.tiaa-cref.org/private/selfservices/sso/login.do
+IWC credentials:  BRK01955/1111111p/tiaa
+
+Steps to Reproduce:
+1.Login with valid credentials.
+2.Select Manage my portfolio-> Change investments->plan name-> source fund(transfer from).
+
+Expected Result:
+    1. All fund which has money in SDA should be listed.
+
+Actual Result:
+    1. All fund which has money in SDA is not listed.
+
+Note: JRGSX fund (contribution buy) is not displaying in IWC UI in source transfer drop down for following participants.
+        PH9001983/1111111p/tiaa
+        PH9001984/1111111p/tiaa
+        PH90019861111111p/tiaa
+        PH9001987/1111111p/tiaa
+       PH9001988/1111111p/tiaa
+
+Attachments: IWC UI.docx"	Managed Accounts - (71473)	"Bheemavarapu, Rajasekhar <bheemav>, 5/7/2013:  From the RPT-V4 -> retrieveInvestmentsEligibility operation  IWC getting the  following funds.
+
+<ns2:FundName>Janus Global Research Fund Class S</ns2:FundName> 
+<ns2:FundName>Franklin MD Tax-Free Income Adv</ns2:FundName> 
+<ns2:FundName>Money Market Fund Dividend</ns2:FundName> 
+<ns2:FundName>Ivy High Income Y</ns2:FundName> 
+<ns2:FundName>T. Rowe Price Balanced</ns2:FundName> 
+<ns2:FundName>T. Rowe Price Equity Income</ns2:FundName> 
+<ns2:FundName>TIAA-CREF Brokerage Money Market Fund</ns2:FundName> 
+
+Where as  the following funds has the  Balance 0 as of Date 2013-05-07
+
+<ns2:FundName>Janus Global Research Fund Class S</ns2:FundName> 
+<ns2:FundName>Money Market Fund Dividend</ns2:FundName> 
+<ns2:FundName>TIAA-CREF Brokerage Money Market Fund</ns2:FundName> 
+
+
+guid=""B2559F80-7426-C29E-2E0C-F28FC8588867""
+
+seems if the fund has zero balance then the UI will not display that. 
+________________________________________
+Bheemavarapu, Rajasekhar <bheemav>, 5/7/2013: seems the Data issue. assigning to tester
+________________________________________
+Kennedy, Marjorie L <kennedm>, 5/8/2013:  
+This account has money in the brokerage account on Omni & Pershing.  We should be able to see this in UI.
+________________________________________
+Navduri, Rajesh <navduri>, 5/16/2013:  Neeraja, can you check from your end and see if this data exists in ODS or not. If not assign the defect to Sravanthi.
+________________________________________
+Narayanan, Neeraja <narayn>, 5/16/2013:  All these pins has shares in JRGSX fund in ODS but the unit price is 0 so the balance becomes 0. That is the reason that fund is not showing on ui. 0 balance funds will not be shown on source funds list on UI. This is existing design. Assigning back to Rajesh."
+41664	Brokerage	IT1	Retest	SRK - Tiering is incorrect	"PH1277955 / P1111111p / tiaa
+GSRA (TIAA L34275I2)(CREF M34275I0) 
+Plan Number: 100903
+
+Tiering shown on IWC ART pages does not match tiering setup in Siebel.  See screenshots.  All headings shows as 'Lifecycle Funds' on IWC."	Individual Web Center - (A24198)	"Starnes, Greg <starnes>, 5/13/2013: 
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/14/2013:  Neeraja, as part of below IT-1 guid, looks like we are getting same Tier Name for all 4 tiers. Can you check this?
+
+IT-1 guid=""B83CF087-0C13-8527-A21D-A0AB702F6F59""
+________________________________________
+Narayanan, Neeraja <narayn>, 5/14/2013:  From cdi we are getting same tier name for all the tiers. As per data that we get the system is working as designed. So rejecting the defect.
+________________________________________
+Starnes, Greg <starnes>, 5/15/2013:  Assigning to CMTS team.
+________________________________________
+Bodavula, Muralidhar <bodavul>, 5/15/2013:  Sent an email to CDI and Siebel team to check.Please see attached email.
+________________________________________
+Sapre, Madhav <saprem>, 5/15/2013:  
+This data is synched by batch. Can someone tell me when was Siebel information updated and when was batch run last time? From the database I see that three of these tiers were updated on 6/22/2012 last and one on 10/25/2012.
+________________________________________
+Bodavula, Muralidhar <bodavul>, 5/16/2013:  
+Please retest. 
+
+This has been completed. Please retest.
+
+Albert and I have determined that Siebel has the correct values. So we will need a data fix.
+Hi CMTS,
+Please process this attached data fix on UI634 as soon as possible.
+Thank you
+Scott Hardy
+Non-Employee Consultant | MDM ETL Dev
+IBM | Service Provider and Contractor to TIAA-CREF
+196 Crescent Road | Ground Level
+East Lansing, MI 48823
+Primary: 734.288.8242 
+Cell: 734.308.8325
+<mailto:SHardy@tiaa-cref.org>"
+41703	Brokerage	IT1	Retest	I executed a transfer on 5/7 of Brokerage SD money market to Tiaa traditional. I have not seen it post yet. Per Marjorie Kennedy, i am logging a defect	"Plan: 102157
+SSN / subplan: 008166021/GS1001/  
+PIN: 6970825
+brokerage acct #: A53022272
+
+see attachment for screenshots / notes"	Transaction Portal - (APM11799)	"Long, Robert G <longro>, 5/14/2013: 
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/14/2013:  This is not a defect. this is due to environment issue when omni was read only mode ISV unable to process this message. Today we have retried this omni failure messages and successfully created T381 folder in OMNI. BPEL process move forward and waiting for ETL batch response. Post completion of OMNI batch cycle user can able to see this transfer in UI.
+
+>>05/15 - This txn is completed.  Please verify in UI. 
+________________________________________
+Kennedy, Marjorie L <kennedm>, 5/15/2013:  
+Greg had similar issue where we did not see the auto T381 complete on Brokerage MM to Pension Money Market transfer.
+
+Plan 102157
+Participant -/008166031/GS1001/
+PIN - 6970842
+A53022355
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/15/2013:  - Greg issue under investigation.
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/15/2013:  Mail communication sent to OMNI team to do further investigation
+
+We have an issue while getting Auto T381 acknowledgement from OMNI for below transaction.
+
+Txn Detail
+=====
+Auto T381 complete on Brokerage MM to Pension Money Market transfer.
+Plan 102157
+Participant -/008166031/GS1001/
+PIN - 6970842
+A53022355
+
+
+Posted in omni on 05/09 successfully and bpel received acknowledgement T588 folder creation. See response below.
+
+<OrchestrationId>M1001A21N</OrchestrationId>
+         <EditMode>P</EditMode>
+         <OmniFolderName>20130509.T588.BRK</OmniFolderName>
+         <OmniTransactionCode>588</OmniTransactionCode>
+         <Status>SUCCESS</Status>
+
+Auto T381 should be completed in OMNI and batch acknowledgement send to BPEL on the same day or next cycle.  So far bpel didn't receive auto T381 acknowledgement for this transaction and instance waiting for that.
+
+Can you please investigate the reason?
+________________________________________
+Navduri, Rajesh <navduri>, 5/16/2013: Assigned to Mike to look into the issue.
+________________________________________
+Long, Robert G <longro>, 5/16/2013:  The UI for my transfer IS showing now, thank you.
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/16/2013:  Greg issue - about Auto T381 msg. - Mike(Omni Team) has confirmed in call that is taken care. Hope bpel will get auto 381 message after completion of today's posting.  Due - tomorrow morning.
+________________________________________
+Fatovic, Mike <fatomi>, 5/20/2013:  
+It looks to me like this go around that all of the expected transactions were produced.
+102157 folder SD20130520.381CYCL2 has the auto T381 for $3,250 moving from SD to X3.
+102157 folder SD20130517.275CYCL2 has the T275 for the $1,900 cleaning uninvested cash from the transfer to SD.
+We should see the same results in the Production beta plan.
+________________________________________
+Fatovic, Mike <fatomi>, 5/20/2013:  Jonathan - see prior comment. The retest worded in IT environment. Hopefully the same test in PROD will be successful."
+41714	Brokerage	IT1	Open	SRK Brokerage - Transfer not showing on Recent Transactions tab	"PH9001984 / 1111111p / tiaa
+
+The following transfer submitted on 5/6 has been settled, but is not showing up on the Recent Transactions tab of the IWC Account Home page.  This may be due to the data not being loaded to QRS in IT1.  Please have the data loaded to IT1, and then I can retest.
+
+From:
+15% Brokerage (SD*) Money Market
+
+To:
+TIAA Traditional 10% 
+CREF Stock 25% 
+CREF Growth 10% 
+TIAA Real Estate 50% 
+CREF Bond Market 3% 
+CREF Social Choice 2%"	Individual Web Center - (A24198)	"Narayanan, Neeraja <narayn>, 5/14/2013:  Assigning this to Rajesh since he is coordinating the QRS job run.
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/15/2013:  pls provide more details to do further analysis, unable to find pin, plan, ssn, subplan details to proceed further investigation
+________________________________________
+Navduri, Rajesh <navduri>, 5/16/2013:  Data is not loaded into QRS. Working with QRS team to populaet the data
+________________________________________
+Navduri, Rajesh <navduri>, 5/20/2013:  Assigned to Sujatha"
+41756	Brokerage	IT1	Open	IWC Cancellation appears as 'Open Buy' in Pershing.	"1.      Cancellation & Executing Subsequent Transfer Same Day:
+-        The cancellation appears as an 'Open Buy' in Pershing.
+100867
+008166032
+A53022363
+BRK66032/1111111p/tiaa
+
+The transfer he put through was this:
+From:
+$3,500  CREF Money Market - X3
+To:
+100% FAMEX
+(FAM Equity-Income Inv)
+
+See Screen shot..
+Effective Date: 05/09/2013"	Managed Accounts - (71473)	"________________________________________
+Kennedy, Marjorie L <kennedm>, 5/15/2013: 
+PIN: 6970843
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/15/2013:  
+IT-1 Pin :6970843
+IT-1 submitTransfer guid=""424062EE-695C-FF97-483F-82BB645B89D4""
+IT1 OrchestrationID =M1001A1YB
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/15/2013:  This is not a defect. working as designed.  Pension leg completed and the process in progress to complete brokerage leg.
+
+Pershing acknowledged with below error message  - APPR
+
+      <ns0:ResponseMessage>
+         <ns0:MessageType>APPR</ns0:MessageType>
+         <ns0:MessageCode>APPR01141</ns0:MessageCode>
+         <ns0:MessageText>01141-ORDER MAY EXCEED AMOUNT AVAILABLE FOR TRADING. VERIFY F            $250.00</ns0:MessageText>
+      </ns0:ResponseMessage>
+      <ns0:ResponseMessage>
+         <ns0:MessageType>APPR</ns0:MessageType>
+         <ns0:MessageCode>APPR01159</ns0:MessageCode>
+         <ns0:MessageText>01159-SAM-DAY OR NEXT DAY SETTLEMENT/INSUFFICIENT FUNDS.                        </ns0:MessageText>
+      </ns0:ResponseMessage>
+   
+Received pershing alert for appr. Please take an action for below alert.
+<CorrelationID xmlns=""http://tiaa-cref.org/bpm/pershing-orderprocessing-alert:1:0"">A53022363_A51_2013-05-10_09:01:01_4600</CorrelationID>
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/15/2013:  Got a confirmation from Marjorie to approve this transfer in NetX360. Once approved in NetX60 we will get pershing alert acknowledgement.
+________________________________________
+Navduri, Rajesh <navduri>, 5/16/2013:  This is something to do pershing. Erich is working on this.
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/16/2013:  In brokerage leg bpel is waiting for persing alert. this should be either approved/Reject in NetX360. If you have already done. Then we should inform to pershing alert didn't reach to bpel for this transfer. -
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/16/2013:  Here we are discussing two different transfers request 
+1. $3500 - issue pershing alert didn't reach to bpel for APPR
+2. $6000 -  new error code rejects - submit/Cancel immediately once it is priced.
+________________________________________
+Navduri, Rajesh <navduri>, 5/20/2013:  Assing to Erich to follow up with pershing
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/23/2013:  Attached mail history with pershing"
+41937		IT1	Failed Retest	SRK Brokerage - pending transfers are not showing up on the Recent Activity page	"This is not a PIN specific issue, but this user can be used as an example: PH9001984 / 1111111p / tiaa
+
+Expected results:  Transfers that are Pending, In Progress or Completed status should be displayed on the Recent Activity page in the IWC.
+
+Actual results:  These transfers are not there.  See the two attached screenshots.  The screenshot of the pending transfers page shows that there are two transfers, one in 'Pending' status and the other 'In Progress'.  The second screenshot shows that these transfers are not being shown on the Recent Activity page, but they should be there."	Individual Web Center - (A24198)	"Starnes, Greg <starnes>, 5/16/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/16/2013:  Selva, can you have a look at this?
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/16/2013:  Rakesh, I think recent Activities page is getting data from PPV1 - retrieveRetirementPlanRecentActivity..right?
+Looks like we are not getting any data and showing empty page. Can you pls check this? or assign to the correct person who is taking care of this page?
+________________________________________
+Dahiya, Rakesh Kumar <dahiya>, 5/20/2013:  CMTS,
+
+The below defect is due the below missing entry in in IT1 IWC Defaults.properties (TINT-1-B2-AHRPORTAL-DEN), please add the same and refresh from console.
+
+Defaults.properties
+
+party.request.url=${esb.hawc.root}/party-request-v2
+lumpsum.transaction.one.time.pin.my.todo.enabled=true
+
+This entry was added as part of April/May model T release to ST2/ST4. This entry is missing in IT1 please add the same.
+________________________________________
+Naga, Chandana Phani <naga>, 5/20/2013:  global changes are completed and recycled the TINT-1-B2-AHRPORTAL-DEN. Please retest and confirm.
+________________________________________
+Starnes, Greg <starnes>, 5/22/2013:  Retest failed.  Still not seeing any activity on the Recent Activity page."
+41961	Brokerage	IT1	Retest	IT1: SRK Day2-OPE: "Security Question" section is not getting displayed while registering the new participant in OPE.	"Description: ""Security Question"" section is not getting displayed while registering the new participant in OPE But we are able to submit the OPE enrollment.
+
+Missing Fields:
+
+Security Question - Mothers Maiden Name
+Answer - Tiaa
+
+Steps to Reproduce:
+
+Step 1: Login to OPE Application
+Step 2: Enter the SSN, DOB and Access code details and click continue.
+Step 3: The user should be able to see the ""Security Question"" section in the ""Register for Online Access"" page 
+
+Expected: The user should be able to see the ""Security Question"" section in the ""Register for Online Access"" page 
+
+Actual: ""Security Question"" section is not getting displayed while registering the new participant in OPE But we are able to submit the OPE enrollment.
+
+
+Test data:
+
+SSN: 009000230, 009000231
+Plan: 103939
+
+Login Credentials: PH000231\1111111p\tiaa
+
+LInk:  https://origin-publictools-it1.test.tiaa-cref.org/public/tools/appmanager/tiaa/security?_nfpb=true&_pageLabel=registration_home_page
+
+Environment: IT1
+
+Reference: Please refer the attached screen shot ""Sec Question Issue_OPE.doc"""	Online Pension Enrollment - (OPE)	"Shankar, Bharanidharan <shankb>, 5/17/2013: 
+________________________________________
+Chandrasekar, Sujatha <chands>, 5/20/2013:  Rajesh, can you please contact Shantanu as per last defect call and assign it to their team?
+________________________________________+
+
+Navduri, Rajesh <navduri>, 5/20/2013:  Talked to Shantanu on this and as per his suggestion assigning the defect to Shanker.
+________________________________________
+Assumpalli, Shanker <assumpa>, 5/20/2013:  Aaquil/Ryan SRKQA  team has raised defect on not displaying Security Question in registration , please update them.
+________________________________________
+Babu, Aaquil Ahmed <babua>, 5/20/2013:  Shanker, OPE flag was ON when this has been tested and hence securiyt question was not displayed
+________________________________________
+Assumpalli, Shanker <assumpa>, 5/22/2013:  Its RSA ugrade Flag test where security Question won't be displayed in registration pages. Its part of QA testing. Now its disabled in IT1.
+________________________________________
+Mishra, Alok Nath <mishral>, 5/23/2013:  
+
+Is this any new requirment in OPE for IT1?
+
+If so then how we are going to login to IWC application without setting an answer for the security question.
+________________________________________
+Mishra, Alok Nath <mishral>, 5/24/2013:  
+
+Kindly confirm it
+________________________________________
+Assumpalli, Shanker <assumpa>, 5/24/2013: This  test case is for testing RSA upgrade in dark mode, not for  this release."
+42016	Brokerage	IT1	Open	There is a pending T205 in Omni, however in the UI in TP, brokerage orders, there is nothing Pending.   also, there is a $6800 difference in what UD shows vs what TP shows. Please see attached email chain	"PIN: 6967100
+There is a pending T205 in Omni, however in the UI in TP, brokerage orders, there is nothing Pending. 
+
+also, there is a $6800 difference in what UD shows vs what TP shows. Please see attached email chain."	Transaction Portal - (APM11799)	"Long, Robert G <longro>, 5/16/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/20/2013:  I checked with Marjorie and according to her this issue is more of status than the $ amount. I am including below text from Marjorie.
+I think the real issue is that fact the on the brokerage orders page the status is displaying as 'Accepted' for transfers that have yet to complete.  Susan is saying she believes these trades should be pending status not accepted status.
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/22/2013:  
+________________________________________
+Shanmugam, Senniappan <shanmus>, 5/22/2013:  
+I can see 3 different transactions of this PIN -6967100 and account # A53020334. can you please provide orchestration ID, so that it can be tracked at BPEL end.
+
+Date & time of submit also works fine to track this transfer transaction.
+________________________________________
+Shanmugam, Senniappan <shanmus>, 5/22/2013:  for the Orach ID - M1001A0LH, BPEL is completed Brokerage Leg and Moneymovet ( which pull out money from Pershing) and initiated Pension transfer into Omni via ISV; Looks like Omni was in READ only mode, so ISV is never sends back the reponse for this transaction. Need to refreah the Qs at ISV end.
+
+Mesg GUI Id - bpel::11ee1c06c35a1b50:-500ceb35:13ec46a2916:b87
+________________________________________
+________________________________________
+Shanmugam, Senniappan <shanmus>, 5/22/2013:  Titus - could you please look at the below Msg GUI Id and please sends the response back to BPEL.
+
+Env - IT1
+
+Mesg GUI Id - bpel::11ee1c06c35a1b50:-500ceb35:13ec46a2916:b87
+________________________________________
+Shanmugam, Senniappan <shanmus>, 5/22/2013:  Learnt from Titus that this transaction is rejected by Omni as below..
+<message>Total to amount > from amount</message>
+________________________________________
+Shanmugam, Senniappan <shanmus>, 5/22/2013:   Please check with Omni Team, why this transaction is errored out in Omni for the Orchestration ID - M1001A0LH
+________________________________________
+Anthony, Titus <anthont>, 5/22/2013: 
+________________________________________
+Anthony, Titus <anthont>, 5/22/2013: 
+________________________________________
+Anthony, Titus <anthont>, 5/22/2013:  <isv-omni-response xmlns=""urn:tiaa-cref:schema:isv:omniconnect:response:1:1"">
+  <transaction-source>
+    <message-guid>
+      <prefix>bpel</prefix>
+      <unique-id>11ee1c06c35a1b50:-500ceb35:13ec46a2916:b87</unique-id>
+    </message-guid>
+    <command>
+      <name>transfer-participant-funds-3-0</name>
+      <sequence>1</sequence>
+    </command>
+    <message-type>update</message-type>
+  </transaction-source>
+  <header>
+    <omni>
+      <host-version>5.80.03</host-version>
+      <file-digit>F</file-digit>
+      <cics-task-id>0</cics-task-id>
+      <plan-number>102157</plan-number>
+      <folder-id>20130522.T381.CCB</folder-id>
+      <folder-step>PT</folder-step>
+      <folder-system>PROD</folder-system>
+      <participant-id>
+        <participant-number>009001982</participant-number>
+        <sub-plan-number>GS1001</sub-plan-number>
+        <extension/>
+      </participant-id>
+      <fund-id>
+        <investment-vehicle>X3</investment-vehicle>
+        <contribution-source>*</contribution-source>
+      </fund-id>
+      <sequence-number>0</sequence-number>
+      <trade-date>2013-05-22-04:00</trade-date>
+      <transaction-code>381</transaction-code>
+    </omni>
+  </header>
+  <performance-times>
+    <omni>
+      <host>10</host>
+      <network>313</network>
+      <client>505</client>
+      <total>828</total>
+    </omni>
+    <isv>
+      <total>1493</total>
+      <omni-connect>830</omni-connect>
+      <isv-omni>663</isv-omni>
+      <parse-input>240</parse-input>
+    </isv>
+  </performance-times>
+  <omni-messages>
+    <omni-message>
+      <omni>
+        <message>Total to amount > from amount</message>
+        <file-status></file-status>
+        <error-level>3</error-level>
+        <orgin></orgin>
+        <object>XF</object>
+        <id>00070</id>
+      </omni>
+      <isv>
+        <message>ISV Environment Info</message>
+        <error-level>1</error-level>
+        <orgin>chait1wbldsv01.ops.tiaa-cref.org ( 10.199.105.73 )</orgin>
+        <id>1</id>
+      </isv>
+      <isv>
+        <message>ISV Rules used for processing:  
+cutoff Time Nightly got from rules : '22:00'; transformed to : '05/21/2013 22:00'</message>
+        <error-level>1</error-level>
+        <orgin>OmniTransaction_handler</orgin>
+        <id>2</id>
+      </isv>
+    </omni-message>
+  </omni-messages>
+  <acknowledgement>
+    <status>
+      <status-code>3</status-code>
+      <status-text>Total to amount > from amount</status-text>
+    </status>
+    <transaction-data>
+      <fileset>F</fileset>
+      <plan-number>102157</plan-number>
+      <folder-id>20130522.T381.CCB</folder-id>
+      <transaction-code>381</transaction-code>
+      <participant-number>009001982</participant-number>
+      <sub-plan-number>GS1001</sub-plan-number>
+      <extension/>
+      <fund-id>X3*</fund-id>
+      <trade-date>05/22/2013</trade-date>
+      <sequence-number>0</sequence-number>
+    </transaction-data>
+    <error-detail>
+      <error-id>00070</error-id>
+      <error-text>Total to amount > from amount</error-text>
+      <error-origin></error-origin>
+      <file-status></file-status>
+      <message-object>XF</message-object>
+    </error-detail>
+    <environment>
+      <framework-version>5.80.008</framework-version>
+      <server-address>chait1wbldsv01.ops.tiaa-cref.org ( 10.199.105.73 )</server-address>
+    </environment>
+    <correlation>
+      <message-id>bpel::11ee1c06c35a1b50:-500ceb35:13ec46a2916:b87::001</message-id>
+      <prefix>bpel</prefix>
+      <unique-id>11ee1c06c35a1b50:-500ceb35:13ec46a2916:b87</unique-id>
+      <command-name>transfer-participant-funds-3-0</command-name>
+      <sequence>1</sequence>
+    </correlation>
+  </acknowledgement>
+</isv-omni-response>
+
+Shanmugam, Senniappan <shanmus>, 5/22/2013:   Request you to analysis on this transaction in IT1 env.
+________________________________________
+Fatovic, Mike <fatomi>, 5/23/2013:  
+The T381 is not currently in Omni. The T381 transaction was prevented from being added to Omni because there is some inconsistency in the coding of the transaction. I can not tell you what the specific issue is because the XML below does include all of the transaction attributes. Please check the transaction details that you are attempting to process. You need to check to see if the amount that you are moving from the X3* investment is matching to the amounts that you are attempting to transfer into other Pension funds. I see that there is currently $1,950 sitting in the Omni X3 fund as a result of the manual T381 that was processed on 5/21.
+________________________________________
+Shanmugam, Senniappan <shanmus>, 5/23/2013:  When the transfer is about to move the money from Brokerage to Pension - we do see the ToInvestments Is populated with <cash>; we believe that it should be populated as (percentage) % as we don't know how much money will be settled from Pershing account.
+
+@Selva - In this case - <cash> value is $2000 and Pershing has settled $1950; when BPEL sends <from=$1950> and <To=$2000>, it receives the below error. Mike is also explained the issue. I am assigning this defect to you for analysis.
+<message>Total to amount > from amount</message>
+________________________________________
+________________________________________
+Durairaj, James Sundararajan <sundarj>, 5/23/2013: 
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/23/2013:  Neeraja, from UI is passing source fund value as $2000. Can you check from your end why it got changed to $1950?
+
+IT-1 guid=""4F1F80DC-3890-40D4-2CB8-FCB9B4A7FB99""
+________________________________________
+Narayanan, Neeraja <narayn>, 5/23/2013:  I see what was sent to BPEL I see brokerage leg has <ns4:FundAmount>2000</ns4:FundAmount> wondering where does BPEL got $1950. This $2000 goes to CREF goes to CREF Money Market. I don't see $1950 in mdm request on from side.
+________________________________________
+Shanmugam, Senniappan <shanmus>, 5/23/2013:   The issue has addressed in Marjorie's call today.  we are proposed to ask Pershing team to stop calculating the commission on trades while settling the amount in XAT env.
+
+So BPEL works as desgined.
+
+Marjorie - You want to check with Susan  about the status update on TP - Brokerage Leg; hence I am assining this defect to you and please get in touch with TP team, if you require any analysis about UI."
+42021	Brokerage	IT1	Retest	Unable to delete a transfer of pension to brkg MF. I tried at 3:30 and 3:51 PM ET, but the radio button is greyed out and i am unable to cancel the pending request even though the cutoff time is 4:00 pm et	"PIN: 6970825
+This is a pension to BRKG MF transfer. The cutoff time, as shown below, states 4:00 PM ET. The time, see my computer time of 3:30 and I cannot delete the transaction"	Transaction Portal - (APM11799)	"Long, Robert G <longro>, 5/16/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/17/2013:  Assigned to Mallik
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/19/2013:  Working with RPTV team to resolve the issue
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/20/2013: 
+
+Please validate the below logic
+Transfer Type Cut Off Time
+Pension to Pension         4:00 PM EST
+Pension to Brokerage MMF 4:00 PM EST
+Pension to Brokerage MF 4:00 PM EST
+________________________________________
+Narayanan, Neeraja <narayn>, 5/20/2013:  1st cases will take 4p.m cut off time. But the last one as per service logic it takes brokerage Mutual fund cut off time. As per Erich, business wants to ignore brokerage mutual fund cutoff time if it is pension to brokerage mutual fund transfer. Service needs some fix....not sure how it can be done. will let you know the findings and possibilities.
+________________________________________
+Narayanan, Neeraja <narayn>, 5/21/2013:  The fix is available in dev-int. Please test pension to pension, pension to brokerage money market fund, pension to brokerage mutual fund, brokerage mutual fund to pension, brokerage money market to pension, brokerage money market to brokerage mutual fund, brokerage mutual fund to brokerage money market. All flavours of transfer since I touched common code for brokerage cut off time.
+This code fix has been done as part of July release so please test in dev-int similar to CR521."
+42060	Brokerage	IT1	Retest	Seeing this message when I try to transfer 200 units of cref (pension) MM to Brokerage MM: The maximum investment in your existing Self-Directed Brokerage Account is $1,998.57. Please correct your entry." However, there is over $10k in the brkg account.	"6968194
+Ssn: 009001512/RA6001/  
+Plan 103939
+Seeing this message when I try to transfer 200 units of cref (pension) MM to Brokerage MM:
+       The maximum investment in your existing Self-Directed Brokerage Account is $1,998.57. Please correct your entry. 
+
+The brokerage account has over $10,500 in it."	Transaction Portal - (APM11799)	"Long, Robert G <longro>, 5/17/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/20/2013:  This looks like data issue. Mallik, can you check the logs and assing it to appropriate team?
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/20/2013:  
+We are getting below exception
+
+guid=""14B1E7E3-6069-DAD1-02E9-E9F512EE0595""
+
+<ns2:Code>10529</ns2:Code> 
+<ns2:Type>ERROR</ns2:Type> 
+<ns2:Text>The maximum investment in your existing Self-Directed Brokerage Account is ${0}. Please correct your entry.</ns2:Text> 
+- <ns2:Params>
+________________________________________
+Patel, Nikunjkumar Rajanikant <patenik>, 5/20/2013:  Here is rule :
+
+definitions
+        set 'the contract' to a contract ;
+        set 'the transaction' to a transaction in the list of the transactions of 'the contract' ;
+        set 'the txInvestment' to a tx investment in the list of the tx investments of 'the transaction' 
+                where the type of this tx investment is ""TARGET"" ;
+        set 'the investment choice' to an investment choice in the list of the investment choices of the product of 'the contract' 
+                where the id of this investment choice is the id of 'the txInvestment' ;
+if
+        all of the following conditions are true :
+                        - the type of 'the transaction' is ""INTERFUND-TRANSFER""
+                        - the SDAMax allocation amount of the plan of the product of 'the contract' is more than 0
+                        - the value of transfer amount of all brokerage the tx investments of 'the transaction' of 'the contract' is more than the SDAMax allocation amount of the plan of the product of 'the contract'                                                
+                        - any of the following conditions is true : 
+                                - the ticker symbol of 'the investment choice' is ""SDA01#""
+                                - the CUSIP of 'the investment choice' is present
+then
+        set the eligible of 'the txInvestment' to ""N"" ;
+        add tx error message with code: ""10529"" , description: ""The maximum investment in your existing Self-Directed Brokerage Account is ${0}. Please correct your entry."" to 'the txInvestment' ;
+        add tx parameter key : ""MAX_SDA_AMT"" , value : """" + get dollar amount of the SDAMax allocation amount of the plan of the product of 'the contract' to the message of 'the txInvestment' ;
+
+
+Can you please let me know why the rule should not fire ???
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/20/2013:  This was triggered by the BRMS, rule
+________________________________________
+Navduri, Rajesh <navduri>, 5/21/2013:  This is working as designed. BRMS rule triggered to restrict the max brokerage investment.
+________________________________________
+Long, Robert G <longro>, 5/21/2013: added attachment 42060_re, Greg Starnes is working with BRMS team to possibly get wording updated. the wording is not correct, in that 'the max investment in your existing SD brokerage Account is $1,998.29.' when actually the rule is that 50% is the max and that 50% would be around $12k. The $1998.57 is the amount added to the current balance of around $10k which would result in 50%. The wording of the message needs to be fixed."
+42286	Brokerage	IT1	Retest	Missing Auto T381 in Omni to complete Money Movement from Brokerage to Pension (Leg 2)	"TP/IWC - Brokerage to Pension Transfers
+
+Auto T381 was not created for following pins;  T588 posted 5/15
+
+6968649 
+6968675 
+6967100 
+6967095"	Omni Processes - (OP)	"Kennedy, Marjorie L <kennedm>, 5/20/2013: 
+________________________________________
+Fatovic, Mike <fatomi>, 5/21/2013:  You had asked about the first two records below last Friday. I indicated in the attached that there were no SDA transactions generated on Thursday for the Wednesday (5/15) data. The same applies to the 102157 plan transactions below. There were transmission issues between TIAA and SGN on that specific date. It turned out that this was an issue on the TIAA side with the schedule that pulls the Position file from SGN. The schedule was fixed and folders are being created again. There is no way to have the process generate the auto T381s for these since the process is triggered off data received from Pershing/SGN. The only two options you have at this point are;
+I can manually generate the T381s so that the 3 step process can continue. 
+Submit new brokerage to Pension transfers for these 4 records (T588)
+____________________________________
+________________________________________
+Navduri, Rajesh <navduri>, 5/23/2013:  All transctions and except M1001A0LH is working fine. I dont know the PIN for M1001A0LH, this failed because of pershing fee which reduced the dollar amount from $2000 to $1950."
+42342	Brokerage	IT1	Retest	IT1-SRK Day 2: Search and select functionality is not working in IWC application.	"Description:
+Search and Select functionality is not working in the ""Add Brokerage"" screen in IWC. We have searched below mentioned Mutual fund but we are unable to see the detail.
+
+Steps To Reproduce:
+Step 1: Login to IWC Application
+Step 2: Navigate to Add Brokerage screen in Change Allocation
+Step 3: Enter the valid value (Ticker) in search field
+Step 4: Click on the Search
+
+Expected:
+The fund details should be displayed after searching  the funds.
+
+Actual:
+The fund details are not getting displayed and ""Sorry no result for CALEX"" error message is getting displayed
+Test Data:
+SSN: 00900019/00900139
+User ID:PH000019/PH000139
+Password:1111111p
+Security Answer:tiaa
+Mutual Fund used: HALTX,CALEX,HVOSX,AFBSX
+
+Reference:  <Attached is the screenshot for detail>"	Individual Web Center - (A24198)	"Mishra, Alok Nath <mishral>, 5/20/2013: 
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/20/2013:  Alok, looks like coherence may not have refreshed in TI-1 during your test. I retested now and looks like its working fine and let me know if any questions.
+
+________________________________________
+Mishra, Alok Nath <mishral>, 5/21/2013:  We have retested the defect and we faced following issue
+
+1. We are able to search the fund but if at the same time we are trying to search using the filter we are unable to search the fund. Even on closing the Pop Up and reopening it we are getting the previously searched MUtul Fund
+
+2. If we are searching the Mutual Fund using the filter option initially we are able to search the funds but we are unable to clear the filter. Even on closing the Pop Up and reopening it the same filter is getting displayed.
+
+Please refer the attached screenshot for the same.
+
+
+Test Data:
+SSN:009000139/009000019
+User ID:PH000139/PH000019
+Password:1111111p/tiaa
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/23/2013:  Alok, I tried the same steps, I;m able to do the below as designed
+1. Search with ticker - working fine
+2. Filter with fund family- working fine
+3. filter with iniitial minimum- working fine
+4. filter with sub sequent minimum - working fine
+5. clear filter and search with ticker- working fine
+6. when you close and reopen- result will stay as is- thats the current design until any new requirement change.
+
+
+as we discussed in defect calls(with Sujatha), we had some coherence cache issue during last few days. not sure if you were testing during that time."
+42586	Brokerage	IT1	Open	SRK Day2 IT Env - TP - System allows the participant to submit transfer FROM Zero balance fund.	"For the following data, in the From Fund list, we are seeing a Zero Balance Fund and we are able to submit a transfer successfully out of this Zero Balance fund.
+Test Data:
+Plan        Subplan  SSN                 PIN          Account No     Login         Password         Security Ans
+100867  GA1001  009001025   6965943    A53019997     PH001025    1111111p         tiaa
+
+Steps to Reproduce:
+1. Search for the above participant in TP.
+2. Choose ""Alergid Mid Cap Growth I"" (the Zero Balance Fund) as from Fund.
+3. In the next page choose the option ""Transfer All shares"" and click on continue.
+4. Proceed till submission screens and submit the transfer.
+
+Expected:
+We are not supposed to see any funds with Zero balance in the From fund list.
+
+Actual:
+We are having a fund with Zero balance and we are able to submit a transfer from such fund.
+<Screenshot attached>
+
+Note: This Zero balance fund is not listed in IWC transfer screen.
+
+      "	Transaction Portal - (APM11799)	"Shaik, Samreen <shaisa>, 5/22/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/22/2013:  Assinged to Mallik
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/22/2013:  
+guid=""8B4E11E0-210E-3BD9-047A-8E225853E9AD"".
+Transfer-From is eligible.
+Need to get from Neeraja
+<ns2:Date>2013-05-22</ns2:Date> 
+<ns2:Balance>-5268.8</ns2:Balance> 
+<ns2:Percent>-5268.8</ns2:Percent> 
+</ns2:AsOfDate>
+________________________________________
+Narayanan, Neeraja <narayn>, 5/22/2013: fund ALMRX has -5268.8 negative balance and USD999997 has 3866 balance...this what we get from ODS. Eligibility is set to false based on BRMS rules. But BRMS sets all the funds eligibility as true at first by default then overrides the eligibility based on rules. So this fund didn't encounter any rule to block the eligibility for transfer from. So this fund still eligible for transfer from. Is it possible to get negative balance for BMF or is it data issue?"
+42669	Brokerage	IT1	Open	CR 502 failing to show the message / block for this transaction. previewed at 3:49, submitted at 4:21 (cutoff time shown to be 4:00 PM). it went straight to confirm page, no message / block that i have seen before when testing 502	"PIN: 6970825
+Ssn: 008166021"	Transaction Portal - (APM11799)	"Long, Robert G <longro>, 5/22/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/23/2013:  Assigned to Mallik
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/23/2013: "
+42672	Brokerage	IT1	Open	able to do allocation AND transfer into a closed account	"PIN: 6970684
+SSN: 431277997
+able to allocate and transfer into a fund that is closed for new investment. Per Jonathan Crowell:        closed to new investments
+o       All new purchases will be rejected, by new and existing shareholders
+
+We shouldnt be allowing anything to be allocated into or transferred into the fund anymore, however I am able to. UWPSX fund is closed."	Transaction Portal - (APM11799)	"Long, Robert G <longro>, 5/22/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/23/2013:  Mallik, can you check with BRMS team why we are allowing user to allocate and transfer to a closed fund?
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/23/2013: 
+guid=""B12F6820-4964-EE14-FB67-AE1A3811C47F
+We are getting allocation  eligible for cusip  UWPSX
+<ns2:TransactionType>ALLOCATION</ns2:TransactionType> 
+<ns2:IsEligible>true</ns2:IsEligible> 
+<ns2:AllowDollars>Y</ns2:AllowDollars> 
+<ns2:AllowPercent>Y</ns2:AllowPercent> 
+<ns2:AllowUnits>Y</ns2:AllowUnits>
+________________________________________
+Narayanan, Neeraja <narayn>, 5/23/2013:  How do we know it is a closed fund? question to Rajesh"
+42702		IT1	Rejected	IT1-Funds are not displaying in choose investment page during enrollment for Non srk plans 101214 & 101215.	"SUMMARY:Funds are not displaying in choose investment page during enrollment for 101214 & 101215.
+
+Data used for enrollment:
+URL:https:https://origin-publictools-it1.test.tiaa-cref.org/public/tools/appmanager/tiaa/security?_nfpb=true&_pageLabel=registration_home_page
+
+User id: BRK40740
+Pswd: 1111111p
+Pin:6982505
+SSN:740740740
+Plan:101214
+Access codes:DOSGR214
+ENV: IT1
+
+STEPS TO REPRODUCE:
+         1.Enter the url and register to tiaa-cref.
+         2.Go to choose investment page.
+
+Expected Result:
+       List of funds should be displayed.
+
+Actual Result:
+       Not able to see any funds.
+
+Attachments:
+         Attaching screenshot for reference."	Managed Accounts - (71473)	"Choudary, Pankaj <choudar>, 5/22/2013:  The issue is with the access code GR101214,SR101215. Iam able to choose investment with access code tiaa02.Please retest
+________________________________________
+Gutta, Jayasree <guttaj>, 5/23/2013:  Retest failed. No issues with access code. Assigning it to selva.
+FIS Response:
+<ns2:retrieveEligibleInvestmentsResponse><ns2:RetrieveEligibleInvestmentsResp><ns2:ResponseStatus><ns2 tatus>SUCCESS</ns2 tatus><ns2 tatusText>SUCCESS</ns2 tatusText><ns2:Messages><ns2:Message><ns2:Code>ENR10004</ns2:Code><ns2:Type>INFO</ns2:Type><ns2:Text>No plan life cycle funds returned</ns2:Text></ns2:Message></ns2:Messages></ns2:ResponseStatus></ns2:RetrieveEligibleInvestmentsResp></ns2:retrieveEligibleInvestmentsResponse></env:Body>
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/23/2013:  Santosh, is this OPE? can you please check.
+________________________________________
+Deerkoski, James <deerkow>, 5/24/2013:  This is a plan setup issue. QA/UAT is responsible to setup the plan correctly. Rejecting. The issue is that the default funds are not valid for the plans.
+
+http://it1-j2eepas.ops.tiaa-cref.org/FISSupport/ViewEsbXML.do?action=dpMsg&pk=34606500&clbTyp=dpRespBE&ds=opESBActiveDB&extractmsg=true"
+42812	Brokerage	IT1	Open	I am able to select and go thru the transfer process when selecting a fund with a zero balance that i am transferring out of. i dont think i should be able to select a fund with a $0 balance to transfer out of	"       PIN:6968675
+       SSN: 009001937
+
+Able to choose an investment to transfer out of that has no current balance:"	Transaction Portal - (APM11799)	"Long, Robert G <longro>, 5/23/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/23/2013:  Assigned to Mallik
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/23/2013:  
+GUID :guid=""A6176835-03CF-7980-EECD-E9FA6FAA6F89""
+Negative Balance 
+ns2:AsOfDate> 
+<ns2:Date>2013-05-23</ns2:Date> 
+<ns2:Balance>-3680</ns2:Balance> 
+<ns2:Percent>-3680</ns2:Percent>
+________________________________________
+Vemaraju, Mallikarjun <vemaraj>, 5/23/2013: "
+42820	Brokerage	IT1	Open	SRK Brokerage - showing conflicting messages about cancellation cutoff time	We need to ensure that we are not providing conflicting information to clients. For example, if they only have until 3:30 to cancel, we will need to suppress the message that says they have until market close (4:00).  See attached screenshot.	Individual Web Center - (A24198)	"Starnes, Greg <starnes>, 5/23/2013: 
+________________________________________
+Navduri, Rajesh <navduri>, 5/23/2013:  Selva, can you have a look at this. Looks like we are having lots of issues with cut off time. lets discuss this in our 2pm meeting today.
+________________________________________
+Seenivasan, Selvaraj <seeniva>, 5/23/2013:  Heather, as discussed in email chain, can you please review this and let me know what needs to be done."
+42908	Brokerage	IT1	New	ON the T588 issue is we have a connection problem between datastage and BPEL	ON the T588 Reject testing, we have a connection problem between datastage and BPEL  Assigning this issue to Mark Dawson	BPEL (APM11741)	Chandrasekar, Sujatha <chands>, 5/23/2013: 
+

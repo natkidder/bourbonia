@@ -1,0 +1,2 @@
+-- from 7-2_2.unx --
+find: ./7-2dir: Permission denied

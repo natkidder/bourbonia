@@ -1,0 +1,18 @@
+cls
+echo
+unset aaa bbb ccc ddd eee
+echo '${varname:-word} for aaa'
+echo ${aaa:-nonexistent}
+echo '${varname:=word} for bbb'
+echo ${bbb:=just created}
+echo bbb=${bbb}
+echo ${ccc:-ccc not defined}
+echo ${ccc:=ccc just defined}
+echo ${ccc:+ccc defined}
+echo ${ddd:=$(PWD)}
+echo '$ddd='${ddd:-ddd not defined}
+echo '${ddd:5:10}='${ddd:5:10}
+echo '${ddd:5}='${ddd:5}
+echo '${varname:?message} for eee'
+echo ${eee:?nonexistent so abort program}
+echo program was NOT aborted

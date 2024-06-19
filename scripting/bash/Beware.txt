@@ -1,0 +1,110 @@
+Bash Bewares:
+· Escape characters can be used within string functions (eg. '\n')
+
+· The fields with cut begin with 1
+
+· _ is the last word typed into standard input
+
+· 2>&1 makes standard error go to the same place as standard output
+
+· If a file descriptor is to the right of a redirector, then it must be preceded by an ampersand (&)
+
+· If the file description is to the left of the redirector, then an ampersand is uneccesary.
+
+· <file descriptor> > <file> overwrites the file.
+
+· Files with commands having invalid parameters might still exit with status 0
+
+· [1-6!2] expands to 1,3,4,5,6
+
+· The first argument after nice is the niceness number (-20 to 0)
+
+· à google the stty command, but for now it's stty <signal> <keystrokes>.  Eg. stty intr ^X
+
+· Command precedence: all kingfishers fly by inland streams, ably entering ponds
+
+· *) is the 'none of the above' for case
+
+· case is nothing more than shorthand for if-then-elif-else-fi
+
+· To bind a double quote, simply type a double quote inside the double quotes  for the mapped string.
+
+· fc -s <string> reruns the last command with <string> in it.
+
+· The arguments to test are not quoted or placed inside special punctuation
+
+· Recheck p148.unx
+
+· In arithmetic loops, it's like "for a = b to c step d"
+
+· The middle condition is 1 step before where the loop variable finally winds up
+
+· With here documents, the closing delimiter string must be on its own line
+
+· Recheck p51_[12] with particular attention to the bind switches
+
+· Tee must be preceded by a pipe
+
+· For printf, %b means interpret the echo -e escape characters, and %q places a backslash at the end of words
+
+· Reading a file line-by-line {while read <var> …} < <filename>
+
+· If there are fewer variables to read in than values, the last variable get all of the remaining values
+
+· Expansion doesn't happen when commands are quoted or variablized
+
+· The PPID for any shell process is either the shell itself or the Bash program
+
+· Nested subshells do inherit non-exported parent shell variables
+
+· How to log into Brainbench.com:
+
+PresAdams	nrkidder@yahoo.com
+
+· Variables defined inside functions, but not nested subshells, are seen by the calling program
+
+· For menus, the syntax is: select <var> in <list>
+
+· PS4 is the line header for xtrace
+
+· Nested subshells do not inherit the ERR trap, but functions, subscripts, and command substitutions do.
+
+· Nested subshells do inherit non-exported parent shell variables.
+
+· The RETURN false signal works only inside of the current shell
+
+· RETURN won't recogize anything returned by functions or subscripts
+
+· exec means the called program does not return to the calling program.  It simply exits.
+
+· Symbolic links allow one file to act as a proxy for another
+
+· ${!ArrayVar[@]} gives the indices of the array that are populated, starting with zero
+
+· ${#ArrayVar[@]} gives the count of array elements that are populated
+
+· ! is the PID of the last background job that successfully launched.
+
+· All numbers are by themselves counted as true in conditionals
+
+· $ substitutions work in here-documents, even when quoted
+
+· With umask, 0&1 mean rw-, 2&3 mean r--, 4&5 mean -w-, and 6&7 mean ---
+
+· p169.unx is the file that illustrate echo switches
+
+· let works on only arithmetic expressions
+
+· substitution (in any form) can be done nested, inside out
+
+· The two main options to shopt are -s (set) and -u (unset) followed by an option name
+
+· When you run a login shell, .bashrc (or the specified resource file) does not run by default.
+
+· It does when you run a non-login shell
+
+· The syntax for command substitution is not the same as for arithmetic substitution.
+
+· Background jobs are asynchronous
+
+. To get a shell command file to run, open it in vi and type :set ff=unix

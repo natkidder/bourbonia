@@ -1,0 +1,3 @@
+echo 'source this file for its effects to be felt in the current shell'
+export PATH=$PATH:$PWD
+echo PATH=$PATH

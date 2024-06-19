@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_66.html -->
+<HTML><HEAD><TITLE>Bash Reference Manual - Bash POSIX Mode</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1"><!-- This HTML file has been created by texi2html 1.52
+     from bashref.texi on 27 August 1999 -->
+<META content="MSHTML 6.00.2900.2912" name=GENERATOR></HEAD>
+<BODY>Go to the <A 
+href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_1.html">first</A>, <A 
+href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_65.html">previous</A>, <A 
+href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_67.html">next</A>, <A 
+href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_114.html">last</A> section, 
+<A href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_toc.html">table of 
+contents</A>. 
+<P>
+<HR>
+
+<P>
+<H2><A href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_toc.html#TOC74" 
+name=SEC74>Bash POSIX Mode</A></H2>
+<P><A name=IDX214></A></P>
+<P>Starting Bash with the <SAMP>`--posix'</SAMP> command-line option or 
+executing <SAMP>`set -o posix'</SAMP> while Bash is running will cause Bash to 
+conform more closely to the POSIX.2 standard by changing the behavior to match 
+that specified by POSIX.2 in areas where the Bash default differs. </P>
+<P>The following list is what's changed when `POSIX mode' is in effect: </P>
+<OL>
+  <LI>When a command in the hash table no longer exists, Bash will re-search 
+  <CODE>$PATH</CODE> to find the new location. This is also available with 
+  <SAMP>`shopt -s checkhash'</SAMP>. 
+  <LI>The <SAMP>`&gt;&amp;'</SAMP> redirection does not redirect stdout and 
+  stderr. 
+  <LI>The message printed by the job control code and builtins when a job exits 
+  with a non-zero status is `Done(status)'. 
+  <LI>Reserved words may not be aliased. 
+  <LI>The POSIX.2 <CODE>PS1</CODE> and <CODE>PS2</CODE> expansions of 
+  <SAMP>`!'</SAMP> to the history number and <SAMP>`!!'</SAMP> to 
+  <SAMP>`!'</SAMP> are enabled, and parameter expansion is performed on the 
+  values of <CODE>PS1</CODE> and <CODE>PS2</CODE> regardless of the setting of 
+  the <CODE>promptvars</CODE> option. 
+  <LI>Interactive comments are enabled by default. (Bash has them on by default 
+  anyway.) 
+  <LI>The POSIX.2 startup files are executed (<CODE>$ENV</CODE>) rather than the 
+  normal Bash files. 
+  <LI>Tilde expansion is only performed on assignments preceding a command name, 
+  rather than on all assignment statements on the line. 
+  <LI>The default history file is <TT>`~/.sh_history'</TT> (this is the default 
+  value of <CODE>$HISTFILE</CODE>). 
+  <LI>The output of <SAMP>`kill -l'</SAMP> prints all the signal names on a 
+  single line, separated by spaces. 
+  <LI>Non-interactive shells exit if <VAR>filename</VAR> in <CODE>.</CODE> 
+  <VAR>filename</VAR> is not found. 
+  <LI>Non-interactive shells exit if a syntax error in an arithmetic expansion 
+  results in an invalid expression. 
+  <LI>Redirection operators do not perform filename expansion on the word in the 
+  redirection unless the shell is interactive. 
+  <LI>Function names must be valid shell <CODE>name</CODE>s. That is, they may 
+  not contain characters other than letters, digits, and underscores, and may 
+  not start with a digit. Declaring a function with an invalid name causes a 
+  fatal syntax error in non-interactive shells. 
+  <LI>POSIX.2 `special' builtins are found before shell functions during command 
+  lookup. 
+  <LI>If a POSIX.2 special builtin returns an error status, a non-interactive 
+  shell exits. The fatal errors are those listed in the POSIX.2 standard, and 
+  include things like passing incorrect options, redirection errors, variable 
+  assignment errors for assignments preceding the command name, and so on. 
+  <LI>If the <CODE>cd</CODE> builtin finds a directory to change to using 
+  <CODE>$CDPATH</CODE>, the value it assigns to the <CODE>PWD</CODE> variable 
+  does not contain any symbolic links, as if <SAMP>`cd -P'</SAMP> had been 
+  executed. 
+  <LI>If <CODE>$CDPATH</CODE> is set, the <CODE>cd</CODE> builtin will not 
+  implicitly append the current directory to it. This means that <CODE>cd</CODE> 
+  will fail if no valid directory name can be constructed from any of the 
+  entries in <CODE>$CDPATH</CODE>, even if the a directory with the same name as 
+  the name given as an argument to <CODE>cd</CODE> exists in the current 
+  directory. 
+  <LI>A non-interactive shell exits with an error status if a variable 
+  assignment error occurs when no command name follows the assignment 
+  statements. A variable assignment error occurs, for example, when trying to 
+  assign a value to a readonly variable. 
+  <LI>A non-interactive shell exits with an error status if the iteration 
+  variable in a <CODE>for</CODE> statement or the selection variable in a 
+  <CODE>select</CODE> statement is a readonly variable. 
+  <LI>Process substitution is not available. 
+  <LI>Assignment statements preceding POSIX.2 special builtins persist in the 
+  shell environment after the builtin completes. 
+  <LI>The <CODE>export</CODE> and <CODE>readonly</CODE> builtin commands display 
+  their output in the format required by POSIX.2. </LI></OL>
+<P>There is other POSIX.2 behavior that Bash does not implement. Specifically: 
+</P>
+<OL>
+  <LI>Assignment statements affect the execution environment of all builtins, 
+  not just special ones. </LI></OL>
+<P>
+<HR>
+
+<P>Go to the <A 
+href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_1.html">first</A>, <A 
+href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_65.html">previous</A>, <A 
+href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_67.html">next</A>, <A 
+href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_114.html">last</A> section, 
+<A href="http://theoryx5.uwinnipeg.ca/gnu/bash/bashref_toc.html">table of 
+contents</A>. </P></BODY></HTML>

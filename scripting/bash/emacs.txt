@@ -1,0 +1,30 @@
+Emacs Commands
+
+ctrl-b		move backward one character
+esc-b		move backward one word
+ctrl-a		move to beginning of line
+ctrl-f		move forward one character
+esc-f           move forward one word
+ctrl-e		move to end of line
+
+backspace	delete one character backward
+esc-del		delete one word backward
+esc-ctrl-h	delete one word backward
+ctrl-d		delete one character forward
+esc-d		delete one word forward
+ctrl-k		delete to end of line
+
+ctrl-p		move to previous line
+esc-<		move to first line in history list
+ctrl-n		move to next line
+esc->		move to last line in history list
+ctrl-r		search backward
+
+tab		simple name completion
+tab-tab		list possible names
+esc-?		list possible names
+ctrl-x, /	list possible filename completions
+ctrl-x, ~	''    ''   '' username ''  ''   ''
+ctrl-x, $	''    ''   '' variable ''  ''   ''
+ctrl-x, @	''    ''   '' hostname ''  ''   ''
+ctrl-x, !	''    ''   '' command  ''  ''   ''

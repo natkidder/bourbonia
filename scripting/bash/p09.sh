@@ -1,0 +1,2 @@
+echo '~nkidder = ' ~nkidder
+echo

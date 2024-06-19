@@ -1,0 +1,22 @@
+source ~/.bashrc
+cls
+SelectDir ()
+{
+  PS3='Select File: '
+  select selection in $(ls p[3-9][0-9]*.unx)
+  do
+    if [ -e $selection ]; then
+      echo You selected $REPLY; read
+      cat $selection
+      echo
+      read -p 'press Enter to continue'
+      echo
+      ./$selection
+      echo -- $selection --
+      break
+    else
+      echo 'wrong, try again'
+    fi
+  done
+}
+SelectDir

@@ -1,0 +1,30 @@
+Little-known vi commands
+
+dh		delete one character backwards
+db		delete one word backwards
+dB		delete one non-blank word backwards
+d0		delete to beginning of line
+dl		delete one character forwards
+dw		delete one word forwards
+dW		delete one non-blank word forwards
+d$		delete to end of line
+
+k or -		move backward one line
+j or +		''   forward  ''    ''
+G		move to line given by repeat count
+?<string>	search backward for string
+/<string>	search forward for string
+n		repeat search in same direction as previous
+N		''    ''   '' '' opposite ''   ''   ''   ''
+
+f<x>		move right to next occurrence of <x>
+t<x>		move right to next occurrence of <x>, then back one space
+F<x>		move left to previous occurrence of <x>
+T<x>		move left to previous occurrence of <x>, then forward one space
+;		redo last character-finding command
+,		''    ''    ''   ''    ''   ''   '' in the opposite direction
+
+~		invert case of current character
+-		append last word of previous command, then enter input mode
+ctrl-l		clear screen and redraw current line on it
+#		prepend # and send it to the history list

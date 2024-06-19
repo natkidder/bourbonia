@@ -1,0 +1,756 @@
+echo running 014.pl
+vi 014.pl
+./014.pl
+read -p 'Press Ent to Cont'
+echo running 015.pl
+vi 015.pl
+./015.pl
+read -p 'Press Ent to Cont'
+echo running 017.pl
+vi 017.pl
+./017.pl
+read -p 'Press Ent to Cont'
+echo running 017A.pl
+vi 017A.pl
+./017A.pl
+read -p 'Press Ent to Cont'
+echo running 018.pl
+vi 018.pl
+./018.pl
+read -p 'Press Ent to Cont'
+echo running 019.pl
+vi 019.pl
+./019.pl
+read -p 'Press Ent to Cont'
+echo running 019A.pl
+vi 019A.pl
+./019A.pl
+read -p 'Press Ent to Cont'
+echo running 020.pl
+vi 020.pl
+./020.pl
+read -p 'Press Ent to Cont'
+echo running 021.pl
+vi 021.pl
+./021.pl
+read -p 'Press Ent to Cont'
+echo running 021A.pl
+vi 021A.pl
+./021A.pl
+read -p 'Press Ent to Cont'
+echo running 021B.pl
+vi 021B.pl
+./021B.pl
+read -p 'Press Ent to Cont'
+echo running 022.pl
+vi 022.pl
+./022.pl
+read -p 'Press Ent to Cont'
+echo running 022A.pl
+vi 022A.pl
+./022A.pl
+read -p 'Press Ent to Cont'
+echo running 022B.pl
+vi 022B.pl
+./022B.pl
+read -p 'Press Ent to Cont'
+echo running 022C.pl
+vi 022C.pl
+./022C.pl
+read -p 'Press Ent to Cont'
+echo running 023.pl
+vi 023.pl
+./023.pl
+read -p 'Press Ent to Cont'
+echo running 023A.pl
+vi 023A.pl
+./023A.pl
+read -p 'Press Ent to Cont'
+echo running 023B.pl
+vi 023B.pl
+./023B.pl
+read -p 'Press Ent to Cont'
+echo running 024.pl
+vi 024.pl
+./024.pl
+read -p 'Press Ent to Cont'
+echo running 025.pl
+vi 025.pl
+./025.pl
+read -p 'Press Ent to Cont'
+echo running 026.pl
+vi 026.pl
+./026.pl
+read -p 'Press Ent to Cont'
+echo running 027.pl
+vi 027.pl
+./027.pl
+read -p 'Press Ent to Cont'
+echo running 028.pl
+vi 028.pl
+./028.pl
+read -p 'Press Ent to Cont'
+echo running 028A.pl
+vi 028A.pl
+./028A.pl
+read -p 'Press Ent to Cont'
+echo running 029.pl
+vi 029.pl
+./029.pl
+read -p 'Press Ent to Cont'
+echo running 029A.pl
+vi 029A.pl
+./029A.pl
+read -p 'Press Ent to Cont'
+echo running 030.pl
+vi 030.pl
+./030.pl
+read -p 'Press Ent to Cont'
+echo running 031.pl
+vi 031.pl
+./031.pl
+read -p 'Press Ent to Cont'
+echo running 031A.pl
+vi 031A.pl
+./031A.pl
+read -p 'Press Ent to Cont'
+echo running 031B.pl
+vi 031B.pl
+./031B.pl
+read -p 'Press Ent to Cont'
+echo running 031C.pl
+vi 031C.pl
+./031C.pl
+read -p 'Press Ent to Cont'
+echo running 033.pl
+vi 033.pl
+./033.pl
+read -p 'Press Ent to Cont'
+echo running 034.pl
+vi 034.pl
+./034.pl
+read -p 'Press Ent to Cont'
+echo running 035.pl
+vi 035.pl
+./035.pl
+read -p 'Press Ent to Cont'
+echo running 036.pl
+vi 036.pl
+./036.pl
+read -p 'Press Ent to Cont'
+echo running 037.pl
+vi 037.pl
+./037.pl
+read -p 'Press Ent to Cont'
+echo running 038.pl
+vi 038.pl
+./038.pl
+read -p 'Press Ent to Cont'
+echo running 038A.pl
+vi 038A.pl
+./038A.pl
+read -p 'Press Ent to Cont'
+echo running 039.pl
+vi 039.pl
+./039.pl
+read -p 'Press Ent to Cont'
+echo running 040.pl
+vi 040.pl
+./040.pl
+read -p 'Press Ent to Cont'
+echo running 041.pl
+vi 041.pl
+./041.pl
+read -p 'Press Ent to Cont'
+echo running 041A.pl
+vi 041A.pl
+./041A.pl
+read -p 'Press Ent to Cont'
+echo running 041B.pl
+vi 041B.pl
+./041B.pl
+read -p 'Press Ent to Cont'
+echo running 044.pl
+vi 044.pl
+./044.pl
+read -p 'Press Ent to Cont'
+echo running 044A.pl
+vi 044A.pl
+./044A.pl
+read -p 'Press Ent to Cont'
+echo running 045.pl
+vi 045.pl
+./045.pl
+read -p 'Press Ent to Cont'
+echo running 045A.pl
+vi 045A.pl
+./045A.pl
+read -p 'Press Ent to Cont'
+echo running 046.pl
+vi 046.pl
+./046.pl
+read -p 'Press Ent to Cont'
+echo running 047.pl
+vi 047.pl
+./047.pl
+read -p 'Press Ent to Cont'
+echo running 048.pl
+vi 048.pl
+./048.pl
+read -p 'Press Ent to Cont'
+echo running 049.pl
+vi 049.pl
+./049.pl
+read -p 'Press Ent to Cont'
+echo running 052.pl
+vi 052.pl
+./052.pl
+read -p 'Press Ent to Cont'
+echo running 054.pl
+vi 054.pl
+./054.pl
+read -p 'Press Ent to Cont'
+echo running 056.pl
+vi 056.pl
+./056.pl
+read -p 'Press Ent to Cont'
+echo running 057.pl
+vi 057.pl
+./057.pl
+read -p 'Press Ent to Cont'
+echo running 060.pl
+vi 060.pl
+./060.pl
+read -p 'Press Ent to Cont'
+echo running 061.pl
+vi 061.pl
+./061.pl
+read -p 'Press Ent to Cont'
+echo running 062.pl
+vi 062.pl
+./062.pl
+read -p 'Press Ent to Cont'
+echo running 062A.pl
+vi 062A.pl
+./062A.pl
+read -p 'Press Ent to Cont'
+echo running 063.pl
+vi 063.pl
+./063.pl
+read -p 'Press Ent to Cont'
+echo running 064.pl
+vi 064.pl
+./064.pl
+read -p 'Press Ent to Cont'
+echo running 065.pl
+vi 065.pl
+./065.pl
+read -p 'Press Ent to Cont'
+echo running 067.pl
+vi 067.pl
+./067.pl
+read -p 'Press Ent to Cont'
+echo running 068.pl
+vi 068.pl
+./068.pl
+read -p 'Press Ent to Cont'
+echo running 071.pl
+vi 071.pl
+./071.pl
+read -p 'Press Ent to Cont'
+echo running 072.pl
+vi 072.pl
+./072.pl
+read -p 'Press Ent to Cont'
+echo running 073.pl
+vi 073.pl
+./073.pl
+read -p 'Press Ent to Cont'
+echo running 074.pl
+vi 074.pl
+./074.pl
+read -p 'Press Ent to Cont'
+echo running 075.pl
+vi 075.pl
+./075.pl
+read -p 'Press Ent to Cont'
+echo running 078.pl
+vi 078.pl
+./078.pl
+read -p 'Press Ent to Cont'
+echo running 079.pl
+vi 079.pl
+./079.pl
+read -p 'Press Ent to Cont'
+echo running 080.pl
+vi 080.pl
+./080.pl
+read -p 'Press Ent to Cont'
+echo running 081.pl
+vi 081.pl
+./081.pl
+read -p 'Press Ent to Cont'
+echo running 084.pl
+vi 084.pl
+./084.pl
+read -p 'Press Ent to Cont'
+echo running 086.pl
+vi 086.pl
+./086.pl
+read -p 'Press Ent to Cont'
+echo running 087.pl
+vi 087.pl
+./087.pl
+read -p 'Press Ent to Cont'
+echo running 087A.pl
+vi 087A.pl
+./087A.pl
+read -p 'Press Ent to Cont'
+echo running 089.pl
+vi 089.pl
+./089.pl
+read -p 'Press Ent to Cont'
+echo running 091.pl
+vi 091.pl
+./091.pl
+read -p 'Press Ent to Cont'
+echo running 092.pl
+vi 092.pl
+./092.pl
+read -p 'Press Ent to Cont'
+echo running 093.pl
+vi 093.pl
+./093.pl
+read -p 'Press Ent to Cont'
+echo running 093A.pl
+vi 093A.pl
+./093A.pl
+read -p 'Press Ent to Cont'
+echo running 095.pl
+vi 095.pl
+./095.pl
+read -p 'Press Ent to Cont'
+echo running 096.pl
+vi 096.pl
+./096.pl
+read -p 'Press Ent to Cont'
+echo running 097.pl
+vi 097.pl
+./097.pl
+read -p 'Press Ent to Cont'
+echo running 099.pl
+vi 099.pl
+./099.pl
+read -p 'Press Ent to Cont'
+echo running 099A.pl
+vi 099A.pl
+./099A.pl
+read -p 'Press Ent to Cont'
+echo running 100.pl
+vi 100.pl
+./100.pl
+read -p 'Press Ent to Cont'
+echo running 100A.pl
+vi 100A.pl
+./100A.pl
+read -p 'Press Ent to Cont'
+echo running 101.pl
+vi 101.pl
+./101.pl
+read -p 'Press Ent to Cont'
+echo running 103.pl
+vi 103.pl
+./103.pl
+read -p 'Press Ent to Cont'
+echo running 104.pl
+vi 104.pl
+./104.pl
+read -p 'Press Ent to Cont'
+echo running 106.pl
+vi 106.pl
+./106.pl
+read -p 'Press Ent to Cont'
+echo running 108.pl
+vi 108.pl
+./108.pl
+read -p 'Press Ent to Cont'
+echo running 108A.pl
+vi 108A.pl
+./108A.pl
+read -p 'Press Ent to Cont'
+echo running 109.pl
+vi 109.pl
+./109.pl
+read -p 'Press Ent to Cont'
+echo running 109A.pl
+vi 109A.pl
+./109A.pl
+read -p 'Press Ent to Cont'
+echo running 113.pl
+vi 113.pl
+./113.pl
+read -p 'Press Ent to Cont'
+echo running 114.pl
+vi 114.pl
+./114.pl
+read -p 'Press Ent to Cont'
+echo running 115.pl
+vi 115.pl
+./115.pl
+read -p 'Press Ent to Cont'
+echo running 116.pl
+vi 116.pl
+./116.pl
+read -p 'Press Ent to Cont'
+echo running 117.pl
+vi 117.pl
+./117.pl
+read -p 'Press Ent to Cont'
+echo running 118.pl
+vi 118.pl
+./118.pl
+read -p 'Press Ent to Cont'
+echo running 119.pl
+vi 119.pl
+./119.pl
+read -p 'Press Ent to Cont'
+echo running 120.pl
+vi 120.pl
+./120.pl
+read -p 'Press Ent to Cont'
+echo running 121.pl
+vi 121.pl
+./121.pl
+read -p 'Press Ent to Cont'
+echo running 122.pl
+vi 122.pl
+./122.pl
+read -p 'Press Ent to Cont'
+echo running 123.pl
+vi 123.pl
+./123.pl
+read -p 'Press Ent to Cont'
+echo running 129.pl
+vi 129.pl
+./129.pl
+read -p 'Press Ent to Cont'
+echo running 131.pl
+vi 131.pl
+./131.pl
+read -p 'Press Ent to Cont'
+echo running 133.pl
+vi 133.pl
+./133.pl
+read -p 'Press Ent to Cont'
+echo running 134.pl
+vi 134.pl
+./134.pl
+read -p 'Press Ent to Cont'
+echo running 135.pl
+vi 135.pl
+./135.pl
+read -p 'Press Ent to Cont'
+echo running 137.pl
+vi 137.pl
+./137.pl
+read -p 'Press Ent to Cont'
+echo running 138.pl
+vi 138.pl
+./138.pl
+read -p 'Press Ent to Cont'
+echo running 139.pl
+vi 139.pl
+./139.pl
+read -p 'Press Ent to Cont'
+echo running 140.pl
+vi 140.pl
+./140.pl
+read -p 'Press Ent to Cont'
+echo running 140A.pl
+vi 140A.pl
+./140A.pl
+read -p 'Press Ent to Cont'
+echo running 141.pl
+vi 141.pl
+./141.pl
+read -p 'Press Ent to Cont'
+echo running 143.pl
+vi 143.pl
+./143.pl
+read -p 'Press Ent to Cont'
+echo running 146.pl
+vi 146.pl
+./146.pl
+read -p 'Press Ent to Cont'
+echo running 150.pl
+vi 150.pl
+./150.pl
+read -p 'Press Ent to Cont'
+echo running 151.pl
+vi 151.pl
+./151.pl
+read -p 'Press Ent to Cont'
+echo running 152.pl
+vi 152.pl
+./152.pl
+read -p 'Press Ent to Cont'
+echo running 152A.pl
+vi 152A.pl
+./152A.pl
+read -p 'Press Ent to Cont'
+echo running 153.pl
+vi 153.pl
+./153.pl
+read -p 'Press Ent to Cont'
+echo running 154.pl
+vi 154.pl
+./154.pl
+read -p 'Press Ent to Cont'
+echo running 157.pl
+vi 157.pl
+./157.pl
+read -p 'Press Ent to Cont'
+echo running 165.pl
+vi 165.pl
+./165.pl
+read -p 'Press Ent to Cont'
+echo running 165A.pl
+vi 165A.pl
+./165A.pl
+read -p 'Press Ent to Cont'
+echo running 168.pl
+vi 168.pl
+./168.pl
+read -p 'Press Ent to Cont'
+echo running 169.pl
+vi 169.pl
+./169.pl
+read -p 'Press Ent to Cont'
+echo running 169A.pl
+vi 169A.pl
+./169A.pl
+read -p 'Press Ent to Cont'
+echo running 169B.pl
+vi 169B.pl
+./169B.pl
+read -p 'Press Ent to Cont'
+echo running 173.pl
+vi 173.pl
+./173.pl
+read -p 'Press Ent to Cont'
+echo running 179.pl
+vi 179.pl
+./179.pl
+read -p 'Press Ent to Cont'
+echo running 181.pl
+vi 181.pl
+./181.pl
+read -p 'Press Ent to Cont'
+echo running 181A.pl
+vi 181A.pl
+./181A.pl
+read -p 'Press Ent to Cont'
+echo running 184.pl
+vi 184.pl
+./184.pl
+read -p 'Press Ent to Cont'
+echo running 189.pl
+vi 189.pl
+./189.pl
+read -p 'Press Ent to Cont'
+echo running 189A.pl
+vi 189A.pl
+./189A.pl
+read -p 'Press Ent to Cont'
+echo running 190.pl
+vi 190.pl
+./190.pl
+read -p 'Press Ent to Cont'
+echo running 192.pl
+vi 192.pl
+./192.pl
+read -p 'Press Ent to Cont'
+echo running 193.pl
+vi 193.pl
+./193.pl
+read -p 'Press Ent to Cont'
+echo running 193A.pl
+vi 193A.pl
+./193A.pl
+read -p 'Press Ent to Cont'
+echo running 195.pl
+vi 195.pl
+./195.pl
+read -p 'Press Ent to Cont'
+echo running 195A.pl
+vi 195A.pl
+./195A.pl
+read -p 'Press Ent to Cont'
+echo running 196.pl
+vi 196.pl
+./196.pl
+read -p 'Press Ent to Cont'
+echo running 200.pl
+vi 200.pl
+./200.pl
+read -p 'Press Ent to Cont'
+echo running 206.pl
+vi 206.pl
+./206.pl
+read -p 'Press Ent to Cont'
+echo running 207.pl
+vi 207.pl
+./207.pl
+read -p 'Press Ent to Cont'
+echo running 209.pl
+vi 209.pl
+./209.pl
+read -p 'Press Ent to Cont'
+echo running 210.pl
+vi 210.pl
+./210.pl
+read -p 'Press Ent to Cont'
+echo running 211.pl
+vi 211.pl
+./211.pl
+read -p 'Press Ent to Cont'
+echo running 214.pl
+vi 214.pl
+./214.pl
+read -p 'Press Ent to Cont'
+echo running 216.pl
+vi 216.pl
+./216.pl
+read -p 'Press Ent to Cont'
+echo running 218.pl
+vi 218.pl
+./218.pl
+read -p 'Press Ent to Cont'
+echo running 218A.pl
+vi 218A.pl
+./218A.pl
+read -p 'Press Ent to Cont'
+echo running 221.pl
+vi 221.pl
+./221.pl
+read -p 'Press Ent to Cont'
+echo running 221A.pl
+vi 221A.pl
+./221A.pl
+read -p 'Press Ent to Cont'
+echo running 222.pl
+vi 222.pl
+./222.pl
+read -p 'Press Ent to Cont'
+echo running 225.pl
+vi 225.pl
+./225.pl
+read -p 'Press Ent to Cont'
+echo running 234.pl
+vi 234.pl
+./234.pl
+read -p 'Press Ent to Cont'
+echo running 235.pl
+vi 235.pl
+./235.pl
+read -p 'Press Ent to Cont'
+echo running 237.pl
+vi 237.pl
+./237.pl
+read -p 'Press Ent to Cont'
+echo running 237A.pl
+vi 237A.pl
+./237A.pl
+read -p 'Press Ent to Cont'
+echo running 238.pl
+vi 238.pl
+./238.pl
+read -p 'Press Ent to Cont'
+echo running 241.pl
+vi 241.pl
+./241.pl
+read -p 'Press Ent to Cont'
+echo running 244.pl
+vi 244.pl
+./244.pl
+read -p 'Press Ent to Cont'
+echo running 248.pl
+vi 248.pl
+./248.pl
+read -p 'Press Ent to Cont'
+echo running 258.pl
+vi 258.pl
+./258.pl
+read -p 'Press Ent to Cont'
+echo running 261.pl
+vi 261.pl
+./261.pl
+read -p 'Press Ent to Cont'
+echo running 262.pl
+vi 262.pl
+./262.pl
+read -p 'Press Ent to Cont'
+echo running 263.pl
+vi 263.pl
+./263.pl
+read -p 'Press Ent to Cont'
+echo running 265.pl
+vi 265.pl
+./265.pl
+read -p 'Press Ent to Cont'
+echo running 266.pl
+vi 266.pl
+./266.pl
+read -p 'Press Ent to Cont'
+echo running 266A.pl
+vi 266A.pl
+./266A.pl
+read -p 'Press Ent to Cont'
+echo running 268.pl
+vi 268.pl
+./268.pl
+read -p 'Press Ent to Cont'
+echo running 272.pl
+vi 272.pl
+./272.pl
+read -p 'Press Ent to Cont'
+echo running 274.pl
+vi 274.pl
+./274.pl
+read -p 'Press Ent to Cont'
+echo running 274A.pl
+vi 274A.pl
+./274A.pl
+read -p 'Press Ent to Cont'
+echo running 274B.pl
+vi 274B.pl
+./274B.pl
+read -p 'Press Ent to Cont'
+echo running 280.pl
+vi 280.pl
+./280.pl
+read -p 'Press Ent to Cont'
+echo running 293.pl
+vi 293.pl
+./293.pl
+read -p 'Press Ent to Cont'
+echo running 294.pl
+vi 294.pl
+./294.pl
+read -p 'Press Ent to Cont'
+echo running 295.pl
+vi 295.pl
+./295.pl
+read -p 'Press Ent to Cont'
+echo running 295A.pl
+vi 295A.pl
+./295A.pl
+read -p 'Press Ent to Cont'
+echo running 298.pl
+vi 298.pl
+./298.pl
+read -p 'Press Ent to Cont'
+echo running 300.pl
+vi 300.pl
+./300.pl
+read -p 'Press Ent to Cont'

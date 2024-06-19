@@ -1,0 +1,136 @@
+4-1.sh:if [ -z "$filename" ]; then
+4-2.sh:if [ -z "$filename" ]; then
+4-2.sh:elif [ "${filename##*.}" != "pcx" ]; then
+4-5.sh:if [ -z "$1" ]; then
+4-5.sh:elif [ -z "$2" ]; then
+4-7.sh:if [ ${0##*/} = 4-7.unx ]; then
+5-3.sh:if [ -d $file ]; then
+InteractiveRead.sh:if test ${0##*/} = InteractiveRead.unx; then
+PnmToJpeg.sh:if [ -z $filename ]; then
+PnmToJpeg.sh:if [ $extension = jpg ]; then
+PnmToJpeg.sh:elif [ $extension = tga ]; then
+PnmToJpeg.sh:elif [ $extension = xpm ]; then
+PnmToJpeg.sh:elif [ $extension = pcx ]; then
+PnmToJpeg.sh:elif [ $extension = tif ]; then
+PnmToJpeg.sh:  tifftopnm $filename > $pnmfile
+PnmToJpeg.sh:elif [ $extension = gif ]; then
+PnmToJpeg.sh:  giftopnm $filename > $pnmfile
+PushAndPop.sh:# 1st if from LTBS, p 118
+PushAndPop.sh:if [ ${0##*/} = PushAndPop.unx ]; then
+PushAndPop.sh:## if dirname exists and isn't null, rtn its value, otherwise return after -
+PushAndPop.sh:###  if builtin cd ${dirname:?"missing directory name."}
+PushAndPop.sh:  if [ -n "$dirname" ] && [ \( -d "$dirname" \) -a \( -x "$dirname" \) ]
+PushAndPop.sh:###  if [ \( -n "$dirname" \) -a \( -d "$dirname" \) -a \( -x "$dirname" \) ]
+PushAndPop.sh:  if [ -n "$DIR_STACK" ]; then  
+RecursionExample.sh:if [ ${0##*/} = RecursionExample.unx ]; then
+ReverseStatus.sh:# see if argument was passed
+ReverseStatus.sh:if test -z "$1" 
+ReverseStatus.sh:elif [ -n "$2" ]
+ReverseStatus.sh:if ! $1
+p108.sh:# illustrate if-else-fi and command exit status
+p108.sh:echo ' if ls *.ppt; then'
+p108.sh:echo ' elif ls *.doc; then'
+p108.sh:echo ' elif ls *.xls; then'
+p108.sh:if ls *.ppt; then
+p108.sh:elif ls *.doc; then
+p108.sh:elif ls *.xls; then
+p113.sh:if test -d /cygdrive/d; then
+p113.sh:if test 1 -eq 2; then
+p113.sh:if test -z "$1"; then
+p115-1.sh:if [ -e "$1" ]; then
+p115.sh:echo ' if ./p115-1.unx golf.txt; then'
+p115.sh:if ./p115-1.unx golf.txt; then
+p117.sh:if [ -e golf.txt ]; then
+p117.sh:if [ ! -d c:/mydocs ]; then
+p117.sh:echo -e '\n' ' elif [ -d /cygdrive/c/mydocs ]'
+p117.sh:elif [ -d /cygdrive/c/mydocs ]; then
+p117.sh:if [ -f golf.txt ]; then
+p117.sh:if [ -r golf.txt ]; then
+p117.sh:if [ -e golf.txt ] && [ ! -s golf.txt ]; then
+p117.sh:if [ -w golf.txt ]; then
+p117.sh:if [ -x golf.unx ]; then
+p117.sh:if [ -x /cygdrive/c/windows ]; then
+p117.sh:if [ -N golf.unx ]; then
+p117.sh:  echo golf.unx was just modified
+p117.sh:  echo golf.unx was run since last modified
+p117.sh:if [ -O golf.unx ]; then
+p117.sh:if [ -G golf.unx ]; then
+p117.sh:if [ ! -e golf2.unx ]; then
+p117.sh:if [ golf.unx -nt golf2.unx ]; then
+p117.sh:echo -e '\n' 'elif [ golf.unx -ot golf2.unx ]'
+p117.sh:elif [ golf.unx -ot golf2.unx ]; then
+p121.sh:echo ' if [ $Nbr -lt $$ ]; then'
+p121.sh:echo ' elif [ $Nbr -eq $$ ]; then'
+p121.sh:echo ' elif [ $Nbr -gt $$ ]; then'
+p121.sh:if [ $Nbr -lt $$ ]; then
+p121.sh:elif [ $Nbr -eq $$ ]; then
+p121.sh:elif [ $Nbr -gt $$ ]; then
+p123.sh:  if [ -x $file ]; then
+p123.sh:    if [ -d $file ]; then
+p129.sh:  if [ -d $filename ]; then
+p129_2.sh:  if [ -d $filename ]; then
+p132.sh:    if [ $selection ]; then
+p138.sh:# illustrates shift 
+p138.sh:        if [ -d $filename ]; then
+p138.sh:      shift;shift ;;
+p138.sh:        if [ -f $filename ]; then
+p138.sh:      shift;shift ;;
+p138.sh:  if [ -z "$1" ]; then
+p138_bak.sh:# illustrates shift 
+p138_bak.sh:        if [ -d $filename ]; then
+p138_bak.sh:      shift ;;
+p138_bak.sh:        if [ -f $filename ]; then
+p138_bak.sh:      shift ;;
+p138_bak.sh:  if [ -z "$1" ]; then
+p141.sh:           if [ -d $filename ]; then
+p141.sh:             if [ -f $filename ]; then
+p141.sh:  shift $(($OPTIND - 1))
+p151.sh:declare -i SizeDiff
+p151.sh:SizeDiff=$DirSize-$CumDirSize
+p151.sh:echo SizeDiff=$SizeDiff
+p16.sh:if [ -z "$1" ] || [ -z "$2" ]; then
+p173.sh:    if [ -d  $filename ]; then
+p173.sh:    elif [ -x $filename ]; then
+p173.sh:    elif [ -r $filename ]; then
+p173.sh:    if [ $j -eq 0 ]; then
+p185.sh:echo 'diff p75.unx golf$$.unx'
+p185.sh:diff p75.unx golf$$.unx
+p20.sh:#if [ ! -n "$2" ] || [ -d "$2" ] || [ ! -x "$2" ]; then ####RTF
+p20.sh:if [ ! -e "$2" ]; then
+p20.sh:elif [ -d "$2" ]; then
+p20.sh:elif [ ! -x "$2" ]; then
+p20.sh:elif [ -z "$Niceness" ]; then
+p20.sh:#elif [ \( $Niceness -lt -20 \) || \( $Niceness -gt 19 \) ]; then
+p20.sh:elif [ $Niceness -lt -20 ] || [ $Niceness -gt 0 ]; then
+p209_3.sh:## illustrates having 2 different traps, one in a separate function, one as a 
+p218.sh:echo -e '\n' env diff between calling and called script
+p218.sh:diff -w p218.txt p218-1.txt | more
+p218.sh:echo -e '\n' env diff between program and nested subshell
+p218.sh:diff -w p218.txt p218-2.txt | more
+p220.sh:#diff <(ls) <(ls -rt)
+p220.sh:diff <$(ls) <$(ls -rt)
+p222.sh:    if [ $selection ]; then
+p224.sh:    if [ $selection ]; then
+p226_1.sh:##NOTE: LINENO must be literally specified outside the function where it's used
+p228_1.sh:    if [ $selection ]; then
+p229_1.sh:if test ${0##*/} = p229_1.unx; then
+p229_2.sh:if test ${0##*/} = p229_2.unx; then
+p230.sh:if [ -z "$1" ] || [ -z "$2" ]; then
+p230.sh:if command $1 >2 || builtin $1 >2; then
+p28.sh:if [ ${0##*/} = p28.unx ]; then
+p45.sh:if [ ${0##*/} = p45.unx ]; then
+p51.sh:if [ ${0##*/} = p51.unx ]; then
+p51.sh:#$if mode=emacs
+p51.sh:#$endif
+p51_1.sh:if [ "$0" = "./p51_1.unx" ]; then
+p51_2.sh:if [ "$0" = "./p51_1.unx" ]; then
+p72.sh:if [ $0 = ./p72.unx -o ${0##*/} = p72.unx ]; then
+sa.sh:    if [ -e $selection ]; then
+select01.sh:    if [ -e $selection ]; then
+select01.sh:#      if [ $selection=p28.unx ]; then
+select02.sh:    if [ -e $selection ]; then
+select1.sh:    if [ -e $selection ]; then
+select2.sh:    if [ -e $selection ]; then
+selectAll.sh:    if [ -e $selection ]; then
+selectEx.sh:    if [ -e $selection ]; then
+selectWord.sh:    if [ -e $selection ]; then
