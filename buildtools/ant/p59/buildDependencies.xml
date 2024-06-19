@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="D" name="dependencies">
+
+	<target name="A">
+		<echo>Running target A, dependent on nothing</echo>
+	</target>
+
+	<target name="B" depends="A">
+		<echo>Running target B, dependent on A</echo>
+	</target>
+
+	<target name="C" depends="B">
+		<echo>Running target C, dependent on B</echo>
+	</target>
+
+	<target name="D" depends="C,B,A">
+		<echo>Running target D, dependent on C, then B, then A</echo>
+	</target>
+
+</project>

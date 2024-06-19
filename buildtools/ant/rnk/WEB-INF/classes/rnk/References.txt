@@ -1,0 +1,6 @@
+Dan Zipper|ComputerAid, Inc.|Business Manager|C|703-867-3958|Dan_Zipper@notes.compaid.com|Supervisor at America Online
+Chris Wheeler|America Online|Senior System Administrator|C|801-698-0371|chris.wheeler@corp.aol.com|Team Lead at America Online
+Hollie Lopes|ITT|Quality Assurance and Training Manager|H|301-856-5274|hmlopes@verizon.net|Supervisor at IMF
+Susan Gerock|Corporate Office Properties Trust|Vice President, IT Applications Services|O|443-285-5516|susan.gerock@copt.com|Supervisor at CarrAmerica
+Linda Haslam|TerreStar|Senior IT Manager|O|703-483-7883|linda.haslam@terrestar.com|Supervisor at Motient
+Bill McGinnis|ONCIX|Program Analyst|O|703-682-4514|z3mcg@yahoo.com|Supervisor at Robbins-Gioia|

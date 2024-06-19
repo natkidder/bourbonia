@@ -1,0 +1,78 @@
+package rnk;
+
+import java.util.*;
+import javax.servlet.jsp.tagext.*;
+import javax.servlet.jsp.*;
+import java.io.*;
+
+public class ListSkillsA extends BodyTagSupport  {
+
+	private ArrayList<Skill> skills = new ArrayList<Skill>();
+
+	Iterator iterator;
+	private String sTest;  private String sTest2;
+	private int i = 0;   ////
+	private Integer j = 0;
+
+	public int doStartTag() throws JspTagException {  // process/evaluate the start tag
+		skills.clear();
+	    this.populateSkills();
+	    iterator = skills.iterator();
+		if ( iterator.hasNext() )  {
+			this.setVariables();
+			return EVAL_BODY_INCLUDE;
+		} else {
+			return SKIP_BODY;
+		}
+	}
+
+	public int doAfterBody() throws JspTagException  {
+        if ( iterator.hasNext() )  {
+			this.setVariables();
+			return EVAL_BODY_BUFFERED;
+		} else {
+			return SKIP_BODY;
+		}
+	}
+
+	public int doEndTag() throws JspTagException  {
+		// allow it to evaluate the rest of the page
+		return EVAL_PAGE;
+	}
+
+	void setVariables()  {
+		Skill skill;
+		skill = (Skill)iterator.next();
+		pageContext.setAttribute( "skill1", skill.getSkill1() );
+		pageContext.setAttribute( "level1", skill.getLevel1() );
+		pageContext.setAttribute( "experience1", skill.getExperience1() );
+		pageContext.setAttribute( "skill2", skill.getSkill2() );
+		pageContext.setAttribute( "level2", skill.getLevel2() );
+		pageContext.setAttribute( "experience2", skill.getExperience2() );
+	}
+
+	void populateSkills() {
+		String[] skillProperties;
+		Skill skill;
+		try {
+		    sTest = "in populateSkills";
+			String[] sSkills = DataStore.getSkillsA();
+			for ( String s : sSkills )  {
+				j++;  sTest = j.toString();
+				skillProperties = s.split( "\\|" );
+				skill = new Skill();
+				//System.out.println( line );  ////
+				skill.setSkill1( skillProperties[0].trim() );
+				skill.setLevel1( skillProperties[1].trim() );
+				skill.setExperience1( skillProperties[2].trim() );
+				skill.setSkill2( skillProperties[3].trim() );
+				skill.setLevel2( skillProperties[4].trim() );
+				skill.setExperience2( skillProperties[5].trim() );
+				this.skills.add( skill );
+			}
+		}
+		catch ( Exception e )  {
+			System.out.println(e.getMessage());
+		}
+	}
+}

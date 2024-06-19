@@ -1,0 +1,69 @@
+:tasks
+
+------------------------------------------------------------
+All tasks runnable from root project
+------------------------------------------------------------
+
+Build tasks
+-----------
+assemble - Assembles the outputs of this project. [jar]
+build - Assembles and tests this project. [assemble, check]
+buildDependents - Assembles and tests this project and all projects that depend on it. [build]
+buildNeeded - Assembles and tests this project and all projects it depends on. [build]
+classes - Assembles classes 'main'.
+    compileJava - Compiles Java source 'main:java'.
+    processResources - Processes resources 'main:resources'.
+clean - Deletes the build directory.
+jar - Assembles a jar archive containing the main classes. [classes]
+testClasses - Assembles classes 'test'. [classes]
+    compileTestJava - Compiles Java source 'test:java'.
+    processTestResources - Processes resources 'test:resources'.
+
+Build Setup tasks
+-----------------
+init - Initializes a new Gradle build. [incubating]
+wrapper - Generates Gradle wrapper files. [incubating]
+
+Documentation tasks
+-------------------
+javadoc - Generates Javadoc API documentation for the main source code. [classes]
+
+Help tasks
+----------
+components - Displays the components produced by root project 'GradleQuickstart'.
+dependencies - Displays all dependencies declared in root project 'GradleQuickstart'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'GradleQuickstart'.
+help - Displays a help message
+projects - Displays the sub-projects of root project 'GradleQuickstart'.
+properties - Displays the properties of root project 'GradleQuickstart'.
+tasks - Displays the tasks runnable from root project 'GradleQuickstart'.
+
+IDE tasks
+---------
+cleanEclipse - Cleans all Eclipse files.
+    cleanEclipseClasspath
+    cleanEclipseJdt
+    cleanEclipseProject
+eclipse - Generates all Eclipse files.--should generate the build path as well.
+    eclipseClasspath - Generates the Eclipse classpath file.
+    eclipseJdt - Generates the Eclipse JDT settings file.
+    eclipseProject - Generates the Eclipse project file.
+
+Upload tasks
+------------
+uploadArchives - Uploads all artifacts belonging to configuration ':archives' [jar]
+
+Verification tasks
+------------------
+check - Runs all checks. [test]
+test - Runs the unit tests. [classes, testClasses]
+
+Rules
+-----
+Pattern: clean<TaskName>: Cleans the output files of a task.
+Pattern: build<ConfigurationName>: Assembles the artifacts of a configuration.
+Pattern: upload<ConfigurationName>: Assembles and uploads the artifacts belonging to a configuration.
+
+BUILD SUCCESSFUL
+
+Total time: 11.049 secs

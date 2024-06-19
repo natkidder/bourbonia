@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="Target C" name="NatsProject">
+
+	<target name="Target build" description="Performs build" if="runA">
+		<echo>Performing Step A</echo>
+	</target>
+
+	<target name="Target test" depends="Target build" description="Performs test">
+		<echo>Performing Step B</echo>
+	</target>
+
+	<target name="Target deploy" depends="Target test" description="Performs deployment">
+		<echo>Performing Step C</echo>
+	</target>
+
+</project>
+

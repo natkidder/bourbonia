@@ -1,0 +1,6 @@
+1.  dependencies pointing to missing package
+
+2.  no maven eclipse plugin installed
+
+3.  maven-compiler-plugin not pointing to correct version
+

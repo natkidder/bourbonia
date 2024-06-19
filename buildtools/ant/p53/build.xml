@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="Target C" name="MyProject">
+
+	<target name="Target A" description="Performs Step A">
+		<echo>Performing Step A</echo>
+	</target>
+
+	<target name="Target B" depends="Target A" description="Performs Step B">
+		<echo>Performing Step B</echo>
+	</target>
+
+	<target name="Target C" depends="Target B" description="Performs Step C">
+		<echo>Performing Step C</echo>
+	</target>
+
+</project>

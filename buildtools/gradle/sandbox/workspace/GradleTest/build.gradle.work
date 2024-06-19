@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+//eclipse {
+//                pathVariables 'GRADLE_REPO': new File("${System.properties['user.home']}/.gradle/caches")
+//                 
+//                project {
+//                natures 'org.springframework.ide.eclipse.core.springnature'
+//                buildCommand 'org.springframework.ide.eclipse.core.springbuilder'
+//                }
+//                 
+//}
+
+//eclipseClasspath {
+//	outputFile '.classpath'
+//}
+ 

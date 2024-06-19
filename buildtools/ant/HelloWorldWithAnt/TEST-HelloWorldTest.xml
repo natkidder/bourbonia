@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="1" hostname="NatsPC" name="HelloWorldTest" tests="2" time="2.058" timestamp="2009-09-24T19:44:30">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.boot.library.path" value="c:\Program Files\Java\jdk1.6.0_02\jre\bin" />
+    <property name="java.vm.version" value="1.6.0_02-b05" />
+    <property name="ant.library.dir" value="C:\ant\lib" />
+    <property name="ant.version" value="Apache Ant version 1.7.1 compiled on June 27 2008" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="java.vm.vendor" value="Sun Microsystems Inc." />
+    <property name="java.vendor.url" value="http://java.sun.com/" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="user.country" value="US" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.os.patch.level" value="Service Pack 1" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="user.dir" value="c:\Users\nat\career\training\ant\HelloWorldWithAnt" />
+    <property name="ant.file.HelloWorld" value="c:\Users\nat\career\training\ant\HelloWorldWithAnt\buildUsingJunit.xml" />
+    <property name="java.runtime.version" value="1.6.0_02-b05" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="basedir" value="c:\Users\nat\career\training\ant\HelloWorldWithAnt" />
+    <property name="java.endorsed.dirs" value="c:\Program Files\Java\jdk1.6.0_02\jre\lib\endorsed" />
+    <property name="os.arch" value="x86" />
+    <property name="java.io.tmpdir" value="C:\Users\nat\AppData\Local\Temp\" />
+    <property name="ant.core.lib" value="C:\ant\lib\ant.jar" />
+    <property name="line.separator" value="
+" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="user.variant" value="" />
+    <property name="os.name" value="Windows Vista" />
+    <property name="ant.home" value="C:\ant" />
+    <property name="build.dir" value="build" />
+    <property name="ant.project.name" value="HelloWorld" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="java.library.path" value="c:\Program Files\Java\jdk1.6.0_02\jre\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\cygwin\usr\local\bin;C:\cygwin\bin;C:\cygwin\bin;C:\cygwin\usr\X11R6\bin;c:\Program Files\Java\jdk1.6.0_02\bin;c:\mydocs\career\training\perl;c:\mydocs\career\training\bash;c:\mydocs\career\training\java;c:\Windows\system32;c:\Windows;c:\Windows\System32\Wbem;c:\Program Files\Common Files\Ulead Systems\MPEG;c:\Program Files\ATI Technologies\ATI.ACE\Core-Static;c:\Program Files\MySQL\MySQL Server 5.1\bin;c:\Sun\as\jdk\bin%;JAVA_HOME%\bin;c:\Sun\as\bin;c:\Users\nat\career\training\bash;c:\tomcat\common\lib\mysql-connector-java-5.1.7-bin.jar;c:\Users\nat\career\training\bash;c:\tomcat\common\lib\mysql-connector-java-5.1.7-bin.jar;c:\ant\bin" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="50.0" />
+    <property name="lib.dir" value="lib" />
+    <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+    <property name="os.version" value="6.0" />
+    <property name="ant.file" value="c:\Users\nat\career\training\ant\HelloWorldWithAnt\buildUsingJunit.xml" />
+    <property name="user.home" value="C:\Users\nat" />
+    <property name="user.timezone" value="" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="java.specification.version" value="1.6" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="java.class.path" value="c:\Users\nat\career\training\ant\HelloWorldWithAnt\lib\log4j-1.2.15.jar;c:\Users\nat\career\training\ant\HelloWorldWithAnt\build\jar\HelloWorld.jar;C:\ant\lib\junit.jar;C:\ant\lib\ant-launcher.jar;C:\ant\lib\ant.jar;C:\ant\lib\ant-junit.jar" />
+    <property name="user.name" value="nat" />
+    <property name="report.dir" value="build/junitRpt" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="java.home" value="c:\Program Files\Java\jdk1.6.0_02\jre" />
+    <property name="sun.arch.data.model" value="32" />
+    <property name="user.language" value="en" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="classes.dir" value="build/classes" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.version" value="1.6.0_02" />
+    <property name="java.ext.dirs" value="c:\Program Files\Java\jdk1.6.0_02\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+    <property name="sun.boot.class.path" value="c:\Program Files\Java\jdk1.6.0_02\jre\lib\resources.jar;c:\Program Files\Java\jdk1.6.0_02\jre\lib\rt.jar;c:\Program Files\Java\jdk1.6.0_02\jre\lib\sunrsasign.jar;c:\Program Files\Java\jdk1.6.0_02\jre\lib\jsse.jar;c:\Program Files\Java\jdk1.6.0_02\jre\lib\jce.jar;c:\Program Files\Java\jdk1.6.0_02\jre\lib\charsets.jar;c:\Program Files\Java\jdk1.6.0_02\jre\classes" />
+    <property name="java.vendor" value="Sun Microsystems Inc." />
+    <property name="file.separator" value="\" />
+    <property name="src.dir" value="src" />
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="main-class" value="oata.HelloWorld" />
+    <property name="sun.desktop" value="windows" />
+    <property name="jar.dir" value="build/jar" />
+    <property name="sun.cpu.isalist" value="" />
+  </properties>
+  <testcase classname="HelloWorldTest" name="testNothing" time="0.0" />
+  <testcase classname="HelloWorldTest" name="testWillAlwaysFail" time="0.0050">
+    <failure message="Error Message" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Error Message
+	at HelloWorldTest.testWillAlwaysFail(Unknown Source)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

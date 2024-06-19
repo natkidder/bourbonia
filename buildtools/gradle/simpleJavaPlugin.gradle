@@ -1,0 +1,3 @@
+// gradle tasks will list all the tasks the plugin provides
+
+apply plugin: 'java'

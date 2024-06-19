@@ -1,0 +1,13 @@
+// not to be confused with ant targets.  In ant, a task is a subactivity of a target.  A gradle task corresponds to an ant target
+// the argument for   file  is a relative directory
+
+task loadfile << {
+    def files = file('../antLoadfileResources').listFiles().sort()
+    files.each { File file ->
+        if (file.isFile()) {
+            ant.loadfile(srcFile: file, property: file.name)
+            println " *** $file.name ***"
+            println "${ant.properties[file.name]}"
+        }
+    }
+}
