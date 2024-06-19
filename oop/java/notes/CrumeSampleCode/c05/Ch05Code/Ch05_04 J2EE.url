@@ -1,0 +1,5 @@
+[DEFAULT]
+BASEURL=http://localhost:1024/Ch05_04/login.html
+[InternetShortcut]
+URL=http://localhost:1024/Ch05_04/login.html
+Modified=1019E1B7E5A6C30110

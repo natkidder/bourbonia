@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<project name="ch05-4" default="clean-build" basedir=".">
+
+	<property name="src.dir" value="WEB-INF/classes"/>
+	<property name="class.dir" value="${src.dir}"/>
+	<property name="build.dir" value="build"/>
+	<property name="jar.dir" value="${build.dir}/jar"/>
+
+	<target name="cleanup">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="compile">
+		<javac srcdir="${src.dir}" destdir="${class.dir}"/>
+	</target>
+
+	<target name="archive" depends="compile">
+		<mkdir dir="${jar.dir}"/>
+		<jar basedir="." destfile="${jar.dir}/${ant.project.name}.war"/>
+	</target>
+
+	<target name="clean-build" depends="cleanup,archive"/>
+
+</project>

@@ -1,0 +1,2 @@
+Beginning J2EE, p. 265
+Illustrates the use in JDBC of connections, statements, resultsets and placeholders

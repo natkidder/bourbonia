@@ -1,0 +1,24 @@
+Beginning J2EE, p.273 and 278
+Illustrates data sources and connection pools
+
+-- Tomcat --
+
+files are in:
+
+c:/tomcat/conf/server.xml (edited, backup is server.xm@)
+c:/tomcat/webapps/pe/WEB-INF/web.xml
+c:/tomcat/webapps/pe/PoolExample.jsp
+
+URL:
+
+http://localhost:8080/pe/PoolExample.jsp
+
+-- GlassFish --
+
+file is in c:/Users/nat/career/training/j2ee/ch07-2/PoolExample.jsp
+
+	ensure the argument to context.lookup is "mysql"
+
+jar -cvf PoolExample.war PoolExample.jsp
+
+then deploy PoolExample.war into GlassFish

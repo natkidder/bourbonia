@@ -1,0 +1,2 @@
+Beginning J2EE, p. 192
+Illustrates using the session object in a servlet

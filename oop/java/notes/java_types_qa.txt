@@ -1,0 +1,80 @@
+q=A char variable is surrounded by ___ - S Q
+a=single quotes
+
+q=A ___ value should end with f - F
+a=float
+
+q=You can do multiple times on one line the ___ operator, for setting values - A
+a=assignment
+
+q=Individual assignments may be separated by ___ - C
+a=commas
+a=a comma
+a=,
+
+q=A variable name is called its ___ - I
+a=identifier
+
+q=Punctuation marks that can be used in an identifier - D,  U
+a=$,_
+a=_,$
+
+q=An int is to a short, a long is to an int, and a double is to a float in having ___ - T T B   Like a Publix special
+a=twice the bytes
+a=two times the bytes
+a=twice as many bytes
+
+q=You may convert a variable of one type to another so long as you do not ___ - D T B C
+a=decrease the byte capacity
+a=narrow the size
+a=diminish the bytes
+a=diminish the byte count
+
+q=A short and a char takes up ___ of space - T B
+a=2 bytes
+a=two bytes
+
+q=A long and a double take up ___ of space - E B
+a=8 bytes
+a=eight bytes
+
+q=The littlest integer type is ___ and its range covers 2 to the ___ power - B,   E   
+a=byte,8th
+a=byte,eighth
+
+q=Thus the highest value a byte can take is ___ - O   not quite to the full exponent (express in computer notation)
+a=2^7-1
+a=two to the seventh power minus one
+a=127
+
+q=End a ___ value with an L - L
+a=long
+
+q=A char value may be set as a(n) ___ which is its ___ value - I, A
+a=integer,ascii
+
+q=A non-primitive type is AKA a ___ type - R  like a dictionary
+a=reference
+
+q=Casting a decimal to an integer means you ___ the value - T
+a=truncate
+
+q=>> and << are the ___ and ___ operators, respectively - B R,   B L
+a=bitwise right, bitwise left
+
+q=To change a string to all caps or vice-versa, use the String ___ and ___ methods - T,   T
+a=toUpperCase,toLowerCase
+a=toLowerCase,toUpperCase
+
+q=To find the index of a substring in a String, use the ___ method - L
+a=locate
+
+q=The function (as opposed to operator) to abutt strings is ___ - C    not the full word
+a=concat
+
+q=When you place a plus sign between a String number and a numeric number, the result is a(n) ___ - S
+a=string
+
+q=A backspace character in a String is indicated by ___ - type it
+a=\b
+

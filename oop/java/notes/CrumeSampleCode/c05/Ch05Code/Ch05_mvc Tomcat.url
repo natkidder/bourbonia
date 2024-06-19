@@ -1,0 +1,5 @@
+[DEFAULT]
+BASEURL=http://localhost:8080/stock/
+[InternetShortcut]
+URL=http://localhost:8080/stock/
+Modified=C0689D3015A7C30175

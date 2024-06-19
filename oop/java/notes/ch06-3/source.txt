@@ -1,0 +1,2 @@
+Beginning J2EE, p. 251
+Illustrates the use of JDBC statements and resultsets

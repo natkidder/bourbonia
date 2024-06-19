@@ -1,0 +1,5 @@
+[DEFAULT]
+BASEURL=http://localhost:8080/Ch05_03/GetSession
+[InternetShortcut]
+URL=http://localhost:8080/Ch05_03/GetSession
+Modified=10EDA1270EA7C3013E

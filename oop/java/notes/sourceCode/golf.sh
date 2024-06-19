@@ -1,0 +1,12 @@
+unzip c02.zip
+unzip c03.zip
+unzip c04.zip
+unzip c05.zip
+unzip c06.zip
+unzip c07.zip
+unzip c08.zip
+unzip c09.zip
+unzip c10.zip
+unzip c11.zip
+unzip c12.zip
+unzip c13.zip

@@ -1,0 +1,7 @@
+
+q=A ___ member is not serialized - T
+a=transient
+
+q=A ___ member has its memory access from the main memory and not from the ___ - V,  L T
+a=volatile,local thread
+

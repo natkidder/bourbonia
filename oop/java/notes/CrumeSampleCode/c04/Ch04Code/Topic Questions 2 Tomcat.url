@@ -1,0 +1,5 @@
+[DEFAULT]
+BASEURL=http://localhost:8080/Ch04_02/TopicList2.jsp?topic=EL
+[InternetShortcut]
+URL=http://localhost:8080/Ch04_02/TopicList2.jsp?topic=EL
+Modified=6037955D51A5C30143

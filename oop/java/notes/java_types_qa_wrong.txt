@@ -1,0 +1,17 @@
+
+q=A ___ value should end with f - F
+a=float
+
+q=A variable name is called its ___ - I
+a=identifier
+
+q=The littlest integer type is ___ and its range covers 2 to the ___ power - B,   E
+a=byte,8th
+a=byte,eighth
+
+q=A non-primitive type is AKA a ___ type - R  like a dictionary
+a=reference
+
+q=>> and << are the ___ and ___ operators, respectively - B R,   B L
+a=bitwise right, bitwise left
+

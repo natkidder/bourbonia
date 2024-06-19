@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib 
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<!-- the is the tag library for Chapter 4, example 4 -->
+
+	<tlib-version>1.0</tlib-version>
+	<short-name>simplefaq</short-name>
+
+	<tag>
+		<name>listFaqs</name>
+		<tag-class>ch04.ListQuestions</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>topic</name>
+			<required>yes</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>faqData</name>
+		<tag-class>ch04.ListQuestionsInBody</tag-class>
+		<body-content>scriptless</body-content>
+		<variable>
+			<name-given>qid</name-given>
+		</variable>
+		<variable>
+			<name-given>question</name-given>
+		</variable>
+		<attribute>
+			<name>topic</name>
+			<required>yes</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+</taglib>

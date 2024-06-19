@@ -1,0 +1,63 @@
+q=To set a search regex, use the static ____.____ method - P,   C
+a=Pattern.compile
+a=pattern,compile
+
+q=The above method ___ a ___ - C,   P O
+a=constructs,pattern object
+a=instantiates,pattern object
+
+q=To set the (usually larger) String to be matched, use the ___ object's ___ method - P,   M
+a=pattern, matcher
+
+q=The above instantiates a ___ object, and you check whether there's a match with that object's ___ method - M,   F
+a=matcher,find
+
+q=The Pattern ___ constant indicates special characters (eg. . +) are not regex special characters - L
+a=literal
+
+q=The advantage of ___ is allowing you to do multiple things at the same time - T
+a=threads
+
+q=You can create one by extending the ___ class and ___ its ___ method - T,   O,   R
+a=Thread,overriding,run
+
+q=Using the same extension, you can run the inheriting class' ___ method - S
+a=start
+
+q=You can also create one by implementing the ___ interface and specifying its ___ method - I,   R
+a=runnable,run
+
+q=When implementing Runnable, you have the advantage of ___ - I A C
+a=inheriting another class
+a=extending another class
+
+q=___ is when a variable is being set by multiple ___ at once - C,   T
+a=concurrency,threads
+
+q=To avoid concurrency problems, it is best to share as few ___ between ___ as possible - A,   T
+a=attributes,threads
+
+q=You can check if at least once of the threads is running via its non-static ___ method - I
+a=isAlive
+
+q=A lambda expression is a short block of code which takes in ___ and returns a(n) ___ - P,   V
+a=parameters,value
+
+q=Unlike a method, a lambda expression does not need a(n) ___.  Furthermore, they can be implanted in the middle of a(n) ___ - N,   M
+a=name,method
+
+q=A lamda expression takes the form of ___ -> ___ - P L,   E
+a=parameter list,expression
+a=parameters,expression
+
+q=The expression must immediately ___ a ___ - R,   V
+a=return,value
+a=return a value
+
+q=The expression cannot contain these four items (in alphabetical order) - A S,   F L,   I S,   V
+a=assignment statements,for loops,if statements,variables
+a=assignment statement,for loop,if statement,variable
+
+q=Lambda expressions can be stored in a variable if the variable's type is a(n) ___ with ___ - I,   O M
+a=interface,one method
+

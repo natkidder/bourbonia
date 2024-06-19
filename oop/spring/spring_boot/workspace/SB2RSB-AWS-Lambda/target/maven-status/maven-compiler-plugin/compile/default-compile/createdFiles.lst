@@ -1,0 +1,5 @@
+com\in28minutes\springboot\rest\example\student\StudentNotFoundException.class
+com\in28minutes\springboot\rest\example\student\StudentResource.class
+com\in28minutes\springboot\rest\example\student\StudentRepository.class
+com\in28minutes\springboot\rest\example\student\Student.class
+com\in28minutes\springboot\rest\example\SpringBoot2RestServiceApplication.class

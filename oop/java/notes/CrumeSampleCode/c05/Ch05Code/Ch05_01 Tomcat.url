@@ -1,0 +1,5 @@
+[DEFAULT]
+BASEURL=http://localhost:8080/Ch05_01/login.html
+[InternetShortcut]
+URL=http://localhost:8080/Ch05_01/login.html
+Modified=F0880ED10DA7C301CF

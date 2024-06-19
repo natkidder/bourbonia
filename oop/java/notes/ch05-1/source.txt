@@ -1,0 +1,2 @@
+Crume p.160
+illustrates passing information from an HTML form to a servlet and the servlet outputing the response

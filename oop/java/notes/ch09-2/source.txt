@@ -1,0 +1,2 @@
+Beginning J2EE, p. 368
+Illustrates BMP entity beans (unable to deploy, as the Stock bean would not allow bean-managed persistence in the entity screen (p. 369))

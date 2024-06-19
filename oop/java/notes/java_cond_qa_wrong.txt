@@ -1,0 +1,8 @@
+
+q=An Array is initialized using its ___ rather than the keyword ___ - T,   A    The first often used in dating
+a=type,Array
+
+q=You can go through an array using a(n) ___ or ___ loop - D,   F
+a=definite,for-each
+a=for-each,definite
+

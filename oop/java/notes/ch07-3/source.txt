@@ -1,0 +1,2 @@
+Beginning J2EE, p. 287
+Illustrates the use in JDBC of transaction control

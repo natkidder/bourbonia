@@ -1,0 +1,21 @@
+        <DefaultContext>
+            <Resource name="jdbc/countries" auth="Container" type="javax.sql.DataSource" />
+            <ResourceParams name="jdbc/countries">
+                <parameter>
+                    <name>driverClassName</name>
+                    <value>com.mysql.jdbc.Driver</value>
+                </parameter>
+                <parameter>
+                    <name>url</name>
+                    <value>jdbc:mysql://localhost/testdb</value>
+                </parameter>
+                <parameter>
+                    <name>username</name>
+                    <value>nkidder</value>
+                </parameter>
+                <parameter>
+                    <name>password</name>
+                    <value>wlypb</value>
+                </parameter>
+            </ResourceParams>
+        </DefaultContext>

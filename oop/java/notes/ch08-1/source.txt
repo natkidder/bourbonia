@@ -1,0 +1,2 @@
+Beginning J2EE, p. 319
+Illustrates session beans

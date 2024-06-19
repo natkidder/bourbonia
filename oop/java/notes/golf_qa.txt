@@ -1,0 +1,4 @@
+q=The expression cannot contain these four items (in alphabetical order) - A S,   F L,   I S,   V
+a=assignment statements,for loops,if statements,variables
+a=assignment statement,for loop,if statement,variable
+

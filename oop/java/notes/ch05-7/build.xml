@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<project name="ch05-7" default="basic-build" basedir=".">
+	
+	<property name="build.dir" value="build"/>
+	<property name="src.dir" value="WEB-INF/classes"/>
+	<property name="classes.dir" value="${src.dir}"/>
+	<property name="jar.dir" value="${build.dir}/jar"/>
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+
+	<target name="compile">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}"/>
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="${build.dir}/jar"/>
+		<jar destfile="${jar.dir}/${ant.project.name}.war" basedir="."/>
+	</target>
+
+	<target name="basic-build" depends="clean,jar"/>
+
+</project>

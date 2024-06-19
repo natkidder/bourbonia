@@ -1,0 +1,2 @@
+Beginning J2EE, p. 209
+Illustrates using MVC architecture, in particular request dispatchers

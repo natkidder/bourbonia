@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>J2EE Good to Know</title>
+	</head>
+	<body>
+<p>XML file comments are just like HTML file comments</p>
+
+<p>you may unpack an archive by saying <tt>jar xf <i>archive-file</i></tt></p>
+
+<p>to find the object servlet code for a jsp, go to <tt>c:/tomcat/work/Catalina/localhost/<i>[application]</i>/org/apache/jsp/<i>[name]</i>_jsp.java</tt></p>
+
+<p>there should be no punctuation between tag attributes
+
+<p>you may place spaces inside tags</p>
+
+<p>when you cursor loop through a result set, it goes in alphabetical order of the primary key
+
+<p>context objects need to be closed after the connections they engender are closed
+
+<p>you don't need a Statement to have a PreparedStatement
+
+<p>with prepared statements, do <u>not</u> enclose ordered parameters in single quotes, even if they are strings.  The <tt>PreparedStatement</tt> class will take care of that for you.
+
+<p>when deploying a JSP through a JNDI connection pool in GlassFish, have the <tt>context.lookup</tt> argument be the name of either the JDBC resource or the Connection Pool. (not sure which).
+
+<p><tt>c:/Sun/AppServer/jdk/jre/lib/ext</tt> is automatically included in <tt>CLASSPATH</tt>
+
+<p>for EJB's, the deployment descriptor is <tt>ejb-jar.xml</tt>
+
+<p>the EJB application name need <u>not</u> be the same as the root of the class names
+
+<p>in an entity bean, the relevant setters and getters in the session beans need <u>not</u> have the exact class name in their name
+
+	</body>
+</html>

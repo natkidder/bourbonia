@@ -1,0 +1,62 @@
+q=By default, a class can be accessed by classes in ___ - I O P
+a=its own package
+a=the same package
+
+==W3 discount code until 8/14: LX-KTV33M
+
+q=By contrast, a ___ class can be accessed by also its ___ - P,   S
+a=protected, subclasses
+
+q=A(n) ___ class cannot be inherited - F
+a=final
+
+q=You cannot instantiate a(n) ___ class - A
+a=abstract
+
+q=A no-body method can be declared in only a(n) ___ class - A
+a=abstract
+
+q=Serialization is the process of converting a(n) ___ into a(n) ___ - O,   B S
+a=object,byte stream
+
+q=Serialization is used mostly for ___ the object ___ - S,   O A N
+a=sending,over a network
+
+q=A ___ member is not serialized - T
+a=transient
+
+q=A ___ member has its memory access from the main memory and not from the ___ - V,  L T
+a=volatile,local thread
+
+q=___ is achieved by setting class members as ___ - E,  P   like what they do to astronauts before takeoff
+a=encapsulation,private
+
+q=You inherit a class using the ___ keyword - E   Like with rubber bands
+a=extends
+
+q=A child class can override all but its parent's ___ members - P
+a=private
+
+q=An inner class is treated as a(n) ___ of its outer class - M
+a=member
+a=field
+
+q=You cannot ___ an abstract class - I
+a=instantiate
+
+q=___ is a reason to make a class abstract - S
+a=security
+
+q=You "inherit" an interface using the ___ keyword - I
+a=implements
+
+q=You can ___ only one ___, but you can ___ multiple ___ - I,   C,   I,   I
+a=inherit,class,implement,interfaces
+a=extend,class,implement,interfaces
+
+q=Interface attributes (fields) are by default ___, ___ and ___ (in alphbetical order) - F,   P,   S
+a=final,public,static
+
+q=Interface methods are by default ___ and ___ (in alphabetical order) - A,   P
+a=abstract,public
+

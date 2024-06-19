@@ -1,0 +1,38 @@
+q=File handling derived from the ___.___.___ class - J,   I,   F
+a=java,io,file
+a=java.io.file
+
+q=The File class has methods to expose ___ - F P   like your yard
+a=file properties
+
+q=File handling mishaps are derived from the same package, ___ class - I
+a=ioexception
+
+q=To change a file's contents, use the java.io.___ class - F
+a=filewriter
+
+q=The filewriter must be explicitly ___ - C
+a=closed
+
+q=To read a file use the ___.___.___ class - J,   U,   S
+a=java,util,scanner
+a=java.util.scanner
+
+q=The File's ___ method takes away a file, and it returns a(n) ___ - D,   B
+a=delete,boolean
+
+q=The delete method can also remove a(n) ___ - F
+a=folder
+a=directory
+
+q=To order an array, use the static ___.___ method - A,   S
+a=arrays,sort
+a=arrays.sort
+
+q=To loop through a HashMap, you can use its non-static ___ or ___ methods - K,   V
+a=keyset,values
+a=values,keyset
+
+q=To loop though an enum, use its non-static ___ method - V
+a=values
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+	
+<!-- the is the deployment descriptor for Chapter 4, example 3 -->
+<!-- URL to start is: http://localhost:8080/ch04-3/TopicList2.jsp?topic=EL -->
+
+<!-- Expression language example, welcome file list -->
+
+	<welcome-file-list>
+		<welcome-file>TopicList3.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<jsp-config>
+		<!-- This element is for the simple tag handler example -->
+		<taglib>
+			<taglib-uri>/questions</taglib-uri>
+			<taglib-location>/WEB-INF/tlds/faq.tld</taglib-location>
+		</taglib>
+	
+		<!-- allow expression language, but no scripting -->
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<el-enabled>true</el-enabled>
+			<scripting-enabled>false</scripting-enabled>
+		</jsp-property-group>
+	</jsp-config>
+	
+</web-app>

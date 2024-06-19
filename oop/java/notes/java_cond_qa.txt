@@ -1,0 +1,43 @@
+q=The class to do quantitive functions on quantitative arguments is called ___ - M
+a=Math
+
+q=A switch block takes as its initial argument a(n) ___ - E
+a=expression
+
+q=Each enumerated output is preceded by the ___ keyword - C
+a=case
+
+q=At the end of each case block is the ___ keyword - B
+a=break
+
+q=If the expression resolved to none of the cases, it goes to ___ - D
+a=default
+
+q=Loops that simply have a quantitative condition can begin with either of these keywords - D,   W
+a=do,while
+a=while,do
+
+q=In a definite for loop, these are the 3 expressions (in English) in order - I S,   E C,   I S
+a=initial setting,exit condition,incremental setting
+a=initial assignment,exit condition,incremental assignment
+
+q=In a for-each loop, the keyword ___ is not used - E
+a=each
+
+q=To prematurely exit a loop, use the ___ keyword - B
+a=break
+
+q=To skip an iteration of a loop, use the ___ keyword - C
+a=continue
+
+q=An Array is initialized using its ___ rather than the keyword ___ - T,   A    The first often used in dating
+a=type,Array
+
+q=You can go through an array using a(n) ___ or ___ loop - D,   F
+a=definite,for-each
+a=for-each,definite
+
+q=Array instantiation requires the element values be enclosed in ___ - C B
+a=curly brackets
+a={}
+

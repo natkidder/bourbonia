@@ -1,0 +1,5 @@
+[DEFAULT]
+BASEURL=http://localhost:1024/pe/PoolExample.jsp
+[InternetShortcut]
+URL=http://localhost:8080/Ch07_02/PoolExample.jsp
+Modified=504E60AF20A8C30139

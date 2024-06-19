@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<web-app>
+  <display-name>Web App</display-name>
+  <servlet>
+    <servlet-name>PoolExample</servlet-name>
+    <jsp-file>/PoolExample.jsp</jsp-file>
+  </servlet>
+  <resource-ref>
+    <res-ref-name>jdbc/countries</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+  </resource-ref>
+</web-app>

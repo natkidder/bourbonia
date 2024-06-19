@@ -1,0 +1,5 @@
+start ip,end ip,country code, country,population
+"1.0.0.0","1.0.0.255","AU","Australia",26000000
+"1.0.1.0","1.0.3.255","CN","China",1500000000
+"1.0.4.0","1.0.7.255","ID","Indonesia, Republic of",275000000
+"1.0.128.0","1.0.255.255",,"Thailand",71700000

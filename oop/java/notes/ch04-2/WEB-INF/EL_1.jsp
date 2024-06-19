@@ -1,0 +1,35 @@
+<!-- Crume, p.108 -->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head><title>Expression Language Q1</title></head>
+	<body>
+		<h1>Expression Language Question 1</h1>
+		<h2>How do I use Implicit Objects?</h2>
+		<p>The implicit objects are:</p>
+		<ul>
+			<li>pageContext</li>
+			<li>pageScope</li>
+			<li>requestScope</li>
+			<li>sessionScope</li>
+			<li>applicationScope</li>
+			<li>param</li>
+			<li>paramValues</li>
+			<li>header</li>
+			<li>headerValues</li>
+			<li>cookie</li>
+			<li>initParam</li>
+		</ul>
+		
+		<p>Implicit objects for the lvalue of an EL expression, and their properties are accessed using the <tt>.</tt> or <tt>[]</tt> operator.  
+		   Here are some examples:</p>
+		   
+		<%-- The four lines after this comment contain special expression syntax needed to display a literal ${} in the output of a JSP.
+			 This is done by using an expression to evaluate the literal '${'.  That is, the expression is treated as normal template data --%>
+		
+		<p>${'${'}pageContext.request.requestURI} evaluates to "${pageContext.request.requestURI}"</p>
+		<p>${'${'}param.qid} evaluates to "${param.qid}"</p>
+		<p>${'${'}header.referer} evaluates to "${header.referer}"</p>
+		<p>${'${'}cookie.JSESSIONID.value} evaluates to "${cookie.JSESSIONID.value}"</p>
+	</body>
+</html>

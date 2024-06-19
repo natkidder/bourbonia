@@ -1,0 +1,9 @@
+https://appian.com/bpm-basics/bpmn-defined.html
+
+https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation
+
+https://camunda.com/bpmn/examples/
+
+https://blog.goodelearning.com/subject-areas/bpmn/bpmn-2-0-terms-explained-process-flows/
+
+ 

@@ -1,0 +1,113 @@
+q=A(n) ___ is a group of constants - E
+a=enum
+
+q=When you instantiate an enum, you set it to ___ - O O I M
+a=one of its members
+a=1 of its members
+
+q=The default value for an enum constant is ___ - I N
+a=its name
+a=its label
+
+q=An enum's constant collection comes from its built-in ___ method - V
+a=values
+a=values()
+
+q=All enum members are ___, ___ and ___ (in alphabetical order) - F,   P,   S
+a=final,public,static
+
+q=In terms of relating with other Java constructs, an enum cannot ___ but can ___ - I,   I
+a=inherit,implement
+
+q=To input a string, use the Scanner object's ___ method - N
+a=nextLine
+
+q=To work with dates & times, import the ___ package - J.T
+a=java.time
+
+q=To display the current date, use this fully-qualified ___ non-static method - J.T.LD.N
+a=java.time.LocalDate.now
+
+q=To display the current time of day, do the same except the third package field is - L
+a=LocalTime
+
+q=To display the both, do the same except the third package field is - L
+a=LocalDateTime
+
+q=To display dates & times prettily, use this fully-qualified constructor - J.T.F.DTF.OP
+a=java.time.format.DateTimeFormatter.ofPattern
+
+q=You can ___ an ArrayList where it itself is the sole argument - P
+a=print
+
+q=To change an ArrayList element's value, use its ___ method - S
+a=set
+
+q=To delete an element, use its ___ method - R
+a=remove
+
+q=To remove all elements, use the non-static ArrayList's ___ method - C
+a=clear
+
+q=The length of an ArrayList object is given by its ___ method - Scanner
+a=size
+
+q=An ArrayList element must be of type ___ - O
+a=Object
+
+q=To make an ArrayList's element a primitive, use its ___ - W C
+a=wrapper class
+
+q=To order an ArrayList, use the static ___ method - C.S
+a=Collections.sort
+
+q=A(n) ___ is like an ArrayList except that each element is related to both its ___ and ___ one - L,   P,   N
+a=LinkedList,previous,next
+a=LinkedList,next,previous
+
+q=The six main LinkedList methods, in alphabetical order - A,   A,   G,   G,   R,   R
+a=addFirst, addLast, getFirst, getLast, removeFirst, removeLast
+
+q=The HashMap ___ method pulls an element's ___ - G,   V
+a=get,value
+
+q=The HashMap ___ method makes a map one element smaller - R
+a=remove
+
+q=To remove all elements from a HashMap, use the ___ method - C
+a=clear
+
+q=The length of a HashMap is given by its ___ method - S
+a=size
+
+q=The HashMap methods to loop through its unique index and elaborations, respectively - K,   V
+a=keySet,values
+
+q=If you know the key, this will return the value - G
+a=get
+
+q=A ____, unlike a HashMap, has one value per element - H
+a=HashSet
+
+q=A HashSet, unlike an ArrayList or a LinkedList, allows only ___ - U V
+a=unique values
+
+q=To check whether a value exists in a HashSet, use the ___ method - C
+a=contains
+
+q=___ is the specialized class to loop through a collection - I
+a=iterator
+
+q=The two iterator methods to loop forward through a collection - H,  N
+a=hasNext,next
+a=next,hasNext
+
+q=To take an element out of a collection, use the Iterator object's ___ method - R
+a=remove
+
+q=You can ___ a wrapper class object as if it were ___ - P,   T C P
+a=print, the corresponding primitive
+
+q=All wrapper classes have a method that ends in ___ to return the corresponding primitive - V
+a=value
+

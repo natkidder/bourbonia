@@ -1,0 +1,11 @@
+insert into STOCKEJB values ('ABC', 'ABC Company');
+insert into STOCKEJB values ('ZZZ', 'Zigby Zebras');
+insert into STOCKEJB values ('ICS', 'Internet Corp of Slobovia');
+insert into STOCKEJB values ('DDC', 'Digby Door Company');
+insert into STOCKEJB values ('ZAP', 'Zapalopalorinski Ltd.');
+insert into STOCKEJB values ('JIM', 'Jimco');
+insert into STOCKEJB values ('SRU', 'Stocks R Us');
+insert into STOCKEJB values ('SRI', 'Shelves and Radios Inc');
+insert into STOCKEJB values ('FBC', 'Foo Bar Company');
+insert into STOCKEJB values ('DDBC', 'Ding Dong Bell Company');
+insert into STOCKEJB values ('UDE', 'Upn Down Elevator Company');

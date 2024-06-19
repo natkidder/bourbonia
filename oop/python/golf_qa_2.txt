@@ -1,0 +1,9 @@
+q=A cold front often brings ___ in January - S
+a=snow
+a=solid precipitation
+a=ice
+
+q=Bermuda highs often bring both ___ and ___ = H, H
+a=heat, humidity
+a=humidity, heat
+
