@@ -1,0 +1,27 @@
+q=The five pillars of a well-architected framework (in alphabetical order) - C O,   O E,   P E,   R,   S
+a=cost optimization,operational excellence,performance efficiency,reliabiliy,security
+
+q=Operational excellence enables one to ___ and ___ systems - M,   M
+a=manage,monitor
+a=monitor,manage
+
+q=AWS Cloud benefit: trade ___ expense for ___ expense - U,   V
+a=upfront,variable
+a=fixed,variable
+
+q=AWS Cloud benefit: ___ - E O S
+a=economies of scale
+
+q=AWS Cloud benefit: no need to guess ___ - C
+a=capacity
+
+q=AWS Cloud enables you to increase deployment ___ and ___ - S,   A
+a=speed,agility
+a=agility,speed
+
+q=AWS Cloud takes operating ___ off your hands - D C
+a=data centers
+
+q=AWS Cloud enables your systems to have ___ in minutes - G R
+a=global reach
+

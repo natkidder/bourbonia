@@ -1,0 +1,65 @@
+# from https://docs.confluent.io/kafka/introduction.html
+
+q=Kafka is a ___ - D E S P
+a=distributed event streaming platform
+
+q=Kafka is designed to handle ___ - L V O D
+a=large volumes of data
+
+q=Kafka by default uses a ___ messaging system - P S
+a=publish-subscribe
+
+q=The central unit processed by Kafka is a(n) ___ - E
+a=event
+
+q=A ___ stores event streams - B  like the stock market
+a=broker
+
+q=All brokers in the same ___ are ___ as far as relationships are concerned - C,   I
+a=cluster,interconnected
+
+q=Events are grouped according to each one's ___ - T
+a=topic
+
+q=A topic is a ___ of events, similar to a ___ in a ___ - L,   F,   F S
+a=log,folder,filesystem
+a=log,folder,file system
+a=log,directory,filesystem
+a=log,directory,file system
+
+q=All event messages get ___ to the log, and each one is ___ - A,   I
+a=appended,immutable
+
+q=Each topic has multiple ___ and ___ concerning outside parties - S,   P
+a=subscribers,producers
+a=producers,subscribers
+a=consumers,producers
+a=producers,consumers
+
+q=Event messages are removed from the log only after ___ - A T P H P
+a=a time period has passed
+a=a certain time
+
+q=A topic stores messages in ___ which can be assigned by the message ___ - P,   P
+a=partitions,producer
+
+q=Or a partition can be assigned by ___ - R-R
+a=round-robin
+
+q=If you think of a topic as a library, a partition would be a ___ and a message like a ___ - BS,   B
+a=bookshelf,book
+
+q=A message contains these four elements, in alphabetical order - K,   T,   T,   V
+a=key,timestamp,topic,value
+a=key,time,topic,value
+
+q=Messages with the same key go to the same ___, but they might be ___ across those destinations - P,   R
+a=partition,replicated
+
+q=With replication, copies are classified as ___ and ___ - L,   F
+a=leader,follower
+a=follower,leader
+
+q=A producer may optionally specify a(n) ____ that its message was recorded - A
+a=acknowledgement
+

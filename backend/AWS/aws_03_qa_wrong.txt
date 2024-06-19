@@ -1,0 +1,10 @@
+
+q=Elastic load balancing is particular to ___ and allows for increasing traffic without ___ - E,   I C
+a=EC2,increasing costs
+a=EC2,raising costs
+
+q=A ___ application uses tightly-coupled architecture - M
+a=monolithic
+
+q=___ (full phrase) transmits messages using a ___ model - SNS,   P-S
+a=simple notification service,publish-subscribe

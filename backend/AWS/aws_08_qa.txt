@@ -1,0 +1,58 @@
+q=___ automates DBA tasks against popular engines like Oracle, MySQL, PostgeSQL, etc. - R D S
+a=relational database service
+
+q=Rather than use third-party RDBMS's, you can house your data in Amazon ___ - A
+a=Aurora
+
+q=Aurora's advantages over third-party are ___,___ and ___ (in alphabetical order) - C,   R,   S
+a=cost,reliability,speed
+
+q=___ is a no-sql, non-delational, serverless database - D
+a=DynamoDB
+
+q=DynamoDB data is stored as ___, in the form of ___, each of which contains ___ - D,  T,  I
+a=documents,tables,items
+
+q=Each item contains a set of ___ which ___ from item to item - K-V P,  C B
+a=key-value pairs,can be different
+
+q=Some of these attributes function as ___ - I
+a=indexes
+a=keys
+
+q=___ is better than ___ only if you need to relate different business entities together - R,  D
+a=RDS,DynamoDB
+
+q=___ is a data analytics service that employs - R,   M L
+a=redshift
+
+q=It runs well against ___-like databases but not against ___ databases - D,   R
+a=DynamoDB,RDBMS
+
+q=To move data between engines or platforms, use AWS's ___ - D M S
+a=data migration service
+
+q=If the source and target databases use different definitions, you need to first employ the ___ - S C T
+a=schema conversion tool
+
+q=You can also use DMS to ___ databases - C
+a=combine
+
+q=AWS ___ is similar to Mongo - D
+a=DocumentDB
+
+q=AWS ___ is a graphing database service - N
+a=Neptune
+
+q=___ holds an immutable transaction ledger, for auditing - Q L D
+a=Quantum Ledger Database
+
+q=___ is for Bitcoin for example - M B
+a=Managed Blockchain
+
+q=___ makes data retrieval faster - EC
+a=ElastiCache
+
+q=___ makes retrieving documents faster - D A
+a=DynamoDB Accelerator
+

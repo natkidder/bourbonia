@@ -1,0 +1,13 @@
+q=One of the advantages of AWS is paying ___ - O F W Y U
+a=only for what you use
+
+q=You may raise of lower your ___ whenever ___ - C,   Y N T
+a=capacity,you need to
+
+q=The 3 main deployment models, in alphabetical order - C,   H,   O
+a=cloud-based,hybrid,on-premises
+a=cloudbased,hybrid,onpremises
+
+q=The 4 main benefits of cloud computing, in alphabetical order - C,   F,   S,   S
+a=cost, flexibility, scalability, security
+

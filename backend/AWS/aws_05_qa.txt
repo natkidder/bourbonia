@@ -1,0 +1,65 @@
+q=AWS global ___ are geographical locations of hardware that are ___ - D C,   I
+a=data centers, interconnected
+
+q=data centers are grouped into ___ - R
+a=regions
+a=regions
+
+q=You decide ___ and ___ your data & apps are deployed to - D,  A
+a=data,applications
+a=data,apps
+a=applications,data
+a=apps,data
+
+q=The four factors that go into deciding on a region (in alphabetical order) - C,   F,   P,   P
+a=compliance,features,pricing,proximity
+
+q=A(n) ___ is a group of data centers that have ___ - A Z,   R
+a=availability zone,redundancy
+
+q=Each region corresponds to ___ availability zone(s) - M
+a=multiple
+
+q=The minimum number of availability zones to run in a region is ___ - T
+a=two
+a=2
+
+q=AWS ___ is the Data Center that is closest to your ___ - E,   C
+a=edge,customers
+
+q=Edge ___ data so local customers can access it quickly.  It is refreshed from main data centers using Amazon ___ - C,   C F
+a=caches,cloudfront
+
+q=Edge locations are ___ of regions and a customer is routed to the correct one via ___ - I,   R F T
+a=independent,route 53
+
+q=___ involves having an AWS instance in-house - O
+a=outpost
+
+q=The three main ways to interact with AWS (in alphabetical order) - C L I,   M C,   S D K
+a=command line interface,management console,software development kits
+
+q=The two main managed tools to setup AWS instances (in alphabetical order) - C F,   E B
+a=cloud formation,elastic beanstalk
+
+q=Both work with ___ - E
+a=EC2
+
+q=Elastic Beanstalk is a ___ - W I M S
+a=web infrastructure management service
+
+q=You set the service ___ and then ___ your ___ - P A,   D,   C
+a=parameter arguments,deploy,code
+
+q=You do this after you deploy your application - L T E
+a=launch the environment
+
+q=Elastic Beanstalk helps manage these four aspects (in alphabetical order) - C,   P,   S,   S
+a=configuration,provisioning,scaling,setup
+
+q=CloudFormation helps to automate ___ and handle the ___ between them - R P,   D
+a=resource provisioning,dependencies
+
+q=It lets you create ___ describing the ___ you want - T,   S
+a=templates,services
+

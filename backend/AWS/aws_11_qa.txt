@@ -1,0 +1,41 @@
+q=AWS ___ allows you to try out AWS services without cost - F T
+a=free tier
+
+q=The three free tier options, from least to most obligation - A F,   T M F,   T
+a=always free,twelve months free,trials
+a=always free,12 months free,trials
+
+q=All of the above options also have ___ - U L
+a=usage limits
+
+q=___ lets you estimate AWS costs to you - P C
+a=pricing calculator
+
+q=AWS ___ helps you break down and ___ costs - B D,   C
+a=billing dashboard,compare
+
+q=___ does much the opposite: it lets you combine different accounts into a single payable - C B
+a=consolidated billing
+
+q=AWS ___ monitor usage vis-a-vis planned costs
+a=budget
+
+q=Budget gets updated ___ times a day - T
+a=three
+a=3
+
+q=___ lets you visualize costs and usage - C E
+a=cost explorer
+
+q=Cost Explorer has a ___ where you can drilldown, create ___ and analyze ___ - D,   R,   E
+a=drilldown,reports,expenses
+
+q=It can also let you pinpoint cost ___ - D
+a=drivers
+
+q=The four AWS Cloud support plans, from cheapest to priciest - B,   D,   B,   E
+a=basic,developer,business,enterprise
+
+q=AWS ___ is where third-party vendors list and sell their software - M
+a=marketplace
+

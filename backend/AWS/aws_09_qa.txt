@@ -1,0 +1,75 @@
+q=The ___ means AWS provides security __ the cloud, while customers control security ___ the cloud - S S M,   O,   I
+a=shared security model,of,in
+
+q=The "of" includes (in alphabetical order) ___, ___ and ___ layers - H,  N,  P
+a=hypervisor,network,physical
+
+q=hypervisor lets you build multiple ___ on a single ___ - V M,   P M
+a=virtual machines,physical machine
+
+q=The "in" includes ___,___ and ___ (in alphabetical order) - A,   D,   O S
+a=applications,data,operating systems
+a=application,data,operating system
+
+q=The customer must also setup ___ and ___ - F,   E
+a=firewall,encryption
+a=encryption,firewall
+
+q=Authentication and authorization is governed by AWS ___ - I A A M
+a=identity and access management
+
+q=Your first AWS account is the ___ user - R
+a=root
+
+q=Root should create an account that can ___ - C O A
+a=create other accounts
+
+q=Authorization at the user level is governed by a ___ document, usually in ___ format - P,   J
+a=policy,json
+
+q="user" here can also refer to ___ and ___ - R,   S
+a=resources,services
+
+q=A role grants ___ access to resources - T
+a=temporarily
+
+q=Accounts are grouped into ___, used mostly to manage ___ - O U,   P
+a=organizational units,permissions
+
+q=Each orgnanizational unit has global ___ that apply to every account - S C P
+a=service control policies
+
+q=You can decide what ___ you apply to your data - E M
+a=encryption method
+
+q=AWS ___ supplies compliance agreements and reports - A
+a=artifact
+
+q=The ___ helps you be compliant - C C C
+a=customer compliance center
+
+q=___ and its big brother ___ flood your network with traffic - D O S,   D D O S
+a=denial of service,distributed denial of service
+
+q=AWS ___ stops DoS and DDoS attacks - S
+a=shield
+
+q=Shield comes in both ___ and ___ offerings - S,   A
+a=standard,advanced
+a=advanced,standard
+
+q=AWS ___ encrypts and decrypts your data using ___ - K M S,   K
+a=key management service,keys
+
+q=AWS ___ monitors network requests - W A F
+a=web application firewall
+
+q=___ checks your applications for vulnerabilities - I
+a=inspector
+
+q=___ is a threat detection service by monitoring ___ activity - GD,   N
+a=GuardDuty,network
+
+q=___ allows users to use one login for both AWS and corporate systems - I F
+a=identity federation
+

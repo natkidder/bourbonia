@@ -1,0 +1,21 @@
+
+q=EC2 stands for ___ - E C C
+a=elastic cloud complete
+
+q=The five EC2 instance families, in alphabetical order (the 2nd word adjectives are past tense verbs) - A C,   C O,   G P,   M O,   S O   use the verb past tense
+a=accelerated computing,compute optimized,general purpose,memory optimized,storage optimized
+
+q=___ pricing is where you expect to have a relatively stable and predicatble computing need - R I   like the fed
+a=reserve instances
+
+q=___ are where you lease a physical server - D H
+a=dedicated hosts
+
+q=EC2 ___ ensures there is no unused capacity and no overcapacity, creating a ___ - A S,   S A
+a=autoscaling,scalable architecture
+a=auto scaling,scalable architecture
+
+q=AWS EC2 ___ means you add add or subtract ___ based on ___ - A,   I,   D
+a=autoscaling,instances,demand
+a=auto scaling,instances,demand
+

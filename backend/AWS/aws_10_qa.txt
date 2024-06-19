@@ -1,0 +1,24 @@
+q=Amazon ___ does resource monitoring - C
+a=CloudWatch
+
+q=With CloudWatch, you can setup a(n) ___ and set ___ - D,   A
+a=dashboard,alarms
+
+q=AWS ___ records ___ calls to your account - C,   A
+a=CloudTrail,api
+
+q=CloudTrail uses these calls to create ___ - E
+a=events
+
+q=CloudTrail ___ detects unusual API activities
+a=insights
+
+q=AWS ___ checks your system and makes recommendations - T
+a=TrustedAdvisor
+
+q=TrustedAdvisor checks these 5 categories (in alphabetical order) - C O,   F T,   P,   S,   S L
+a=cost optimization,fault tolerance,performance,security,service limits
+
+q=TrustedAdvisor compares your system's facets above against AWS ___ - B P
+a=best practices
+

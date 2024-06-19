@@ -1,0 +1,65 @@
+q=At the simplest level, Mule applications accept and move/manipulate ___ as ___ through several ___ - E,   M,   M P
+a=events,messages,message processors
+
+q=Most message processors are arranged into a ___ - F
+a=flow
+
+q=But large messages are broken down into ___ in a ___ - R,   B J
+a=records,batch job
+
+q=Besides message processors, ___ also accept and process messages - M S
+a=message sources
+
+q=A message source is triggered by a(n) ___ - E C
+a=external client
+
+q=These external clients use their own ___ such as HTTP, FTP, JDBC or even File - C P
+a=communication protocols
+a=protocols
+
+q=The message source then ___ the protocol into a(n) ___ - T,   M F
+a=translates,message format
+
+q=Flows link together individual ___ and can send a message ___ - M P,   B T T O C
+a=message processors,back to the original client
+
+q=Mule applications can be represented by either a(n) ___ or as a(n) ___ - F D,   X D
+a=flow diagram,xml document
+
+q=A(n) ___ triggers a flow process, meaning a(n) ___ gets a request - E,   M S    the second like Lake Itasca
+a=event,message source
+
+q=A(n) ___ converts message payload to a format another application can understand - T
+a=transformer
+
+q=A transformer can also ___ of a message - E T C   like what Wonder does to bread
+a=enrich the content
+
+q=A Mule ___ conducts background business logic - C
+a=component
+
+q=A component can support several ___ - P L
+a=programming languages
+a=computer languages
+a=computing languages
+
+q=A flow ___ determines from what IP addresses you can accept - F
+a=filter
+
+q=A ___ acts like a railroad switch; moving messages to different nodes based on their ___ - R,   C
+a=router,content
+
+q=To read or manipulate a message, you may use ___ - M E L
+a=Mule Expression Language
+
+q=A batch job works by ____ into ___ - S M,   R
+a=splitting messages,records
+a=splitting a message,records
+
+q=Batch jobs are particularly useful when ____ - S I   like Watts Branch to the Potomac
+a=streaming input
+
+q=A batch job contains ___ which in turn contain ___ that act upon ___ - B S,   M P,   R
+a=batch steps,message processors,records
+a=steps,message processors,records
+

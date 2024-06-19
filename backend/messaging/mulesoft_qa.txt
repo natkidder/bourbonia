@@ -1,0 +1,63 @@
+q=Mule is a(n) ___ framework - E S B
+a=enterprise service bus
+
+q=It runs on the ___ platform - A    not lines or planes
+a=anypoint
+
+q=Mule processes messages in ___ - B
+a=batches
+
+q=Each message is split into __ - R
+a=records
+
+q=The 3 variable types in MuleSoft (in increasing scope order) - R,   F,   S
+a=record,flow,session
+
+q=A flow and session variable adds or removes ___ to or from a(n) ___ - V,   M
+a=variables,message
+
+q=A record variable is inside only a ___ - B J
+a=batch job
+
+q=The three primary types of messages (in alphabetical order) - B,   B,   E A L
+a=bridge,build,echo and log
+
+q=Build messages are created from ___ - V
+a=values
+
+q=Bridge messages move from ___ to ___ ___ - I,   O R
+a=inbound,outbound,routers
+
+q=Echo and Log messages ___ - M B M
+a=move bridge messages
+
+q=The main MuleSoft IDE is Anypoint ___ - D C
+a=design center
+
+q=Mulesoft services are grouped inside a(n) ___ - M   as in planes
+a=model
+
+q=A(n) ___ is an abstraction for sending and receiving data - C
+a=connector
+
+q=A(n) ___ connector is a source and sink of data - T
+a=transport
+
+q=A(n) ___ connector interacts with APIs - C    brings rain
+a=cloud
+
+q=Mule ___ functions like an application server - R
+a=Runtime
+
+q=A Mule ___ is hosted on AWS - W     proletariat
+a=worker
+
+q=The measure of reliability in Mule is the ___ rate - M L    as in gone
+a=message loss
+
+q=To reduce such loss, try to capture the ___ of a(n) ___ - S,   I   like in OOP
+a=state,instance
+
+q=The five ways flow messages are sent in terms of concurrence (in alphabetical order) - A,   N B,   Q,   S,   T P P    Two are found in Java, the last is a measure
+a=asynchronous,non-blocking,queued,synchronous,threads-per-processor
+

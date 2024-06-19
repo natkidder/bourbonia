@@ -1,0 +1,72 @@
+q=EC2 stands for ___ - E C C
+a=elastic cloud complete
+
+q=EC2 is a ___ in the AWS cloud - V S
+a=virtual server
+
+q=The 3 steps in sequence for starting with EC2 - L,   C,   U
+a=launch,connect,use
+
+q=In launch you set your ___ - S
+a=specifications
+
+q=The five EC2 instance families, in alphabetical order (the 2nd word adjectives are past tense verbs) - A C,   C O,   G P,   M O,   S O   use the verb past tense
+a=accelerated computing,compute optimized,general purpose,memory optimized,storage optimized
+
+q=___ is best for hosting applications - G P
+a=general purpose
+
+q=___ is best for gaming or web applications - C O
+a=compute optimized
+
+q=___ is good for when you have to pre-load data for a job - M O
+a=memory optimized
+
+q=___ is best for graphics applications and streaming - A C
+a=accelerated computing
+
+q=___ is best for data warehousing - S O
+a=storage optimized
+
+q=___ pricing is where you pay strictly for what you use - O D
+a=on-demand
+
+q=___ pricing is where you commit to a time lease - S P   like with a bank
+a=savings plans
+
+q=For savings plans, if you go over, you pay at the ___ rate - O
+a=on-demand
+a=ondemand
+
+q=___ pricing is where you expect to have a relatively stable and predicatble computing need - R I   like the fed
+a=reserve instances
+
+q=___ is where you acquire short-term capacity for a limited time - S I   like with commodity markets
+a=spot instances
+
+q=Spot instances are best for unexpected ___ or where you can tolerate a(n) ____ - B J,   I
+a=batch jobs,interruption
+
+q=___ are where you lease a physical server - D H
+a=dedicated hosts
+
+q=EC2 ___ ensures there is no unused capacity and no overcapacity, creating a ___ - A S,   S A
+a=autoscaling,scalable architecture
+a=auto scaling,scalable architecture
+
+q=The two components of autoscaling are ___ and ___ scaling - D,   P
+a=dynamic,predictive
+
+q=The difference between dynamic and predictive scaling concerns ___ relative to ___ the demand occurs - W,   N
+a=when,now
+
+q=AWS EC2 ___ means you add add or subtract ___ based on ___ - A,   I,   D
+a=autoscaling,instances,demand
+a=auto scaling,instances,demand
+
+q=To setup EC2 autoscaling, specify the ___ and ___ capacity, plus ___ per ___ - M,   M,   I,   S G
+a=minimum,maximum,instances,scaling group
+a=maximum,minimum,instances,scaling group
+a=min,max,instances,scaling group
+a=max,min,instances,scaling group
+

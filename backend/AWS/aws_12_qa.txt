@@ -1,0 +1,49 @@
+q=___ helps you walk through migrating applications to containers - C A F
+a=cloud adoption framework
+
+q=The three commerce-relate cloud adoption framework perspectives (in alphbetical order) - B,   G,   P
+a=business,governance,people
+
+q=The three technical cloud adoption framework perspectives (in alphbetical order) - O,   P,   S
+a=operations,platform,security
+
+q=The business perspective is about ___ - J T I   as in net present value
+a=justifying the investment
+
+q=The people perspective focuses on ___ - S   as in certifications
+a=skillsets
+
+q=The governance perspective is about ___ - M R   as in conquering the world
+a=minimizing risk
+
+q=The platform perspective focuses on ___ - D
+a=deployment
+
+q=The operating perspective focuses on ___ business - D T D
+a=day-to-day
+
+q=The two migration strategies that don't involve migrating at all - R,   R
+a=retaining,retiring
+a=retiring,retaining
+
+q=The four real migration strategies, from least to most complicated - R,   R,   R,   R
+a=rehosting,replatforming,repurchasing,refactoring
+
+q=The AWS ___ hardware family stores and transports data in & out of AWS - S
+a=snow
+
+q=The three device types that comprise snow, from least to most capable - S,   S,   S
+a=snowcone,snowball,snowmobile
+
+q=Snowball can be either ___ or ___ optimized - C,   S
+a=compute,storage
+a=storage,compute
+
+q=Snow in all can transport one ___ of data - E
+a=exabyte
+
+q=___ is AWS's machine-learning development tool - S
+a=SageMaker
+
+
+

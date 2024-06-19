@@ -1,0 +1,40 @@
+q=The 3 main resources for design (in alphabetical order) - A S,   D C,   E
+a=anypoint studio,design center,exchange
+
+q=___ has the GUI development interface - D C
+a=design center
+
+q=___ is a code dependencies library - E
+a=exchange
+
+q=___ is like Eclipse - A S
+a=anypoint studio
+
+q=You pull SQL views to process via ___ - DG
+a=dataGraph
+
+q=___ lets you configure users, business groups and audit logs - A M
+a=access management
+
+q=___ lets you set properties for clients, policies, SLAs, traffic and alerts - A M
+a=API manager
+
+q=___ lets you deploy, set switches for, and monitor applications - R M
+a=runtime manager
+
+q=___ lets you pictorially see your application network - V
+a=visualizer
+
+q=___ is like Splunk to your Mule implementation - M
+a=monitoring
+
+q=___ lets you manage your public keys - S M
+a=secrets manager
+
+q=A public key ___ messages, while a private key ___ messages - E O,   D I
+a=encrypts outbound,decrypts inbound
+a=encrypts outgoing,decrypts incoming
+
+q=A private key is stored with the ___ while a public key is ___ from the ___ - C,   S O,   S
+a=client,sent out,server
+

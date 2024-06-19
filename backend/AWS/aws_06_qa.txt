@@ -1,0 +1,49 @@
+q=In connecting to your AWS cloud, you can have public and private ___, which are collections of ___ - S,   I A
+a=subnets,IP addresses
+a=subnetworks,IP addresses
+
+q=A subnet is a ___ of a VPC - S
+a=section
+
+q=A ___ is your own subnetwork within AWC - V P C
+a=virtual private cloud
+
+q=A virtual private cloud can be accessed from either ___ or ___ - I,   I
+a=intranet,internet
+a=internet,intranet
+
+q=The public attaches to the public VPC via a(n) ___ - I G
+a=internet gateway
+
+q=Internal whatevers attach to your intra-subnets via a - V P G
+a=virtual private gateway
+
+q=To make the virtual private gateway dedicated, to decrease latency, you utilize ___, especially between your VPC and your ___ - D C,   D C
+a=direct connect,data centers
+
+q=A gateway, receives ___ which must be part of that gateway's ____ - P,   N A C L   no, not salt
+a=packet,network access control list
+
+q=The list mostly includes the accepted packet ___, ___ or ___ (in alphabetical order) - O,   P,   P
+a=originator,protocol,purpose
+
+q=A subnet contains ___ instances which can ___ or ___ packets as well, via its ___ - E,   A,   D,   S G
+a=ECL,accept,deny,security group
+a=ECL,deny,accept,security group
+
+q=The big difference between a Network ACL and a security group is that the former is ___ and the latter is ___, so it "remembers" packets - S,   S
+a=stateless,stateful
+
+q=Also, a network ACL can stop ___ packets - O
+a=outbound
+
+q=___ is AWS's domain name service, which translates domain names into ___ - R F,   I A
+a=route 53,IP addresses
+a=route fifty-three,IP addresses
+
+q=Route 53 chooses the right IP address based on (in alphabetical order) ___,___ or ___ - L,   P L,   R R
+a=latency,physical location,round robin
+
+q=To deliver static content, Route 53 works closely with AWS ___, which delivers such content to the nearest ___ location - CF,   E
+a=CloudFront
+

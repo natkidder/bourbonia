@@ -1,0 +1,53 @@
+q=___ is one point of contact(s) for incoming web traffic - E L B
+a=elastic load balancing
+
+q=Elastic load balancing is particular to ___ and allows for increasing traffic without ___ - E,   I C
+a=EC2,increasing costs
+a=EC2,raising costs
+
+q=You can use ___ load balancers - T P   bronze
+a=third-party
+a=3rd party
+
+q=A ___ application uses tightly-coupled architecture - M
+a=monolithic
+
+q=An loosely-coupled architecture utilizes ___ - M
+a=microservices
+
+q=___ (full phrase) transmits messages using a ___ model - SNS,   P-S
+a=simple notification service,publish-subscribe
+
+q=SNS can send messages to ___ or to ___ - M,   H
+a=microservices,humans
+
+q=Within AWS, SNS can sent notifications to ___, ___ & ___ (in alphabetical order) - L,   S,   S
+a=lamda,sms,sqs
+
+q=Outside of AWS, SMS can send notifications to ___, ___ & ___ (in alphabetical order) - A,   E,   H
+a=applications,email,http
+
+q=SQS stands for ___ - SQS
+a=simple queue service
+
+q=A message queue is a ___ to which a message can be sent - N D
+a=named destination
+
+q=A tightly-coupled system uses (in terms of threading) ___ messaging - S
+a=synchronous
+
+q=So if a message fails, future messages ___ be ___ - W,   P
+a=will not,processed
+a=won't,processed
+
+q=Moreover, with synchronous messaging, the queue holds up to ___ message(s) - O
+a=one
+a=1
+
+q=Where multiple messages are on the queue and each is processed independently, that is ___ messaging - AWS
+a=asynchronous
+
+q=In terms of ordering, queues can be either ___ or ___ - F,   S
+a=fifo,standard
+a=standard,fifo
+

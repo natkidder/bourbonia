@@ -1,0 +1,66 @@
+q=An alternative to EC2 is ___ computing - S
+a=serverless
+
+q=With serverless computing, you focus simply on ___ instead of on ___ - C,  S
+a=code,servers
+
+q=AWS's main serverless service is called ___ - L
+a=lambda
+
+q=With lambda, you pay only when your ___, and that happens only when a(n) ___ - C I R,   E I T  like a car and ignition
+a=code is running,event is triggered
+
+q=Containers remain ___ regardless of deployment and enable you to deploy code in a single ___ - C,   O
+a=constent,object
+
+q=An application can be deployed over ___ in terms of scale - M C
+a=multiple containers
+
+q=Thus one needs container ___ - O
+a=orchestration
+
+q=___ helps orchestrate containerized applications - E C S
+a=elastic container service
+
+q=ECS supports ___, both open-source and subscription-based - D  like the khakis
+a=docker
+
+q=The main components ECS supports are ___ and ___ - C,   E
+a=clusters,events
+
+q=___ is a plug-in for a popular orchestration engine - EKS
+a=Elastic Kubernetes Service
+
+q=Kubernetes is ___ as opposed to proprietary - O S
+a=open-source
+
+q=___ takes care of server maintenance and provisioning - F
+a=fargate
+
+q=Fargate works with both ___ and ___ - E,   E
+a=ECS,EKS
+a=EKS,ECS
+a=elastic container services, elastic kubernetes services
+a=elastic kubernetes services, elastic container services
+
+q=With Fargate, a ___ definition sets up the container - T
+a=task
+
+q=With EC2, you ___ a container instance, but with ___ you lease it, billed by ___, from Amazon - O,   F,   U
+a=own,fargate,usage
+
+q=With Fargate, you need think about only the ___ and their ___ - A,   A
+a=applications,apis
+a=applications,api's
+
+q=One launches tasks using a ___ command - C
+a=cli
+
+q=___ enables easy deployment of Docker images - E C R
+a=elastic container registry
+
+q=ECR works with ___ and ___, even though both are substitutes for each other - E,   E
+a=ECS,EKS
+a=elastic container services, elastic kubernetes services
+a=elastic kubernetes services, elastic container services
+

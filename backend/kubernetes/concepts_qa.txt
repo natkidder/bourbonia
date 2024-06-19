@@ -1,0 +1,52 @@
+q=You use Kubernetes to reliably ___ and ___ your applications in the cloud - B,   D
+a=build,distribute
+
+q=Kubernetes is ___ from an ownership perspective - O-S
+a=open-source
+
+q=It makes it easy to launch ___, distribute them across ___ and setup ___ - C R,   M P H,   N
+a=container replicas,multiple physical hosts,networking
+
+q=While Docker is focused on ___, Kubernetes is a(n) ____ for deploying containers ___ - B A R C,   O,   A S
+a=building and running containers,orchestrator,at scale
+
+q=Docker ___ is similar to Kubernetes - S M
+a=swarm mode
+
+q=A Kubernetes environment is called a ___, which includes one or more ___ - C
+a=cluster,nodes
+
+q=A node runs ___ and be a ___ or ___ machine - C,   P,   V
+a=containers,physical,virtual
+a=containers,virtual,physical
+
+q=A container is AKA a(n) ___ - P
+a=pod
+
+q=The ___ coordinates the entire cluster's operations - C P
+a=control plane
+
+q=You interact with the a Kubernetes cluster via - K-A
+a=kube-apiserver
+
+q=A ___ applies actions after changes in your cluster in response to - C,   E
+a=controller,events
+
+q=A kube-scheduler assigns new ___ onto your cluster ___ - C,   N
+a=containers,nodes
+a=pods,nodes
+
+q=A ___ connects nodes with the control plane - K
+a=kubelet
+
+q=A kubelete also pulls ___ and starts ___ - I,   C
+a=images,containers
+a=images,pods
+
+q=___ configures the host's networking system so traffic can reach your ___ - K-P,   C
+a=kube-proxy,cluster
+
+q=___ is the command-line language - K
+a=kubectl
+
+

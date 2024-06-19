@@ -1,0 +1,46 @@
+# from https://docs.confluent.io/kafka/introduction.html
+
+q=A(n) ___ reads events from Kafka - C
+a=consumer
+a=subscriber
+
+q=A consumer's desired ___ determines from how far back it reads messages - O
+a=offset
+
+q=Such an offset is a property of the ___ and it enables reading after a(n) ___ - M,   I
+a=message,interruption
+
+q=To efficienty pull a message, specify its ___ - K
+a=key
+
+q=Kafka messages are not ___ after they are consumed - D
+a=deleted
+
+q=Consumers are placed into ___ to enable ___ message reading within each one - G,   A
+a=groups,asynchronous
+
+q=Each consumer in a group is assigned one or more ___ - P T R
+a=partitions to read
+
+q=A consumer can also be a(n) ___ - P
+a=producer
+
+q=But in such a dual role, it would need to send the message to a(n) ___ - D T
+a=different topic
+
+q=When a consumer is assigned to a partition, it reads the messages ___ as ___ - I T S O,   T W W
+a=in the same order,they were written
+
+q=Message replication, for fault tolerance, is done at the ___ level - T P
+a=topic partition
+
+q=___ move data in and out of Kafka, and act as leeways to ___ - C,   E S
+a=connectors,external systems
+a=connectors,external nodes
+
+q=A(n) ___ connector acts as a producer, and a(n) ___ acts as a producer - S,   S
+a=source, sink
+
+q=Kafka ___ are useful for stateful messaging and message ___ - S,   T
+a=streams,transformation
+

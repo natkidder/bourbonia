@@ -1,0 +1,49 @@
+q=A(n) ___ is a storage volume that acts as a physical hard drive - I S
+a=instance store
+
+q=The instance store holds data for a cohabitating ___ instance - E
+a=EC2
+
+q=The data has ___ scope, so the instance store is good for ___ data - E I,   T
+a=EC2 instance,temporary
+
+q=Instance stores utilize ___ storage, so minor updates to an entire file affect only that ___ - B,   B
+a=block,block
+
+q=___ on the other hand, provides storage volumes (partitions) ___ from the EC2 instance - E B S,   S
+a=elastic block store, separate
+
+q=EBS data is ___, but you must perform incremental backups via ___ - P,   E S
+a=persistent,EBS snapshots
+
+q=___ or S3, stores ___ and other kinds of objects - S S S,  F
+a=simple storage service
+
+q=S3 stores objects in ___, and you can ___ those objects - B,   V
+a=buckets,version
+
+q=Data that is retrieved frequently is stored in the ___ tier - S,   T
+a=standard,three
+a=standard,3
+
+q=There is a variation of standard called ___ - I A
+a=infrequent access
+
+q=Warehoused and WORM data is stored in S3 ___ - G
+a=glacier
+
+q=The cheapest and most latent data is stored in ___ - G D A
+a=glacier deep archive
+
+q=The less fast the tier, the fewer ___ the data is stored in - A Z
+a=availability zones
+
+q=___ is better for parsable or frequently-updated entities, whereas ___ is better for ___ - E,   S,   F R
+a=EBS,S3,fast retrieval
+
+q=___ stores entities like Unix or DOS, referencing them by their ___ - E F S,   P
+a=elastic file system,path
+
+q=It stores its data in ___ availability zone(s) and ___ it does NOT disrupt applications - M,   S
+a=many,scaling
+
