@@ -1,0 +1,4 @@
+java -Djavax.net.ssl.trustStore=/home/kalin/.keystore \
+       -Djavax.net.ssl.trustStorePassword=changeit       \
+       -Djavax.net.ssl.keyStore=/home/kalin/.keystore   \
+       -Djavax.net.ssl.keyStorePassword=changeit ClientTC

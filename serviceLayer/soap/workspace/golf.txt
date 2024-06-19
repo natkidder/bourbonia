@@ -1,0 +1,949 @@
+
+
+==================== ./mtom-soap-client/bin/log4j.xml ========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %c %x - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="org.apache">
+        <level value="info" />
+    </logger>
+
+    <logger name="ru.forketyfork">
+        <level value="debug" />
+    </logger>
+
+    <!-- Root Logger -->
+    <root>
+        <priority value="info" />
+        <appender-ref ref="console" />
+    </root>
+
+</log4j:configuration>
+==================== ./mtom-soap-client/build.gradle ========================
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'log4j:log4j:1.2.16'
+    compile 'ru.forketyfork:mtom-soap-common:4.0.0'
+    compile 'org.apache.cxf:cxf-api:2.7.14'
+    compile 'org.apache.cxf:cxf-rt-transports-http:3.0.3'
+    compile 'org.apache.cxf:cxf-rt-frontend-jaxws:3.0.3'
+}
+
+jar  {
+	basename 'mtom-soap-client'
+	appendix 'ru.forketyfork'
+	version '0.0.1-SNAPSHOT'
+	extension 'jar'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+==================== ./mtom-soap-client/README_msc ========================
+
+from:   http://forketyfork.blogspot.com/2013/07/sending-large-attachments-via-soap-and.html
+==================== ./mtom-soap-client/src/main/java/ru/forketyfork/mtomsoap/client/SampleClient.java ========================
+
+package ru.forketyfork.mtomsoap.client;
+
+import org.apache.cxf.frontend.ClientProxy;
+import org.apache.cxf.transport.http.HTTPConduit;
+import org.apache.cxf.transports.http.configuration.HTTPClientPolicy;
+import ru.forketyfork.mtomsoap.schema.Sample;
+import ru.forketyfork.mtomsoap.schema.SampleRequest;
+import ru.forketyfork.mtomsoap.schema.SampleResponse;
+import ru.forketyfork.mtomsoap.schema.SampleService;
+
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.soap.SOAPBinding;
+
+/**
+ * A sample service client that uses Apache CXF.
+ *
+ *
+ * @author Serge Petunin
+ * @created 22.06.13 2:46
+ */
+public class SampleClient {
+
+    public static void main(String... args) {
+
+        if (args.length != 1) {
+            System.out.println("Filename argument expected");
+            return;
+        }
+
+        // Creating a CXF-generated service
+        Sample sampleClient = new SampleService().getSampleSoap12();
+
+        // Setting infinite HTTP timeouts
+        HTTPClientPolicy httpClientPolicy = new HTTPClientPolicy();
+        httpClientPolicy.setConnectionTimeout(0);
+        httpClientPolicy.setReceiveTimeout(0);
+        HTTPConduit httpConduit = (HTTPConduit) ClientProxy.getClient(sampleClient).getConduit();
+        httpConduit.setClient(httpClientPolicy);
+
+        // Enabling MTOM for the SOAP binding provider
+        BindingProvider bindingProvider = (BindingProvider) sampleClient;
+        SOAPBinding binding = (SOAPBinding) bindingProvider.getBinding();
+        binding.setMTOMEnabled(true);
+
+        // Creating request object
+        SampleRequest request = new SampleRequest();
+        request.setText("Hello");
+        request.setFile(new DataHandler(new FileDataSource(args[0])));
+
+        // Sending request
+        SampleResponse response = sampleClient.sample(request);
+
+        System.out.println(String.format("Server responded: \"%s\"", response.getText()));
+
+    }
+}
+
+==================== ./mtom-soap-client/src/main/resources/log4j.xml ========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %c %x - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="org.apache">
+        <level value="info" />
+    </logger>
+
+    <logger name="ru.forketyfork">
+        <level value="debug" />
+    </logger>
+
+    <!-- Root Logger -->
+    <root>
+        <priority value="info" />
+        <appender-ref ref="console" />
+    </root>
+
+</log4j:configuration>
+==================== ./mtom-soap-common/build/generated-sources/cxf/ru/forketyfork/mtomsoap/schema/ObjectFactory.java ========================
+
+
+package ru.forketyfork.mtomsoap.schema;
+
+import javax.xml.bind.annotation.XmlRegistry;
+
+
+/**
+ * This object contains factory methods for each 
+ * Java content interface and Java element interface 
+ * generated in the ru.forketyfork.mtomsoap.schema package. 
+ * <p>An ObjectFactory allows you to programatically 
+ * construct new instances of the Java representation 
+ * for XML content. The Java representation of XML 
+ * content can consist of schema derived interfaces 
+ * and classes representing the binding of schema 
+ * type definitions, element declarations and model 
+ * groups.  Factory methods for each of these are 
+ * provided in this class.
+ * 
+ */
+@XmlRegistry
+public class ObjectFactory {
+
+
+    /**
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ru.forketyfork.mtomsoap.schema
+     * 
+     */
+    public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link SampleRequest }
+     * 
+     */
+    public SampleRequest createSampleRequest() {
+        return new SampleRequest();
+    }
+
+    /**
+     * Create an instance of {@link SampleResponse }
+     * 
+     */
+    public SampleResponse createSampleResponse() {
+        return new SampleResponse();
+    }
+
+}
+
+==================== ./mtom-soap-common/build/generated-sources/cxf/ru/forketyfork/mtomsoap/schema/package-info.java ========================
+
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://forketyfork.ru/mtomsoap/schema", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+package ru.forketyfork.mtomsoap.schema;
+
+==================== ./mtom-soap-common/build/generated-sources/cxf/ru/forketyfork/mtomsoap/schema/SampleRequest.java ========================
+
+
+package ru.forketyfork.mtomsoap.schema;
+
+import javax.activation.DataHandler;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlMimeType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Java class for anonymous complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType>
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="text" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="file" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = {
+    "text",
+    "file"
+})
+@XmlRootElement(name = "SampleRequest")
+public class SampleRequest {
+
+    @XmlElement(required = true)
+    protected String text;
+    @XmlElement(required = true)
+    @XmlMimeType("*/*")
+    protected DataHandler file;
+
+    /**
+     * Gets the value of the text property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getText() {
+        return text;
+    }
+
+    /**
+     * Sets the value of the text property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setText(String value) {
+        this.text = value;
+    }
+
+    /**
+     * Gets the value of the file property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DataHandler }
+     *     
+     */
+    public DataHandler getFile() {
+        return file;
+    }
+
+    /**
+     * Sets the value of the file property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DataHandler }
+     *     
+     */
+    public void setFile(DataHandler value) {
+        this.file = value;
+    }
+
+}
+
+==================== ./mtom-soap-common/build/generated-sources/cxf/ru/forketyfork/mtomsoap/schema/SampleResponse.java ========================
+
+
+package ru.forketyfork.mtomsoap.schema;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Java class for anonymous complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType>
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;attribute name="text" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "")
+@XmlRootElement(name = "SampleResponse")
+public class SampleResponse {
+
+    @XmlAttribute(name = "text")
+    protected String text;
+
+    /**
+     * Gets the value of the text property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getText() {
+        return text;
+    }
+
+    /**
+     * Sets the value of the text property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setText(String value) {
+        this.text = value;
+    }
+
+}
+
+==================== ./mtom-soap-common/build/resources/main/schema.xsd ========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<s:schema elementFormDefault="qualified"
+          targetNamespace="http://forketyfork.ru/mtomsoap/schema"
+          xmlns:s="http://www.w3.org/2001/XMLSchema"
+          xmlns:xmime="http://www.w3.org/2005/05/xmlmime">
+
+    <s:element name="SampleRequest">
+        <s:annotation>
+            <s:documentation>Service request</s:documentation>
+        </s:annotation>
+        <s:complexType>
+            <s:sequence>
+                <s:element name="text" type="s:string" />
+                <s:element name="file" type="s:base64Binary" xmime:expectedContentTypes="*/*" />
+            </s:sequence>
+        </s:complexType>
+    </s:element>
+
+    <s:element name="SampleResponse">
+        <s:annotation>
+            <s:documentation>Service response</s:documentation>
+        </s:annotation>
+        <s:complexType>
+            <s:attribute name="text" type="s:string" />
+        </s:complexType>
+    </s:element>
+
+</s:schema>
+==================== ./mtom-soap-common/build/resources/main/service.wsdl ========================
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:tns="http://forketyfork.ru/mtomsoap/schema"
+                  targetNamespace="http://forketyfork.ru/mtomsoap/schema">
+
+    <wsdl:types>
+        <s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" >
+            <s:import namespace="http://forketyfork.ru/mtomsoap/schema" schemaLocation="schema.xsd" />
+        </s:schema>
+    </wsdl:types>
+
+    <wsdl:message name="SampleRequest">
+        <wsdl:part element="tns:SampleRequest" name="SampleRequest">
+        </wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="SampleResponse">
+        <wsdl:part element="tns:SampleResponse" name="SampleResponse">
+        </wsdl:part>
+    </wsdl:message>
+
+    <wsdl:portType name="Sample">
+        <wsdl:operation name="Sample">
+            <wsdl:input message="tns:SampleRequest" name="SampleRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:SampleResponse" name="SampleResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="SampleSoap12" type="tns:Sample">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Sample">
+            <soap12:operation soapAction=""/>
+            <wsdl:input name="SampleRequest">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SampleResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="SampleService">
+        <wsdl:port binding="tns:SampleSoap12" name="SampleSoap12">
+            <soap12:address location="http://localhost:8080/server/"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
+==================== ./mtom-soap-common/build.gradle ========================
+
+// from http://javanils.blogspot.com/2013/02/generate-java-from-wsdl-with-gradle.html
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	ext.jodatimeVersion = '2.5'
+	ext.cxfVersion = '3.0.3'
+	ext.log4jVersion = '1.2.16'
+	compile "joda-time:joda-time:$jodatimeVersion"
+	compile "org.apache.cxf:cxf-tools:$cxfVersion",
+		"org.apache.cxf:cxf-tools-wsdlto-databinding-jaxb:$cxfVersion",
+		"org.apache.cxf:cxf-tools-wsdlto-frontend-jaxws:$cxfVersion"
+//		"log4j:log4j:$log4jVersion"
+//	jar [something]
+}
+
+jar  {
+//	dependsOn fatJar
+	baseName = 'mtom-soap-common'
+	appendix = 'ru.forketyfork'
+	version - '0.0.1-SNAPSHOT'
+	extension = 'jar'
+//	into('libs') {		from build.generate-sources.cxf.ru.forketyfork.mtomsoap.schema	}
+//	includes = "${projectDir}/build/**"
+//	from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	from sourceSets.main.allJava
+//	from ("{projectDir}/build/generated-sources/cxf") {
+//		include("**")
+//	}	
+}
+configurations {}
+task fatJar(type: Jar) {
+    appendix = "fat"
+    from sourceSets.main.allJava // that's it
+ //   include '**/*.class'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+project.ext {
+	generatedWsdlDir = file("build/generated-sources")
+	wsdlDir = file("src/main/resources")
+	wsdlFile = file("service.wsdl")
+	wsdlsToGenerate =[
+		['-xjc', '-b', "$wsdlDir/serializable_binding.xml", "$wsdlDir/mywsdl1.wsdl.xml"],
+		['-xjc', '-b', "$wsdlDir/some_binding.xml", "$wsdlDir/mywsdl2.xml"],
+		['-xjc', '-b', "$wsdlDir/joda_binding.xml", "$wsdlDir/mywsdl3.wsdl.xml"],
+		// 55 more wsdls
+	]
+}
+ 
+ // can also use something like $JAVA_HOME/bin>wsimport.exe -keep http://localhost:8888/webserive/helloworld?wsdl -d F:\nikos7\Desktop
+ // wsimport.exe -keep c:\nat\training\soap\workspace\mtom-soap-common\src\main\resources\service.wsdl -d c:\nat\training\soap\workspace\mtom-soap-common\build\generated-sources\cxf
+task wsdl2Java() {
+	def generatedWsdlDir = file("build/generated-sources")
+	def wsdlDir = file("src/main/resources")
+	def wsdlFile = file("service.wsdl")
+	inputs.files wsdlDir.listFiles()
+	outputs.files generatedWsdlDir
+	doLast {
+//		wsdlsToGenerate.each { 
+//			wsdlFile ->	createJavaFromWsdl(wsdlFile, generatedWsdlDir)
+			createJavaFromWsdl(wsdlFile, generatedWsdlDir)
+//		}
+	}
+}
+ 
+def createJavaFromWsdl(arguments, destinationDir) {
+	arguments.add(arguments.size - 1, '-d')
+	arguments.add(arguments.size - 1, generatedWsdlDir)
+	println "Processing " + arguments[arguments.size - 1]
+	javaexec {
+		main = 'org.apache.cxf.tools.wsdlto.WSDLToJava'
+		classpath = configurations.runtime
+		args arguments
+	}
+} 
+
+==================== ./mtom-soap-common/src/main/resources/schema.xsd ========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<s:schema elementFormDefault="qualified"
+          targetNamespace="http://forketyfork.ru/mtomsoap/schema"
+          xmlns:s="http://www.w3.org/2001/XMLSchema"
+          xmlns:xmime="http://www.w3.org/2005/05/xmlmime">
+
+    <s:element name="SampleRequest">
+        <s:annotation>
+            <s:documentation>Service request</s:documentation>
+        </s:annotation>
+        <s:complexType>
+            <s:sequence>
+                <s:element name="text" type="s:string" />
+                <s:element name="file" type="s:base64Binary" xmime:expectedContentTypes="*/*" />
+            </s:sequence>
+        </s:complexType>
+    </s:element>
+
+    <s:element name="SampleResponse">
+        <s:annotation>
+            <s:documentation>Service response</s:documentation>
+        </s:annotation>
+        <s:complexType>
+            <s:attribute name="text" type="s:string" />
+        </s:complexType>
+    </s:element>
+
+</s:schema>
+==================== ./mtom-soap-common/src/main/resources/service.wsdl ========================
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:tns="http://forketyfork.ru/mtomsoap/schema"
+                  targetNamespace="http://forketyfork.ru/mtomsoap/schema">
+
+    <wsdl:types>
+        <s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" >
+            <s:import namespace="http://forketyfork.ru/mtomsoap/schema" schemaLocation="schema.xsd" />
+        </s:schema>
+    </wsdl:types>
+
+    <wsdl:message name="SampleRequest">
+        <wsdl:part element="tns:SampleRequest" name="SampleRequest">
+        </wsdl:part>
+    </wsdl:message>
+
+    <wsdl:message name="SampleResponse">
+        <wsdl:part element="tns:SampleResponse" name="SampleResponse">
+        </wsdl:part>
+    </wsdl:message>
+
+    <wsdl:portType name="Sample">
+        <wsdl:operation name="Sample">
+            <wsdl:input message="tns:SampleRequest" name="SampleRequest">
+            </wsdl:input>
+            <wsdl:output message="tns:SampleResponse" name="SampleResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="SampleSoap12" type="tns:Sample">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Sample">
+            <soap12:operation soapAction=""/>
+            <wsdl:input name="SampleRequest">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SampleResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="SampleService">
+        <wsdl:port binding="tns:SampleSoap12" name="SampleSoap12">
+            <soap12:address location="http://localhost:8080/server/"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
+==================== ./mtom-soap-server/bin/log4j.xml ========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %c %x - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="org.springframework">
+        <level value="info" />
+    </logger>
+
+    <logger name="ru.forketyfork">
+        <level value="debug" />
+    </logger>
+
+    <!-- Root Logger -->
+    <root>
+        <priority value="info" />
+        <appender-ref ref="console" />
+    </root>
+
+</log4j:configuration>
+==================== ./mtom-soap-server/bin/META-INF/MANIFEST.MF ========================
+
+Manifest-Version: 1.0
+Class-Path: 
+
+
+==================== ./mtom-soap-server/bin/settings.properties ========================
+
+# the path to save uploaded attachments
+upload.path=${catalina.home}/temp/
+==================== ./mtom-soap-server/bin/WEB-INF/dispatcher-servlet.xml ========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!-- To substitute settings placeholders  -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="classpath:settings.properties"/>
+
+    <!-- The service bean -->
+    <bean class="ru.forketyfork.mtomsoap.server.SampleServiceEndpoint" p:uploadPath="${upload.path}"/>
+
+    <!-- SAAJ message factory configured for SOAP v1.2 -->
+    <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"
+          p:soapVersion="#{T(org.springframework.ws.soap.SoapVersion).SOAP_12}"/>
+
+    <!-- JAXB2 Marshaller configured for MTOM -->
+    <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller"
+          p:contextPath="ru.forketyfork.mtomsoap.schema"
+          p:mtomEnabled="true"/>
+
+    <!-- Endpoint mapping for the @PayloadRoot annotation -->
+    <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping" />
+
+    <!-- Endpoint adapter to marshal endpoint method arguments and return values as JAXB2 objects -->
+    <bean class="org.springframework.ws.server.endpoint.adapter.DefaultMethodEndpointAdapter">
+        <property name="methodArgumentResolvers">
+            <list>
+                <ref bean="marshallingPayloadMethodProcessor" />
+            </list>
+        </property>
+        <property name="methodReturnValueHandlers">
+            <list>
+                <ref bean="marshallingPayloadMethodProcessor" />
+            </list>
+        </property>
+    </bean>
+
+    <!-- JAXB@ Marshaller/Unmarshaller for method arguments and return values -->
+    <bean id="marshallingPayloadMethodProcessor" class="org.springframework.ws.server.endpoint.adapter.method.MarshallingPayloadMethodProcessor">
+        <constructor-arg ref="jaxb2Marshaller" />
+    </bean>
+
+</beans>
+==================== ./mtom-soap-server/build.gradle ========================
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	ext.log4jVersion = '1.2.16'
+    compile "org.springframework.ws:spring-ws:1.5.2", "log4j:log4j:$log4jVersion", "org.springframework.ws:spring-ws-core:2.0.0-M1",
+    	"org.springframework:spring-web:3.0.4.RELEASE"
+    //compile group: 'org.jvnet', name: 'mimepull', version: '1.6'
+    //testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+==================== ./mtom-soap-server/readme_mss.txt ========================
+
+from http://forketyfork.blogspot.com/2013/07/sending-large-attachments-via-soap-and.html
+
+ensure you have these:
+
+./src/main/webapp/WEB-INF/lib/org.springframework.web-3.1.0.M2.jar
+./src/main/webapp/WEB-INF/lib/spring-ws-2.1.2.RELEASE-all.jar
+
+They don't come over via gradle
+==================== ./mtom-soap-server/src/main/java/ru/forketyfork/mtomsoap/server/SampleServiceEndpoint.java ========================
+
+package ru.forketyfork.mtomsoap.server;
+
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
+import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
+import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import ru.forketyfork.mtomsoap.schema.SampleRequest;
+import ru.forketyfork.mtomsoap.schema.SampleResponse;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.UUID;
+
+/**
+ * @author Serge Petunin
+ * @created 22.06.13 1:15
+ */
+@Endpoint
+public class SampleServiceEndpoint {
+
+    /** The path to upload received files. */
+    private String uploadPath;
+
+    @PayloadRoot(namespace = "http://forketyfork.ru/mtomsoap/schema", localPart = "SampleRequest")
+    @ResponsePayload
+    public SampleResponse serve(@RequestPayload SampleRequest request) throws IOException {
+
+        // randomly generating file name as a UUID
+        String fileName = UUID.randomUUID().toString();
+        File file = new File(uploadPath + File.separator + fileName);
+
+        // writing attachment to file
+        try(FileOutputStream fos = new FileOutputStream(file)) {
+            request.getFile().writeTo(fos);
+        }
+
+        // constructing the response
+        SampleResponse response = new SampleResponse();
+        response.setText(String.format("Hi, just received a %d byte file from ya, saved with id = %s",
+                file.length(), fileName));
+
+        return response;
+    }
+
+    public void setUploadPath(String uploadPath) {
+        this.uploadPath = uploadPath;
+    }
+
+}
+
+==================== ./mtom-soap-server/src/main/java/ru/forketyfork/mtomsoap/server/SampleServiceInitializer.java ========================
+
+package ru.forketyfork.mtomsoap.server;
+
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.ws.transport.http.MessageDispatcherServlet;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
+
+/**
+ * Spring web app initializer that replaces the web.xml
+ *
+ * @author Serge Petunin
+ * @created 22.06.13 1:24
+ */
+public class SampleServiceInitializer implements WebApplicationInitializer {
+
+    @Override
+    public void onStartup(ServletContext container) {
+        ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher", new MessageDispatcherServlet());
+        dispatcher.setLoadOnStartup(1);
+        dispatcher.addMapping("/*");
+    }
+
+}
+==================== ./mtom-soap-server/src/main/resources/log4j.xml ========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%t] %-5p %c %x - %m%n" />
+        </layout>
+    </appender>
+
+    <logger name="org.springframework">
+        <level value="info" />
+    </logger>
+
+    <logger name="ru.forketyfork">
+        <level value="debug" />
+    </logger>
+
+    <!-- Root Logger -->
+    <root>
+        <priority value="info" />
+        <appender-ref ref="console" />
+    </root>
+
+</log4j:configuration>
+==================== ./mtom-soap-server/src/main/resources/settings.properties ========================
+
+# the path to save uploaded attachments
+upload.path=${catalina.home}/temp/
+==================== ./mtom-soap-server/src/main/webapp/META-INF/MANIFEST.MF ========================
+
+Manifest-Version: 1.0
+Class-Path: 
+
+
+==================== ./mtom-soap-server/src/main/webapp/WEB-INF/dispatcher-servlet.xml ========================
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!-- To substitute settings placeholders  -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="classpath:settings.properties"/>
+
+    <!-- The service bean -->
+    <bean class="ru.forketyfork.mtomsoap.server.SampleServiceEndpoint" p:uploadPath="${upload.path}"/>
+
+    <!-- SAAJ message factory configured for SOAP v1.2 -->
+    <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"
+          p:soapVersion="#{T(org.springframework.ws.soap.SoapVersion).SOAP_12}"/>
+
+    <!-- JAXB2 Marshaller configured for MTOM -->
+    <bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller"
+          p:contextPath="ru.forketyfork.mtomsoap.schema"
+          p:mtomEnabled="true"/>
+
+    <!-- Endpoint mapping for the @PayloadRoot annotation -->
+    <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping" />
+
+    <!-- Endpoint adapter to marshal endpoint method arguments and return values as JAXB2 objects -->
+    <bean class="org.springframework.ws.server.endpoint.adapter.DefaultMethodEndpointAdapter">
+        <property name="methodArgumentResolvers">
+            <list>
+                <ref bean="marshallingPayloadMethodProcessor" />
+            </list>
+        </property>
+        <property name="methodReturnValueHandlers">
+            <list>
+                <ref bean="marshallingPayloadMethodProcessor" />
+            </list>
+        </property>
+    </bean>
+
+    <!-- JAXB@ Marshaller/Unmarshaller for method arguments and return values -->
+    <bean id="marshallingPayloadMethodProcessor" class="org.springframework.ws.server.endpoint.adapter.method.MarshallingPayloadMethodProcessor">
+        <constructor-arg ref="jaxb2Marshaller" />
+    </bean>
+
+</beans>

@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+  <role rolename="bigshot"/>
+  <role rolename="tomcat"/>
+  <user username="tomcat" password="tomcat" roles="tomcat"/>
+  <user username="fred" 
+	password="4b177c8995e6b0fa796581ac191f256545f0b8c5" 
+	roles="bigshot"/>
+</tomcat-users>

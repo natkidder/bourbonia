@@ -1,0 +1,15 @@
+#Tue Jan 10 14:40:29 EST 2012
+eclipse.preferences.version=1
+encoding//src/org/csapi/www/schema/parlayx/common/v2_1/PolicyException.java=UTF-8
+encoding//src/org/csapi/www/schema/parlayx/common/v2_1/ServiceError.java=UTF-8
+encoding//src/org/csapi/www/schema/parlayx/common/v2_1/ServiceException.java=UTF-8
+encoding//src/org/csapi/www/schema/parlayx/common/v2_1/TimeMetric.java=UTF-8
+encoding//src/org/csapi/www/schema/parlayx/common/v3_0/TimeMetrics.java=UTF-8
+encoding//src/org/csapi/www/schema/parlayx/terminal_location/v2_2/DelayTolerance.java=UTF-8
+encoding//src/org/csapi/www/schema/parlayx/terminal_location/v2_2/LocationData.java=UTF-8
+encoding//src/org/csapi/www/schema/parlayx/terminal_location/v2_2/LocationInfo.java=UTF-8
+encoding//src/org/csapi/www/schema/parlayx/terminal_location/v2_2/RetrievalStatus.java=UTF-8
+encoding//src/org/csapi/www/wsdl/parlayx/terminal_location/v3_0/service/TerminalLocation.java=UTF-8
+encoding//src/org/csapi/www/wsdl/parlayx/terminal_location/v3_0/service/TerminalLocationService.java=UTF-8
+encoding//src/org/csapi/www/wsdl/parlayx/terminal_location/v3_0/service/TerminalLocationServiceLocator.java=UTF-8
+encoding//src/org/csapi/www/wsdl/parlayx/terminal_location/v3_0/service/TerminalLocationSoapBindingStub.java=UTF-8

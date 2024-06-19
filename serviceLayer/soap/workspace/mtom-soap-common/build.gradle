@@ -1,0 +1,101 @@
+// from http://javanils.blogspot.com/2013/02/generate-java-from-wsdl-with-gradle.html
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	ext.jodatimeVersion = '2.5'
+	ext.cxfVersion = '3.0.3'
+	ext.log4jVersion = '1.2.16'
+	compile "joda-time:joda-time:$jodatimeVersion"
+	compile "org.apache.cxf:cxf-tools:$cxfVersion",
+		"org.apache.cxf:cxf-tools-wsdlto-databinding-jaxb:$cxfVersion",
+		"org.apache.cxf:cxf-tools-wsdlto-frontend-jaxws:$cxfVersion"
+//		"log4j:log4j:$log4jVersion"
+//	jar [something]
+}
+
+jar  {
+//	dependsOn fatJar
+	baseName = 'mtom-soap-common'
+	appendix = 'ru.forketyfork'
+	version - '0.0.1-SNAPSHOT'
+	extension = 'jar'
+//	into('libs') {		from build.generate-sources.cxf.ru.forketyfork.mtomsoap.schema	}
+//	includes = "${projectDir}/build/**"
+//	from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+	from sourceSets.main.allJava
+//	from ("{projectDir}/build/generated-sources/cxf") {
+//		include("**")
+//	}	
+}
+configurations {}
+task fatJar(type: Jar) {
+    appendix = "fat"
+    from sourceSets.main.allJava // that's it
+ //   include '**/*.class'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+project.ext {
+	generatedWsdlDir = file("build/generated-sources")
+	wsdlDir = file("src/main/resources")
+	wsdlFile = file("service.wsdl")
+	wsdlsToGenerate =[
+		['-xjc', '-b', "$wsdlDir/serializable_binding.xml", "$wsdlDir/mywsdl1.wsdl.xml"],
+		['-xjc', '-b', "$wsdlDir/some_binding.xml", "$wsdlDir/mywsdl2.xml"],
+		['-xjc', '-b', "$wsdlDir/joda_binding.xml", "$wsdlDir/mywsdl3.wsdl.xml"],
+		// 55 more wsdls
+	]
+}
+ 
+ // can also use something like $JAVA_HOME/bin>wsimport.exe -keep http://localhost:8888/webserive/helloworld?wsdl -d F:\nikos7\Desktop
+ // wsimport.exe -keep c:\nat\training\soap\workspace\mtom-soap-common\src\main\resources\service.wsdl -d c:\nat\training\soap\workspace\mtom-soap-common\build\generated-sources\cxf
+task wsdl2Java() {
+	def generatedWsdlDir = file("build/generated-sources")
+	def wsdlDir = file("src/main/resources")
+	def wsdlFile = file("service.wsdl")
+	inputs.files wsdlDir.listFiles()
+	outputs.files generatedWsdlDir
+	doLast {
+//		wsdlsToGenerate.each { 
+//			wsdlFile ->	createJavaFromWsdl(wsdlFile, generatedWsdlDir)
+			createJavaFromWsdl(wsdlFile, generatedWsdlDir)
+//		}
+	}
+}
+ 
+def createJavaFromWsdl(arguments, destinationDir) {
+	arguments.add(arguments.size - 1, '-d')
+	arguments.add(arguments.size - 1, generatedWsdlDir)
+	println "Processing " + arguments[arguments.size - 1]
+	javaexec {
+		main = 'org.apache.cxf.tools.wsdlto.WSDLToJava'
+		classpath = configurations.runtime
+		args arguments
+	}
+} 

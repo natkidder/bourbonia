@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" path="src/main/webapp"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-ws/1.5.2/75f655569de936365c905cbb6c8af2b848a4614f/spring-ws-1.5.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.16/7999a63bfccbc7c247a9aea10d83d4272bd492c6/log4j-1.2.16.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/log4j/log4j/1.2.16/bf945d1dc995be7fe64923625f842fbb6bf443be/log4j-1.2.16-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-ws-core/2.0.0-M1/355c644eb4f545f40a2f2ff4392da3b16d90042b/spring-ws-core-2.0.0-M1.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-ws-core/2.0.0-M1/1f88cd6b9f7009f3f1eb32b8c67e41e1197d1f54/spring-ws-core-2.0.0-M1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/3.0.4.RELEASE/206a5d15710c7e4ffaace3713199efe87a1ba139/spring-web-3.0.4.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/3.0.4.RELEASE/cd5825de5c354736655d1da07e01360fbf9caf3f/spring-web-3.0.4.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.1/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.1/f3f156cbff0e0fb0d64bfce31a352cce4a33bc19/commons-logging-1.1.1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-xml/2.0.0-M1/bd33b8c979512cb142e3fe406f652018c15aebc3/spring-xml-2.0.0-M1.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework.ws/spring-xml/2.0.0-M1/b24b406ec55c33fb0cb14b11f17dc65f96f6153d/spring-xml-2.0.0-M1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/3.0.1.RELEASE/b81bf298b2d53137fc96211a3cac6ef80261efe3/spring-oxm-3.0.1.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/3.0.1.RELEASE/a350b794ba12b8db0b80b2da3c9ddf0080018a51/spring-oxm-3.0.1.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/3.0.1.RELEASE/bbe958c46d7625f13deeb1faef97b4157f8ecd26/spring-webmvc-3.0.1.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/3.0.1.RELEASE/f1819d7a03c847e43bca4c8b5c9870cff9b87ca1/spring-webmvc-3.0.1.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/wsdl4j/wsdl4j/1.6.1/9e9cee064ec2c9c01e0cd6b8bffd1a7013d81f65/wsdl4j-1.6.1.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/wsdl4j/wsdl4j/1.6.1/a1b6a37d5c513582edfd7c7e4378411950440396/wsdl4j-1.6.1-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/4a4b6d692e17846a9f3da036438a7ac491d3c814/aopalliance-1.0-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/3.0.4.RELEASE/de16069fb37496888ffc0cebcd3bf49f0bc31b46/spring-core-3.0.4.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/3.0.4.RELEASE/20e241f0b3a0aa6a05f3ce24e29d3ea2f6843925/spring-core-3.0.4.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/3.0.4.RELEASE/828bb1a53797318c8764a03279d7f8055e94a945/spring-beans-3.0.4.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/3.0.4.RELEASE/701a54a723d6fc01b450625541c239f684e59fbf/spring-beans-3.0.4.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/3.0.4.RELEASE/1d1fb13d74ad2ee349bcc6c0faae70278294bac/spring-context-3.0.4.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/3.0.4.RELEASE/210438b74435a5945860c775cc97d0682c2a0333/spring-context-3.0.4.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-asm/3.0.4.RELEASE/81599c7a01daba6a4e720cee71e0b1d4dbf0425e/spring-asm-3.0.4.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-asm/3.0.4.RELEASE/404e8ec0bc09781e396f90a8c2c25838af95a20e/spring-asm-3.0.4.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/3.0.4.RELEASE/4d950a7fa9699be3a8d0b7d2a54963473568fb5d/spring-aop-3.0.4.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/3.0.4.RELEASE/91c6afc4818887fccc7e21091acdde88f7b12575/spring-aop-3.0.4.RELEASE-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/3.0.4.RELEASE/6be7949671410743101f601e8de1051c800febfb/spring-expression-3.0.4.RELEASE.jar" sourcepath="C:/Users/Nat Kidder/.gradle/caches/modules-2/files-2.1/org.springframework/spring-expression/3.0.4.RELEASE/b8c3e3bb8e9a938872d8d6bb2e44b626cf71b11e/spring-expression-3.0.4.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/org.springframework.web-3.1.0.M2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

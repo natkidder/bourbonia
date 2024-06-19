@@ -1,0 +1,9 @@
+from:  http://www.mkyong.com/webservices/jax-ws/jax-ws-attachment-with-mtom/
+
+Note that it's a Java, and not a web, project in Eclipse
+
+To run (run 1-2 if you've changed a method signature)
+	1.  ensure all processes have stopped
+	2.  run ImagePublisher as a Java program
+	3.  run ImageClient
+	4.  you should see a clipped image of the JPG file you fed

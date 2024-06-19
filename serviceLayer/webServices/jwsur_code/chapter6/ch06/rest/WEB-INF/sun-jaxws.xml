@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+    <endpoint name="RestfulProviderD"
+        implementation="ch06.rest.RestfulProviderD"
+        binding="http://www.w3.org/2004/08/wsdl/http"
+        url-pattern='/restful/*'/>
+</endpoints>

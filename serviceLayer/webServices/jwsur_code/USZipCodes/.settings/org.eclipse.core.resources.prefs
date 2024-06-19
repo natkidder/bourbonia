@@ -1,0 +1,17 @@
+#Tue Jan 10 16:43:06 EST 2012
+eclipse.preferences.version=1
+encoding//src/NET/webserviceX/www/GetInfoByAreaCode.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByAreaCodeResponse.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByAreaCodeResponseGetInfoByAreaCodeResult.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByCity.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByCityResponse.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByCityResponseGetInfoByCityResult.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByState.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByStateResponse.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByStateResponseGetInfoByStateResult.java=UTF-8
+encoding//src/NET/webserviceX/www/GetInfoByZIPResponseGetInfoByZIPResult.java=UTF-8
+encoding//src/NET/webserviceX/www/USZip.java=UTF-8
+encoding//src/NET/webserviceX/www/USZipLocator.java=UTF-8
+encoding//src/NET/webserviceX/www/USZipSoap.java=UTF-8
+encoding//src/NET/webserviceX/www/USZipSoap12Stub.java=UTF-8
+encoding//src/NET/webserviceX/www/USZipSoapStub.java=UTF-8

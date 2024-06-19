@@ -1,0 +1,41 @@
+Greetings from Amazon Web Services,
+
+Thank you for creating an Amazon Web Services (AWS) account.
+
+See the AWS web site, http://aws.amazon.com, to learn more about other web services and AWS.
+
+You can manage your account online by visiting http://aws.amazon.com/account.
+
+You need Access Identifiers to make valid web service requests. Please visit the Access Identifiers section of your account to obtain your identifier and to learn more:
+
+http://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key
+
+We're excited to have you on board with Amazon Web Services.
+
+Sincerely,
+
+Amazon Web Services
+
+================================================================
+
+Greetings from Amazon Web Services,
+
+Thank you for signing up. You can now begin using Amazon Web Services. You will not be charged until you begin using the services--and you will only pay for what you use. View detailed service pricing.
+
+Learn.
+You now have immediate access to all AWS Infrastructure Services, including: Amazon EC2, Amazon S3, AWS Elastic Beanstalk, Amazon RDS, Amazon CloudFront and many more. View all services or see how AWS customers are using AWS for solutions to common business problems.
+
+Develop.
+Find documentation, sample code, developer tools, tutorials, and more in the Developers section of aws.amazon.com. If you plan to use the web service APIs or AWS SDKs, you will need your Account Identifiers to make valid requests.
+
+Manage.
+Sign in to the AWS Management Console to create and manage your services. You can manage your account and review account activity online at anytime.
+
+For help and support, please visit the AWS Support Center where you can sign up for AWS Premium Support, read FAQs, and connect with the AWS Community in the Discussion Forums.
+
+Thank you for your participation in the Amazon Web Services community.
+
+
+Sincerely,
+
+Amazon Web Services 

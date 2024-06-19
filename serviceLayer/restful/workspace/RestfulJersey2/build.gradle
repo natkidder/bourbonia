@@ -1,0 +1,48 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.7
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//asm-3.1.jar
+//jersey-core-1.8.jar
+//jersey-server-1.8.jar
+//junit-4.8.2.jar
+	compile 'asm:asm:3.3.1'
+	compile 'com.sun.jersey:jersey-core:1.12'
+	compile 'com.sun.jersey:jersey-server:1.12'
+	compile 'com.sun.jersey:jersey-servlet:1.13'
+	compile 'com.sun.jersey.contribs:jersey-multipart:1.13'
+	compile 'junit:junit:4.+'
+    compile 'javax.servlet:servlet-api:2.5'
+    //compile group: 'org.jvnet', name: 'mimepull', version: '1.6'
+    compile group: 'log4j', name: 'log4j', version: '1.2.11'
+    //testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
+task showMeCache << {
+  configurations.compile.each { println it }
+}

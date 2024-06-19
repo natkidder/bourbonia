@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+  <role rolename="bigshot"/>
+  <role rolename="tomcat"/>
+  <user username="tomcat" password="tomcat" roles="tomcat"/>
+  <user username="fred" password="rockbed" roles="bigshot"/>
+</tomcat-users>

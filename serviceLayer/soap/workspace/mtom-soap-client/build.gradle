@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'log4j:log4j:1.2.16'
+    compile 'ru.forketyfork:mtom-soap-common:4.0.0'
+    compile 'org.apache.cxf:cxf-api:2.7.14'
+    compile 'org.apache.cxf:cxf-rt-transports-http:3.0.3'
+    compile 'org.apache.cxf:cxf-rt-frontend-jaxws:3.0.3'
+}
+
+jar  {
+	basename 'mtom-soap-client'
+	appendix 'ru.forketyfork'
+	version '0.0.1-SNAPSHOT'
+	extension 'jar'
+}
+
+test {
+    systemProperties 'property': 'value'
+}
+
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}

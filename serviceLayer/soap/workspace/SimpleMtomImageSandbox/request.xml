@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<loading>
+	<file>
+		<direction>download</direction>
+		<path>c:/tmp/userguide.pdf</path>
+	</file>
+	<file>
+		<direction>upload</direction>
+		<path>c:/tmp/userguideCopy.pdf</path>
+	</file>
+</loading>

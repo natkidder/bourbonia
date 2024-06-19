@@ -1,0 +1,12 @@
+from   http://examples.javacodegeeks.com/enterprise-java/jws/jax-ws-attachment-with-mtom/
+
+do NOT associate this project with tomcat, nor run the tomcat server.  But you can still create it as a dynamic web project
+
+To run
+	ensure no processes are running
+	run ImageServerPublisher.  That exposes the WSDL
+	run WebServiceClient
+	
+To get around the   Exception in thread "main" javax.xml.ws.soap.SOAPFaultException: Method Parameter: return cannot be null. This is BP 1.1 R2211 violation.   error,
+make the offending method void and pass the return object as an argument.  Making the return object always non-null does not work
+However, this means the argument you pass does NOT get changed
