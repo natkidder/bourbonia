@@ -7,9 +7,17 @@ from random import randrange
 '''
 Takes a file, generally computer code, and randomly changes words (meaning anything between punctuation) and replaces them with
 a nonsensical _____.  
+So for example, 
 Thus one can take code that works (such as downloaded from the internet) and replaced with code that won't work - the student must 
 now make it work as designed
-Good for knowing how code works without having to stare at it or add/remove content
+Good for knowing how code works without having to stare at it or add/remove content, or deal with punctuation
+Arguments:
+1.  Whether to blank out all of the words in a line or not.  The alternative is to randomly blank out a subset of the words, from one of them to all of them
+2.  What percent of lines to replace at least some of the words (see argument 1) in.  From 0 to 100
+Optional arguments 3 and 4 must be specified together.
+  3.  The first line number to start blanking out words.
+  4.  The last line number to end blanking out words.
+  They are useful if you find only part of the Angular file unfamiliar to you.
 '''
 
 ## set the destination file
@@ -74,7 +82,7 @@ def pull_leading_spaces(line):
 Taking the list of lines that have to be masked, for each one, pull all of the words, get the count of words, select a random integer within that
 count, and then mask that word.  The word is just a sequence of legal variable characters, but can be a value, label or variable name
 '''
-def mask_words(path, dest_path,pct_of_lines, is_every_word_masked):
+def mask_words(path, dest_path,pct_of_lines, is_every_word_masked, beginline,  endline):
     dollar_pttn = re.compile("\$[\w_]+")
     if not os.path.isfile(path):
         print("file " + path + " does not exist\n")
@@ -89,7 +97,7 @@ def mask_words(path, dest_path,pct_of_lines, is_every_word_masked):
             i+=1
             line2 = line.rstrip()
             if line2:
-                if i in tgt_lines:
+                if i in tgt_lines and i > beginline and i < endline:
                     words = re.split(r'[^\w_\$]',line2) # punctuation plus $ or _, the latter is a part of variable names
                     words = list(filter(lambda sp: sp != '',words))  # split leaves a lot of empty strings, remove them
                     #words = list(filter(lambda sp: sp != ' ',words))  # split leaves a lot of empty strings, remove them
@@ -134,7 +142,12 @@ if __name__ == '__main__':
         else:
             is_every_word_masked = True
         pct_of_lines = float(args[2])
-        mask_words(args[0], dest_path, pct_of_lines, is_every_word_masked)
+        beginline = 0
+        endline = 9999
+        if len(args) > 4:
+            beginline = int(args[3])
+            endline = int(args[4])
+        mask_words(args[0], dest_path, pct_of_lines, is_every_word_masked, beginline, endline)
         print("\noutput in   " + dest_path)
     else:
         print("arg1: path to file     arg2: is every word in a selected line masked (y/n default n)    arg3: percent (0-100) of lines to have masking done\n")
