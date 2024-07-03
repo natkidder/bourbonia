@@ -3,20 +3,20 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="thisapp" ng-controller="ldController">
+  <div ng-app="carApp" ng-controller="viewController">
    <p>
-    Select an item:
+    Select car index:
    </p>
-   <select ng-model="offeringModel" ng-options="ld for (ld, types) in offerings">
+   <select ng-model="selectedCar" ng-options="key for (key, value) in cars">
    </select>
    <h1>
-    Your brand: {{offeringModel.brand}}
+    Your Make: {{selectedCar.make}}
    </h1>
    <h2>
-    Variant: {{offeringModel.variant}}
+    Model: {{selectedCar.model}}
    </h2>
    <h3>
-    additives: {{offeringModel.additives}}
+    Color: {{selectedCar.color}}
    </h3>
    <!-- Note that the selected value represents an object -->
    <p>
@@ -24,14 +24,15 @@
    </p>
   </div>
   <script>
-   var app = angular.module('thisapp', []);
-   app.controller('ldController', function($scope) {
-    $scope.offerings = {
-        offering01 : {brand : "All", variant : "free & clear", additives : "none"},
-        offering02 : {brand : "Arm & Hammer", variant : "OxyClean", additives : "peroxide"},
-        offering03 : {brand : "Tide", variant : "standard", additives : "dyes"}
+   var app = angular.module('carApp', []);
+   app.controller('viewController', function($scope) {
+    $scope.cars = {
+        car01 : {make : "Mitsubishi", model : "Galante", color : "gray"},
+        car02 : {make : "Toyota", model : "Prius", color : "black"},
+        car03 : {make : "Kia", model : "Soul", color : "charcoal"}
     }
 });
   </script>
  </body>
 </html>
+

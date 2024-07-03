@@ -4,6 +4,7 @@
 <!--The ng-model directive binds two input elements to the user object in the model. -->
 <!--The formCtrl controller sets initial values to the master object, and defines the reset() method. -->
 <!--The reset() method sets the user object equal to the master object. -->
+
 <!--The ng-click directive invokes the reset() method, only if the button is clicked. -->
 <!--The novalidate attribute is not needed for this application, but normally you will use it in AngularJS forms, to override standard HTML5 validation. -->
 <!-- -->
@@ -14,15 +15,15 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="userApp" ng-controller="userCtrl">
-   <form novalidate="">
-    First Name:
+  <div ng-app="anapp" ng-controller="viewController">
+   <form nmvalidate="">
+    Last Name:
     <br/>
-    <input ng-model="user.firstName" type="text"/>
+    <input ng-model="person.firstname" type="text"/>
     <br/>
     Last Name:
     <br/>
-    <input ng-model="user.lastName" type="text"/>
+    <input ng-model="person.lastname" type="text"/>
     <br/>
     <br/>
     <button ng-click="reset()">
@@ -30,21 +31,22 @@
     </button>
    </form>
    <p>
-    Form = {{user}}
+    Form = {{person}}
    </p>
    <p>
-    Orig = {{master}}
+    Master = {{master}}
    </p>
   </div>
   <script>
-   var app = angular.module('userApp', []);
-    app.controller('userCtrl', function($scope) {
-    $scope.master = {firstName:"Will", lastName:"Clark"};
+   var app = angular.module('anapp', []);
+    app.controller('viewController', function($scope) {
+    $scope.master = {firstname:"Will", lastname:"Clark"};
     $scope.reset = function() {
-        $scope.user = angular.copy($scope.master);
+        $scope.person = angular.copy($scope.master);
     };
     $scope.reset();
 });
   </script>
  </body>
 </html>
+

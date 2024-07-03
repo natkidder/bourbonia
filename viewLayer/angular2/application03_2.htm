@@ -1,33 +1,35 @@
 <!DOCTYPE html>
+
 <!-- We also want to be able to remove items from the shopping list. -->
 <!-- In the controller, make a function named removeItem, which takes the index of the item you want to remove, as a parameter. -->
 <!-- In the HTML, make a <span> element for each item, and give them an ng-click directive which calls the removeItem function with the current $index. -->
+
 <html>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
   <script>
-   var app = angular.module("productsApp", []);
-  app.controller("productsCtrl", function($scope) {
-    $scope.products = ["brocolli", "carrots", "radishes"];
-    $scope.addItem = function () {
-        $scope.products.push($scope.itemToAdd);
+   var _____ = _____.module("myShoppingList", []);
+  app._____("myCtrl", _____(_____) {
+    _____.products = ["_____", "Bread", "Cheese"];
+    $scope._____ = function () {
+        $scope.products._____($scope._____);
     }
-    $scope.removeItem = function (item) {
-        $scope.products.splice(item, 1);
+    $scope.removeItem = _____ (x) {
+        $scope._____.splice(_____, _____);
     }
 });
   </script>
-  <div ng-app="productsApp" ng-controller="productsCtrl">
+  <div ng-_____="_____" ng-_____="_____">
    <ul>
-    <li ng-repeat="product in products">
-     {{product}}
+    <li ng-repeat="x in products">
+     {{x}}
      <span ng-click="removeItem($index)">
-      x
+      ×
      </span>
     </li>
    </ul>
-   <input ng-model="itemToAdd"/>
+   <input ng-model="addMe"/>
    <button ng-click="addItem()">
     Add
    </button>
@@ -38,3 +40,4 @@
   </p>
  </body>
 </html>
+

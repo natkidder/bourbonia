@@ -4,7 +4,7 @@
  </script>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js">
  </script>
- <body ng-app="myApp">
+ <body ng-app="anapp">
   <p>
    <a href="#/!">
     Main
@@ -17,7 +17,7 @@
    City 2
   </a>
   <p>
-   Click on the links.
+   Click on a city.
   </p>
   <!-- Note that each "view" has its own controller which each gives the "msg" variable a value. -->
   <p>
@@ -26,27 +26,28 @@
   <div ng-view="">
   </div>
   <script>
-   var app = angular.module("myApp", ["ngRoute"]);
-   app.config(function($routeProvider) {
+   var anapp = angular.module("anapp", ["ngRoute"]);
+   anapp.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "main.htm",
     })
     .when("/london", {
         templateUrl : "london.htm",
-        controller : "londonCtrl"
+        controller : "englandController"
     })
     .when("/paris", {
         templateUrl : "paris.htm",
-        controller : "parisCtrl"
+        controller : "franceController"
     });
  });
- app.controller("londonCtrl", function ($scope) {
-    $scope.msg = "I love London";
+ anapp.controller("englandController", function ($scope) {
+    $scope.msg = "Welcome to England";
  });
- app.controller("parisCtrl", function ($scope) {
-    $scope.msg = "I love Paris";
+ anapp.controller("franceController", function ($scope) {
+    $scope.msg = "Welcome to France";
  });
   </script>
  </body>
 </html>
+

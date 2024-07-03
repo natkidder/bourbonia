@@ -7,20 +7,21 @@
     background-color:pink;
 }
   input.ng-valid {
-    background-color:lightBlue;
+    background-color:lightGreen;
 }
  </style>
  <body ng-app="">
 	 <!-- Try writing in the input field: -->
   <p>
-   Type into the input below:
+   Try writing in the input field:
   </p>
-  <form="thisForm">
-   <input name="thisInput" ng-model="thisModel" required="xxxx"/>
+  <form name="aForm">
+   <input name="anInput" ng-model="inputModel" required=""/>
   </form>
   <!-- The input field requires content, and will therefore become green when you write in it. -->
   <p>
-   The input field requires content, and will therefore become blue when you write in it.
+   The input field requires content, and will therefore become green when you write in it.
   </p>
  </body>
 </html>
+

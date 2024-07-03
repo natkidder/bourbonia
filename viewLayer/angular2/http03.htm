@@ -12,12 +12,14 @@
 </div>
 
 <!-- The response object has many properties. This example demonstrate the value of the data, status, and statusText properties -->
-<p>The response object has many properties. This example demonstrate the value of the data, status, and statusText properties.</p>
+<p>
+ The response object has many properties. This example demonstrate the value of the data, status, and statusText properties.
+</p>
 
 <!--	can also try: https://api.npms.io/v2/search?q=scope:angular or http://localhost:8090/students -->
 <script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
+ var app = angular.module('myApp', []);
+ app.controller('myCtrl', function($scope, $http) {
   $http.get("https://api.npms.io/v2/search?q=scope:angular")
   .then(function(response) {
       $scope.content = response.data;

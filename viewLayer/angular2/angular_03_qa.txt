@@ -29,7 +29,7 @@ a=$scope,application
 q=An application can call its own function using the ___ method - R   don't walk
 a=run
 
-q=An expression may contain a(n) ___ - F C
+q=An expression may contain, aside from a variable or constant, a(n) ___ - F C
 a=function call
 
 q=The $scope functionally binds the ___ and the ___ - V,   C
@@ -38,7 +38,7 @@ a=controller,view
 a=HTML,controller
 a=controller,HTML
 
-q=$scope properties belong to these three entities (in alphabetical order) - C,   M,   V
+q=$scope properties belong to these three entities (also in Spring) (in alphabetical order) - C,   M,   V
 a=controller,model,view
 
 q="View" here can also refer to ___ - H

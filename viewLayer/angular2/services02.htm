@@ -18,7 +18,7 @@
   <!-- "https://www.w3schools.com/angular/welcome.htm or https://api.npms.io/v2/search?q=scope:angular -->
   <script>
    var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
+ app.controller('myCtrl', function($scope, $http) {
   $http.get("https://api.npms.io/v2/search?q=scope:angular").then(function (response) {
       $scope.myWelcome = response.data;
   });

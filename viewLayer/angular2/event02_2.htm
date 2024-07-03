@@ -3,19 +3,20 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="thisapp" ng-controller="clickController">
-   <button ng-click="cnt = cnt + 3">
-    Click Me!
+  <div ng-app="anapp" ng-controller="viewController">
+   <button ng-click="cnt = cnt + 7">
+    Click bait!
    </button>
    <p>
     {{ cnt }}
    </p>
   </div>
   <script>
-   var thisapp = angular.module('thisapp', []);
-   thisapp.controller('clickController', function($scope) {
-    $scope.cnt = 2;
+   var app = angular.module('anapp', []);
+   app.controller('viewController', function($scope) {
+    $scope.cnt = 0;
 });
   </script>
  </body>
 </html>
+

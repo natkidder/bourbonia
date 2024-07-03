@@ -3,28 +3,29 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-_____="myApp" ng-controller="_____">
+  <div ng-app="intervalApp" ng-controller="viewController">
    <p>
-    _____ _____ is:
+    The time is:
    </p>
    <h1>
-    {{theTime}}
+    {{currTime}}
    </h1>
   <!-- The $interval service runs a function every specified {{inverval}} milliseconds. -->
   <p>
-  _____ $interval service runs a function every _____ {{_____}} _____.
+  The $interval service runs a function every specified {{interval}} milliseconds.
   </p>
   </div>
   <script>
-   var app = angular._____('myApp', []);
+   var app = angular.module('intervalApp', []);
    var interval = 1000;
-app._____('_____', _____($scope, $interval) {
-  $scope.theTime = new _____().toLocaleTimeString();
-  $scope._____ = _____;
+ app.controller('viewController', function($scope, $interval) {
+  $scope.currTime = new Date().toLocaleTimeString();
+  $scope.interval = interval;
   $interval(function () {
-      $scope.theTime = new Date().toLocaleTimeString();
+      $scope.currTime = new Date().toLocaleTimeString();
   }, interval);
 });
   </script>
  </body>
 </html>
+

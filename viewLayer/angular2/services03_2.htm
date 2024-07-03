@@ -3,29 +3,30 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="peter" ng-controller="myCtrl">
-	  <!-- This header will change after two milliseconds: -->
+  <div ng-app="timeoutApp" ng-controller="viewController">
+	  <!-- This header will change after two seconds: -->
    <p>
-   This header will change after {{timeout}} milliseconds:
+   This header will change after {{timeout/1000}} seconds:
    </p>
    <h1>
-    {{myHeader}}
+    {{mainHeader}}
    </h1>
   </div>
-  <!-- The $timeout service runs a function after a specified number of milliseconds. -->
+  <!-- The $_____ service runs a function after a specified number of milliseconds. -->
   <p>
-   The $timeout service runs a function after a specified number of milliseconds.
+    The $timeout service runs a function after a specified number of milliseconds.
   </p>
   <script>
-   var app = angular.module('peter', []);
-   var timeout = 528;
-app.controller('myCtrl', function($scope, $timeout) {
-  $scope.myHeader = "Hello World!";
-  $scope.timeout = timeout;
+   var app = angular.module('timeoutApp', []);
+   var timeout2 = 5000;
+ app.controller('viewController', function($timeout, $scope) {
+  $scope.mainHeader = "Hey Philadelphian!";
+  $scope.timeout = timeout2;
   $timeout(function () {
-      $scope.myHeader = "How are you today?";
-  }, timeout);
+      $scope.mainHeader = "How about those Phillies?";
+  }, timeout2);
 });
   </script>
  </body>
 </html>
+

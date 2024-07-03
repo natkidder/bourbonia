@@ -10,7 +10,7 @@
    <h1>
     {{theTime}}
    </h1>
-  <!-- The $interval service runs a function every specified {{inverval}} milliseconds. -->
+  <!-- The $interval service runs a function every specified {{interval}} milliseconds. -->
   <p>
   The $interval service runs a function every specified {{interval}} milliseconds.
   </p>
@@ -18,7 +18,7 @@
   <script>
    var app = angular.module('myApp', []);
    var interval = 1000;
-app.controller('myCtrl', function($scope, $interval) {
+ app.controller('myCtrl', function($scope, $interval) {
   $scope.theTime = new Date().toLocaleTimeString();
   $scope.interval = interval;
   $interval(function () {

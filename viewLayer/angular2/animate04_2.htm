@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
  <style>
-  @keyframes achange {
+  @keyframes hider {
   from {
-      height: 222px;
+      height: 200px;
   } to {
       height: 0;
   }
 }
- div {
-   height: 222px;
-   background-color: yellow;
+
+div {
+   height: 200px;
+   background-color: violet;
  }
+
  div.ng-hide {
-   animation: 1.5s achange;
+   animation: 1.3s hider;
  }
  </style>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
@@ -21,9 +23,10 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js">
  </script>
  <body ng-app="ngAnimate">
-  hide the diva:
-  <input ng-model="someModel" type="checkbox"/>
-  <div ng-hide="someModel">
+  Hide the div-block:
+  <input ng-model="isHiding" type="checkbox"/>
+  <div ng-hide="isHiding">
   </div>
  </body>
 </html>
+

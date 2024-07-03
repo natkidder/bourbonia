@@ -3,29 +3,32 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="matthew" ng-controller="myCtrl">
+  <div ng-app="anapp" ng-controller="viewController">
    <!-- The hexadecimal value of 255 is: -->
    <p>
-    The hexadecimal value of 67 is:
+   The hexadecimal value of {{feed}} is:
    </p>
    <h1>
-    {{hex}}
+    {{result}}
    </h1>
   </div>
   <!-- A custom service with a method that converts a given number into a hexadecimal number. -->
   <p>
-   A custom _____ _____ a method that converts a given _____ into a _____ _____.
+   A custom service with a method that converts a given number into a hexadecimal number.
   </p>
   <script>
-   var app = angular.module('matthew', []);
-app.service('hexafy', function() {
-    this.myFunc = function (x) {
-        return x.toString(16);
+   var app = angular.module('anapp', []);
+   var feed = 73;
+ app.service('hexify', function() {
+    this.hexConvert = function (base) {
+        return base.toString(16);
     }
 });
-app.controller('myCtrl', function($scope, hexafy) {
-  $scope.hex = hexafy.myFunc(67);
+ app.controller('viewController', function($scope, hexify) {
+  $scope.result = hexify.hexConvert(feed);
+  $scope.feed = feed;
 });
   </script>
  </body>
 </html>
+

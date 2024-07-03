@@ -38,6 +38,7 @@ def lines_to_target(lines, tgt_pct_of_lines):
     declare_pttn = re.compile("^\s*<!doctype html>\s*$", re.IGNORECASE)
     include_pttn = re.compile("^\s*<script\s+.*src=.*>\s*$", re.IGNORECASE)
     comment_pttn = re.compile("^\s*<\!--.*-->\s*$", re.IGNORECASE)
+    script_cmmt_pttn = re.compile("^\s*\/\/\s+\S.*\s*$", re.IGNORECASE)
     link_pttn = re.compile("^\s*<link\s+.*rel=.*>\s*$", re.IGNORECASE)
     tgt_domain_lines = list(())
     j=0
@@ -45,7 +46,7 @@ def lines_to_target(lines, tgt_pct_of_lines):
         line = line.strip()
         j+=1
         #print(line+"    "+str(j)) #######
-        if not (tag_pttn.match(line) or declare_pttn.match(line) or include_pttn.match(line) or comment_pttn.match(line) or link_pttn.match(line)):
+        if not (tag_pttn.match(line) or declare_pttn.match(line) or include_pttn.match(line) or comment_pttn.match(line) or link_pttn.match(line) or script_cmmt_pttn.match(line)):
             #print(line) #######
             tgt_domain_lines.append(j)
     tgt_linecnt = len(tgt_domain_lines) * (tgt_pct_of_lines/100.0)
@@ -97,7 +98,7 @@ def mask_words(path, dest_path,pct_of_lines, is_every_word_masked, beginline,  e
             i+=1
             line2 = line.rstrip()
             if line2:
-                if i in tgt_lines and i > beginline and i < endline:
+                if i in tgt_lines and i >= beginline and i <= endline:
                     words = re.split(r'[^\w_\$]',line2) # punctuation plus $ or _, the latter is a part of variable names
                     words = list(filter(lambda sp: sp != '',words))  # split leaves a lot of empty strings, remove them
                     #words = list(filter(lambda sp: sp != ' ',words))  # split leaves a lot of empty strings, remove them

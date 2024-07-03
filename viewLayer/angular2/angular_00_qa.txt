@@ -6,18 +6,18 @@ a=dynamic,structural
 q=It runs within a(n) ___ framework - J M V C
 a=javascript model view controller
 
-q=The six key concepts underlying AngularJS (in alphabetical order) - C,   D B,   D I,   D,   M,   S
+q=The six key concepts underlying AngularJS (in alphabetical order) - C,   D B,   D I,   D,   M,   S    only the 3rd in not an angular keyword, but the second is a gerund
 a=controllers,data binding,dependency injection,directives,modules,scope
 a=controller,data binding,dependency injection,directive,module,scope
 
-q=Data binding bridges the gap between the ___ and the ___ - U I,   U D
+q=Data binding bridges the gap between the ___ and the ___ - U I,   U D    no "base" in the answers
 a=user interface,underlying data
 a=underlying data,user interface
 
 q=A directive specifies a(n) ___ - D E B   like with XML
 a=dom element behavior
 
-q=In this case, a DOM element can refer to these four HTML things (in alphabetical order) - A,   C,   C C,   N
+q=In this case, a DOM element can refer to these four HTML things (in alphabetical order) - A,   C,   C C,   N     the third you specify in style, the last similar to element
 a=attribute,comment,css class,node
 
 q=A directive can be either ___ or ___, depending on how much you need to put into its inner workings - C B,   P
@@ -43,27 +43,27 @@ a=cross referencing
 q=A module is a(n) ___ for all of your application's ___ - C,   C
 a=container,components
 
-q=These components are tied together using the application's ___ - M M
+q=These components are tied together using the application's ___ - M M   like in simple Java
 a=main method
 
-q=If the application lacks a main method, the module defines a ___ - BS
+q=If the application lacks a main method, the module defines a ___ - BS     like starting a PC
 a=bootstrap
 
 q=Scope serves as a ___ between the ___ and the ___ - B,   C,   V
 a=bridge,controller,view
 a=bridge,view,controller
 
-q=Scopes can be ___ and each directive uses by default its ___ scope - I,   P
+q=Scopes can be ___ and each directive uses by default its ___ scope - I,   P       as with a will
 a=inherited,parent
 
-q=A controller manages the ___ of an AngularJS application - D F
+q=A controller manages the ___ of an AngularJS application - D F     like a river
 a=data flow
 
 q=A controller contains these three items (in alphabetical order) - A,   M,   P    similar to a Java class
-a=attributes,methods,properies
+a=attributes,methods,properties
 a=attribute,method,property
 
-q=Every controller has by default the parameter ___, which refers to the ___ or ___ it is to control - DS,   A,   M
+q=Every controller has by default the parameter ___, which refers to the ___ or ___ it is to control - DS,   A,   M     one used to have "lunar" before it
 a=$scope,application,module
 a=$scope,module,application
 

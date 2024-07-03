@@ -68,9 +68,9 @@ def has_blank_last_line(file_to_open):
     return has_blank_last_line
 
 def set_need_2nd_penalty():
-    need_2nd_penalty = input("\nWhat percentage penalty should there be for needing a hint (0-100, default 10)? ")
+    need_2nd_penalty = input("\nWhat percentage penalty should there be for needing a hint (0-100, default 20)? ")
     if (need_2nd_penalty.__eq__('')):
-        need_2nd_penalty = '10'
+        need_2nd_penalty = '20'
     need_2nd_penalty = int(need_2nd_penalty)
     if (need_2nd_penalty < 0 or need_2nd_penalty > 100):
         print("Invalid entry, will set to 10")
@@ -111,6 +111,7 @@ def process_answer(question, true_answers, all_cnt, need_2nd_penalty):
             times_repeat = 2
         else:
             for true_answer in true_answers:
+                orig_true_answer = true_answer
                 true_answer = true_answer.lower().replace(", ",",").replace("-"," ")
                 if len(response) < 1:  ## user just tapped Enter
                     how_correct = 0
@@ -125,8 +126,8 @@ def process_answer(question, true_answers, all_cnt, need_2nd_penalty):
                         #print("2nd chance completely correct grade: "+str(how_correct)) ######
                         times_repeat = 2
                         break
-                    elif answer_closeness > 0.9: ###close_enough:  ## if the response is close to the right answer
-                        print("Close, answer is: " + true_answer)
+                    elif answer_closeness > 0.9: ## if the response is close to the right answer
+                        print("Close, answer is: " + orig_true_answer)
                         how_correct = 0.75 - (times_repeat * (need_2nd_penalty/100))
                         times_repeat = 2
                         break
@@ -135,7 +136,7 @@ def process_answer(question, true_answers, all_cnt, need_2nd_penalty):
             print("Try again")
         times_repeat += 1
     if how_correct < 0.1:
-        print(true_answer_prefix + true_answer)
+        print(true_answer_prefix + orig_true_answer)
     #print("020: how_correct="+str(how_correct)) ########
     return how_correct
     

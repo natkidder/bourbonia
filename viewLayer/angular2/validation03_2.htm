@@ -2,22 +2,22 @@
 <html>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
- <div ng-app="">
+ <body ng-app="">
 	 <!-- Try leaving the first input field blank: -->
   <p>
    Try leaving the first input field blank:
   </p>
-  <form name="personForm">
+  <form name="aform">
    <p>
     Name:
     <input name="nameInput" ng-model="nameModel" required=""/>
-    <span ng-show="personForm.nameInput.$touched &amp;&amp; personForm.nameInput.$invalid">
-     First input field - name - must have a value
+    <span ng-show="aform.nameInput.$touched &amp;&amp; aform.nameInput.$invalid">
+     The name is required.
     </span>
    </p>
    <p>
-    Address:
-    <input name="addrInput" ng-model="addrModel" required=""/>
+    State:
+    <input name="stateInput" ng-model="stateModel" required=""/>
    </p>
   </form>
   <!-- We use the ng-show directive to only show the error message if the field has been touched AND is empty. -->
@@ -26,3 +26,4 @@
   </p>
  </body>
 </html>
+

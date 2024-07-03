@@ -1,6 +1,1 @@
-mv angular_01_qa_2.txt angular_01_qa.txt
-mv angular_02_qa_2.txt angular_02_qa.txt
-mv angular_03_qa_2.txt angular_03_qa.txt
-mv angular_04_qa_2.txt angular_04_qa.txt
-mv angular_05_qa_2.txt angular_05_qa.txt
-mv angular_06_qa_2.txt angular_06_qa.txt
+view directives05.htm  directives08.htm  directives09.htm  directives10.htm  include03.htm  services03.htm  services04.htm services05.htm scope04.htm forms04.htm validation06.htm  validation07.htm  animate04.htm

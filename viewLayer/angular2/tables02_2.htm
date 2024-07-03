@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html>
 <style>
-table, td  {
-  border: 2px solid #731B8C;
+table, tr  {
+  border: 1px solid black;
   border-collapse: collapse;
-  padding: 3px;
+  padding: 5px;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
 <!-- has table rows have a different background color based on whether they are even or odd -->
-<div ng-app="pinkeye" ng-controller="napoleon">
+<div ng-app="myApp" ng-controller="viewController">
+
 <table>
   <tr ng-repeat="person in people">
-    <td ng-if="$odd" style="background-color:#BEF6F0">
+    <td ng-if="$odd" style="background-color:#e5a4f5">
     {{ person.Name }}</td>
     <td ng-if="$even">
     {{ person.Name }}</td>
-    <td ng-if="$odd" style="background-color:#BEF6F0">
+    <td ng-if="$odd" style="background-color:#e5a4f5">
     {{ person.Country }}</td>
     <td ng-if="$even">
     {{ person.Country }}</td>
   </tr>
 </table>
+
 </div>
 <!-- https://www.w3schools.com/angular/customers.php -->
 <script>
- var squealor = angular.module('pinkeye', []);
- squealor.controller('napoleon', function($scope, $http) {
+ var app = angular.module('myApp', []);
+ app.controller('viewController', function($scope, $http) {
     $http.get("https://www.w3schools.com/angular/customers.php")
     .then(function (response) {$scope.people = response.data.records;});
 });
 </script>
+
 </body>
 </html>

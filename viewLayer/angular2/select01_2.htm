@@ -3,14 +3,14 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="thisapp" ng-controller="namescontroller">
-   <select ng-model="namesmodel" ng-options="x for x in firstnames">
+  <div ng-app="anapp" ng-controller="viewController">
+   <select ng-model="springfieldModel" ng-options="name for name in names">
    </select>
   </div>
   <script>
-   var app = angular.module('thisapp', []);
-   app.controller('namescontroller', function($scope) {
-    $scope.firstnames = ["Brad", "Thorn", "Eric"];
+   var app = angular.module('anapp', []);
+   app.controller('viewController', function($scope) {
+    $scope.names = ["Homer", "Bart", "Lisa"];
 });
   </script>
   <!-- This example shows how to fill a dropdown list using the ng-options directive. -->
@@ -19,3 +19,4 @@
   </p>
  </body>
 </html>
+

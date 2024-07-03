@@ -13,11 +13,13 @@
 
 <!-- The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable. -->
 <!--	can also try: https://api.npms.io/v2/search?q=scope:angular or http://localhost:8090/students -->
-<p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+<p>
+ The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.
+</p>
 
 <script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
+ var app = angular.module('myApp', []);
+ app.controller('myCtrl', function($scope, $http) {
   $http.get("https://api.npms.io/v2/search?q=scope:angular")
   .then(function(response) {
       $scope.myWelcome = response.data;

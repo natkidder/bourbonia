@@ -3,26 +3,27 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="myApp" ng-controller="myCtrl">
+  <div ng-app="anapp" ng-controller="viewController">
    <p>
-    today's HTTP message is:
+    response JSON:
    </p>
    <h4>
-    {{myWelcome}}
+    {{json}}
    </h4>
   </div>
   <!-- $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable. -->
   <p>
-  $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable. 
+   $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.
   </p>
   <!-- "https://www.w3schools.com/angular/welcome.htm or https://api.npms.io/v2/search?q=scope:angular -->
   <script>
-   var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
-  $http.get("https://api.npms.io/v2/search?q=scope:angular").then(function(response) {
-      $scope.myWelcome = response.data;
+   var app = angular.module('anapp', []);
+ app.controller('viewController', function($scope, $http) {
+  $http.get("https://api.npms.io/v2/search?q=scope:angular").then(function (response) {
+      $scope.json = response.data;
   });
 });
   </script>
  </body>
 </html>
+

@@ -3,19 +3,20 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="thisapp" ng-controller="cntController">
-   <h1 ng-mousemove="count = count + 1">
-    Mouse over me!
+  <div ng-app="anapp" ng-controller="viewController">
+   <h1 ng-mouseover="cnt = cnt - 7">
+    Move mouse!
    </h1>
    <h2>
-    {{ count }}
+    {{ cnt }}
    </h2>
   </div>
   <script>
-   var app = angular.module('thisapp', []);
- app.controller('cntController', function($scope) {
-    $scope.count = 0;
+   var app = angular.module('anapp', []);
+ app.controller('viewController', function($scope) {
+    $scope.cnt = 1000;
 });
   </script>
  </body>
 </html>
+

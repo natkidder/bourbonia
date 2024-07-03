@@ -3,20 +3,21 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <_____ ng-_____="myApp" ng-_____="_____">
+  <div ng-app="anapp" ng-controller="viewController">
    <p>
-    {{ x1 }}
+    {{ sign }}
    </p>
    <p>
-    {{ x2 }}
+    {{ sign2 }}
    </p>
   </div>
   <script>
-   var app = angular.module('myApp', []);
-   app.controller('myCtrl', function($scope) {
-    $scope._____ = "John";
-    $scope.x2 = angular.uppercase($scope.x1);
+   var app = angular.module('anapp', []);
+   app.controller('viewController', function($scope) {
+    $scope.sign = "stop";
+    $scope.sign2 = angular.uppercase($scope.sign);
 });
   </script>
  </body>
 </html>
+

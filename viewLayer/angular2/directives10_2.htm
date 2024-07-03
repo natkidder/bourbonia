@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<body ng-app="thisApp">
+<body ng-app="anapp">
 
-	<p>==where the directive is an element name</p>
-<the-prime-directive></the-prime-directive>
+	<p>==directive as an element</p>
+<my-own-directive></my-own-directive>
 
-	<p>==where the directive is an element attribute</p>
-<span the-prime-directive></span>
+	<p>==directive as an attribute</p>
+<span my-own-directive></span>
 
 <script>
-  var app = angular.module("thisApp", []);
-  app.directive("thePrimeDirective", function() {
+  var app = angular.module("anapp", []);
+  app.directive("myOwnDirective", function() {
     return {
         restrict : "A",
-        template : "<p>Obey the Prime Directive!</p>"
+        template : "<h3>Made by a directive!</h3>"
     };
 });
 </script>
 
 <!-- <strong>Note:</strong> By setting the <strong>_____</strong> property to "_____", only the HTML element with the "w3-test-directive" attribute has invoked the directive. -->
 <p>
-<strong>Note:</strong> By setting the <strong>restrict</strong> property to "A", only the HTML element with the "w3-test-directive" attribute has invoked the directive.
+<strong>Note:</strong> By setting the <strong>_____</strong> property to "_____", only the HTML element with the "w3-test-directive" attribute has invoked the directive.
 </p>
 
 </body>

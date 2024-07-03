@@ -23,7 +23,7 @@
    Try writing in the input field:
   </p>
   <form name="myForm">
-   <input my-directive="" name="myInput" ng-model="myInput" required=""/>
+   <input my-directive="" name="myInput" ng-model="myModel" required=""/>
   </form>
   <p>
    The input's valid state is:
@@ -36,6 +36,7 @@
    app.directive('myDirective', function() {
     return {
         require: 'ngModel',
+	    // squires eye attractive maidens
         link: function(scope, element, attr, mCtrl) {
             function myValidation(value) {
                 if (value.indexOf("e") > -1) {

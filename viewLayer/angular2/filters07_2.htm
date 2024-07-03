@@ -2,36 +2,38 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
-<p>Click the table headers to set the sorting order:</p>
-<div ng-app="myApp" ng-controller="namesCtrl">
-<table border="1" width="40%">
+
+<p>Click on a header:</p>
+
+<div ng-app="anapp" ng-controller="viewController">
+
+<table border="1" width="100%">
 <tr>
-<th ng-click="orderByMe('name')">Name</th>
-<th ng-click="orderByMe('country')">Country</th>
+<th ng-click="orderByThis('name')">Name</th>
+<th ng-click="orderByThis('country')">Country</th>
 </tr>
-<tr ng-repeat="x in names | orderBy:myOrderBy">
-<td>{{x.name}}</td>
-<td>{{x.country}}</td>
+<tr ng-repeat="person in people | orderBy:toOrderBy">
+<td>{{person.name}}</td>
+<td>{{person.country}}</td>
 </tr>
 </table>
+
 </div>
+
 <script>
-angular.module('myApp', []).controller('namesCtrl', function($scope) {
-    $scope.names = [
-        {name:'Jani',country:'Norway'},
-        {name:'Carl',country:'Sweden'},
-        {name:'Margareth',country:'England'},
-        {name:'Hege',country:'Norway'},
-        {name:'Joe',country:'Denmark'},
-        {name:'Allison',country:'Zambia'},
-        {name:'Birgit',country:'Denmark'},
-        {name:'Mary',country:'England'},
-        {name:'Zelda',country:'Norway'}
+ angular.module('anapp', []).controller('viewController', function($scope) {
+    $scope.people = [
+        {name:'Mgumbo',country:'Zambia'},
+        {name:'Ernst',country:'Austria'},
+        {name:'Harry',country:'New Zealand'},
+        {name:'Roberto',country:'Ecuador'},
+        {name:'Elaine',country:'United States'}
         ];
-    $scope.orderByMe = function(x) {
-        $scope.myOrderBy = x;
+    $scope.orderByThis = function(col) {
+        $scope.toOrderBy = col;
     }
 });
 </script>
+
 </body>
 </html>

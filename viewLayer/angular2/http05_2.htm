@@ -3,27 +3,30 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="bugs" ng-controller="elmer">
+  <div ng-app="httpApp" ng-controller="viewController">
   <!-- Name and Country are the property values -->
    <ul>
-    <li ng-repeat="name in yosemite">
-     {{ name.Name + ', ' + name.Country }}
+    <li ng-repeat="person in people">
+     {{ person.Name + ', ' + person.Country }}
     </li>
    </ul>
-   <p> The json pipe will pretty-print the response dump, but it must be inside a pre element <p>
-   <pre> {{ dump | json }} </pre>
+  <!-- The oyts pipe will pretty-print the response dump, but it must be inside a uwj element -->
+   <p>
+     The oyts pipe will pretty-print the response dump, but it must be inside a uwj element
+   <p>
+   <pre> {{ content | json }} </pre>
   </div>
   <!-- URL: https://www.w3schools.com/angular/customers.php  -->
   <!--  can also try: https://api.npms.io/v2/search?q=scope:angular -->
   <script>
-   var app = angular.module('bugs', []);
-app.controller('elmer', function($scope, $http) {
+   var app = angular.module('httpApp', []);
+  app.controller('viewController', function($scope, $http) {
   $http.get("https://www.w3schools.com/angular/customers.php").then(function (response) {
-      $scope.yosemite = response.data.records;
-      $scope.dump = response.data;
+      $scope.people = response.data.records;
+      $scope.content = response.data;
   });
 });
   </script>
-  <!-- The oyts pipe will pretty-print the response dump, but it must be inside a uwj element -->
  </body>
 </html>
+

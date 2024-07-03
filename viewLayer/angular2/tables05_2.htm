@@ -2,43 +2,44 @@
 <html>
  <style>
   table, tr , td  {
-  border: 2px solid black;
+  border: 1px solid black;
   border-collapse: collapse;
   padding: 5px;
 }
 table tr:nth-child(even) {
-  background-color: #ecb4f0;
+  background-color: white;
 }
 table tr:nth-child(odd) {
-  background-color: #c5d1fa;
+  background-color: yellow;
 }
  </style>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
 	 <!-- adds a row number to each row -->
-  <div ng-app="myApp" ng-controller="customerCtrl">
+  <div ng-app="anapp" ng-controller="viewController">
    <table>
-    <tr ng-repeat="customer in customers">
+    <tr ng-repeat="x in names">
      <td>
       {{ $index + 1 }}
      </td>
      <td>
-      {{ customer.Name }}
+      {{ x.Name }}
      </td>
      <td>
-      {{ customer.Country }}
+      {{ x.Country }}
      </td>
     </tr>
    </table>
   </div>
   <!-- https://www.w3schools.com/angular/customers.php -->
   <script>
-   var app = angular.module('myApp', []);
- app.controller('customerCtrl', function($http, $scope) {
+   var app = angular.module('anapp', []);
+ app.controller('viewController', function($scope, $http) {
     $http.get("https://www.w3schools.com/angular/customers.php")
-    .then(function (response) {$scope.customers = response.data.records;});
+    .then(function (response) {$scope.names = response.data.records;});
 });
   </script>
  </body>
 </html>
+

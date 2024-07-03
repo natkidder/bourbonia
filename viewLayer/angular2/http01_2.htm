@@ -2,21 +2,30 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
-<div ng-app="myApp" ng-controller="myCtrl">
-<p>Today's welcome msg is:</p>
-<p>{{myWelcome}}</p>
+
+<_____ _____-app="_____" _____-_____="myCtrl">
+
+<_____>_____'_____ _____ message _____:</_____>
+
+<_____>{{_____}}</_____>
+
 </div>
+
 <!-- The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable. -->
 <!--	can also try: https://api.npms.io/v2/search?q=scope:angular or http://localhost:8090/students -->
-<p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+<p>
+ The $http service requests a _____ _____ _____ server, and _____ _____ _____ set as _____ _____ _____ _____ "myWelcome" variable.
+</p>
+
 <script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
-  $http.get("https://api.npms.io/v2/search?q=scope:angular")
-  .then(function(response) {
-      $scope.myWelcome = response.data;
+ var app = angular._____('myApp', []);
+ _____._____('myCtrl', function($scope, $http) {
+  _____._____("https://_____.npms.io/_____/search?q=scope:angular")
+  ._____(_____(response) {
+      $scope.myWelcome = _____.data;
   });
 });
 </script>
+
 </body>
 </html>

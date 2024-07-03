@@ -2,39 +2,39 @@
 <html>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
- <div ng-app="">
+ <body ng-app="">
   <form>
-   Make a selection:
-   <input ng-model="myModel" type="radio" value="soap"/>
-   Soap
-   <input ng-model="myModel" type="radio" value="cheese"/>
-   Cheese
-   <input ng-model="myModel" type="radio" value="cereal"/>
-   Cereal
+   Select a button:
+   <input ng-model="formModel" type="radio" value="dogs"/>
+   Dogs
+   <input ng-model="formModel" type="radio" value="tutorials"/>
+   Tutorials
+   <input ng-model="formModel" type="radio" value="cars"/>
+   Cars
   </form>
-  <div ng-switch="myModel">
-   <div ng-switch-when="soap">
+  <div ng-switch="formModel">
+   <div ng-switch-when="dogs">
     <h1>
-     Soap
+     Dogs
     </h1>
     <p>
-     Ivory, Zest or Irish Spring
+     Welcome to the Wide World of Doggies
     </p>
    </div>
-   <div ng-switch-when="cheese">
+   <div ng-switch-when="tutorials">
     <h1>
-     Cheese
+     Tutorials
     </h1>
     <p>
-     Kraft or Sargento
+     Go with Tutorials.
     </p>
    </div>
-   <div ng-switch-when="cereal">
+   <div ng-switch-when="cars">
     <h1>
-     Cereal
+     Cars
     </h1>
     <p>
-     Post or Kelloggs
+     Learn about cars.
     </p>
    </div>
   </div>
@@ -44,3 +44,4 @@
   </p>
  </body>
 </html>
+

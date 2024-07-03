@@ -3,13 +3,14 @@
  <style>
   div {
   transition: all linear 0.9s;
-  background-color: lightBlue;
-  height: 100px;
+  background-color: pink;
+  height: 200px;
   width: 100%;
   position: relative;
   top: 0;
   left: 0;
 }
+
 .ng-hide {
   height: 0;
   width: 0;
@@ -22,15 +23,16 @@
  </script>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js">
  </script>
- <body ng-app="myApp">
+ <body ng-app="anApp">
   <h1>
-   Hide the div:
-   <input ng-model="myCheck" type="checkbox"/>
+   Hide the block:
+   <input ng-model="isHiding" type="checkbox"/>
   </h1>
-  <div ng-hide="myCheck">
+  <div ng-hide="isHiding">
   </div>
   <script>
-   var app = angular.module('myApp', ['ngAnimate']);
+   var app = angular.module('anApp', ['ngAnimate']);
   </script>
  </body>
 </html>
+

@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<div ng-app="myApp">
+<body ng-app="scopeApp">
 
-<p>In the application but not the controller's scope:</p>
-<p>{{title}}</p>
+<p>In the app scope:</p>
+<p>{{color}}</p>
 
-<div ng-controller="myCtrl">
+<div ng-controller="sandwichedController">
 
-<p>Inside the controller's scope:</p>
-<p>{{title}}</p>
+<p>In the controller scope:</p>
+<p>{{color}}</p>
 
 </div>
 
-<p>Now it's back to:</p>
-<p>{{title}}</p>
+<p>Back into the app scope:</p>
+<p>{{color}}</p>
 
 <script>
- var app = angular.module('myApp', []);
+ var app = angular.module('scopeApp', []);
  app.run(function($rootScope) {
-    $rootScope.title = 'General';
+    $rootScope.color = 'red';
 });
- app.controller('myCtrl', function($scope) {
-    $scope.title = "Colonel";
+ app.controller('sandwichedController', function($scope) {
+    $scope.color = "blue";
 });
 </script>
 

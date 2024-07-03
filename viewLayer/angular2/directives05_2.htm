@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<body ng-app="thisApp">
-<h3>before</h3>
-<the-prime-directive></the-prime-directive>
-<h3>after</h3>
+<body ng-app="myApp">
+<p>before</p>
+<my-own-directive></my-own-directive>
+<p>after</p>
 <script>
-  var app = angular.module("thisApp", []);
-  app.directive("thePrimeDirective", function() {
+  var app = angular.module("myApp", []);
+  app.directive("myOwnDirective", function() {
     return {
-        template : "<h1>Obey the Prime Directive!</h1>"
+        template : "<p>Made by a directive!</p>"
     };
 });
 </script>

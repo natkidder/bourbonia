@@ -16,16 +16,16 @@ a=ng-show
 q=The ___ directive functions as the opposite of ng-show - N-H
 a=ng-hide
 
-q=An AngularJS ___ decides what happens on screen when one manipulates the ___ and ___ - E,   M,   K
+q=An AngularJS ___ decides what happens on screen when one manipulates the ___ and ___ - E,   M,   K   physical objects
 a=event,mouse,keyboard
 a=event,keyboard,mouse
 
-q=The ___ object encapulates the ___ - DE,   B E
+q=The ___ object encapulates the ___ - DE,   B E   the E is often before "parking"
 a=$event,browser's event
 a=$event,browser event
 a=$event,event in the browser
 
-q=The four main input controls for data forms (in alphabetical order) - B,   I,   S,   T
+q=The four main HTML tags signifying input controls for data forms (in alphabetical order) - B,   I,   S,   T
 a=button,input,select,textarea
 
 q=The ___ directive binds data to a given input control - N-M
@@ -37,10 +37,10 @@ a=ng-switch,ng-switch-when
 q=Input validation is generally done by ___, but you can use ___ as well - H,   A F
 a=HTML,Angular functions
 
-q=To make an input or textarea filled out at least, use the HTML ___ attribute, and check using its ___ variable - R,  DV
+q=To make an input or textarea filled out at least, use the HTML ___ attribute, and check using Angular's ___ variable - R,  DV
 a=required,$valid
 
-q=The ___ attribute means you have to enter a valid address - E
+q=The ___ attribute means you have to enter a valid greek-amber address - E
 a=email
 
 q=The six states of the input field (in alphabetical order, $'s optional) - D,   I,   P,   T,   U,   V
@@ -61,6 +61,7 @@ a=deleted,false
 q=To create your own CSS validation, you must add a new ___ to your application, and validate inside a ___ - D,   F
 a=directive,function
 a=directive,function call
+a=directive,function specification
 
 q=The HTML form attribute ___ disables form idiot-proofing - N
 a=novalidate

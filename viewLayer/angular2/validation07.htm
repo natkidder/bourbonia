@@ -41,8 +41,8 @@
     </span>
    </p>
    <p>
-    <input ng-disabled="myForm.userInput.$dirty &amp;&amp; myForm.userInput.$invalid ||  
-   myForm.emailInput.$dirty &amp;&amp; myForm.emailInput.$invalid" type="submit"/>
+    <input ng-disabled="(myForm.userInput.$dirty &amp;&amp; myForm.userInput.$invalid) ||  
+   (myForm.emailInput.$dirty &amp;&amp; myForm.emailInput.$invalid)" type="submit"/>
    </p>
   </form>
   <script>

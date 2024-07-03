@@ -3,7 +3,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="boxer" ng-controller="napoleon">
+  <div ng-app="tableApp" ng-controller="viewContrller">
    <table>
     <tr ng-repeat="person in people">
      <td> {{ person.Name }} </td>
@@ -13,11 +13,12 @@
   </div>
   <!-- https://www.w3schools.com/angular/customers.php -->
   <script>
-   var muriel = angular.module('boxer', []);
-  muriel.controller('napoleon', function($scope, $http) {
+   var app = angular.module('tableApp', []);
+  app.controller('viewContrller', function($http, $scope) {
     $http.get("https://www.w3schools.com/angular/customers.php")
     .then(function (response) {$scope.people = response.data.records;});
 });
   </script>
  </body>
 </html>
+

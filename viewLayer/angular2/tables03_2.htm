@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
 <style>
-table, tr, td  {
-  border: 2px solid blue;
+table, tr , td  {
+  border: 1px solid black;
   border-collapse: collapse;
-  padding: 7px;
-}
-table tr:nth-child(odd) {
-  background-color: #F6BEE5;
+  padding: 5px;
 }
 table tr:nth-child(even) {
-  background-color: #D9BEF6;
+  background-color: #dce4f7;
+}
+table tr:nth-child(odd) {
+  background-color: #efdcf7;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
+
 	<!-- shows a table ordered by one of the columns -->
-<div ng-app="squealor" ng-controller="napoleon">
+<div ng-app="myApp" ng-controller="customersCtrl">
+
 <table>
-  <tr ng-repeat="customer in customers | orderBy : 'Country'">
-    <td>{{ customer.Name }}</td>
-    <td>{{ customer.Country }}</td>
+  <tr ng-repeat="x in names | orderBy : 'Country'">
+    <td>{{ x.Name }}</td>
+    <td>{{ x.Country }}</td>
   </tr>
 </table>
+
 </div>
+
 <!-- https://www.w3schools.com/angular/customers.php -->
 <script>
- var minimus = angular.module('squealor', []);
- minimus.controller('napoleon', function($scope, $http) {
+ var app = angular.module('myApp', []);
+ app.controller('customersCtrl', function($scope, $http) {
     $http.get("https://www.w3schools.com/angular/customers.php")
-    .then(function (response) {$scope.customers = response.data.records;});
+    .then(function (response) {$scope.names = response.data.records;});
 });
 </script>
+
 </body>
 </html>

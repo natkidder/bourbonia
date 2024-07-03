@@ -19,12 +19,12 @@
   <script>
    var app = angular.module('myApp', []);
    var feed = 67;
-app.service('hexafy', function() {
+ app.service('hexafy', function() {
     this.myFunc = function (x) {
         return x.toString(16);
     }
 });
-app.controller('myCtrl', function($scope, hexafy) {
+ app.controller('myCtrl', function($scope, hexafy) {
   $scope.hex = hexafy.myFunc(feed);
   $scope.feed = feed;
 });

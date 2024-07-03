@@ -3,29 +3,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
 
-<_____ _____-_____="_____" _____-_____="_____">
+<div ng-app="anapp" ng-controller="viewController">
 
-<_____>_____ _____ _____:</_____>
+<p>People:</p>
 <ul>
-  <_____ _____-_____="_____ _____ _____ | _____:'_____'">
-    {{ _____._____ + ', ' + _____._____ }}
+  <li ng-repeat="person in people | orderBy:'country'">
+    {{ person.name + ', ' + person.country }}
   </li>
 </ul>
 
 </div>
 
 <script>
- _____._____('_____', [])._____('_____', _____(_____) {
-    _____._____ = [
-        {_____:'_____',_____:'_____'},
-        {_____:'_____',_____:'_____'},
-        {_____:'_____',_____:'_____'},
-        {_____:'_____',_____:'_____'},
-        {_____:'_____',_____:'_____'},
-        {_____:'_____',_____:'_____'},
-        {_____:'_____',_____:'_____'},
-        {_____:'_____',_____:'_____'},
-        {_____:'_____',_____:'_____'}
+ angular.module('anapp', []).controller('viewController', function($scope) {
+    $scope.people = [
+        {name:'Martinez',country:'Peru'},
+        {name:'Wentworth',country:'Zambia'},
+        {name:'Sofie',country:'Austria'}
         ];
 });
 </script>

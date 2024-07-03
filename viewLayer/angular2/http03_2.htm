@@ -2,24 +2,32 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
-<div ng-app="myApp" ng-controller="myCtrl">
-<p>statusCode : {{statusCode}}</p>
-<p>StatusText : {{statustext}}</p>
-<p>Data :<br> {{content}}</p>
+
+<div ng-app="httpApp" ng-controller="viewController">
+
+<p>status code : {{statusCode}}</p>
+<p>status text : {{statusText}}</p>
+<br>body :<p> {{respBody}}</p>
+
 </div>
+
 <!-- The response object has many properties. This example demonstrate the value of the data, status, and statusText properties -->
-<p>The response _____ _____ _____ _____. This example _____ _____ value of _____ data, _____, _____ _____ _____.</p>
+<p>
+ The response object has many properties. This example demonstrate the value of the data, status, and statusText properties
+</p>
+
 <!--	can also try: https://api.npms.io/v2/search?q=scope:angular or http://localhost:8090/students -->
 <script>
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
+ var app = angular.module('httpApp', []);
+ app.controller('viewController', function($scope, $http) {
   $http.get("https://api.npms.io/v2/search?q=scope:angular")
   .then(function(response) {
-      $scope.content = response.data;
       $scope.statusCode = response.status;
-      $scope.statustext = response.statusText;
+      $scope.statusText = response.statusText;
+      $scope.respBody = response.data;
   });
 });
 </script>
+
 </body>
 </html>

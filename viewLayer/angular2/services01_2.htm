@@ -3,22 +3,24 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="myApp" ng-controller="myCtrl">
+  <div ng-app="anapp" ng-controller="viewController">
    <p>
-    The url of this page is:
+    this pages absolute URL is:
    </p>
    <h3>
-    {{myUrl}}
+    {{thisUrl}}
    </h3>
   </div>
+  <!-- This example uses the built-in _____ service to get the absolute url of the page. -->
   <p>
-   The example uses the built-in $location service to produce the absolute url of the page.
+   This example uses the built-in $location service to get the absolute url of the page.
   </p>
   <script>
-   var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $location) {
-    $scope.myUrl = $location.absUrl();
+   var app = angular.module('anapp', []);
+ app.controller('viewController', function($scope, $location) {
+    $scope.thisUrl = $location.absUrl();
 });
   </script>
  </body>
 </html>
+

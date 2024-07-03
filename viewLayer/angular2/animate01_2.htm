@@ -2,20 +2,21 @@
 <html>
  <style>
   div {
-  transition: all linear 1.9s;
-  background-color: lightBlue;
-  height: 100px;
+  transition: all linear 1.3s;
+  background-color: orange;
+  height: 200px;
   width: 100%;
   position: relative;
   top: 0;
   left: 0;
 }
+
 .ng-hide {
   height: 0;
   width: 0;
   background-color: transparent;
   top:-200px;
-  left: 200px;
+  left: 100px;
 }
  </style>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
@@ -24,10 +25,11 @@
  </script>
  <body ng-app="ngAnimate">
   <h1>
-   hide the div:
-   <input ng-model="myCheck" type="checkbox"/>
+   Hide the block:
+   <input ng-model="isHiding" type="checkbox"/>
   </h1>
-  <div ng-hide="myCheck">
+  <div ng-hide="isHiding">
   </div>
  </body>
 </html>
+

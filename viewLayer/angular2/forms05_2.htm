@@ -4,12 +4,12 @@
  </script>
  <body ng-app="">
   <form>
-   Select a topic:
-   <select ng-model="_____">
+   Select a Catagory:
+   <select ng-model="categoryModel">
     <option value="">
      <option value="dogs">
       Dogs
-      <option value="tuts">
+      <option value="tutorials">
        Tutorials
        <option value="cars">
         Cars
@@ -19,29 +19,29 @@
     </option>
    </select>
   </form>
-  <div ng-switch="myVar">
-   <_____ ng-_____-when="_____">
+  <div ng-switch="categoryModel">
+   <div ng-switch-when="dogs">
     <h1>
      Dogs
     </h1>
     <p>
-     Welcome to a world of dogs.
+     The wonderful world of doggies
     </p>
    </div>
-   <div _____-switch-when="tuts">
+   <div ng-switch-when="tutorials">
     <h1>
      Tutorials
     </h1>
     <p>
-     Learn from _____.
+     All about tutorials.
     </p>
    </div>
-   <_____ _____-switch-when="cars">
+   <div ng-switch-when="cars">
     <h1>
      Cars
     </h1>
     <p>
-     _____ about cars.
+     Deal with cars.
     </p>
    </div>
   </div>
@@ -51,3 +51,4 @@
   </p>
  </body>
 </html>
+

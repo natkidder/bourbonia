@@ -3,20 +3,20 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="coordApp" ng-controller="coordCtrl">
-   <h1 ng-mousemove="genCoordinates($event)">
-    Mouse over Me!
+  <div ng-app="anapp" ng-controller="viewController">
+   <h1 ng-mousemove="genCoord($event)">
+    Mouse over me!
    </h1>
    <p>
     Coordinates: {{x + ', ' + y}}
    </p>
   </div>
   <script>
-   var app = angular.module('coordApp', []);
-   app.controller('coordCtrl', function($scope) {
-    $scope.genCoordinates = function(myEvent) {
-        $scope.x = myEvent.clientX;
-        $scope.y = myEvent.clientY;
+   var app = angular.module('anapp', []);
+   app.controller('viewController', function($scope) {
+    $scope.genCoord = function(evnt) {
+        $scope.x = evnt.clientX;
+        $scope.y = evnt.clientY;
     }
 });
   </script>
@@ -26,3 +26,4 @@
   </p>
  </body>
 </html>
+

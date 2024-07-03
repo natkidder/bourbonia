@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html>
 <style>
-table, td  {
-  border: 2px solid blue;
+table, tr  {
+  border: 1px  solid  black;
   border-collapse: collapse;
   padding: 5px;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
+
 	<!-- rows colored according to whether they are even or odd -->
-<div ng-app="myapp" ng-controller="thisctrl">
+<div ng-app="myApp" ng-controller="customersCtrl">
+
 <table>
-  <tr ng-repeat="customer in customers">
-    <td ng-if="$odd" style="background-color:#fac5f6">
-    {{ customer.Name }}</td>
+  <tr ng-repeat="name in names">
+    <td ng-if="$odd" style="background-color:lightBlue">
+    {{ name.Name }}</td>
     <td ng-if="$even">
-    {{ customer.Name }}</td>
-    <td ng-if="$odd" style="background-color:#fac5f6">
-    {{ customer.Country }}</td>
+    {{ name.Name }}</td>
+    <td ng-if="$odd" style="background-color:lightBlue">
+    {{ name.Country }}</td>
     <td ng-if="$even">
-    {{ customer.Country }}</td>
+    {{ name.Country }}</td>
   </tr>
 </table>
+
 </div>
   <!-- https://www.w3schools.com/angular/customers.php -->
 <script>
- var app = angular.module('myapp', []);
- app.controller('thisctrl', function($http, $scope) {
+ var app = angular.module('myApp', []);
+ app.controller('customersCtrl', function($scope, $http) {
     $http.get("https://www.w3schools.com/angular/customers.php")
-    .then(function (response) {$scope.customers = response.data.records;});
+    .then(function (response) {$scope.names = response.data.records;});
 });
 </script>
+
 </body>
 </html>

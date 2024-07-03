@@ -3,26 +3,26 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="thisapp" ng-controller="carscontroller">
+  <div ng-app="app" ng-controller="controller">
    <p>
-    Select a car:
+    Select a Make & Model:
    </p>
-   <select ng-model="thismodel">
-	   <option ng-repeat="car in cars" value="{{car.model}}  {{car.color}}">
-     {{car.model}}
+   <select ng-model="makemodel">
+    <option ng-repeat="car in cars" value="{{car.makemodel}}">
+     {{car.makemodel}}
     </option>
    </select>
    <h1>
-    You selected: {{thismodel}}
+    You selected: {{makemodel}}
    </h1>
   </div>
   <script>
-   var thisapp = angular.module('thisapp', []);
-   thisapp.controller('carscontroller', function($scope) {
+   var app = angular.module('app', []);
+   app.controller('controller', function($scope) {
     $scope.cars = [
-        {model : "Kia Soul", color : "gray"},
-        {model : "Kia Sorrento", color : "red"},
-        {model : "Kia Sportage", color : "blue"}
+        {makemodel : "Mitsubishi Galante", color : "gray"},
+        {makemodel : "Toyota Prius", color : "black"},
+        {makemodel : "Kia Soul", color : "gray"}
     ];
 });
   </script>
@@ -36,3 +36,4 @@
   </p>
  </body>
 </html>
+

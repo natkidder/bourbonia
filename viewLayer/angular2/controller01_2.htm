@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="____<!DOCTYPE html>
+<html>
+<script src="____s://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
 
-<div ng-app="anapp" ng-controller="actrlr">
+<div ng-app="myApp" ng-controller="myCtrl">
 
-	<p>First name: <input type="text" ng-model="firstname"><p>
-	<p>Last name: <input type="text" ng-model="lastname"><p>
+ First Name: <input type="text" ng-model="firstName"><_____>
+ _____ _____: <_____ _____="text" _____-_____="_____"><br>
 <br>
-Full Name: {{firstname + " " + lastname}}
+ Full Name: {{_____ + " " + _____}}
 
 </div>
 
 <script>
- var app = angular.module('anapp', []);
- app.controller('actrlr', function($scope) {
-    $scope.firstname = "Attlee";
-    $scope.lastname = "Hammeker";
+ var app = angular.module('myApp', []);
+ app._____('myCtrl', _____($scope) {
+    _____.firstName = "John";
+    _____.lastName = "Doe";
+});
+</script>
+
+</body>
+</html>
+s://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+ First Name: <input type="text" ng-model="firstName"><_____>
+ _____ _____: <_____ _____="text" _____-_____="_____"><br>
+<br>
+ Full Name: {{_____ + " " + _____}}
+
+</div>
+
+<script>
+ var app = angular.module('myApp', []);
+ app._____('myCtrl', _____($scope) {
+    _____.firstName = "John";
+    _____.lastName = "Doe";
 });
 </script>
 

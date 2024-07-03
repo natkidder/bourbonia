@@ -3,20 +3,20 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="thisapp" ng-controller="soapController">
+  <div ng-app="anapp" ng-controller="viewController">
    <p>
-    Make your choice:
+    Select a car model:
    </p>
-   <select ng-model="soapModel" ng-options="y.brand for (x, y) in soaps">
+   <select ng-model="carYouSelect" ng-options="value.model for (key, value) in cars">
    </select>
    <h1>
-    Brand: {{soapModel.brand}}
+    Car Make: {{carYouSelect.make}}
    </h1>
    <h2>
-    Type: {{soapModel.type}}
+    Model: {{carYouSelect.model}}
    </h2>
    <h3>
-    Additives: {{soapModel.additives}}
+    Color: {{carYouSelect.color}}
    </h3>
    <!-- The visible text inside the dropdown list can also be a property of the value object -->
    <p>
@@ -24,14 +24,15 @@
    </p>
   </div>
   <script>
-   var app = angular.module('thisapp', []);
-   app.controller('soapController', function($scope) {
-    $scope.soaps = {
-        soap01 : {brand : "Ivory", type : "body", additives : "none"},
-        soap02 : {brand : "Lava", type : "hand", additives : "ground lava"},
-        soap03 : {brand : "Irish Spring", type : "body", additives : "dyes"}
+   var app = angular.module('anapp', []);
+   app.controller('viewController', function($scope) {
+    $scope.cars = {
+        car01 : {make : "Mitsubishi", model : "Galante", color : "gray"},
+        car02 : {make : "Toyota", model : "Prius", color : "black"},
+        car03 : {make : "Kia", model : "Soul", color : "champaign gray"}
     }
 });
   </script>
  </body>
 </html>
+

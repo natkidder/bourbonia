@@ -11,12 +11,13 @@
     {{myUrl}}
    </h3>
   </div>
+  <!-- This example uses the built-in _____ service to get the absolute url of the page. -->
   <p>
    This example uses the built-in $location service to get the absolute url of the page.
   </p>
   <script>
    var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $location) {
+ app.controller('myCtrl', function($scope, $location) {
     $scope.myUrl = $location.absUrl();
 });
   </script>

@@ -16,41 +16,42 @@
   <h2>
    Validation Example
   </h2>
-  <form name="validateForm" ng-app="validateApp" ng-controller="validateCtrl" required="">
+  <Form name="myForm" ng-app="myApp" ng-controller="myCtrl" novalidate="">
    <p>
-    Name:
-    <p/>
-    <input name="nameInput" ng-model="nameModel" required="" type="text"/>
-    <span ng-show="validateForm.nameInput.$dirty &amp;&amp; validateForm.nameInput.$invalid" style="color:red">
-     <span ng-show="validateForm.nameInput.$error.required">
+    User:
+    <br/>
+    <input name="userInput" ng-model="userModel" required="" type="text"/>
+    <span ng-show="myForm.userInput.$dirty &amp;&amp; myForm.userInput.$invalid" style="color:red">
+     <span ng-show="myForm.userInput.$error.required">
       Name is required.
      </span>
     </span>
    </p>
    <p>
     Email:
-    <p/>
+    <br/>
     <input name="emailInput" ng-model="emailModel" required="" type="email"/>
-    <span ng-show="validateForm.emailInput.$dirty &amp;&amp; validateForm.emailInput.$invalid" style="color:red">
-     <span ng-show="validateForm.emailInput.$error.required">
-      Email address required.
+    <span ng-show="myForm.emailInput.$dirty &amp;&amp; myForm.emailInput.$invalid" style="color:red">
+     <span ng-show="myForm.emailInput.$error.required">
+      Email is required.
      </span>
-     <span ng-show="validateForm.emailInput.$error.email">
-      Invalid email address.
+     <span ng-show="myForm.emailInput.$error.email">
+      Invalid email format.
      </span>
     </span>
    </p>
    <p>
-    <input ng-disabled="validateForm.nameInput.$dirty &amp;&amp; validateForm.nameInput.$invalid ||
-   validateForm.emailInput.$dirty &amp;&amp; validateForm.emailInput.$invalid" type="submit"/>
+    <input ng-disabled="(myForm.userInput.$dirty &amp;&amp; myForm.userInput.$invalid) ||
+   (myForm.emailInput.$dirty &amp;&amp; myForm.emailInput.$invalid)" type="submit"/>
    </p>
   </form>
   <script>
-   var app = angular.module('validateApp', []);
-   app.controller('validateCtrl', function($scope) {
-    $scope.nameModel = 'Paul Blair';
-    $scope.emailModel = 'paul.blair@orioles.com';
+   var app = angular.module('myApp', []);
+   app.controller('myCtrl', function($scope) {
+    $scope.userModel = 'Eddie Milner';
+    $scope.emailModel = 'eddie.milner@gmail.com';
 });
   </script>
  </body>
 </html>
+

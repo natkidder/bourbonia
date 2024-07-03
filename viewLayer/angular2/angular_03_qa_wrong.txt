@@ -1,4 +1,14 @@
 
-q=An AngularJS controller is a regular ___ - J O
-a=javascript object
+q=You can bind data to the model with either ___ punctuation, or either of the ___ or the ___ directive - D B,   N-B,   N-M
+a=double braces,ng-bind,ng-model
+a={{}},ng-bind,ng-model
+a=double braces,ng-model,ng-bind
+a={{}},ng-model,ng-bind
+
+q=Binding can be two-way between the ___ and ___ - M,   V
+a=model,view
+a=view,model
+
+q=You invoke a controller using the built-in ___ object, which refers to the ___ - DS,   A
+a=$scope,application
 

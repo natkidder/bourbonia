@@ -1,7 +1,7 @@
 q=Angular has native functions for ___ (eg. capitalizing) - S M
 a=string manipulation
 
-q=You can integrate Angular with ___.___ - W,   C
+q=To enhance that, you can integrate Angular with the ___.___ library - W,   C
 a=w3,css
 a=w3.css
 
@@ -15,7 +15,7 @@ a=white list,domains
 q=To add movement to a page, you need the ___.js library and the ___ module - A-A,   NA
 a=angular-animate,ngAnimate
 
-q=ngAnimate adds and removes ___ to ___ - C,   E A
+q=ngAnimate adds and removes ___ in order to ___ - C,   E A
 a=classes,enable animation
 
 q=Use the ___ module so as to enable your application to be single-page - NR
@@ -23,6 +23,7 @@ a=ngRoute
 
 q=To use it, you must add the ngRoute as a(n) ___ in the ___ module - D,   A
 a=dependency,application
+a=dependency,app
 
 q=Once you do that, your application has access to the ___ - R P
 a=route provider
@@ -36,7 +37,7 @@ a=$routeProvider,page
 q=You define the $routeProvider using the ___ method of your ___ - C,   A
 a=config,application
 
-q=With the $routeProvider you can define a(n) ___ for each view - C
+q=In addition to static content, with the $routeProvider you can define a(n) ___ for each view - C
 a=controller
 
 q=The ___ property allows you to write HTML directly in the property value - T

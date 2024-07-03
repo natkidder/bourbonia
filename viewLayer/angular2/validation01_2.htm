@@ -2,19 +2,20 @@
 <html>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
- <div ng-app="">
+ <body ng-app="">
   <p>
-   Enter any value:
+   Enter a value in the input:
   </p>
-  <form name="validatedForm">
+  <form name="aForm">
 	  <!-- what you name the model seems to be irrelevant, but you still need it -->
-   <input name="validatedInput" ng-model="someModel" required="true"/>
+   <input name="anInput" ng-model="mickyMouse" required=""/>
   </form>
   <p>
-   The input value's validity is:
+   The input's values validity is:
   </p>
   <h1>
-   {{validatedForm.validatedInput.$valid}}
+   {{aForm.anInput.$valid}}
   </h1>
  </body>
 </html>
+

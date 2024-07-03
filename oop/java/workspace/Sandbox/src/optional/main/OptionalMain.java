@@ -33,21 +33,21 @@ public class OptionalMain {
 	private static void checkIfOptionalObjPresent() {
 		String name = "baeldung";
 		Optional<String> opt = Optional.of(name);
-//		assertTrue(opt.isPresent(),"opt is present");
+		//		assertTrue(opt.isPresent(),"opt is present");
 		chkPresence("opt is present", opt);
-Optional<String> opt2 = Optional.ofNullable("France");
-chkPresence("opt2 is present", opt2);
-Optional<String> opt3 = Optional.ofNullable(null);
-chkPresence("opt3 is present", opt2);
-chkEmpty("opt3 is empty", opt2);
-		
+		Optional<String> opt2 = Optional.ofNullable("France");
+		chkPresence("opt2 is present", opt2);
+		Optional<String> opt3 = Optional.ofNullable(null);
+		chkPresence("opt3 is present", opt2);
+		chkEmpty("opt3 is empty", opt2);
+
 	}
 
 	private static void chkPresence(String msg, Optional<String> opt) {
-         System.out.println(msg+": "+(opt.isPresent()));
+		System.out.println(msg+": "+(opt.isPresent()));
 	}
 	private static void chkEmpty(String msg, Optional<String> opt) {
-        System.out.println(msg+": "+(opt.isEmpty()));
+		System.out.println(msg+": "+(opt.isEmpty()));
 	}
 
 }

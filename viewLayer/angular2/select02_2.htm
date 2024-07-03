@@ -3,17 +3,17 @@
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <body>
-  <div ng-app="thisapp" ng-controller="thiscontroller">
+  <div ng-app="app" ng-controller="controller">
    <select>
-    <option ng-repeat="firstname in firstnames">
-     {{firstname}}
+    <option ng-repeat="name in names">
+     {{name}}
     </option>
    </select>
   </div>
   <script>
-   var thisapp = angular.module('thisapp', []);
-   thisapp.controller('thiscontroller', function($scope) {
-    $scope.firstnames = ["Ridge", "Sheila", "Brooke"];
+   var app = angular.module('app', []);
+   app.controller('controller', function($scope) {
+    $scope.names = ["Jerry", "George", "Elaine"];
 });
   </script>
   <!-- This example shows how to fill a dropdown list using the ng-repeat directive -->
@@ -22,3 +22,4 @@
   </p>
  </body>
 </html>
+

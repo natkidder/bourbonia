@@ -6,34 +6,34 @@
 	 <!-- The item is already in your shopping list. -->
   <script>
    var app = angular.module("itemsApp", []);
-   app.controller("itemsCtrlr", function($scope) {
-    $scope.products = ["brocolli", "carrots", "radishes"];
-    $scope.addItem = function () {
+   app.controller("viewController", function($scope) {
+    $scope.items = ["Cheese", "Bread", "Milk"];
+    $scope.pushItem = function () {
         $scope.errortext = "";
-        if (!$scope.addMe) {return;}
-        if ($scope.products.indexOf($scope.addMe) == -1) {
-            $scope.products.push($scope.addMe);
+        if (!$scope.newItem) {return;}
+        if ($scope.items.indexOf($scope.newItem) == -1) {
+            $scope.items.push($scope.newItem);
         } else {
-            $scope.errortext = $scope.addMe + " is already in the list.";
+            $scope.errortext = "Item " + $scope.newItem + " is already in the list.";
         }
     }
-    $scope.removeItem = function (x) {
+    $scope.removeItem = function (item) {
         $scope.errortext = "";
-        $scope.products.splice(x, 1);
+        $scope.items.splice(item, 1);
     }
 });
   </script>
-  <div ng-app="itemsApp" ng-controller="itemsCtrlr">
+  <div ng-app="itemsApp" ng-controller="viewController">
    <ul>
-    <li ng-repeat="product in products">
-     {{product}}
+    <li ng-repeat="item in items">
+     {{item}}
      <span ng-click="removeItem($index)">
       x
      </span>
     </li>
    </ul>
-   <input ng-model="addMe"/>
-   <button ng-click="addItem()">
+   <input ng-model="newItem"/>
+   <button ng-click="pushItem()">
     Add
    </button>
    <p>
@@ -46,3 +46,4 @@
   </p>
  </body>
 </html>
+

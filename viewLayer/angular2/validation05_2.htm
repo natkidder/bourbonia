@@ -4,23 +4,24 @@
  </script>
  <style>
   form.ng-pristine {
-    background-color:lightBlue;
+    background-color:pink;
 }
   form.ng-dirty {
-    background-color:pink;
+    background-color:lightBlue;
 }
  </style>
  <body ng-app="">
-  <form name="chameleon">
+  <form name="aForm">
 	  <!-- Try writing in the input field: -->
    <p>
-    Try typing below:
+    Try writing in the input field:
    </p>
-   <input name="thisInput" ng-model="aModel" required="xxx"/>
+   <input name="anInput" ng-model="inputModel" required=""/>
    <!-- The form gets a "ng-dirty" class when the form has been modified, and will therefore turn pink. -->
    <p>
-     The form gets a "ng-dirty" class when the form has been modified, and will therefore turn pink.
+    The form gets a "ng-dirty" class when the form has been modified, and will therefore turn pink.
    </p>
   </form>
  </body>
 </html>
+

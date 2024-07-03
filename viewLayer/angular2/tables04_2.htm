@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html>
  <style>
-  _____, _____ , _____  {
-  _____: _____ _____ _____;
-  _____-_____: _____;
-  _____: _____;
+  table, tr , td  {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
 }
-table _____:_____-_____(_____) {
-  _____-_____: #_____;
+table tr:nth-child(even) {
+  background-color: white;
 }
-table _____:_____-_____(_____) {
-  _____-_____: #_____;
+table tr:nth-child(odd) {
+  background-color: yellow;
 }
  </style>
  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
  </script>
  <!-- displays column values in uppercase -->
  <body>
-  <_____ _____-_____="_____" _____-_____="_____">
+  <div ng-app="anapp" ng-controller="viewController">
    <table>
-    <_____ _____-_____="_____ _____ _____">
+    <tr ng-repeat="x in names">
      <td>
-      {{ _____._____ }}
+      {{ x.Name }}
      </td>
      <td>
-      {{ _____._____ | _____ }}
+      {{ x.Country | uppercase }}
      </td>
     </tr>
    </table>
   </div>
   <!-- https://www.w3schools.com/angular/customers.php -->
   <script>
-   _____ _____ = _____._____('_____', []);
- _____._____('_____', _____($scope, $http) {
-    $http._____("_____://_____._____._____/_____/_____._____")
-    ._____(_____ (_____) {$scope._____ = _____._____._____;});
+   var app = angular.module('anapp', []);
+ app.controller('viewController', function($scope, $http) {
+    $http.get("https://www.w3schools.com/angular/customers.php")
+    .then(function (response) {$scope.names = response.data.records;});
 });
   </script>
  </body>
 </html>
+

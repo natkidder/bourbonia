@@ -1,10 +1,10 @@
-q=A service is a ___ or ___ limited to your ___ - F,   O,   A A
+q=A service is a(n) ___ or ___ limited to your ___ - F,   O,   A A
 a=function,object,Angular application
 a=object,function,Angular application
 a=function,object,application
 a=object,function,application
 
-q=A service can be ___ or ___ from the standpoint of making available - C,   B
+q=A service can be ___ or ___ from the standpoint of making available - C,   B    make vs. buy
 a=builtin,custom
 a=built-in,custom
 a=custom,builtin
@@ -39,14 +39,14 @@ q=The $http service exposes, among others, a ___ and ___ method - G,   P
 a=get,post
 a=post,get
 
-q=Use these two objects for ansynchronous HTTP calls - O,  P   one is a margarine, the other produces a datum
+q=Use these two objects for ansynchronous HTTP calls - O,  P   one is a margarine, the other is part of astronomy
 a=observation,promise
 a=promise,observation
 
 q=Five server responses properties, in alphabetical order - C,   D,   H,   S,   ST
 a=config,data,headers,status,statusText
 
-q=The $http version of catch is ___ - T
+q=The $http version of try is ___ - T
 a=then
 
 q=To fetch a table, use the response's ___.___ property - D.R
@@ -56,7 +56,7 @@ a=data.records
 q=You can conditionally control HTML element attributes using the ___ directive - N-I
 a=ng-if
 
-q=You can create HTML select boxes using ___ through a(n) ___ via ___ - L,   C,   N-O
+q=You can create HTML select boxes by ___ through a(n) ___ via the ___ directive - L,   C,   N-O
 a=looping,collection,ng-options
 a=looping,list,ng-options
 a=looping,array,ng-options
