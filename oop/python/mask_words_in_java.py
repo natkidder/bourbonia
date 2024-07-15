@@ -142,4 +142,4 @@ if __name__ == '__main__':
         mask_words(args[0], dest_path, pct_of_lines, is_every_word_masked, beginline, endline)
         print("\noutput in   " + dest_path)
     else:
-        print("arg1: path to file     arg2: is every word in a selected line masked (y/n default n)    arg3: percent (0-100) of lines to have masking done\n")
+        print("arg1: path to file     arg2: is every word in a selected line masked (y/n default n)    arg3: percent (0-100) of lines to have masking done\n   (optional) args4-5 range of lines to work on")
