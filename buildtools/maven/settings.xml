@@ -19,33 +19,10 @@
 
 <servers>
 
-	<server>
-	  <id>commercial</id> 
-	  <username>nbkvphh</username> 
-	  <password>Jack1829</password> 
-	</server>
-
-	<server>
-	  <id>internal</id> 
-	  <username>nbkvphh</username> 
-	  <password>Jack1829</password> 
-	</server>
-
-	<server>
-	  <id>snapshots</id> 
-	  <username>nbkvphh</username> 
-	  <password>Jack1829</password>
-	</server>
 	
    </servers>
    
      <mirrors>
-       <mirror>
-         <id>FOSS</id>
-         <name>Bank of America Mirror of http://repo1.maven.org/maven2/</name>
-         <url>http://repo.bankofamerica.com/archiva/repository/FOSS/</url>
-         <mirrorOf>central</mirrorOf>
-       </mirror>
   </mirrors>
   
 <profiles>
@@ -53,53 +30,6 @@
 	<profile>
 		<id>basic</id>
 		<repositories>
-		   <repository>
-		      <id>FOSS</id>
-		      <name>FOSS</name>
-		      <url>http://repo.bankofamerica.com/archiva/repository/FOSS/</url>
-		      <releases>
-		        <enabled>true</enabled>
-		      </releases>
-		      <snapshots>
-		        <enabled>false</enabled>
-		      </snapshots>
-		    </repository>
-
-		    <repository>
-		      <id>commercial</id>
-		      <name>commercial</name>
-		      <url>http://repo.bankofamerica.com/archiva/repository/commercial/</url>
-		      <releases>
-		        <enabled>true</enabled>
-		      </releases>
-		      <snapshots>
-		        <enabled>false</enabled>
-		      </snapshots>
-		    </repository>
-
-		    <repository>
-		      <id>internal</id>
-		      <name>internal</name>
-		      <url>http://repo.bankofamerica.com/archiva/repository/internal/</url>
-		      <releases>
-		        <enabled>true</enabled>
-		      </releases>
-		      <snapshots>
-		        <enabled>false</enabled>
-		      </snapshots>
-		    </repository>
-
-		    <repository>
-		      <id>snapshots</id>
-		      <name>snapshots</name>
-		      <url>http://repo.bankofamerica.com/archiva/repository/snapshots/</url>
-		      <releases>
-		        <enabled>false</enabled>
-		      </releases>
-		      <snapshots>
-		        <enabled>true</enabled>
-		      </snapshots>
-		    </repository>
 		</repositories>
       
     </profile>
