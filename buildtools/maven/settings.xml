@@ -6,14 +6,14 @@
 
 <proxies>
    <proxy>
-      <id>Bank of America</id>
+      <id></id>
       <active>true</active>
       <protocol>http</protocol>
-      <username>nbkvphh</username>
-      <password>Jack1829</password>
-      <host>webproxy.bankofamerica.com</host>
+      <username></username>
+      <password></password>
+      <host>/host>
       <port>8080</port>
-      <nonProxyHosts>bankofamerica.com</nonProxyHosts>
+      <nonProxyHosts></nonProxyHosts>
     </proxy>
 </proxies>
 
