@@ -1,7 +1,0 @@
-SQL> select * from user_sys_privs;
-
-USERNAME                       PRIVILEGE                                ADM     
------------------------------- ---------------------------------------- ---     
-SCOTT                          UNLIMITED TABLESPACE                     NO      
-
-SQL> spool off

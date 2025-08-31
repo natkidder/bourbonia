@@ -1,2 +1,0 @@
-mysql -unkidder -hlocalhost -pwlypb -Dtest < lsql > lout
-cat lout
