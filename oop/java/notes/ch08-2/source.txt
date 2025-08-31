@@ -1,2 +1,0 @@
-Beginning J2EE, p. 335
-Illustrates stateful session beans

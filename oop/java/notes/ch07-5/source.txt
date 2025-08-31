@@ -1,2 +1,0 @@
-Beginning J2EE, p. 304
-Illustrates JDBC optimistic locking

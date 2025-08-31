@@ -1,2 +1,0 @@
-Beginning J2EE, p. 378
-Illustrates local interfaces with CMP entity beans

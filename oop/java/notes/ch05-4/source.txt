@@ -1,2 +1,0 @@
-Crume, p.186
-Illustrates exception handling

@@ -1,2 +1,0 @@
-Crume, p.179
-Illustrates a thread-unsafe servlet

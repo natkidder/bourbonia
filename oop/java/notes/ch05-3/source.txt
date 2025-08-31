@@ -1,2 +1,0 @@
-Crume, p.186
-Illustrates both good and poor error handling (not an actual "Try it Yourself" exercise)
