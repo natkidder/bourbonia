@@ -1,6 +1,0 @@
-<taskdef file="${webtest.home}/webtestTaskdefs.properties">
-  <classpath>
-	  <pathelement path="${webtest.home}/lib"/>
-	  <fileset dir="${webtest.home}" includes="**/lib/*.jar"/>
-  </classpath>
-</taskdef>
