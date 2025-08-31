@@ -1,3 +1,0 @@
-http://localhost:8080/ResourceA/services/MyService?wsdl
-
-http://localhost:8080/Axis2WSTest/services/Converter?wsdl
