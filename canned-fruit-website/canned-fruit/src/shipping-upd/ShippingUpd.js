@@ -93,8 +93,8 @@ function ShippingUpd(props) {
   };
   return (
     <>
-      <h1>Shipping Terms</h1>
-      <h2>Select Shipping Term</h2>
+      <h1>Update a Shipping Term</h1>
+      <h2>Select a Shipping Term</h2>
       <form onSubmit={handleChoice}>
         <table>
           <thead>
@@ -125,8 +125,8 @@ function ShippingUpd(props) {
           <input type="number" step=".01" name="price" value={inputs.price || ""} onChange={handleChange} />
           &nbsp;
         </label>
-        <br></br>
-        <input type="submit" />
+        <p />
+        <input type="submit" value="Confirm Update" />
       </form>
       <p></p>
       <button onClick={handleRouter}>Back to Menu</button>

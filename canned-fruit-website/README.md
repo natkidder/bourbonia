@@ -2,7 +2,7 @@
 - canned-fruit-distributor is a web application you may run entirely on your laptop that mimics a canned fruit order taker.  The business distributes canned fruit, primarily to other businesses. (The application is agnostic to how the distributor obtains it.)
 
 # Types of users
-## Administrator (
+## Administrator
   - login is *admin@cannedFruit.com*) 
   She creates, maintains and removes 
     - Offerings (fruit that is sold in a medium, such as syrup, and in a container), and its price per ounce.
@@ -16,6 +16,7 @@
 - Identified by her email address
 
 # Technological Stack
+
 ## Database
 - Either connect with a remote database or install a local one.  I used PostgreSQL, but you may try another.
 - Whichever one you use, install the appropriate driver in the middleware and set its *application.properties* file accordingly

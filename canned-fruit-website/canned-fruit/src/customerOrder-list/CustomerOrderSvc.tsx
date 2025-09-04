@@ -164,6 +164,10 @@ function CustomerOrderSvc(props) {
     ///////
     setCount((prevCount) => prevCount + 1); ///////
   }; ///////
+  const handleNavigation = (href: string) => {
+    console.log("🔄 Menu navigation forcing refresh to:", href);
+    window.location.href = href;
+  };
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -206,7 +210,12 @@ function CustomerOrderSvc(props) {
         <input type="submit" />
       </form>
       <p></p>
-      <Link to="/">Back to Home</Link>
+      <p />
+      <button type="button" onClick={(e) => handleNavigation("http://localhost:3000/entry")}>
+        {" "}
+        Logout
+      </button>
+      &nbsp;
     </>
   );
 }

@@ -66,7 +66,7 @@ function ShippingAdd(props) {
 
   return (
     <>
-      <h1>Shipping Terms</h1>
+      <h1>Add a Shipping Term</h1>
       <table>
         <thead>
           <tr>
@@ -93,7 +93,8 @@ function ShippingAdd(props) {
           <input type="number" step=".01" name="price" value={inputs.price || ""} onChange={handleChange} />
           &nbsp;
         </label>
-        <input type="submit" />
+        <br />
+        <input type="submit" value="Add" />
       </form>
       <p></p>
       {/* <Link to="http://localhost:3000">Back to Home</Link> */}

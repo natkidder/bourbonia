@@ -68,17 +68,21 @@ function CustomerDel(props) {
     //window.location.reload(); //TODO added to make link work; try to find a cheaper way
   };
   const handleRouter = () => {
-    let root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(
-      <BrowserRouter>
-        <ShippingRoute2 />
-      </BrowserRouter>
-    );
+    const container = document.getElementById("root");
+    if (container) {
+      const root = ReactDOM.createRoot(container);
+      root.render(
+        <BrowserRouter>
+          <ShippingRoute2 />
+        </BrowserRouter>
+      );
+    }
   };
 
   return (
     <>
-      <h1>Customers</h1>
+      <h1>Remove Customers</h1>
+      <h2>Select Customers to Remove</h2>
       <form onSubmit={handleSubmit}>
         <table>
           <thead>

@@ -113,12 +113,15 @@ function CustomerAdd(props) {
     //window.location.reload();  //TODO added to make link work; try to find a cheaper way
   };
   const handleRouter = () => {
-    let root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(
-      <BrowserRouter>
-        <ShippingRoute2 />
-      </BrowserRouter>
-    );
+    const container = document.getElementById("root");
+    if (container) {
+      const root = ReactDOM.createRoot(container);
+      root.render(
+        <BrowserRouter>
+          <ShippingRoute2 />
+        </BrowserRouter>
+      );
+    }
   };
   return (
     <>
@@ -159,18 +162,18 @@ function CustomerAdd(props) {
         <input id="outletName" {...register("outletName")} />
         {errors.outletName && <span>{errors.outletName.message}</span>}&nbsp;
         <label htmlFor="pocFirst">POC First Nm:</label>
-        <input id="pocFirst" type="pocFirst" {...register("pocFirst")} size={10} />
+        <input id="pocFirst" type="pocFirst" {...register("pocFirst")} size={15} />
         &nbsp;
         {errors.pocFirst && <span>{errors.pocFirst.message}</span>}
         <label htmlFor="pocLast">POC Last Nm:</label>
-        <input id="pocLast" type="pocLast" {...register("pocLast")} size={10} />
+        <input id="pocLast" type="pocLast" {...register("pocLast")} size={15} />
         {errors.pocLast && <span>{errors.pocLast.message}</span>}
         <br />
         <label htmlFor="pocPhone">POC Phone:</label>
         <input id="pocPhone" type="pocPhone" {...register("pocPhone")} />
         {errors.pocPhone && <span>{errors.pocPhone.message}</span>}&nbsp;
         <label htmlFor="pocEmail">POC Email:</label>
-        <input id="pocEmail" type="pocEmail" {...register("pocEmail")} />
+        <input id="pocEmail" type="pocEmail" {...register("pocEmail")} size={25} />
         {errors.pocEmail && <span>{errors.pocEmail.message}</span>}
         <p />
         {fields.map((field, index) => (

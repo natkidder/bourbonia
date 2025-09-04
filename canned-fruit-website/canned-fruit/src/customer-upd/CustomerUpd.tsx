@@ -143,16 +143,21 @@ function CustomerUpd(props) {
     //window.location.reload();  //TODO added to make link work; try to find a cheaper way
   };
   const handleRouter = () => {
-    let root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(
-      <BrowserRouter>
-        <ShippingRoute2 />
-      </BrowserRouter>
-    );
+    const container = document.getElementById("root");
+    if (container) {
+      let root = ReactDOM.createRoot(container);
+      root.render(
+        <BrowserRouter>
+          <ShippingRoute2 />
+        </BrowserRouter>
+      );
+    }
   };
 
   return (
     <>
+      <h1>Update a Customer</h1>
+      <h2>Select a Customer</h2>
       <form onSubmit={handleChoice}>
         <table>
           <thead>

@@ -7,6 +7,7 @@ import { email } from "zod";
 import React from "react";
 import ShippingLink from "./ShippingLink.js";
 import ShippingRoute2 from "./ShippingRoute2.tsx";
+import CustomerSelfAdd from "../customer-add/CustomerSelfAdd.tsx";
 
 // Sends a user to another form based on her/his email address entered
 function EntryPage() {
@@ -32,6 +33,15 @@ function EntryPage() {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  const handleCustomerSelfAdd = (event) => {
+    event.preventDefault();
+    root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(
+      <MemoryRouter>
+        <CustomerSelfAdd />
+      </MemoryRouter>
+    );
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
     const pocEmail = inputs.emailAddress;
@@ -96,6 +106,13 @@ function EntryPage() {
         <br />
         <p hidden={hideEEM}>{emailExistMsg}</p>
         <input type="submit" />
+        <p />
+        <button type="button" onClick={(e) => handleCustomerSelfAdd(e)}>
+          {" "}
+          Register
+        </button>
+        &nbsp;
+        <p />
       </form>
     </>
   );

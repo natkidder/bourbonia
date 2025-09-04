@@ -36,7 +36,7 @@ const CustomerSchema = z.object({
   addresses: z.array(AddrSchema), // Array of nested schemas
 });
 
-function HomePage(props) {
+function CustomerSelfAdd(props) {
   const {
     register,
     handleSubmit,
@@ -183,4 +183,4 @@ function HomePage(props) {
   );
 }
 
-export default HomePage;
+export default CustomerSelfAdd;

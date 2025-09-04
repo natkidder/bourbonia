@@ -8,6 +8,7 @@ import ShippingSvc from "../shipping-list/ShippingSvc.js";
 import CannedFruitSvc from "../cannedFruit-list/CannedFruitSvc.js";
 import CustomerSvc from "../customer-list/CustomerSvc.js";
 import EntryPage from "./EntryPage.tsx";
+import HomePage from "../sandbox/HomePage.tsx";
 
 // Sends a user to another form based on her/his email address entered
 function ShippingRoute2() {
@@ -120,6 +121,15 @@ function ShippingRoute2() {
       </MemoryRouter>
     );
   };
+  const handleSandbox = (event) => {
+    event.preventDefault();
+    root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    );
+  };
   const handleLogout = (event) => {
     event.preventDefault();
     root = ReactDOM.createRoot(document.getElementById("root"));
@@ -199,6 +209,12 @@ function ShippingRoute2() {
       <button type="button" onClick={(e) => handleDelCustomers(e)}>
         {" "}
         Remove Customers
+      </button>
+      &nbsp;
+      <p />
+      <button type="button" onClick={(e) => handleSandbox(e)} hidden={true}>
+        {" "}
+        Sandbox
       </button>
       &nbsp;
       <p />
