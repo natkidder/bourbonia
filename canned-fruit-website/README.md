@@ -26,25 +26,6 @@
 - You can run it via Spring Boot.  Details are in its own README.md file
 
 ## View Layer
-- You may use either (but not both at once) the React JS or the Angular application.  (The Angular application is more full-featured.)
-
-### React JS
 - A React JS application called *canned-fruit*.  It runs on node.js via the `npm start` command.  It exposes port 3000.
-
-### Angular
-- An Angular application called *canned-fruit-angular*.  It runs on node.js via the `ng serve --proxy-config proxy-conf.json` command.
-- Install using the W3 schools tutorial.  It installs and runs without issues that way.
-- In addition to installing the core project, you will need to install libraries.  You may do it either of (or a mix of) two ways:
-  - Open the code in an intelligent IDE, such as VSCode with plugins, and see which imported libraries it cannot find.
-  - Check the directory listing under the README.md *canned-fruit-angular* project and compare with what you have under the *node_modules* subdirectory.
-
-### VSCode
-- For per-project or workspace-specific themes:
-  - Open your project folder in VS Code.
-  - Go to File > Preferences > Settings.
-  - Select the Workspace tab.
-  - Search for colorTheme.
-  - Choose the desired theme from the dropdown menu. This will create a settings.json file within your project's .vscode folder, storing the workspace-specific theme setting.
-- To indent a block of code, press *Ctrl-]*
 	  
 	  
