@@ -1,0 +1,30 @@
+.localBtn {
+  background-color: bisque;
+}
+.customer-header {
+  color: black;
+  font-size: 10;
+  font-weight: bold;
+  background-color: #d1e0d1;
+}
+table th,
+td {
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 0px 5px;
+  padding: 5px;
+  text-align: left;
+  vertical-align: middle;
+}
+th {
+  background-color: #d1e0d1;
+}
+tr {
+  background-color: #ffffff; /* Default background for all rows */
+}
+tr:nth-child(even) {
+  background-color: #ffffff; /* white for even rows */
+}
+tr:nth-child(odd) {
+  background-color: #e4e6f0; /* Light gray for odd rows */
+}

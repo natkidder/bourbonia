@@ -1,0 +1,101 @@
+<h2>Modify a Canned Fruit Offering</h2>
+<p>Filter Selection by Fruit</p>
+<form [formGroup]="myForm" (ngSubmit)="setupForm()">
+  <div class="form-group">
+    <label for="fruit">Select Fruit:</label>
+    <select id="fruit" formControlName="fruitSelection">
+      @for (distinctFruit of distinctFruits; track distinctFruit) {
+      <option [ngValue]="distinctFruit">
+        {{ distinctFruit }}
+      </option>
+      }
+    </select>
+    @if (myForm.get('fruitSelection')?.invalid && myForm.get('fruitSelection')?.touched) {
+    <div *ngIf="myForm.get('fruitSelection')?.invalid && myForm.get('fruitSelection')?.touched" class="error-message">
+      Fruit is required.
+    </div>
+    }
+  </div>
+  <p></p>
+  <button type="submit" [disabled]="myForm.get('fruitSelection')?.invalid">Submit</button>
+</form>
+<p></p>
+<form (ngSubmit)="setUpdCannedFruit(myForm4.value)" #myForm4="ngForm" [hidden]="!showMyForm4()">
+  <p>Select a radio button next to the cannedFruit you want to update, then click Submit.</p>
+
+  <table matSort (matSortChange)="sortData($event)">
+    <thead>
+      <tr class="cannedFruit-header">
+        <th mat-sort-header="id">ID</th>
+        <th mat-sort-header="fruit">Fruit</th>
+        <th mat-sort-header="medium">Medium</th>
+        <th mat-sort-header="preparation">Preparation</th>
+        <th mat-sort-header="volume">Volume in Oz</th>
+        <th mat-sort-header="container">Container</th>
+        <th mat-sort-header="pricePer">Price per Oz</th>
+        <th>Upd?</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (cannedFruit of sortedData(); track cannedFruit) {
+      <tr>
+        <td>
+          {{ cannedFruit.id }}
+        </td>
+        <td>
+          {{ cannedFruit.fruit }}
+        </td>
+        <td>
+          {{ cannedFruitSvc.handleNull(cannedFruit.medium) }}
+        </td>
+        <td>
+          {{ cannedFruit.unitType }}
+        </td>
+        <td>
+          {{ cannedFruit.volume }}
+        </td>
+        <td>
+          {{ cannedFruit.container }}
+        </td>
+        <td>
+          {{ cannedFruit.pricePer | currency }}
+        </td>
+        <td>
+          <input type="radio" id={{cannedFruit.id}} name="updRadios" value={{cannedFruit.id}}
+            [(ngModel)]="selectedOption" />
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <button type="submit" [disabled]="!isOptionSelected()">Select</button>
+</form>
+<p></p>
+<form [formGroup]="myForm5" (ngSubmit)="onForm5Submit()">
+  <!-- Other form controls -->
+  <input formControlName="id" readonly size="7">&nbsp;
+  <label for="fruit"> Fruit: </label>
+  <input formControlName="fruit">&nbsp;
+  <label for="medium"> Medium: </label>
+  <select id="medium" formControlName="mediumSelection">
+    <option *ngFor="let medium of mediums; let i = index" [ngValue]="medium.mediumName">
+      {{ medium.mediumName }}
+    </option>
+  </select>
+  <label for="unitType"> Preparation: </label>
+  <input formControlName="unitType">&nbsp;
+  <p></p>
+  <label for="volume"> Volume in Oz: </label>
+  <input type="number" step="4" formControlName="volume">
+  <label for="container"> Container: </label>
+  <input formControlName="container">
+  <label for="pricePer"> Price per Oz: </label>
+  <input type="number" step=".01" formControlName="pricePer">
+  <p></p>
+  <button type="submit" [disabled]="!myForm5.valid">Submit</button>
+</form>
+
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+  Back to Main
+</a>

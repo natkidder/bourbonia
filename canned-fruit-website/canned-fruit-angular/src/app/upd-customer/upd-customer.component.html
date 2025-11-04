@@ -1,0 +1,131 @@
+<h3>Update a Customer</h3>
+<h3>Enter search criteria to find Customers to update</h3>
+<p>Enter at least a fragment in at least one field to filter</p>
+<form (ngSubmit)="setCustomerFilter(myForm3.value)" #myForm3="ngForm">
+	<label for="businessName">Business Name: </label>
+	<input type="text" id="businessName" name="businessName" [(ngModel)]="businessNameEntered" />
+	<p></p>
+	<label for="outletName">Outlet Name: </label>
+	<input type="text" id="outletName" name="outletName" [(ngModel)]="outletNameEntered" />
+	<p></p>
+	<label for="pocFirst">POC First Name: </label>
+	<input type="text" id="pocFirst" name="pocFirst" [(ngModel)]="pocFirstEntered" />
+	<p></p>
+	<label for="pocLast">POC Last Name: </label>
+	<input type="text" id="pocLast" name="pocLast" [(ngModel)]="pocLastEntered" />
+	<p></p>
+	<button type="submit" [disabled]="!isFilterEntered()">Apply Filter</button>
+</form>
+<p></p>
+<!-- @if (businessNameEntered) {
+<p>Selected:{{ businessNameEntered }}:Selected</p>
+} -->
+<p></p>
+<form (ngSubmit)="setUpdCustomer(myForm4.value)" #myForm4="ngForm" [hidden]="!showMyForm4()">
+	<p>Select a radio button next to the customer you want to update, then click Submit.</p>
+	<table matSort (matSortChange)="sortData($event)">
+		<thead>
+			<tr class="customer-header">
+				<th mat-sort-header="id">ID</th>
+				<th mat-sort-header="businessName">Business Name</th>
+				<th mat-sort-header="outletName">Outlet Name</th>
+				<th mat-sort-header="pocFirst">POC First Name</th>
+				<th mat-sort-header="pocLast">POC Last Name</th>
+				<th mat-sort-header="pocPhone">POC Phone/Text</th>
+				<th mat-sort-header="pocEmail">POC Email</th>
+				<th mat-sort-header="addresses">Address(es)</th>
+				<th>Upd?</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for(customer of sortedData(); track customer.id) {
+			<tr>
+				<td>
+					{{ customer.id }}<br>
+				</td>
+				<td>
+					{{ customer.businessName }}
+				</td>
+				<td>
+					{{ customer.outletName }}
+				</td>
+				<td>
+					{{ customer.pocFirst }}
+				</td>
+				<td>
+					{{ customer.pocLast }}
+				</td>
+				<td>
+					{{ customerSvc.viewPhoneNumber(customer.pocPhone) }}
+				</td>
+				<td>
+					{{ customer.pocEmail }}
+				</td>
+				<td>
+					<span *ngFor="let address of customer.addresses">
+						<b>{{ address.addrType }}:</b><br>
+						{{ address.street1 }} {{ address.street2 }}<br>
+						{{ address.city }}, {{ address.state }} {{ address.zip }}<br>
+					</span>
+				</td>
+				<td>
+					<input type="radio" id={{customer.id}} name="updRadios" value={{customer.id}}
+						[(ngModel)]="selectedOption" />
+				</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+	<button type="submit" [disabled]="!isOptionSelected()">Select</button>
+</form>
+<p></p>
+<form [formGroup]="myForm5" (ngSubmit)="onForm5Submit()" [hidden]="!showMyForm5()">
+	<!-- Other form controls -->
+	<input formControlName="id" readonly size="7">&nbsp;
+	<label for="businessName">Business Name: </label>
+	<input formControlName="businessName">&nbsp;
+	<label for="outletName"> Outlet Name: </label>
+	<input formControlName="outletName">
+	<br>
+	<label for="pocFirst">POC: </label>
+	<input formControlName="pocFirst" placeholder="Firstname">&nbsp;
+	<input formControlName="pocLast" placeholder="Lastname">&nbsp;
+	<label for="pocPhone"> POC Phone/Text: </label>
+	<input formControlName="pocPhone" placeholder="123-456-7890" size="15">&nbsp;
+	<label for="pocEmail"> POC Email: </label>
+	<input type="email" formControlName="pocEmail" placeholder="email@email.com" size="35">
+	<!-- FormArray container -->
+	<div formArrayName="addresses">
+		<div *ngFor="let address of addresses.controls; let i = index">
+			<div [formGroupName]="i">
+				<h3>Address {{ i + 1 }}:</h3>
+				<input formControlName="id" readonly size="7">
+				<label for="addrType"> Type: </label>
+				<input formControlName="addrType" placeholder="">
+				<br>
+				<label for="street1">Street: </label>
+				<input formControlName="street1" placeholder="" size="30">&nbsp;
+				<input formControlName="street2" placeholder="">
+				<br>
+				<label for="city">City State and Zip: </label>
+				<input formControlName="city" placeholder="city">,&nbsp;
+				<select formControlName="state">&nbsp;
+					<option *ngFor="let state of states" [value]="state">
+						{{ state }}
+					</option>
+				</select>&nbsp;
+				<input formControlName="zip" placehoder="99999-9999" size="10">&nbsp;&nbsp;
+				<button (click)="removeAddress(i)">Remove Address</button>
+			</div>
+		</div>
+	</div>
+	<p></p>
+	<button [disabled]="!myForm5.valid" (click)="addAddress()">Add Address</button>
+	<p></p>
+	<button type="submit" [disabled]="!myForm5.valid">Submit</button>
+</form>
+
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+	Back to Main
+</a>

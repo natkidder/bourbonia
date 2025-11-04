@@ -1,0 +1,12 @@
+<h2>Sandbox 02 Component</h2>
+<form [formGroup]="myForm">
+	<div *ngFor="let option of options">
+		<input type="radio" [value]="{ label: option.label, value: option.value }" [formControlName]="'selectedOption'">
+		<label>{{ option.label }}</label>
+	</div>
+</form>
+<p>Selected Value: {{ myForm.get('selectedOption')?.value | json }}</p>
+
+<a routerLink="/" class="button fancy-button localBtn">
+	Back to Main
+</a>

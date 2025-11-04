@@ -1,0 +1,73 @@
+<h3>Customer Listing</h3>
+<h3>Enter search criteria to find Customers to list</h3>
+<p>Enter at least a fragment of at least one field to filter</p>
+<form (ngSubmit)="setCustomerFilter(myForm3.value)" #myForm3="ngForm">
+	<label for="businessName">Business Name: </label>
+	<input type="text" id="businessName" name="businessName" ngModel>
+	<p></p>
+	<label for="outletName">Outlet Name: </label>
+	<input type="text" id="outletName" name="outletName" ngModel>
+	<p></p>
+	<label for="pocFirst">POC First Name: </label>
+	<input type="text" id="pocFirst" name="pocFirst" ngModel>
+	<p></p>
+	<label for="pocLast">POC Last Name: </label>
+	<input type="text" id="pocLast" name="pocLast" ngModel>
+	<p></p>
+	<button type="submit" [disabled]="!myForm3.valid">Submit</button>
+</form>
+<p></p>
+<table matSort [hidden]="!showTable" (matSortChange)="sortData($event)">
+	<thead>
+		<tr class="customer-header">
+			<th>ID</th>
+			<th mat-sort-header="businessName">Business Name</th>
+			<th mat-sort-header="outletName">Outlet Name</th>
+			<th mat-sort-header="pocFirst">POC First Name</th>
+			<th mat-sort-header="pocLast">POC Last Name</th>
+			<th mat-sort-header="pocPhone">POC Phone/Text</th>
+			<th mat-sort-header="pocEmail">POC Email</th>
+			<th>Address(es)</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (customer of sortedData(); track customer) {
+		<tr>
+			<td class="hardinfo">
+				{{ customer.id }}<br>
+			</td>
+			<td>
+				{{ customer.businessName }}
+			</td>
+			<td>
+				{{ customer.outletName }}
+			</td>
+			<td>
+				{{ customer.pocFirst }}
+			</td>
+			<td>
+				{{ customer.pocLast }}
+			</td>
+			<td>
+				{{ customerSvc.viewPhoneNumber(customer.pocPhone) }}
+			</td>
+			<td>
+				{{ customer.pocEmail }}
+			</td>
+			<td>
+				<span *ngFor="let address of customer.addresses">
+					<b>{{ address.addrType }}:</b><br>
+					{{ address.street1 }} {{ address.street2 }}<br>
+					{{ address.city }}, {{ address.state }} {{ address.zip }}<br>
+				</span>
+			</td>
+		</tr>
+		}
+
+	</tbody>
+</table>
+
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+	Back to Main
+</a>

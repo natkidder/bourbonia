@@ -1,0 +1,48 @@
+<h2>Modify Shipping Terms</h2>
+<form (ngSubmit)="setUpdShipping(myForm4.value)" #myForm4="ngForm">
+  <table matSort (matSortChange)="sortData($event)">
+    <thead>
+      <tr class="shipping-header" class="grid-form-header">
+        <th mat-sort-header="id">ID</th>
+        <th mat-sort-header="type">Type</th>
+        <th mat-sort-header="price">Price per Oz</th>
+        <th>Upd?</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (shipping of sortedData(); track shipping) {
+      <tr>
+        <td class="hardinfo">
+          {{ shipping.id }}<br>
+        </td>
+        <td>
+          {{ shipping.type }}
+        </td>
+        <td>
+          {{ shipping.price | currency }}
+        </td>
+        <td>
+          <input type="radio" id={{shipping.id}} name="updRadios" value={{shipping.id}} [(ngModel)]="selectedOption" />
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <button type="submit" [disabled]="!isOptionSelected()">Select</button>
+</form>
+<p></p>
+<form [formGroup]="myForm5" (ngSubmit)="onForm5Submit()">
+  <!-- Other form controls -->
+  <input formControlName="id" readonly size="5">&nbsp;
+  <label for="type"> Type: </label>
+  <input formControlName="type">&nbsp;
+  <label for="price"> Price per Oz: $</label>
+  <input type="number" step=".01" formControlName="price">
+  <p></p>
+  <button type="submit" [disabled]="!myForm5.valid">Submit</button>
+</form>
+
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+  Back to Main
+</a>

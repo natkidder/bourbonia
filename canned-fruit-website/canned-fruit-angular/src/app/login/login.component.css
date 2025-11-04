@@ -1,0 +1,28 @@
+select option nth-child:odd{ background-color: #fff2cc;}
+select option nth-child:even{ background-color: #ffffff;}
+
+.localBtn {
+    background-color: bisque;
+}
+.grid-form-header {
+    color: black;
+    font-size: 10;
+    font-weight: bold;
+    background-color: #d1e0d1;
+}
+table th, td {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 0px 5px;
+    padding: 5px;
+}
+.grid-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+    gap: 20px; /* Adds spacing between rows and columns */
+  }
+.form-section {
+    margin-bottom: 20px; /* Adds space between form sections */
+    border: 1px solid #ccc; /* Optional: Adds a border around each section */
+    padding: 10px; /* Optional: Adds padding inside each section */
+}

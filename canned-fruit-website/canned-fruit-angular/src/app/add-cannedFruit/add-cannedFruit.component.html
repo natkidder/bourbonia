@@ -1,0 +1,85 @@
+<h3>Add a Canned Fruit Offering</h3>
+
+<form (ngSubmit)="setFruitFilter(myForm3.value)" #myForm3="ngForm">
+  <select [(ngModel)]="selectedOption" name="mySelect">
+    @for (fruit of fruits; track fruit) {
+    <option [value]="fruit">
+      {{fruit}}</option>
+    }
+    <option value="all">--All--</option>
+  </select>&nbsp;&nbsp;
+  <button type="submit" [disabled]="!myForm3.valid">Submit</button>
+</form>
+<p></p>
+<table matSort (matSortChange)="sortData($event)">
+  <thead>
+    <tr class="cannedFruit-header">
+      <th mat-sort-header="id">ID</th>
+      <th mat-sort-header="fruit">Fruit</th>
+      <th mat-sort-header="medium">Medium</th>
+      <th mat-sort-header="preparation">Preparation</th>
+      <th mat-sort-header="volume">Volume in Oz</th>
+      <th mat-sort-header="container">Container</th>
+      <th mat-sort-header="pricePer">Price per Oz</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (cannedFruit of sortedData(); track cannedFruit) {
+    <tr>
+      <td>
+        {{ cannedFruit.id }}
+      </td>
+      <td>
+        {{ cannedFruit.fruit }}
+      </td>
+      <td>
+        {{ cannedFruitSvc.handleNull(cannedFruit.medium) }}
+      </td>
+      <td>
+        {{ cannedFruit.unitType }}
+      </td>
+      <td>
+        {{ cannedFruit.volume }}
+      </td>
+      <td>
+        {{ cannedFruit.container }}
+      </td>
+      <td>
+        {{ cannedFruit.pricePer | currency }}
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+<p></p>
+<form (ngSubmit)="onSubmit(myForm.value)" #myForm="ngForm">
+  <div>
+    <label for="fruit">Fruit: </label>
+    <input type="text" id="fruit" name="fruit" ngModel required>
+    &nbsp; &nbsp;
+    <label for="medium">Medium: </label>
+    <select [(ngModel)]="selectedOption" name="mediumId" id="mediumId" required>
+      @for(medium of mediums; track medium) {
+      <option [value]="medium.id">{{medium.mediumName}}</option>
+      }
+    </select>
+    &nbsp; &nbsp;
+    <label for="unitType">Unit Preparation: </label>
+    <input type="text" id="unitType" name="unitType" ngModel required>
+    <p></p>
+    <label for="volume">Volume in Fl Oz: </label>
+    <input type="number" id="volume" name="volume" step="4" ngModel required>
+    &nbsp; &nbsp;
+    <label for="container">Container Type: </label>
+    <input type="text" id="container" name="container" ngModel required>
+    &nbsp; &nbsp;
+    <label for="pricePer">Price per Oz: $</label>
+    <input type="number" id="pricePer" name="pricePer" step=".01" ngModel required>
+  </div>
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+  Back to Main
+</a>

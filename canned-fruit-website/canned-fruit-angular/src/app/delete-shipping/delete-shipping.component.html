@@ -1,0 +1,34 @@
+<h2>Remove Shipping Terms</h2>
+<form [formGroup]="myForm" (submit)="onSubmit()">
+  <div formArrayName="selectedItems">
+    <table matSort (matSortChange)="sortData($event)">
+      <thead>
+        <tr class="grid-form-header">
+          <th>ID</th>
+          <th mat-sort-header="type">Type</th>
+          <th mat-sort-header="price">Price/Oz</th>
+          <th>Del?</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(shipping of sortedData() ; track shipping; let i = $index) {
+        <tr>
+          <td>{{ shipping.id }}</td>
+          <td>{{ shipping.type }}</td>
+          <td>{{ shipping.price | currency }}</td>
+          <td>
+            <input type="checkbox" [formControlName]="i">
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <button type="submit">Remove</button>
+</form>
+<p></p>
+
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+  Back to Main
+
+</a>

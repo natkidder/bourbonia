@@ -1,0 +1,45 @@
+.localBtn {
+  background-color: bisque;
+}
+.customer-header {
+  color: black;
+  font-size: 10;
+  font-weight: bold;
+  background-color: #d1e0d1;
+}
+table th,
+td {
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 0px 5px;
+  padding: 5px;
+  text-align: left;
+  vertical-align: middle;
+}
+input:read-only {
+  background-color: lightgrey; /* Or any desired color */
+}
+input::placeholder {
+  color: grey; /* Or any desired color */
+  font-style: italic; /* Optional: makes the placeholder text italic */
+  opacity: 1; /* Ensures the color is applied in all browsers */
+  font-size: 14px;
+}
+input {
+  color: black;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+th {
+  background-color: #d1e0d1;
+}
+tr {
+  background-color: #ffffff; /* Default background for all rows */
+}
+tr:nth-child(even) {
+  background-color: #ffffff; /* white for even rows */
+}
+tr:nth-child(odd) {
+  background-color: #e4e6f0; /* Light gray for odd rows */
+}

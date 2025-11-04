@@ -1,0 +1,24 @@
+<router-outlet></router-outlet>
+<p></p>
+<h3>Enter your Email Address</h3>
+<form [formGroup]="myForm" (ngSubmit)="onSubmitMyForm()">
+    <p></p>
+    <label for="customerPocEmail">Your Work Email:</label>&nbsp;
+    <input type="email" formControlName="customerPocEmail" size="30" />
+    <p></p>
+    <button type="submit" [disabled]="myForm.get('customerPocEmail')?.invalid">Submit</button>
+</form>
+<p></p>
+@if (customers.length < 1) { <p class="red-text" [hidden]="!showError">Login of {{ customerEmail }} failed.</p>
+    }
+    <a [routerLink]="['/addSelfCustomer']">Register</a>
+
+    <!-- <div>
+    <h3>Customer Details</h3>
+    <ul>
+        <li *ngFor="let customer of customers">
+            {{ customer.pocFirst }} {{ customer.pocLast }}
+        </li>
+    </ul>
+</div>
+} @else { -->

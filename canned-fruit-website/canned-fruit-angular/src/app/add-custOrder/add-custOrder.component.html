@@ -1,0 +1,245 @@
+<p></p>
+<h2>Welcome {{ this.customer?.pocFirst }} {{ this.customer?.pocLast }} from {{ this.customer?.businessName }} {{
+    this.customer?.outletName }}</h2>
+<h3>Select which offerings to order:</h3>
+<form [formGroup]="myForm" (ngSubmit)="onSubmitMyForm()">
+    <p></p>
+    <!-- <label for="customerPocEmail">Your Work Email:</label>
+    <input type="email" formControlName="customerPocEmail" size="30" /> -->
+    <div formArrayName="selectedItems">
+        <table matSort (matSortChange)="sortDataACF($event)">
+            <thead>
+                <tr class="grid-form-header">
+                    <th>ID</th>
+                    <th mat-sort-header="fruit">Fruit</th>
+                    <th mat-sort-header="medium">Medium</th>
+                    <th mat-sort-header="unitType">Preparation</th>
+                    <th mat-sort-header="volume">Volume in Oz</th>
+                    <th mat-sort-header="container">Container</th>
+                    <th mat-sort-header="pricePer">Price per Oz</th>
+                    <th>Order?</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (cannedFruit of sortedACF(); track cannedFruit.id; let i = $index) {
+                <tr class="grid-form-row">
+                    <td>{{ cannedFruit.id }}</td>
+                    <td>{{ cannedFruit.fruit }}</td>
+                    <td>{{
+                        cannedFruitSvc.handleNull(cannedFruit.medium) }}</td>
+                    <td>{{ cannedFruit.unitType }}</td>
+                    <td>{{ cannedFruit.volume }}</td>
+                    <td>{{ cannedFruit.container }}</td>
+                    <td>{{ cannedFruit.pricePer | currency }}
+                    </td>
+                    <td>
+                        <input type="checkbox" [formControlName]="i" value="{{ cannedFruit.id }}">
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <p></p>
+    <button type="submit"
+        [disabled]="this.getSelectedItemsIds().length === 0 || this.disabledFirstSubmit()">Submit</button>
+</form>
+<div id="afterSelectItems" *ngIf="customer && orderedCannedFruits.length > 0" class="complete-order">
+    <hr>
+    <table matSort>
+        <thead>
+            <tr class="grid-form-header">
+                <th>ID</th>
+                <th>Business Name</th>
+                <th>Outlet Name</th>
+                <th>POC First Name</th>
+                <th>POC Last Name</th>
+                <th>POC Phone/Text</th>
+                <th>POC Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr *ngFor="let customer of customers | async; even as isEven"> -->
+            <tr *ngFor="let customer of [customer]; even as isEven">
+                <td class="hardinfo" [ngStyle]="{ 'background': 'white' }">
+                    {{ customer?.id }}<br>
+                </td>
+                <td [ngStyle]="{ 'background':'white' }">
+                    {{ customer?.businessName }}
+                </td>
+                <td [ngStyle]="{ 'background': 'white' }">
+                    {{ customer?.outletName }}
+                </td>
+                <td [ngStyle]="{ 'background': 'white' }">
+                    {{ customer?.pocFirst }}
+                </td>
+                <td [ngStyle]="{ 'background': 'white' }">
+                    {{ customer?.pocLast }}
+                </td>
+                <td [ngStyle]="{ 'background': 'white' }">
+                    {{ formattedPhone }}
+                </td>
+                <td [ngStyle]="{ 'background': 'white' }">
+                    {{ customer?.pocEmail }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p></p>
+    <hr>
+    <h3>Order Form</h3>
+    <form (ngSubmit)="submitMyForm2(myForm2.value, this.customer)" [formGroup]="myForm2">
+        <!--#myForm2="ngForm" [formGroup]="myForm2"-->
+        <p></p>
+        <p>Select the lot size for each offering you wish to order</p>
+        <div formArrayName="cntItems">
+            <table matSort (matSortChange)="sortDataOCF($event)" #sortOfferings="matSort">
+                <thead>
+                    <tr class="grid-form-header">
+                        <th>ID</th>
+                        <th mat-sort-header="fruit">Fruit</th>
+                        <th mat-sort-header="medium">Medium</th>
+                        <th mat-sort-header="unitType">Preparation</th>
+                        <th mat-sort-header="volume">Volume in Oz</th>
+                        <th mat-sort-header="container">Container</th>
+                        <th mat-sort-header="pricePer">Price per Oz</th>
+                        <th>Cnt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (cannedFruit of sortedOCF(); track cannedFruit.id; let i = $index; ) {
+                    <tr>
+                        <td>{{ cannedFruit.id }}</td>
+                        <td>{{ cannedFruit.fruit }}</td>
+                        <td>{{
+                            cannedFruitSvc.handleNull(cannedFruit.medium) }}</td>
+                        <td>{{ cannedFruit.unitType }}</td>
+                        <td>{{ cannedFruit.volume }}</td>
+                        <td>{{ cannedFruit.container }}</td>
+                        <td>{{ cannedFruit.pricePer |
+                            currency }}</td>
+                        <td>
+                            <select [formControlName]="i" (change)="onChangeCnt($event, i)" required>
+                                @for (lotCnt of LOT_CNTS; track lotCnt) {
+                                <option
+                                    [value]="'{ &quot;id&quot;: ' + cannedFruit.id + ', &quot;cnt&quot;: ' + lotCnt + ', &quot;volume&quot;: ' + cannedFruit.volume + ', &quot;pricePer&quot;: ' + cannedFruit.pricePer + '}'">
+                                    {{ lotCnt }}</option>
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <p></p>
+        <p>Select the option next to the address you wish to ship to</p>
+        <p></p>
+        <table matSort (matSortChange)="sortDataAddr($event)" #sortAddresses="matSort">
+            <thead>
+                <tr class="shipping-header" class="grid-form-header">
+                    <th mat-sort-header="id">ID</th>
+                    <th mat-sort-header="addrType">Type</th>
+                    <th mat-sort-header="address">Address</th>
+                    <th>Sel</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (address of sortedAddresses(); track address.id) {
+                <tr>
+                    <td class="hardinfo">
+                        {{ address.id }}<br>
+                    </td>
+                    <td>
+                        {{ address.addrType }}
+                    </td>
+                    <td>
+                        {{ address.street1 }} {{ address.street2 }}<br>
+                        {{ address.city }}, {{ address.state }} {{ address.zip }}
+                    </td>
+                    <td>
+                        <input type="radio" id={{address.id}}
+                            value="{ &quot;id&quot;: {{address.id}}, &quot;state&quot;: &quot;{{address.state}}&quot; }"
+                            [formControlName]="'addrRadios'" />
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <p></p>
+        <p>Select the option next to the shipping terms you wish to use</p>
+        <p></p>
+        <table matSort (matSortChange)="sortDataShippings($event)" #sortShippings="matSort">
+            <thead>
+                <tr class="grid-form-header">
+                    <th mat-sort-header="id">ID</th>
+                    <th mat-sort-header="type">Type</th>
+                    <th mat-sort-header="price">Price per Oz</th>
+                    <th>Sel</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (shipping of sortedShippings(); track shipping.id) {
+                <tr>
+                    <td class="hardinfo">
+                        {{ shipping.id }}<br>
+                    </td>
+                    <td>
+                        {{ shipping.type }}
+                    </td>
+                    <td>
+                        {{ shipping.price | currency }}
+                    </td>
+                    <td>
+                        <input type="radio" id={{shipping.id}}
+                            value="{ &quot;id&quot;: {{shipping.id}}, &quot;price&quot;: {{shipping.price}} }"
+                            [formControlName]="'shippingRadios'" />
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <p></p>
+        @if (this.isAddrSelected() && this.isShippingSelected()) {
+        <p><strong>Total Cost:</strong> {{ estTotalCost() | currency }}</p>
+        }
+        <p></p>
+        <p>Enter your payment information</p>
+        <table class="transparent-table">
+            <tr>
+                <td class="transparent-table">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="nameOnCard">Name on Card:</label>
+                        <input size="30" formControlName="nameOnCard">
+                    </div>
+                </td>
+                <td class="transparent-table">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="cardNbr">Card Number:</label>
+                        <input size="19" formControlName="cardNbr" placeholder="0000000000000000">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="transparent-table">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="expirationDt">Valid Thru (MM/YY):</label>
+                        <input size="5" formControlName="expirationDt" placeholder="MM/YY">
+                    </div>
+                </td>
+                <td class="transparent-table">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="cvv">CVV:</label>
+                        <input size="3" formControlName="cvv" type="password" placeholder="000">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <p></p>
+        <button type="submit" [disabled]="isSubmitDisabled()">Submit</button>
+    </form>
+</div>
+<p></p>
+<a [routerLink]="['/']" class="button fancy-button localBtn">
+    Logout
+</a>

@@ -1,0 +1,66 @@
+<h2>Remove one or more Customers</h2>
+<h3>Enter search criteria to find Customers to remove</h3>
+<p>Enter at least a fragment in at least one field to filter</p>
+<form [formGroup]="myForm1" (submit)="setupForm(myForm1.value)">
+    <label for="businessName">Business Name: </label>
+    <input type="text" id="businessName" formControlName="businessName" />
+    <p></p>
+    <label for="outletName">Outlet Name: </label>
+    <input type="text" id="outletName" formControlName="outletName" />
+    <p></p>
+    <label for="pocFirst">POC First: </label>
+    <input type="text" id="pocFirst" formControlName="pocFirst" />
+    <p></p>
+    <label for="pocLast">POC Last: </label>
+    <input type="text" id="pocLast" formControlName="pocLast" />
+    <p></p>
+    <button type="submit">Setup Form</button>
+</form>
+<form [formGroup]="myForm4" (submit)="onSubmit()" [hidden]="!showMyForm4()">
+    <div formArrayName="selectedItems">
+        <table matSort (matSortChange)="sortData($event)">
+            <thead>
+                <tr class="customer-header">
+                    <th mat-sort-header="id">ID</th>
+                    <th mat-sort-header="businessName">Name</th>
+                    <th mat-sort-header="outletName">Outlet</th>
+                    <th mat-sort-header="pocFirst">POC First</th>
+                    <th mat-sort-header="pocLast">POC Last</th>
+                    <th mat-sort-header="pocPhone">POC Phone</th>
+                    <th mat-sort-header="pocEmail">POC Email</th>
+                    <th>Addresses</th>
+                    <th>Del?</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (customer of sortedData(); track customer.id; let i = $index) {
+                <tr class="customer-row">
+                    <td>{{ customer.id }}</td>
+                    <td>{{ customer.businessName }}</td>
+                    <td>{{ customer.outletName }}</td>
+                    <td>{{ customer.pocFirst }}</td>
+                    <td>{{ customer.pocLast }}</td>
+                    <td>{{
+                        customerSvc.viewPhoneNumber(customer.pocPhone) }} </td>
+                    <td>{{ customer.pocEmail }}</td>
+                    <td>
+                        <span *ngFor="let address of customer.addresses">
+                            <b>{{ address.addrType }}:</b><br>
+                            {{ address.street1 }} {{ address.street2 }}<br>
+                            {{ address.city }}, {{ address.state }} {{ address.zip }}<br>
+                        </span>
+                    </td>
+                    <td>
+                        <input type="checkbox" [formControlName]="i">
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+<p></p>
+<p></p><a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+    Back to Main
+</a>

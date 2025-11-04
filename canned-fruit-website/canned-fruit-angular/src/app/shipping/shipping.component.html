@@ -1,0 +1,30 @@
+<h3>Shipping Prices</h3>
+
+<table matSort (matSortChange)="sortData($event)" border="2">
+  <thead>
+    <tr class="shipping-header">
+      <th mat-sort-header="id">ID</th>
+      <th mat-sort-header="type">Type</th>
+      <th mat-sort-header="price">Price Per Oz</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (shipping of sortedData(); track shipping) {
+    <tr>
+      <td>
+        {{ shipping.id }}
+      </td>
+      <td>
+        {{ shipping.type }}
+      </td>
+      <td>
+        {{ shipping.price | currency }}
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+  Back to Main
+</a>

@@ -1,0 +1,68 @@
+<h3>Canned Fruit Offerings</h3>
+
+<form (ngSubmit)="setFruitFilter(myForm3.value)" #myForm3="ngForm">
+	<select [(ngModel)]="selectedOption" name="mySelect">
+		@for (fruit of fruits; track fruit) {
+		<option [value]="fruit">
+			{{fruit}}</option>
+		}
+		<option value="all" selected>--All--</option>
+	</select>&nbsp;&nbsp;
+	<button type="submit" [disabled]="!myForm3.valid">Submit</button>
+</form>
+<p></p>
+<table matSort (matSortChange)="sortData($event)">
+	<thead>
+		<tr class="cannedFruit-header">
+			<th mat-sort-header="id">ID</th>
+			<th mat-sort-header="fruit">Fruit</th>
+			<th mat-sort-header="medium">Medium</th>
+			<th mat-sort-header="preparation">Preparation</th>
+			<th mat-sort-header="volume">Volume in Oz</th>
+			<th mat-sort-header="container">Container</th>
+			<th mat-sort-header="pricePer">Price per Oz</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for (cannedFruit of sortedData(); track cannedFruit) {
+		<tr>
+			<td>
+				{{ cannedFruit.id }}
+			</td>
+			<td>
+				{{ cannedFruit.fruit }}
+			</td>
+			<td>
+				{{ cannedFruitSvc.handleNull(cannedFruit.medium) }}
+			</td>
+			<td>
+				{{ cannedFruit.unitType }}
+			</td>
+			<td>
+				{{ cannedFruit.volume }}
+			</td>
+			<td>
+				{{ cannedFruit.container }}
+			</td>
+			<td>
+				{{ cannedFruit.pricePer | currency }}
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>
+<p></p>
+
+<!-- TODO make table sorting work: you cannot add the mat libraries to app.module.ts -->
+<!-- <div class="example-container mat-elevation-z8">
+	<mat-table #table [dataSource]="cannedFruits" matSort>
+	  <ng-container matColumnDef="unitType">
+		<mat-header-cell *matHeaderCellDef mat-sort-header> Preparation </mat-header-cell>
+	  </ng-container>
+	</mat-table>
+  </div> -->
+
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+	Back to Main
+</a>

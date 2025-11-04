@@ -1,0 +1,48 @@
+<!-- TODO: get inputs to line up both horizontally and vertically -->
+<h2>Self-Register</h2>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="grid-form">
+	<!-- Other form controls -->
+	<label for="businessName">Business Name: </label>
+	<input formControlName="businessName">&nbsp;
+	<label for="outletName"> Outlet Name: </label>
+	<input formControlName="outletName">
+	<br>
+	<label for="pocFirst">POC: </label>
+	<input formControlName="pocFirst" placeholder="Firstname">&nbsp;
+	<input formControlName="pocLast" placeholder="Lastname">
+	<label for="pocPhone"> POC Phone/Text: </label>
+	<input formControlName="pocPhone" placeholder="1234567890">
+	<label for="pocEmail"> POC Email: </label>
+	<input type="email" formControlName="pocEmail" placeholder="email@email.com">
+	<!-- FormArray container -->
+	<div formArrayName="addresses">
+		<div *ngFor="let address of addressArray.controls; let i = index">
+			<div [formGroupName]="i">
+				<h3>Address {{ i + 1 }}:</h3>
+				<label for="addrType">Type: </label>
+				<input formControlName="addrType" placeholder="Address Type">
+				<br>
+				<label for="street1">Street: </label>
+				<input formControlName="street1" placeholder="123 Main St" size="30">&nbsp;
+				<input formControlName="street2" placeholder="Suite 100">
+				<br>
+				<label for="city">City State and Zip: </label>
+				<input formControlName="city">,&nbsp;
+				<select formControlName="state">&nbsp;
+					<option *ngFor="let state of states" [value]="state">
+						{{ state }}
+					</option>
+				</select>&nbsp;
+				<input formControlName="zip" size="10">&nbsp;&nbsp;
+				<button (click)="removeAddress(i)">Remove Address</button>
+			</div>
+		</div>
+	</div>
+	<button (click)="addAddress()">Add Address</button>
+	<p></p>
+	<button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+<p></p>
+<a [routerLink]="['/']" class="button fancy-button" style="background-color: bisque;">
+	Back to Login Page
+</a>

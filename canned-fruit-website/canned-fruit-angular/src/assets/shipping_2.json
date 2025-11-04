@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1552,
+    "type": "Overnignt",
+    "price": 13.99
+  },
+  {
+    "id": 1553,
+    "type": "Two to Three Day",
+    "price": 9.99
+  },
+  {
+    "id": 1554,
+    "type": "One Week",
+    "price": 3.99
+  },
+  {
+    "id": 1555,
+    "type": "One Month",
+    "price": 0.99
+  },
+  {
+    "id": 1556,
+    "type": "No Time Limit",
+    "price": 0
+  }
+]

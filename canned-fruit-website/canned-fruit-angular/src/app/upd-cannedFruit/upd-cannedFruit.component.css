@@ -1,0 +1,35 @@
+select option nth-child:odd {
+  background-color: #fff2cc;
+}
+select option nth-child:even {
+  background-color: #ffffff;
+}
+
+.localBtn {
+  background-color: bisque;
+}
+.cannedFruit-header {
+  color: blue;
+  font-size: 10;
+  font-weight: bold;
+  background-color: #d1e0d1;
+}
+table th,
+td {
+  border: 1px solid black;
+  border-collapse: separate;
+  border-spacing: 0px 5px;
+  padding: 5px;
+}
+th {
+  background-color: #d1e0d1;
+}
+tr:nth-child(even) {
+  background-color: #ffffff; /* white for even rows */
+}
+tr:nth-child(odd) {
+  background-color: #e4e6f0; /* Light gray for odd rows */
+}
+input:read-only {
+  background-color: lightgrey; /* Or any desired color */
+}

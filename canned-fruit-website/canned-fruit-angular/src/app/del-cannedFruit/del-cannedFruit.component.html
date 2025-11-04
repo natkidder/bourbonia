@@ -1,0 +1,63 @@
+<h2>Remove Canned Fruit Offerings</h2>
+<p>Filter Selection by Fruit</p>
+<form [formGroup]="myForm" (ngSubmit)="setupForm()">
+  <div class="form-group">
+    <label for="fruit">Select Fruit:</label>
+    <select id="fruit" formControlName="fruitSelection">
+      @for(distinctFruit of distinctFruitsMenu(); let i = $index; track distinctFruit) {
+      <option [selected]="i === 0" [ngValue]="distinctFruit.fruit">
+        {{ distinctFruit.fruit }}
+      </option>
+      }
+    </select>
+    @if (myForm.get('fruitSelection')?.invalid && myForm.get('fruitSelection')?.touched) {
+    <div class="error-message">
+      Fruit is required.
+    </div>
+    }
+  </div>
+  <p></p>
+  <button type="submit" [disabled]="myForm.invalid">Submit</button>
+</form>
+<p></p>
+<form [formGroup]="myForm4" (submit)="onSubmit()" [hidden]="!showMyForm4()">
+  <div formArrayName="selectedItems">
+    <table matSort (matSortChange)="sortData($event)">
+      <thead>
+        <tr class="grid-form-header">
+          <th mat-sort-header="id">ID</th>
+          <th mat-sort-header="fruit">Fruit</th>
+          <th mat-sort-header="medium">Medium</th>
+          <th mat-sort-header="preparation">Preparation</th>
+          <th mat-sort-header="volume">Volume in Oz</th>
+          <th mat-sort-header="container">Container</th>
+          <th mat-sort-header="pricePer">Price per Oz</th>
+          <th>Del?</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(cannedFruit of sortedData(); track cannedFruit.id; let i = $index; let isEven = $even) {
+        <tr class="cannedFruit-row">
+          <td>{{ cannedFruit.id }}</td>
+          <td>{{ cannedFruit.fruit }}</td>
+          <td>{{
+            cannedFruitSvc.handleNull(cannedFruit.medium) }}</td>
+          <td>{{ cannedFruit.unitType }}</td>
+          <td>{{ cannedFruit.volume }}</td>
+          <td>{{ cannedFruit.container }}</td>
+          <td>{{ cannedFruit.pricePer }}</td>
+          <td>
+            <input type="checkbox" [formControlName]="i">
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <p></p>
+  <button type="submit">Remove Offerings</button>
+</form>
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+  Back to Main
+</a>

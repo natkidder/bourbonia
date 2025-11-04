@@ -1,0 +1,23 @@
+.localBtn {
+    background-color: bisque;
+}
+.grid-form-header {
+    color: black;
+    font-size: 10;
+    font-weight: bold;
+    background-color: #d1e0d1;
+}
+table th, td {
+    border: 1px solid black;
+    border-collapse: separate;
+    border-spacing: 0px 5px;
+    padding: 5px;
+    text-align: left;
+    vertical-align: middle;
+}
+.grid-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal-width columns */
+    gap: 20px; /* Adds spacing between rows and columns */
+  }
+  

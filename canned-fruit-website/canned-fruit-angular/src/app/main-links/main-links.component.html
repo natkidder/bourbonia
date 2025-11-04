@@ -1,0 +1,73 @@
+<body style="padding: 20px; font-family: Arial, sans-serif; background-color: #f9f9f9;">
+  <h1>Main Links</h1>
+  <h2 style="color: #333;">Shipping Terms</h2>
+  <p style="font-size: 18px; color: #555;">Welcome to the Shipping Terms section. Here you can manage all your
+    shipping-related information.</p>
+
+  <table>
+    <tr>
+      <td style="padding-right: 30px;"><a routerLink="/listShipping" class="button fancy-button localBtn"> List Shipping
+          Terms</a></td>
+      <td style="padding-right: 30px;"><a routerLink="/addShipping" class="button fancy-button localBtn"> Add a Shipping
+          Term</a></td>
+      <td style="padding-right: 30px;"><a routerLink="/updShipping" class="button fancy-button localBtn"> Update
+          Shipping Terms</a></td>
+      <td><a routerLink="/deleteShipping" class="button fancy-button localBtn"> Remove Shipping Terms</a></td>
+    </tr>
+  </table>
+  <hr>
+  <h2 style="color: #333;">Product Offerings</h2>
+  <p style="font-size: 18px; color: #555;">Welcome to the Product Offerings section. Here you can manage all your
+    Product information.</p>
+  <table>
+    <tr>
+      <td style="padding-right: 30px;"><a routerLink="/listCannedFruit" class="button fancy-button localBtn"> List
+          Offerings</a></td>
+      <td style="padding-right: 30px;"><a routerLink="/addCannedFruit" class="button fancy-button localBtn"> Add an
+          Offering</a></td>
+      <td style="padding-right: 30px;"><a routerLink="/updCannedFruit" class="button fancy-button localBtn"> Update
+          Offerings</a></td>
+      <td><a routerLink="/deleteCannedFruit" class="button fancy-button localBtn"> Remove Offerings</a></td>
+    </tr>
+  </table>
+  <hr>
+  <h2 style="color: #333;">Customers</h2>
+  <p style="font-size: 18px; color: #555;">Welcome to the Customers section. Here you can manage all your
+    Customers.</p>
+  <table>
+    <tr>
+      <td style="padding-right: 30px;"><a routerLink="/listCustomer" class="button fancy-button localBtn"> List
+          Customers</a></td>
+      <td>
+        @if (canAddCustomer()) {
+        <a routerLink="/addSelfCustomer" class="button fancy-button localBtn"> Add a Customer</a>
+        }
+      </td>
+      <td style="padding-right: 30px;"><a routerLink="/updCustomer" class="button fancy-button localBtn"> Update
+          Customers</a></td>
+      <td><a routerLink="/delCustomer" class="button fancy-button localBtn"> Remove Customers</a></td>
+    </tr>
+  </table>
+  <hr>
+  <h1 style="color: #333;">Customers Orders</h1>
+  <table>
+    <tr>
+      <td><a routerLink="/addCustOrder" class="button fancy-button localBtn"> Create a Customer Order</a></td>
+    </tr>
+  </table>
+  <hr>
+  <div [style.display]="isVisibleSandbox() ? 'block' : 'none'">
+    <h2 style="color: #333;">Sandbox</h2>
+    <p style="font-size: 18px; color: #555;">Test out concepts.</p>
+    <table>
+      <tr>
+        <td><a routerLink="/sandbox" class="button fancy-button localBtn"> Sandbox</a></td>
+        <td><a routerLink="/sandbox02" class="button fancy-button localBtn"> Sandbox02</a></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <p></p>
+  <a [routerLink]="['/']" class="button fancy-button localBtn">Logout</a>
+</body>

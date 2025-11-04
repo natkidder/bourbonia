@@ -1,0 +1,41 @@
+<h3>Add a Shipping Method</h3>
+<table matSort (matSortChange)="sortData($event)" border="2">
+  <thead>
+    <tr class="shipping-header">
+      <th mat-sort-header="id">ID</th>
+      <th mat-sort-header="type">Type</th>
+      <th mat-sort-header="price">Price Per Oz</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (shipping of sortedData(); track shipping) {
+    <tr>
+      <td>
+        {{ shipping.id }}
+      </td>
+      <td>
+        {{ shipping.type }}
+      </td>
+      <td>
+        {{ shipping.price | currency }}
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>
+<p></p>
+<form (ngSubmit)="onSubmit(myForm.value)" #myForm="ngForm">
+  <div>
+    <label for="type">Type of Shipping: </label>
+    <input type="text" id="type" name="type" ngModel required>
+    <p></p>
+    <label for="price">Price per Oz: </label>
+    <input type="number" id="price" name="price" step=".01" ngModel required>
+  </div>
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+
+<p></p>
+<a [routerLink]="['/businessAdmin']" class="button fancy-button localBtn">
+  Back to Main
+</a>
