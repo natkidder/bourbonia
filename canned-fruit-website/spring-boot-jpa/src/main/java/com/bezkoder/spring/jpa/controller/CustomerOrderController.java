@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,11 +32,16 @@ import com.bezkoder.spring.jpa.model.Fruit;
 import com.bezkoder.spring.jpa.repository.CustomerOrderRepository;
 import com.bezkoder.spring.jpa.repository.CustomerRepository;
 import java.time.Instant;
+import java.util.logging.Logger;
 
 @CrossOrigin(origins = "http://localhost:8081", methods = {RequestMethod.DELETE, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
 @RestController
 @RequestMapping("/api2")
 public class CustomerOrderController {
+	
+	private static final Logger LOG = Logger.getLogger(CustomerOrderController.class.getName());
+	
+	private static final String CANCELLED_STATUS = "cancelled";
 
 	@Autowired
 	CustomerOrderRepository customerOrderRepository;
@@ -54,17 +60,22 @@ public class CustomerOrderController {
 		}
 	}
 
+	// TODO have it return paged output
+	@Async
 	@GetMapping("/customerOrder")
 	public ResponseEntity<List<CustomerOrder>> getAllCustomerOrders(@RequestParam(required = false) String pocEmail) {
+		LOG.info("==running getAllCustomerOrders ... pocEmail='"+pocEmail+"'");
 		try {
 			List<CustomerOrder> customerOrders = new ArrayList<CustomerOrder>();
-			if (pocEmail.isEmpty()) {
+			if (pocEmail == null || pocEmail.isEmpty()) {
+				LOG.info("==pocEmail is empty");
 				customerOrderRepository.findAll().forEach(customerOrders::add);
 			} else {
 			    customerOrderRepository.findByCustomerPocEmail(pocEmail).forEach(customerOrders::add);
 			}
 
 			if (customerOrders.isEmpty()) {
+				LOG.info("==empty response");
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
 			//CustomerOrderCollection customerOrderCollection = new CustomerOrderCollection(customerOrders);
@@ -107,6 +118,19 @@ public class CustomerOrderController {
 			_customerOrder.setCustomerOrderItems(customerOrder.getCustomerOrderItems());
 			_customerOrder.setShipping(customerOrder.getShipping());
 			_customerOrder.setShipToAddress(customerOrder.getShipToAddress());
+			return new ResponseEntity<>(customerOrderRepository.save(_customerOrder), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@PutMapping("/customerOrderCancel/{id}")
+	public ResponseEntity<CustomerOrder> cancelCustomerOrder(@PathVariable("id") long id) {
+		Optional<CustomerOrder> customerData = customerOrderRepository.findById(id);
+
+		if (customerData.isPresent()) {
+			CustomerOrder _customerOrder = customerData.get();
+			_customerOrder.setOrderStatus(CANCELLED_STATUS);
 			return new ResponseEntity<>(customerOrderRepository.save(_customerOrder), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

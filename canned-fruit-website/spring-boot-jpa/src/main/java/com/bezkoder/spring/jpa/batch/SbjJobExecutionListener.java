@@ -20,9 +20,10 @@ public class SbjJobExecutionListener implements JobExecutionListener {
 	public void beforeJob(JobExecution jobExecution) {
 		System.out.println("Job is about to start for Job ID: " + jobExecution.getJobId() + "    "+jobExecution.getJobInstance().getJobName());
 		ExecutionContext execContext = jobExecution.getExecutionContext();
-		for (Entry entry : execContext.entrySet()) {
-			System.out.println(entry.getKey().toString()+ "   "+entry.getValue().toString());
-		}
+		execContext.entrySet().stream().forEach(entry -> System.out.println(entry.getKey().toString()+ "   "+entry.getValue().toString()));
+//		for (Entry entry : execContext.entrySet()) {
+//			System.out.println(entry.getKey().toString()+ "   "+entry.getValue().toString());
+//		}
 	}
 
 	//@AfterJob

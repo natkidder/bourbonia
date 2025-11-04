@@ -29,7 +29,7 @@ import lombok.AllArgsConstructor;
 @Primary
 @Configuration
 //@EnableBatchProcessing
-@AllArgsConstructor
+@AllArgsConstructor  // Lombok, lets you construct the class from the available fields without the tedious coding
 public class DistinctFruitBatch {
 
 	@Autowired
@@ -80,7 +80,7 @@ public class DistinctFruitBatch {
     }
 
     @Bean
-    @Autowired
+    @Autowired  // injects properties into arguments
     //.start(this.step2(jobRepository, null, null, null))
     //TODO see why we have to specify this.step2
     public Job distinctFruitDocJob(JobRepository jobRepository) {

@@ -2,27 +2,71 @@
 - This Java application constitutes the middle layer of a website operated by a canned fruit distributor.  
 - It uses the Spring Boot framework, with Hibernate JPA as its ORE and Spring Frameworks as its API framework.  It also has spring batch jobs that create JSON files that the view layer can read in lieu of calling this application.
 
-## Prerequisites
+# Prerequisites
 - A good working knowledge of Java, Spring and build tools
 
-## Platforms
-- PostgreSQL
-  - You may use another database if you wish; I've had some success with H2 and Derby.
-- Java 17 (you may go higher if you wish)
+# Platforms
+
+## Hardware
+- A good laptop with at least 32 GB of RAM.  I bought a KurieTim with those specs at Wal-Mart relatively cheaply and it's served me very well.
+
+## PostgreSQL
+- You may use another database if you wish; I've had some success with H2 or Derby.
+- Hibernate JPA will instantiate most of the objects for you, but you need to add the following views (all written for PostgreSQL)
+#EE canned_fruit_no_order
+```
+ SELECT cf.id,
+    cf.fruit
+   FROM canned_fruit cf
+     LEFT JOIN ( SELECT coi.canned_fruit_id
+           FROM customer_order co
+             JOIN customer_order_item coi ON co.id = coi.cust_ord_id) aa ON aa.canned_fruit_id = cf.id
+  WHERE aa.canned_fruit_id IS NULL
+  GROUP BY cf.id, cf.fruit
+  ORDER BY cf.fruit, cf.id;
+```
+### customers_no_orders
+```
+ SELECT c.id,
+    c.business_name,
+    c.outlet_name,
+    c.poc_first,
+    c.poc_last,
+    c.poc_email
+   FROM customer c
+     JOIN address a ON c.id = a.customer_id
+     LEFT JOIN ( SELECT co.customer_id
+           FROM customer_order co) aa ON c.id = aa.customer_id
+  WHERE aa.customer_id IS NULL
+  GROUP BY c.id, c.business_name, c.outlet_name, c.poc_first, c.poc_last, c.poc_email
+  ORDER BY c.business_name, c.outlet_name, c.poc_first, c.poc_last, c.poc_email;  ```  
+### shipping_no_order
+```
+ SELECT s.id
+   FROM shipping s
+     LEFT JOIN customer_order co ON s.id = co.shipping_id
+  WHERE co.shipping_id IS NULL
+  GROUP BY s.id
+  ORDER BY s.id;
+```
+- Homework assignment: create a way to remove orders that have a final status (eg. cancelled, complete) from the schema
+## Java
+- Java 21 (you may go higher if you wish)
 - Java libraries (all publically available)
+## Build Tools
 - Maven (you may switch to Gradle, however the below assumes Maven)
 
-## Compile
-- `mvn clean install`
+### Compile
+- `mvn clean install`  Run when you update pom.xml dependencies
 - You may load into Eclipse, make the project a Maven one, and run an M2 configuration
 
-## Run
+### Run
 ```
 mvn spring-boot:run
 ```
 It also reconstitutes the database objects if you set in *application.properties* the property *spring.jpa.hibernate.ddl-auto=create*
 
-## Test
+# Test
 ### insert
 - command line: `curl -X POST -H "Content-Type: application/json" --data '@./golf.json' http://localhost:8081/api/tutorials`
   - *@./golf.json* means look in that file for the POST Body
@@ -45,7 +89,8 @@ It also reconstitutes the database objects if you set in *application.properties
   	c. One shipping term
   	d. One shipping address, drawn from one of the customer's addresses
   
-### APIs
+## APIs
+(Incomplete but representative list)  
 - `curl -X DELETE http://localhost:8081/api2/cannedFruit/${id}`
 - `curl -X DELETE http://localhost:8081/api2/customer/${id}`
 - `curl -X DELETE http://localhost:8081/api2/customerOrder/${id}`

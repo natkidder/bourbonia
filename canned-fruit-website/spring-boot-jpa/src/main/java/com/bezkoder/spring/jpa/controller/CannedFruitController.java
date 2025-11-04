@@ -23,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bezkoder.spring.jpa.model.CannedFruit;
+import com.bezkoder.spring.jpa.model.CannedFruitNoOrders;
 import com.bezkoder.spring.jpa.model.Fruit;
+import com.bezkoder.spring.jpa.repository.CannedFruitNoOrderRepository;
 import com.bezkoder.spring.jpa.repository.CannedFruitRepository;
 
 @CrossOrigin(origins = "http://localhost:8081")
@@ -33,6 +35,9 @@ public class CannedFruitController {
 
 	@Autowired
 	CannedFruitRepository cannedFruitRepository;
+	
+	@Autowired
+	CannedFruitNoOrderRepository cannedFruitNoOrderRepository;
 
 	@GetMapping("/cannedFruit")
 	public ResponseEntity<List<CannedFruit>> getAllCannedFruits(@RequestParam(required = false) String fruit) {
@@ -55,6 +60,27 @@ public class CannedFruitController {
 		}
 	}
 
+	@GetMapping("/cannedFruitNoOrders")
+	public ResponseEntity<List<CannedFruitNoOrders>> getCannedFruitsNoOrder(@RequestParam(required = false) String fruit) {
+		try {
+			List<CannedFruitNoOrders> cannedFruitsNoOrders = new ArrayList<CannedFruitNoOrders>();
+
+			if (fruit == null)
+				cannedFruitNoOrderRepository.findAll(Sort.by(Sort.Direction.ASC, "fruit").and(Sort.by(Sort.Direction.ASC, "unitType"))).forEach(cannedFruitsNoOrders::add);
+			else
+				cannedFruitNoOrderRepository.findByFruitContainingIgnoreCase(fruit).forEach(cannedFruitsNoOrders::add);
+			System.out.println(this.getClass().getCanonicalName()+" 10:"+ cannedFruitsNoOrders.size()); ////////
+
+			if (cannedFruitsNoOrders.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			//CannedFruitCollection cannedFruitCollection = new CannedFruitCollection(cannedFruits);
+			return new ResponseEntity<>(cannedFruitsNoOrders, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 	@GetMapping("/cannedFruit/{id}")
 	public ResponseEntity<CannedFruit> getCannedFruitById(@PathVariable("id") long id) {
 		Optional<CannedFruit> cannedFruitData = cannedFruitRepository.findById(id);
@@ -67,7 +93,7 @@ public class CannedFruitController {
 		}
 	}
 
-	@GetMapping("/cannedFruit/idCollection")
+	@GetMapping("/cannedFruitIdCollection")
 	public ResponseEntity<List<CannedFruit>> getCannedFruitByIds(@RequestParam(value = "id") List<Long> ids) {
 		try {
 			List<CannedFruit> cannedFruits = new ArrayList<CannedFruit>();

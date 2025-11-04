@@ -2,17 +2,22 @@ package com.bezkoder.spring.jpa.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import static org.springframework.security.config.Customizer.withDefaults;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -20,43 +25,53 @@ import static org.springframework.security.config.Customizer.withDefaults;
 //  https://www.geeksforgeeks.org/authentication-and-authorization-in-spring-boot-3-0-with-spring-security/
 public class SecurityConfig {
 
-//    // User Creation
-//    @Bean
-//    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-//        
-//        // InMemoryUserDetailsManager setup with two users
-//        UserDetails admin = User.withUsername("Amiya")
-//                .password(encoder.encode("123"))  // <-- Encode the password
-//                .roles("ADMIN", "USER")
-//                .build();
-//
-//        UserDetails user = User.withUsername("Ejaz")
-//                .password(encoder.encode("123"))  // <-- Encode the password
-//                .roles("USER")
-//                .build();
-//
-//        return new InMemoryUserDetailsManager(admin, user);
-//    }
-//
-//    // Configuring HttpSecurity
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	@Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		// CSRF means cross-site request forgery
+		/* An HTTP OPTIONS request simply asks what capabilities the HTTP request mapping has */
         http
-            .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api2/**").permitAll() // Permit all access to /api2
-                .requestMatchers("/golf/**").permitAll()
+        	.csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(authorize -> authorize
+            		.requestMatchers(HttpMethod.GET, "/**").permitAll()
+            		.requestMatchers(HttpMethod.POST, "/**").permitAll()
+            		.requestMatchers(HttpMethod.PUT, "/**").permitAll()
+            		.requestMatchers(HttpMethod.DELETE, "/**").permitAll()
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() 
+                .anyRequest().authenticated()
             )
-            .formLogin(withDefaults()); // <-- Use withDefaults() for form-based login
-        
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .csrf(csrf -> csrf.disable()); // Assuming a stateless, token-based authentication scheme.
         return http.build();
     }
-//
-//    // Password Encoding
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:3000","http://localhost:4200")); // Your frontend URL
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+	
+	/*
+	 * OAuth 2.0 in tandem with Google
+	    @Bean
+        public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+            http
+                .authorizeHttpRequests(authorizeRequests ->
+                    authorizeRequests
+                        .requestMatchers("/", "/error").permitAll() // Allow public access to home and error pages
+                        .anyRequest().authenticated() // All other requests require authentication
+                )
+                .oauth2Login(oauth2Login ->
+                    oauth2Login
+                        .defaultSuccessUrl("/secured", true) // Redirect to /secured after successful login
+                        .failureUrl("/loginFailure") // Handle login failures
+                );
+            return http.build();
+        }
+*/
 }
-//                .requestMatchers("/auth/user/**").authenticated() // Require authentication for /auth/user/**
-//                .requestMatchers("/auth/admin/**").authenticated() // Require authentication for /auth/admin/**

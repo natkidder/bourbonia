@@ -25,6 +25,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
+// TODO add a bill to address
 @Entity
 @Table(name = "customer_order")
 @Scope("prototype")

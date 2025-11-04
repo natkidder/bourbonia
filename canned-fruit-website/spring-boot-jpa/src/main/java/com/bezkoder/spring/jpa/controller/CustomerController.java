@@ -25,10 +25,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bezkoder.spring.jpa.model.CannedFruit;
 import com.bezkoder.spring.jpa.model.Customer;
+import com.bezkoder.spring.jpa.model.CustomerNoOrders;
 import com.bezkoder.spring.jpa.model.Fruit;
+import com.bezkoder.spring.jpa.repository.CustomerNoOrdersRepository;
 import com.bezkoder.spring.jpa.repository.CustomerRepository;
 
+// origins was http://localhost:8081
 @CrossOrigin(origins = "http://localhost:8081", methods = {RequestMethod.DELETE, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
 @RestController
 @RequestMapping("/api2")
@@ -36,6 +40,9 @@ public class CustomerController {
 
 	@Autowired
 	CustomerRepository customerRepository;
+	
+	@Autowired
+	CustomerNoOrdersRepository customerNoOrdersRepository;
 
 	@GetMapping("/customer")
 	public ResponseEntity<List<Customer>> getAllCustomers(@RequestParam Map<String,String> params) {
@@ -62,6 +69,52 @@ public class CustomerController {
 			}
 			//CustomerCollection customerCollection = new CustomerCollection(customers);
 			return new ResponseEntity<>(filteredCustomers, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	/* Get all customers fitting the business/outlet/POC filters that have no outstanding orders */
+	@GetMapping("/customerNoOrders")
+	public ResponseEntity<List<CustomerNoOrders>> getAllNoOrderCustomers(@RequestParam Map<String,String> params) {
+		try {
+			List<CustomerNoOrders> customers = new ArrayList<CustomerNoOrders>();
+			List<CustomerNoOrders> filteredCustomers = new ArrayList<CustomerNoOrders>();
+;			String businessName = params.get("businessName");
+			String outletName = params.get("outletName").toLowerCase();
+			String pocFirst = params.get("pocFirst").toLowerCase();
+			String pocLast = params.get("pocLast").toLowerCase();
+			System.out.println("businessName='"+businessName+"'    outletName='"+outletName+"'    pocFirst='"+pocFirst+"'    pocLast='"+pocLast+"'"); ///////
+			//customerRepository.findByBusinessNameAndOutletName(businessName, outletName).forEach(customers::add);
+			//Comparator<CustomerNoOrders> compareByOutlet = Comparator.comparing(CustomerNoOrders::getBusinessName).thenComparing(CustomerNoOrders::getOutletName);
+			customerNoOrdersRepository.findByBusinessNameIgnoreCaseContaining(businessName).forEach(customers::add);
+			filteredCustomers = customers.stream()
+					.filter(customer -> customer.getOutletName().toLowerCase().contains(outletName))
+					.filter(customer -> customer.getPocFirst().toLowerCase().contains(pocFirst))
+					.filter(customer -> customer.getPocLast().toLowerCase().contains(pocLast))
+					.collect(Collectors.toList());
+
+			if (customers.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			//CustomerCollection customerCollection = new CustomerCollection(customers);
+			return new ResponseEntity<>(filteredCustomers, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/customerIdCollection")
+	public ResponseEntity<List<Customer>> getCustomerByIds(@RequestParam(value = "id") List<Long> ids) {
+        System.out.println("trying to run "+this.getClass().getCanonicalName()+".getCustomerByIds"); /////////
+		try {
+			List<Customer> customers = new ArrayList<Customer>();
+			customerRepository.findByIdIn(ids).forEach(customers::add);
+			//Customer customerData = customerRepository.findById(id).get();
+			if (customers.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(customers, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -131,7 +184,9 @@ public class CustomerController {
 	public ResponseEntity<HttpStatus> deleteCustomer(@PathVariable("id") long id) {
 		try {
 			customerRepository.deleteById(id);
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			System.out.println("Tried to delete ID "+id); /////////
+			//TODO see how you can determine if the customer was actually deleted
+			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}

@@ -23,18 +23,24 @@ public class Shipping {
   @Column(name = "price")
   private double price;
 
-  @CreationTimestamp
-  @Column(name = "created_on")
-  private Date createdOn;
-
-  @UpdateTimestamp
-  @Column(name = "updated_on")
-  private Date updatedOn;
-  
+//  @CreationTimestamp
+//  @Column(name = "created_on")
+//  private Date createdOn;
+//
+//  @UpdateTimestamp
+//  @Column(name = "updated_on")
+//  private Date updatedOn;
+//  
   public Shipping() {
   }
+  public Shipping(long id, String type, double price) {
+	super();
+	this.id = id;
+	this.type = type;
+	this.price = price;
+}
 
-  public Shipping(String type, double price) {
+public Shipping(String type, double price) {
     this.type = type;
     this.price = price;
   }
@@ -59,26 +65,9 @@ public void setPrice(double price) {
 	this.price = price;
 }
 
-public Date getCreatedOn() {
-	return createdOn;
-}
-
-public void setCreatedOn(Date createdOn) {
-	this.createdOn = createdOn;
-}
-
-public Date getUpdatedOn() {
-	return updatedOn;
-}
-
-public void setUpdatedOn(Date updatedOn) {
-	this.updatedOn = updatedOn;
-}
-
 @Override
 public String toString() {
-	return "Shipping [id=" + id + ", type=" + type + ", price=" + price + ", createdOn=" + createdOn + ", updatedOn="
-			+ updatedOn + "]";
+	return "Shipping [id=" + id + ", type=" + type + ", price=" + price + "]";
 }
 
 }

@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bezkoder.spring.jpa.model.Shipping;
 import com.bezkoder.spring.jpa.model.ShippingCollection;
+import com.bezkoder.spring.jpa.model.ShippingNoOrders;
+import com.bezkoder.spring.jpa.repository.ShippingNoOrderRepository;
 import com.bezkoder.spring.jpa.repository.ShippingRepository;
 
 @CrossOrigin(origins = "http://localhost:8081")
@@ -30,6 +32,9 @@ public class ShippingController {
 
   @Autowired
   ShippingRepository shippingRepository;
+
+  @Autowired
+  ShippingNoOrderRepository shippingNoOrderRepository;
 
   @GetMapping(value="/shipping", produces="application/json")
   public ResponseEntity<List<Shipping>> getAllShippings(@RequestParam(required = false) String type) {
@@ -44,12 +49,46 @@ public class ShippingController {
       if (shippings.isEmpty()) {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       }
-      //ShippingCollection shippingCollection = new ShippingCollection(shippings);
+      System.out.println("getAllShippings: "+shippings.size()); ///////
       return new ResponseEntity<>(shippings, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
+
+  @GetMapping(value="/shippingNoOrders", produces="application/json")
+  public ResponseEntity<List<ShippingNoOrders>> getAllShippingNoOrders() {
+    try {
+      List<ShippingNoOrders> shippingNoOrders = new ArrayList<ShippingNoOrders>();
+
+      shippingNoOrderRepository.findAll().forEach(shippingNoOrders::add);
+
+      if (shippingNoOrders.isEmpty()) {
+    	System.out.println(this.getClass().getCanonicalName()+".getAllShippingNoOrders: found nothing");
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+      }
+      System.out.println("getAllShippingNoOrders: "+shippingNoOrders.size()); ///////
+      return new ResponseEntity<>(shippingNoOrders, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+	@GetMapping("/shippingIdCollection")
+	public ResponseEntity<List<Shipping>> getShippingByIds(@RequestParam(value = "id") List<Long> ids) {
+      System.out.println("trying to run "+this.getClass().getCanonicalName()+".getShippingByIds"); /////////
+		try {
+			List<Shipping> shippings = new ArrayList<Shipping>();
+			shippingRepository.findByIdIn(ids).forEach(shippings::add);
+			//Shipping customerData = shippingRepository.findById(id).get();
+			if (shippings.isEmpty()) {
+				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
+			return new ResponseEntity<>(shippings, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
   @GetMapping(value="/shipping/{id}", produces="application/json")
   public ResponseEntity<Shipping> getShippingById(@PathVariable("id") long id) {
